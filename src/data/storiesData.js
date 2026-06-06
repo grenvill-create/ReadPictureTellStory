@@ -4,11 +4,11 @@ export const storiesData = [
     title: "公园放风筝 / Flying a Kite",
     image: "/images/kite_flying.jpg",
     hotspots: [
-      { id: "dad", name: "爸爸", nameEn: "Dad", x: 35, y: 60, radius: 12 },
-      { id: "girl", name: "小女孩", nameEn: "Little Girl", x: 55, y: 65, radius: 10 },
-      { id: "kite", name: "彩虹风筝", nameEn: "Rainbow Kite", x: 75, y: 25, radius: 12 },
-      { id: "dog", name: "小狗", nameEn: "Puppy", x: 80, y: 80, radius: 8 },
-      { id: "grass", name: "草地", nameEn: "Grass", x: 50, y: 90, radius: 8 }
+      { id: "dad", name: "爸爸", nameEn: "Dad", x: 70, y: 55, radius: 10 },
+      { id: "girl", name: "小女孩", nameEn: "Little Girl", x: 50, y: 70, radius: 8 },
+      { id: "kite", name: "彩虹风筝", nameEn: "Rainbow Kite", x: 35, y: 20, radius: 10 },
+      { id: "dog", name: "小狗", nameEn: "Puppy", x: 30, y: 80, radius: 8 },
+      { id: "grass", name: "草地", nameEn: "Grass", x: 50, y: 92, radius: 8 }
     ],
     words: [
       { zh: "爸爸", en: "Dad" },
@@ -27,11 +27,11 @@ export const storiesData = [
     title: "海滩建城堡 / Building a Sandcastle",
     image: "/images/beach_sandcastle.jpg",
     hotspots: [
-      { id: "boy", name: "小男孩", nameEn: "Little Boy", x: 30, y: 65, radius: 12 },
-      { id: "girl", name: "小女孩", nameEn: "Little Girl", x: 50, y: 65, radius: 12 },
-      { id: "castle", name: "沙滩城堡", nameEn: "Sandcastle", x: 40, y: 75, radius: 10 },
-      { id: "ocean", name: "大海", nameEn: "Ocean", x: 80, y: 40, radius: 15 },
-      { id: "seagull", name: "海鸥", nameEn: "Seagull", x: 75, y: 15, radius: 6 }
+      { id: "boy", name: "小男孩", nameEn: "Little Boy", x: 74, y: 56, radius: 10 },
+      { id: "girl", name: "小女孩", nameEn: "Little Girl", x: 28, y: 56, radius: 10 },
+      { id: "castle", name: "沙滩城堡", nameEn: "Sandcastle", x: 51, y: 63, radius: 10 },
+      { id: "ocean", name: "大海", nameEn: "Ocean", x: 30, y: 33, radius: 12 },
+      { id: "seagull", name: "海鸥", nameEn: "Seagull", x: 71, y: 15, radius: 6 }
     ],
     words: [
       { zh: "小男孩", en: "Little Boy" },
@@ -50,11 +50,11 @@ export const storiesData = [
     title: "森林野餐会 / Forest Picnic",
     image: "/images/forest_picnic.jpg",
     hotspots: [
-      { id: "bunny", name: "小兔子", nameEn: "Little Bunny", x: 30, y: 70, radius: 10 },
-      { id: "bear", name: "小熊", nameEn: "Bear Cub", x: 50, y: 65, radius: 12 },
-      { id: "squirrel", name: "小松鼠", nameEn: "Little Squirrel", x: 70, y: 75, radius: 8 },
-      { id: "blanket", name: "野餐垫", nameEn: "Picnic Blanket", x: 50, y: 80, radius: 12 },
-      { id: "tree", name: "大橡树", nameEn: "Oak Tree", x: 50, y: 35, radius: 20 }
+      { id: "bunny", name: "小兔子", nameEn: "Little Bunny", x: 35, y: 65, radius: 9 },
+      { id: "bear", name: "小熊", nameEn: "Bear Cub", x: 65, y: 65, radius: 10 },
+      { id: "squirrel", name: "小松鼠", nameEn: "Little Squirrel", x: 23, y: 77, radius: 7 },
+      { id: "blanket", name: "野餐垫", nameEn: "Picnic Blanket", x: 50, y: 83, radius: 10 },
+      { id: "tree", name: "大橡树", nameEn: "Oak Tree", x: 50, y: 35, radius: 15 }
     ],
     words: [
       { zh: "小兔子", en: "Little Bunny" },
@@ -73,11 +73,11 @@ export const storiesData = [
     title: "雨后彩虹 / Rainbow after Rain",
     image: "/images/rainbow_puddle.jpg",
     hotspots: [
-      { id: "girl", name: "小女孩", nameEn: "Little Girl", x: 50, y: 60, radius: 12 },
-      { id: "raincoat", name: "黄色雨衣", nameEn: "Yellow Raincoat", x: 50, y: 55, radius: 8 },
-      { id: "rainboots", name: "红雨鞋", nameEn: "Red Rainboots", x: 50, y: 78, radius: 6 },
-      { id: "rainbow", name: "彩虹", nameEn: "Rainbow", x: 50, y: 20, radius: 20 },
-      { id: "puddle", name: "水坑", nameEn: "Puddle", x: 50, y: 85, radius: 10 }
+      { id: "girl", name: "小女孩", nameEn: "Little Girl", x: 50, y: 55, radius: 10 },
+      { id: "raincoat", name: "黄色雨衣", nameEn: "Yellow Raincoat", x: 50, y: 50, radius: 8 },
+      { id: "rainboots", name: "红雨鞋", nameEn: "Red Rainboots", x: 53, y: 76, radius: 6 },
+      { id: "rainbow", name: "彩虹", nameEn: "Rainbow", x: 50, y: 28, radius: 15 },
+      { id: "puddle", name: "水坑", nameEn: "Puddle", x: 50, y: 86, radius: 8 }
     ],
     words: [
       { zh: "黄色雨衣", en: "Yellow Raincoat" },
@@ -96,11 +96,11 @@ export const storiesData = [
     title: "猫咪去哪了 / Where is the Cat?",
     image: "/images/hidden_cat.jpg",
     hotspots: [
-      { id: "box", name: "大纸箱", nameEn: "Cardboard Box", x: 60, y: 75, radius: 12 },
-      { id: "tail", name: "猫尾巴", nameEn: "Cat's Tail", x: 55, y: 70, radius: 6 },
-      { id: "boy", name: "好奇的男孩", nameEn: "Curious Boy", x: 35, y: 65, radius: 12 },
-      { id: "sofa", name: "客厅沙发", nameEn: "Sofa", x: 15, y: 55, radius: 15 },
-      { id: "carpet", name: "地毯", nameEn: "Carpet", x: 50, y: 90, radius: 10 }
+      { id: "box", name: "大纸箱", nameEn: "Cardboard Box", x: 65, y: 72, radius: 10 },
+      { id: "tail", name: "猫尾巴", nameEn: "Cat's Tail", x: 77, y: 50, radius: 6 },
+      { id: "boy", name: "好奇的男孩", nameEn: "Curious Boy", x: 27, y: 58, radius: 10 },
+      { id: "sofa", name: "客厅沙发", nameEn: "Sofa", x: 82, y: 43, radius: 12 },
+      { id: "carpet", name: "地毯", nameEn: "Carpet", x: 50, y: 90, radius: 8 }
     ],
     words: [
       { zh: "好奇的男孩", en: "Curious Boy" },
@@ -119,11 +119,11 @@ export const storiesData = [
     title: "欢乐动物园 / Fun Zoo Visit",
     image: "/images/zoo_visit.jpg",
     hotspots: [
-      { id: "giraffe", name: "长颈鹿", nameEn: "Giraffe", x: 70, y: 45, radius: 15 },
-      { id: "boy", name: "小男孩", nameEn: "Little Boy", x: 30, y: 75, radius: 10 },
-      { id: "parents", name: "爸爸妈妈", nameEn: "Parents", x: 20, y: 70, radius: 12 },
-      { id: "redpanda", name: "小熊猫", nameEn: "Red Panda", x: 45, y: 50, radius: 8 },
-      { id: "leaves", name: "树叶", nameEn: "Tree Leaves", x: 65, y: 20, radius: 12 }
+      { id: "giraffe", name: "长颈鹿", nameEn: "Giraffe", x: 80, y: 53, radius: 12 },
+      { id: "boy", name: "小男孩", nameEn: "Little Boy", x: 37, y: 74, radius: 8 },
+      { id: "parents", name: "爸爸妈妈", nameEn: "Parents", x: 27, y: 63, radius: 10 },
+      { id: "redpanda", name: "小熊猫", nameEn: "Red Panda", x: 50, y: 31, radius: 8 },
+      { id: "leaves", name: "树叶", nameEn: "Tree Leaves", x: 74, y: 20, radius: 9 }
     ],
     words: [
       { zh: "长颈鹿", en: "Giraffe" },
@@ -142,11 +142,11 @@ export const storiesData = [
     title: "小兔过生日 / Bunny's Birthday",
     image: "/images/bunny_birthday.jpg",
     hotspots: [
-      { id: "bunny", name: "寿星兔", nameEn: "Birthday Bunny", x: 45, y: 65, radius: 12 },
-      { id: "cake", name: "生日蛋糕", nameEn: "Birthday Cake", x: 50, y: 75, radius: 10 },
-      { id: "hat", name: "生日帽", nameEn: "Birthday Hat", x: 45, y: 50, radius: 6 },
-      { id: "bear", name: "熊拍手", nameEn: "Clapping Bear", x: 25, y: 65, radius: 12 },
-      { id: "fox", name: "狐狸朋友", nameEn: "Fox Friend", x: 75, y: 65, radius: 12 }
+      { id: "bunny", name: "寿星兔", nameEn: "Birthday Bunny", x: 47, y: 47, radius: 10 },
+      { id: "cake", name: "生日蛋糕", nameEn: "Birthday Cake", x: 65, y: 68, radius: 9 },
+      { id: "hat", name: "生日帽", nameEn: "Birthday Hat", x: 44, y: 35, radius: 6 },
+      { id: "bear", name: "熊拍手", nameEn: "Clapping Bear", x: 18, y: 63, radius: 10 },
+      { id: "fox", name: "狐狸朋友", nameEn: "Fox Friend", x: 87, y: 59, radius: 10 }
     ],
     words: [
       { zh: "小兔子", en: "Little Bunny" },
@@ -165,11 +165,11 @@ export const storiesData = [
     title: "太空旅行记 / Space Adventure",
     image: "/images/space_adventure.jpg",
     hotspots: [
-      { id: "girl", name: "小宇航员", nameEn: "Astronaut Girl", x: 40, y: 60, radius: 12 },
-      { id: "alien", name: "小外星人", nameEn: "Little Alien", x: 65, y: 65, radius: 10 },
-      { id: "planet", name: "行星", nameEn: "Planet", x: 50, y: 85, radius: 15 },
-      { id: "earth", name: "地球", nameEn: "Earth", x: 20, y: 25, radius: 10 },
-      { id: "stars", name: "发光的星星", nameEn: "Glowing Stars", x: 80, y: 20, radius: 6 }
+      { id: "girl", name: "小宇航员", nameEn: "Astronaut Girl", x: 63, y: 49, radius: 10 },
+      { id: "alien", name: "小外星人", nameEn: "Little Alien", x: 36, y: 61, radius: 8 },
+      { id: "planet", name: "行星", nameEn: "Planet", x: 50, y: 85, radius: 12 },
+      { id: "earth", name: "地球", nameEn: "Earth", x: 25, y: 23, radius: 10 },
+      { id: "stars", name: "发光的星星", nameEn: "Glowing Stars", x: 52, y: 19, radius: 6 }
     ],
     words: [
       { zh: "宇航服", en: "Spacesuit" },
@@ -188,11 +188,11 @@ export const storiesData = [
     title: "雪地堆雪人 / Building a Snowman",
     image: "/images/building_snowman.jpg",
     hotspots: [
-      { id: "snowman", name: "雪人", nameEn: "Snowman", x: 45, y: 65, radius: 15 },
-      { id: "scarf", name: "红围巾", nameEn: "Red Scarf", x: 45, y: 60, radius: 6 },
-      { id: "nose", name: "胡萝卜鼻子", nameEn: "Carrot Nose", x: 42, y: 52, radius: 4 },
-      { id: "girl", name: "小女孩", nameEn: "Little Girl", x: 25, y: 70, radius: 12 },
-      { id: "boy", name: "小男孩", nameEn: "Little Boy", x: 70, y: 70, radius: 12 }
+      { id: "snowman", name: "雪人", nameEn: "Snowman", x: 50, y: 62, radius: 12 },
+      { id: "scarf", name: "红围巾", nameEn: "Red Scarf", x: 51, y: 60, radius: 6 },
+      { id: "nose", name: "胡萝卜鼻子", nameEn: "Carrot Nose", x: 55, y: 49, radius: 4 },
+      { id: "girl", name: "小女孩", nameEn: "Little Girl", x: 30, y: 54, radius: 10 },
+      { id: "boy", name: "小男孩", nameEn: "Little Boy", x: 69, y: 54, radius: 10 }
     ],
     words: [
       { zh: "雪人", en: "Snowman" },
@@ -211,10 +211,10 @@ export const storiesData = [
     title: "池塘音乐会 / Pond Concert",
     image: "/images/pond_concert.jpg",
     hotspots: [
-      { id: "frogs", name: "歌唱青蛙", nameEn: "Singing Frogs", x: 50, y: 65, radius: 15 },
-      { id: "lilypads", name: "绿色荷叶", nameEn: "Lilypads", x: 50, y: 75, radius: 18 },
-      { id: "lotus", name: "粉色荷花", nameEn: "Lotus Flowers", x: 20, y: 60, radius: 10 },
-      { id: "fireflies", name: "发光萤火虫", nameEn: "Fireflies", x: 75, y: 40, radius: 8 }
+      { id: "frogs", name: "歌唱青蛙", nameEn: "Singing Frogs", x: 50, y: 56, radius: 12 },
+      { id: "lilypads", name: "绿色荷叶", nameEn: "Lilypads", x: 50, y: 67, radius: 12 },
+      { id: "lotus", name: "粉色荷花", nameEn: "Lotus Flowers", x: 18, y: 78, radius: 10 },
+      { id: "fireflies", name: "发光萤火虫", nameEn: "Fireflies", x: 41, y: 29, radius: 8 }
     ],
     words: [
       { zh: "青蛙", en: "Frog" },
