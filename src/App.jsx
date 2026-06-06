@@ -16,6 +16,63 @@ const STICKERS = {
   pond_concert: "🐸"
 };
 
+const DB_NAME = "ReadPictureTellStoryDB";
+const STORE_NAME = "recordings";
+
+const initDB = () => {
+  return new Promise((resolve, reject) => {
+    const request = indexedDB.open(DB_NAME, 1);
+    request.onupgradeneeded = (e) => {
+      const db = e.target.result;
+      if (!db.objectStoreNames.contains(STORE_NAME)) {
+        db.createObjectStore(STORE_NAME);
+      }
+    };
+    request.onsuccess = (e) => resolve(e.target.result);
+    request.onerror = (e) => reject(e.target.error);
+  });
+};
+
+const saveAudioBlob = async (storyId, blob) => {
+  try {
+    const db = await initDB();
+    return new Promise((resolve, reject) => {
+      const transaction = db.transaction(STORE_NAME, "readwrite");
+      const store = transaction.objectStore(STORE_NAME);
+      const request = store.put(blob, storyId);
+      request.onsuccess = () => resolve();
+      request.onerror = (e) => reject(e.target.error);
+    });
+  } catch (err) {
+    console.error("Failed to save to IndexedDB:", err);
+  }
+};
+
+const getAllAudioBlobs = async () => {
+  try {
+    const db = await initDB();
+    return new Promise((resolve, reject) => {
+      const transaction = db.transaction(STORE_NAME, "readonly");
+      const store = transaction.objectStore(STORE_NAME);
+      const request = store.openCursor();
+      const results = {};
+      request.onsuccess = (e) => {
+        const cursor = e.target.result;
+        if (cursor) {
+          results[cursor.key] = cursor.value;
+          cursor.continue();
+        } else {
+          resolve(results);
+        }
+      };
+      request.onerror = (e) => reject(e.target.error);
+    });
+  } catch (err) {
+    console.error("Failed to get all from IndexedDB:", err);
+    return {};
+  }
+};
+
 const getImageUrl = (path) => {
   if (!path) return "";
   const cleanPath = path.startsWith("/") ? path.substring(1) : path;
@@ -35,6 +92,27 @@ export default function App() {
   const [isSentenceCorrect, setIsSentenceCorrect] = useState(false);
   const [activeBookSentence, setActiveBookSentence] = useState(null);
   
+  // Audio playback state
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [activePlaybackUrl, setActivePlaybackUrl] = useState(null);
+  
+  // Persistent recordings state for the active session (restored from IndexedDB)
+  const [recordings, setRecordings] = useState({});
+
+  // Parent comments/encouragement messages
+  const [encouragements, setEncouragements] = useState(() => {
+    const saved = localStorage.getItem("story_encouragements");
+    return saved ? JSON.parse(saved) : {};
+  });
+
+  // Parent Dashboard Modal State
+  const [showParentModal, setShowParentModal] = useState(false);
+  const [parentLockPassed, setParentLockPassed] = useState(false);
+  const [mathNum1, setMathNum1] = useState(0);
+  const [mathNum2, setMathNum2] = useState(0);
+  const [parentLockAnswer, setParentLockAnswer] = useState("");
+  const [tempComments, setTempComments] = useState({});
+
   // App Progress state
   const [starsCollected, setStarsCollected] = useState(() => {
     const saved = localStorage.getItem("story_stars");
@@ -53,19 +131,46 @@ export default function App() {
   const mediaRecorderRef = useRef(null);
   const audioChunksRef = useRef([]);
   const audioStreamRef = useRef(null);
+  const playbackAudioRef = useRef(null);
+  const recordingMimeTypeRef = useRef("audio/webm");
 
   const currentStory = storiesData.find(s => s.id === currentStoryId);
+
+  // Load recordings from IndexedDB on startup
+  useEffect(() => {
+    const loadRecordings = async () => {
+      const storedBlobs = await getAllAudioBlobs();
+      const loadedRecordings = {};
+      for (const [storyId, blob] of Object.entries(storedBlobs)) {
+        if (blob instanceof Blob) {
+          loadedRecordings[storyId] = URL.createObjectURL(blob);
+        }
+      }
+      setRecordings(loadedRecordings);
+    };
+    loadRecordings();
+  }, []);
 
   // Sync Progress to LocalStorage
   useEffect(() => {
     localStorage.setItem("story_stars", JSON.stringify(starsCollected));
     localStorage.setItem("story_stickers", JSON.stringify(unlockedStickers));
-  }, [starsCollected, unlockedStickers]);
+    localStorage.setItem("story_encouragements", JSON.stringify(encouragements));
+  }, [starsCollected, unlockedStickers, encouragements]);
 
   // Load SpeechSynthesis voices
   useEffect(() => {
     window.speechSynthesis.getVoices();
   }, []);
+
+  // Pause audio playback when changing stories
+  useEffect(() => {
+    if (playbackAudioRef.current) {
+      playbackAudioRef.current.pause();
+      setIsPlaying(false);
+    }
+  }, [currentStoryId]);
+
 
   // Set Mascot text on step change
   useEffect(() => {
@@ -73,16 +178,24 @@ export default function App() {
       setMascotText("欢迎来到看图说话乐园！选一幅画，跟小精灵一起学习吧！");
       return;
     }
+
+    // Check if there is a parent comment/encouragement for this story
+    const parentMsg = encouragements[currentStoryId];
+
     if (currentStep === 1) {
       setMascotText("第一步：点一点图片，看看你认识哪些宝贝？跟读一下哦！");
     } else if (currentStep === 2) {
-      setMascotText("第二步：大声点！点击红色的麦克风，把你看到的画面自己说出来吧！");
+      if (parentMsg) {
+        setMascotText(`🦄 妈妈的鼓励寄语：“${parentMsg}”！来，点击红色的麦克风，把你看到的画面大声说出来吧！`);
+      } else {
+        setMascotText("第二步：大声点！点击红色的麦克风，把你看到的画面自己说出来吧！");
+      }
     } else if (currentStep === 3) {
       setMascotText("第三步：我们来玩拼词积木！把下面的卡片按照顺序点上去吧！");
     } else if (currentStep === 4) {
       setMascotText("第四步：太棒了！点击故事书里的句子，一起来听听看，跟读模仿一下吧！");
     }
-  }, [currentStep, currentStoryId]);
+  }, [currentStep, currentStoryId, encouragements]);
 
   // TTS Reader
   const speakText = (text, lang = "zh-CN") => {
@@ -148,16 +261,59 @@ export default function App() {
     setTimeout(() => setShowConfetti(false), 4000);
   };
 
+  // Playback Toggle Control
+  const handleTogglePlay = (url) => {
+    if (!url) return;
+    
+    if (playbackAudioRef.current) {
+      if (activePlaybackUrl === url && isPlaying) {
+        playbackAudioRef.current.pause();
+        setIsPlaying(false);
+      } else {
+        playbackAudioRef.current.pause();
+        playbackAudioRef.current.src = url;
+        playbackAudioRef.current.play().catch(err => {
+          console.error("回听录音失败:", err);
+        });
+        setActivePlaybackUrl(url);
+        setIsPlaying(true);
+      }
+    }
+  };
+
   // Audio Recording handlers
   const startRecording = async () => {
     try {
-      if (audioUrl) URL.revokeObjectURL(audioUrl);
+      // Pause any active playback before starting a new recording
+      if (playbackAudioRef.current) {
+        playbackAudioRef.current.pause();
+        setIsPlaying(false);
+      }
+
+      if (audioUrl) {
+        URL.revokeObjectURL(audioUrl);
+      }
       setAudioUrl(null);
       
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
       audioStreamRef.current = stream;
       
-      const mediaRecorder = new MediaRecorder(stream);
+      // Select supported MIME type
+      let mimeType = "audio/webm";
+      if (MediaRecorder.isTypeSupported("audio/webm")) {
+        mimeType = "audio/webm";
+      } else if (MediaRecorder.isTypeSupported("audio/mp4")) {
+        mimeType = "audio/mp4";
+      } else if (MediaRecorder.isTypeSupported("audio/wav")) {
+        mimeType = "audio/wav";
+      } else if (MediaRecorder.isTypeSupported("audio/ogg")) {
+        mimeType = "audio/ogg";
+      }
+      
+      recordingMimeTypeRef.current = mimeType;
+      console.log("Selected MIME type for MediaRecorder:", mimeType);
+      
+      const mediaRecorder = new MediaRecorder(stream, { mimeType });
       mediaRecorderRef.current = mediaRecorder;
       audioChunksRef.current = [];
 
@@ -167,10 +323,20 @@ export default function App() {
         }
       };
 
-      mediaRecorder.onstop = () => {
-        const audioBlob = new Blob(audioChunksRef.current, { type: "audio/webm" });
+      mediaRecorder.onstop = async () => {
+        const audioBlob = new Blob(audioChunksRef.current, { type: recordingMimeTypeRef.current });
+        
+        // Save to IndexedDB
+        await saveAudioBlob(currentStoryId, audioBlob);
+        
         const url = URL.createObjectURL(audioBlob);
         setAudioUrl(url);
+        setRecordings(prev => {
+          if (prev[currentStoryId]) {
+            URL.revokeObjectURL(prev[currentStoryId]);
+          }
+          return { ...prev, [currentStoryId]: url };
+        });
         setRecordingState("has_audio");
         awardStar(currentStoryId, 2);
       };
@@ -179,7 +345,7 @@ export default function App() {
       setRecordingState("recording");
     } catch (err) {
       console.error("无法启动录音:", err);
-      alert("请允许网页访问您的麦克风以进行录音表达游戏！");
+      alert("无法启动录音，请确保麦克风权限已开启并且没有被其他程序占用！");
     }
   };
 
@@ -190,6 +356,71 @@ export default function App() {
         audioStreamRef.current.getTracks().forEach(track => track.stop());
       }
     }
+  };
+
+  const downloadAudio = async (url, storyName) => {
+    if (!url) return;
+    
+    let ext = "webm";
+    try {
+      const response = await fetch(url);
+      const blob = await response.blob();
+      if (blob.type.includes("mp4") || blob.type.includes("m4a")) {
+        ext = "m4a";
+      } else if (blob.type.includes("wav")) {
+        ext = "wav";
+      } else if (blob.type.includes("ogg")) {
+        ext = "ogg";
+      } else if (blob.type.includes("webm")) {
+        ext = "webm";
+      } else if (blob.type.includes("mpeg") || blob.type.includes("mp3")) {
+        ext = "mp3";
+      }
+    } catch (e) {
+      console.warn("Could not fetch blob to determine mime type, falling back:", e);
+      if (recordingMimeTypeRef.current.includes("mp4")) {
+        ext = "m4a";
+      } else if (recordingMimeTypeRef.current.includes("wav")) {
+        ext = "wav";
+      }
+    }
+
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `看图说话_${storyName}_宝贝录音.${ext}`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  };
+
+  // Next Story Handler
+  const handleNextStory = () => {
+    const currentIndex = storiesData.findIndex(s => s.id === currentStoryId);
+    const nextIndex = (currentIndex + 1) % storiesData.length;
+    const nextStory = storiesData[nextIndex];
+
+    // Pause any active playback when switching stories
+    if (playbackAudioRef.current) {
+      playbackAudioRef.current.pause();
+      setIsPlaying(false);
+    }
+
+    setCurrentStoryId(nextStory.id);
+    setCurrentStep(1);
+    setExploredHotspots([]);
+    
+    // Restore recording from active session if exists
+    const existingAudio = recordings[nextStory.id];
+    setAudioUrl(existingAudio || null);
+    setRecordingState(existingAudio ? "has_audio" : "idle");
+    
+    setActiveHotspot(null);
+    setIsSentenceCorrect(false);
+    setAssembledCards([]);
+    setActiveBookSentence(null);
+
+    // Smooth scroll to top of the page
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   // Sentence Builder Setup
@@ -253,6 +484,76 @@ export default function App() {
     }, 3000);
   };
 
+  // Parent Dashboard Handlers
+  const handleOpenParentDashboard = () => {
+    const n1 = Math.floor(Math.random() * 8) + 2; // 2 to 9
+    const n2 = Math.floor(Math.random() * 8) + 2; // 2 to 9
+    setMathNum1(n1);
+    setMathNum2(n2);
+    setParentLockAnswer("");
+    setParentLockPassed(false);
+    setShowParentModal(true);
+
+    // Initialize temp comments state
+    const currentComments = {};
+    storiesData.forEach(s => {
+      currentComments[s.id] = encouragements[s.id] || "";
+    });
+    setTempComments(currentComments);
+  };
+
+  const handleVerifyParentLock = () => {
+    if (parseInt(parentLockAnswer) === mathNum1 + mathNum2) {
+      setParentLockPassed(true);
+    } else {
+      speakText("答错了哦，再试一次！", "zh-CN");
+      setParentLockAnswer("");
+    }
+  };
+
+  const handleSaveComment = (storyId) => {
+    setEncouragements(prev => ({
+      ...prev,
+      [storyId]: tempComments[storyId] || ""
+    }));
+    speakText("寄语保存成功", "zh-CN");
+  };
+
+  const handleImportAudio = async (e, storyId) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    
+    try {
+      // Save the uploaded file (which is a Blob) to IndexedDB
+      await saveAudioBlob(storyId, file);
+      
+      // Create local object URL
+      const url = URL.createObjectURL(file);
+      
+      // Update recordings state
+      setRecordings(prev => {
+        if (prev[storyId]) {
+          URL.revokeObjectURL(prev[storyId]);
+        }
+        return { ...prev, [storyId]: url };
+      });
+      
+      // If we are currently looking at this story, update the audioUrl and recordingState
+      if (currentStoryId === storyId) {
+        setAudioUrl(url);
+        setRecordingState("has_audio");
+      }
+      
+      // Award the recording star since they now have a recording
+      awardStar(storyId, 2);
+      
+      speakText("录音导入成功", "zh-CN");
+    } catch (err) {
+      console.error("导入录音失败:", err);
+      alert("导入录音文件失败，请重试！");
+    }
+  };
+
   return (
     <div className="app-container">
       {/* Confetti Overlay */}
@@ -278,7 +579,7 @@ export default function App() {
           <span className="logo-icon">🌟</span>
           <h1 className="logo-text">看图说话小乐园</h1>
         </div>
-        <button className="parent-btn bounce-hover">
+        <button onClick={handleOpenParentDashboard} className="parent-btn bounce-hover">
           <span>🧸</span> 家长专区 / Dashboard
         </button>
       </header>
@@ -320,9 +621,19 @@ export default function App() {
                           setCurrentStoryId(story.id);
                           setCurrentStep(1);
                           setExploredHotspots([]);
-                          setAudioUrl(null);
-                          setRecordingState("idle");
+                          
+                          // Restore active session recording if exists
+                          const existingAudio = recordings[story.id];
+                          setAudioUrl(existingAudio || null);
+                          setRecordingState(existingAudio ? "has_audio" : "idle");
+                          
                           setActiveHotspot(null);
+                          setIsSentenceCorrect(false);
+                          setAssembledCards([]);
+                          setActiveBookSentence(null);
+
+                          // Reset scroll
+                          window.scrollTo({ top: 0, behavior: "smooth" });
                         }} 
                         className="play-btn bounce-hover"
                       >
@@ -360,10 +671,31 @@ export default function App() {
           {/* Left Canvas: Main picture with click zones */}
           <div className="canvas-panel">
             <div className="canvas-header">
-              <button onClick={() => setCurrentStoryId(null)} className="back-link bounce-hover">
+              <button 
+                onClick={() => {
+                  if (playbackAudioRef.current) {
+                    playbackAudioRef.current.pause();
+                    setIsPlaying(false);
+                  }
+                  setCurrentStoryId(null);
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }} 
+                className="back-link bounce-hover"
+              >
                 ⬅ 返回画册
               </button>
+              
               <h2 className="canvas-title">{currentStory.title.split("/")[0]}</h2>
+              
+              <button 
+                onClick={() => handleTogglePlay(audioUrl)} 
+                disabled={!audioUrl}
+                className={`header-audio-play-btn ${audioUrl ? "active" : "disabled"} ${activePlaybackUrl === audioUrl && isPlaying ? "playing" : ""}`}
+                title={audioUrl ? "回听我的录音" : "还没有录音哦"}
+              >
+                {activePlaybackUrl === audioUrl && isPlaying ? "⏸️ 停止" : "🔊 回听录音"}
+              </button>
+              
               <div className="stars-collected">
                 {(starsCollected[currentStory.id] || [false, false, false]).map((active, idx) => (
                   <span key={idx} style={{ fontSize: "24px" }}>{active ? "⭐" : "☆"}</span>
@@ -456,7 +788,6 @@ export default function App() {
                       key={step}
                       className={`step-dot ${currentStep === step ? "active" : ""} ${isCompleted ? "completed" : ""}`}
                       onClick={() => {
-                        // Allow navigation
                         setCurrentStep(step);
                         setActiveHotspot(null);
                       }}
@@ -530,7 +861,20 @@ export default function App() {
 
                   {audioUrl && (
                     <div className="audio-player-controls">
-                      <audio src={audioUrl} controls style={{ width: "100%" }} />
+                      <button 
+                        onClick={() => handleTogglePlay(audioUrl)} 
+                        className={`play-recording-btn bounce-hover ${activePlaybackUrl === audioUrl && isPlaying ? "playing" : ""}`}
+                      >
+                        {activePlaybackUrl === audioUrl && isPlaying ? "⏸️ 停止播放" : "🔊 听我的录音 / Play"}
+                      </button>
+                      <button 
+                        onClick={() => downloadAudio(audioUrl, currentStory.title.split("/")[0])} 
+                        className="parent-btn bounce-hover"
+                        style={{ padding: "10px 15px", borderRadius: "var(--radius-md)", display: "flex", gap: "6px" }}
+                        title="下载录音文件"
+                      >
+                        📥 下载 / Save
+                      </button>
                     </div>
                   )}
                 </div>
@@ -655,13 +999,23 @@ export default function App() {
                     </div>
                   </div>
 
-                  <button 
-                    onClick={() => setCurrentStoryId(null)} 
-                    className="next-step-btn"
-                    style={{ background: "var(--color-green)", marginTop: "20px" }}
-                  >
-                    🎉 完成故事！返回画册
-                  </button>
+                  {/* Finish / Next book controls */}
+                  <div style={{ display: "flex", gap: "12px", marginTop: "20px" }}>
+                    <button 
+                      onClick={() => setCurrentStoryId(null)} 
+                      className="next-step-btn"
+                      style={{ background: "var(--color-purple)", flex: 1, marginTop: 0 }}
+                    >
+                      ⬅ 返回画册
+                    </button>
+                    <button 
+                      onClick={handleNextStory} 
+                      className="next-step-btn"
+                      style={{ background: "var(--color-green)", flex: 1, marginTop: 0 }}
+                    >
+                      下一本 ➡
+                    </button>
+                  </div>
                 </div>
               </div>
             )}
@@ -670,6 +1024,139 @@ export default function App() {
 
         </div>
       )}
+
+      {/* Parent Dashboard Modal */}
+      {showParentModal && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <button onClick={() => setShowParentModal(false)} className="modal-close-btn">
+              &times;
+            </button>
+            
+            {!parentLockPassed ? (
+              /* Parent Gate (Kid Lock) */
+              <div className="parent-lock-container">
+                <span style={{ fontSize: "48px" }}>🔒</span>
+                <h3 className="parent-lock-title">进入家长专区 (防误触锁)</h3>
+                <p style={{ color: "var(--color-text-light)" }}>小朋友请把设备递给爸爸妈妈哦</p>
+                <div className="parent-lock-math">
+                  {mathNum1} + {mathNum2} = ?
+                </div>
+                <input
+                  type="text"
+                  maxLength="3"
+                  value={parentLockAnswer}
+                  onChange={(e) => setParentLockAnswer(e.target.value)}
+                  onKeyDown={(e) => e.key === "Enter" && handleVerifyParentLock()}
+                  className="parent-lock-input"
+                  placeholder="答案"
+                  autoFocus
+                />
+                <button onClick={handleVerifyParentLock} className="parent-lock-submit">
+                  确认进入
+                </button>
+              </div>
+            ) : (
+              /* Parent Dashboard Content */
+              <div>
+                <h3 className="parent-dashboard-title">
+                  <span>🧸</span> 家长控制台 - 宝贝学习档案
+                </h3>
+                <p className="parent-dashboard-subtitle">
+                  在这里，您可以查看孩子所有的看图说话成果，回听录音并下载备份，也可以写下鼓励寄语。
+                </p>
+
+                <div className="parent-recordings-list">
+                  {storiesData.map(story => {
+                    const stars = starsCollected[story.id] || [false, false, false];
+                    const audio = recordings[story.id];
+                    return (
+                      <div key={story.id} className="parent-record-item">
+                        <div className="parent-record-info">
+                          <span className="parent-record-title">{story.title.split("/")[0]}</span>
+                          <div className="parent-record-stars">
+                            {stars.map((active, idx) => (
+                              <span key={idx}>{active ? "⭐" : "☆"}</span>
+                            ))}
+                          </div>
+                        </div>
+
+                        {/* Audio controls */}
+                        <div className="parent-record-controls" style={{ display: "flex", gap: "10px", alignItems: "center", flexWrap: "wrap" }}>
+                          {audio ? (
+                            <>
+                              <button 
+                                onClick={() => handleTogglePlay(audio)} 
+                                className={`play-recording-btn bounce-hover ${activePlaybackUrl === audio && isPlaying ? "playing" : ""}`}
+                                style={{ padding: "6px 14px", fontSize: "13px" }}
+                              >
+                                {activePlaybackUrl === audio && isPlaying ? "⏸️ 停止播放" : "🔊 播放宝贝录音"}
+                              </button>
+                              <button 
+                                onClick={() => downloadAudio(audio, story.title.split("/")[0])} 
+                                className="parent-btn bounce-hover"
+                                style={{ padding: "6px 14px", borderRadius: "10px", fontSize: "13px" }}
+                              >
+                                📥 下载音频
+                              </button>
+                            </>
+                          ) : (
+                            <span style={{ color: "var(--color-text-light)", fontSize: "14px" }}>
+                              宝贝今天还没有在这个关卡录音
+                            </span>
+                          )}
+
+                          {/* Import Audio Form */}
+                          <div className="import-audio-wrapper">
+                            <label className="import-audio-label bounce-hover">
+                              📥 导入本地录音
+                              <input 
+                                type="file" 
+                                accept="audio/*" 
+                                onChange={(e) => handleImportAudio(e, story.id)}
+                                style={{ display: "none" }}
+                              />
+                            </label>
+                          </div>
+                        </div>
+
+                        {/* Encouragement message input */}
+                        <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+                          <textarea
+                            rows="2"
+                            value={tempComments[story.id] || ""}
+                            onChange={(e) => {
+                              const val = e.target.value;
+                              setTempComments(prev => ({ ...prev, [story.id]: val }));
+                            }}
+                            className="parent-comment-box"
+                            placeholder="给宝贝的鼓励寄语（将由小精灵读出，如：宝贝说得太棒啦，继续加油！）"
+                          />
+                          <button 
+                            onClick={() => handleSaveComment(story.id)} 
+                            className="save-comment-btn"
+                          >
+                            保存寄语
+                          </button>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* Hidden Audio Player for playback controls */}
+      <audio 
+        ref={playbackAudioRef} 
+        onEnded={() => setIsPlaying(false)}
+        onPause={() => setIsPlaying(false)}
+        onPlay={() => setIsPlaying(true)}
+        style={{ display: "none" }} 
+      />
     </div>
   );
 }
