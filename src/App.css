@@ -365,7 +365,7 @@
 
 .vocab-zh {
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--color-text-dark);
 }
 
@@ -716,7 +716,7 @@
 
 .sentence-zh {
   font-size: 18px;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--color-text-dark);
   line-height: 1.6;
 }

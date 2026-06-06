@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=ZCOOL+KuaiLe&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap');
 
 :root {
-  --font-child: 'Outfit', 'ZCOOL KuaiLe', system-ui, -apple-system, sans-serif;
+  --font-child: 'Outfit', "PingFang SC", "Microsoft YaHei", system-ui, -apple-system, sans-serif;
   --bg-primary: linear-gradient(135deg, #fff0f5 0%, #e6e6fa 100%);
   --color-pink: #ff7ebb;
   --color-pink-hover: #ff5c9e;
