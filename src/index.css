@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=ZCOOL+KuaiLe&display=swap');
+
+:root {
+  --font-child: 'Outfit', 'ZCOOL KuaiLe', system-ui, -apple-system, sans-serif;
+  --bg-primary: linear-gradient(135deg, #fff0f5 0%, #e6e6fa 100%);
+  --color-pink: #ff7ebb;
+  --color-pink-hover: #ff5c9e;
+  --color-purple: #9a7dfa;
+  --color-purple-hover: #7b59e3;
+  --color-yellow: #ffd043;
+  --color-yellow-hover: #ebb520;
+  --color-green: #67e1a3;
+  --color-green-hover: #4ac789;
+  --color-text-dark: #4a375a;
+  --color-text-light: #8e7a9e;
+  --card-shadow: 0 12px 32px rgba(154, 125, 250, 0.15);
+  --card-border: 2px solid rgba(255, 255, 255, 0.6);
+  --radius-lg: 28px;
+  --radius-md: 18px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-child);
+  background: var(--bg-primary);
+  color: var(--color-text-dark);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+button {
+  font-family: var(--font-child);
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+button:active {
+  transform: scale(0.92);
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-purple);
+  border-radius: 10px;
+  border: 2px solid #e6e6fa;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-purple-hover);
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(2deg); }
+}
+
+@keyframes bounceSlow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes pulseBorder {
+  0% { box-shadow: 0 0 0 0 rgba(255, 126, 187, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(255, 126, 187, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 126, 187, 0); }
+}
+
+@keyframes confetti {
+  0% { transform: translateY(-10px) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+}
+
+.float-animation {
+  animation: float 4s ease-in-out infinite;
+}
+
+.bounce-hover:hover {
+  transform: scale(1.06) translateY(-3px);
+}
