@@ -16,6 +16,12 @@ const STICKERS = {
   pond_concert: "🐸"
 };
 
+const getImageUrl = (path) => {
+  if (!path) return "";
+  const cleanPath = path.startsWith("/") ? path.substring(1) : path;
+  return import.meta.env.BASE_URL + cleanPath;
+};
+
 export default function App() {
   const [currentStoryId, setCurrentStoryId] = useState(null);
   const [currentStep, setCurrentStep] = useState(1); // 1: Explore, 2: Speak, 3: Assemble, 4: Storybook
@@ -297,7 +303,7 @@ export default function App() {
               return (
                 <div key={story.id} className="story-card">
                   <div className="story-card-image-wrapper">
-                    <img src={story.image} alt={story.title.split("/")[0]} className="story-card-image" />
+                    <img src={getImageUrl(story.image)} alt={story.title.split("/")[0]} className="story-card-image" />
                     {score === 3 && <div className="story-card-badge">已通关 🎉</div>}
                   </div>
                   <div className="story-card-info">
@@ -367,7 +373,7 @@ export default function App() {
 
             <div className="image-canvas-wrapper">
               <img 
-                src={currentStory.image} 
+                src={getImageUrl(currentStory.image)} 
                 alt={currentStory.title} 
                 className="interactive-image" 
               />
