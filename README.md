@@ -1,213 +1,293 @@
-# 看图说话学习助手 (ReadPictureTellStory)
+# 看图说话双语学习助手 (ReadPictureTellStory)
 
-`ReadPictureTellStory` 是一款专为 5 岁左右儿童（特别是小女孩）设计的交互式“看图说话”学习网页应用。通过精美的视觉画面、生动有趣的交互动效、由浅入深的引导式学习以及激励机制，帮助孩子提升词汇量、口头表达能力、逻辑思维与想象力。
+`ReadPictureTellStory` 是一款专为 5 岁左右儿童设计的交互式中英双语“看图说话”学习网页应用。项目采用温暖的马卡龙色调与活泼的微交互动效，围绕儿童认知发展规律设计了“看图探索 -> 自由说说 -> 词卡拼句 -> 双语绘本”的引导式学习闭环。
+
+本项目支持纯本地离线运行（单机版），通过 `IndexedDB` 和 `LocalStorage` 实现音频和进度的永久保存，并支持将录音文件以符合设备最佳格式（WebM/M4A/WAV）直接下载至电脑本地盘。
 
 ---
 
-## 1. 核心设计理念
+## 1. 项目架构与目录结构
 
-### 1.1 儿童友好型视觉设计（WOW Aesthetics）
-- **配色方案**：采用温馨、柔和、梦幻的马卡龙色调（如粉红、独角兽紫、阳光黄、薄荷绿），符合小女孩的审美，界面温馨防刺眼。
-- **微交互与动效**：按钮悬浮有弹性缩放（bounce）、点击有星星/彩屑喷洒效果，页面吉祥物（如可爱的小精灵或小动物）会眨眼或打招呼。
-- **大卡片与圆角**：所有交互元素均采用大尺寸和超大圆角（`24px`+），防止视觉拥挤，便于触控或鼠标点击。
+为了方便在其他环境或平台继续开发，以下是本项目的完整文件目录树及核心模块说明：
 
-### 1.2 核心学习交互流程（Core Learning Flow - 双语教学版）
-软件围绕孩子的表达认知规律，采用**中英双语沉浸式教学**，设计了以下三个学习步骤：
+```text
+ReadPictureTellStory/
+├── .git/                     # Git 版本控制
+├── node_modules/             # 依赖包目录
+├── public/                   # 静态资源目录
+│   └── images/               # 经过优化压缩后的故事插画 (JPEG 格式)
+│       ├── kite_flying.jpg
+│       ├── beach_sandcastle.jpg
+│       └── ... (共10个场景)
+├── raw_images/               # 原始高清图片 (AI 生成的 PNG 格式，不直接部署)
+├── src/                      # 前端源代码目录
+│   ├── assets/               # 静态资源 (可选 SVG、小图标等)
+│   ├── data/                 # 核心静态配置数据
+│   │   └── storiesData.js    # 10 个故事场景的元数据 (包含热区、词卡、拼句、范文)
+│   ├── App.css               # 全局及组件样式表 (包括色彩系统与核心动画)
+│   ├── App.jsx               # 核心交互逻辑与状态管理器 (包含录音、播放、数据库和 UI 渲染)
+│   ├── index.css             # 基础重置样式与 CSS 变量声明
+│   └── main.jsx              # React 挂载入口文件 (支持 StrictMode)
+├── index.html                # HTML 模板入口
+├── vite.config.js            # Vite 配置文件 (基准 base 设为 './' 兼容多平台)
+├── package.json              # 项目配置文件与 npm 脚本指令
+├── compress_images.py        # Python 编写的自动化图片压缩转换工具
+└── README.md                 # 项目详细说明文档 (当前文档)
+```
 
+---
+
+## 2. 核心设计理念
+
+### 2.1 儿童友好型视觉设计（WOW Aesthetics）
+* **色彩体系**：定义了温馨防刺眼的马卡龙色调（粉红、独角兽紫、阳光黄、薄荷绿、奶油白）。
+* **超大圆角与交互**：所有按钮及卡片均采用大尺寸和超大圆角（`var(--radius-lg)` 等），方便儿童使用平板或触屏操作，防止误触。
+* **微交互动效**：
+  * 卡片悬停具有缓动缩放 (`bounce-hover` 动效)。
+  * 点击“拼句成功”或“收集满贴纸”会触发全屏彩色金屑飘落的庆祝动画 (`confetti-canvas` 动效)。
+  * 主导学吉祥物小独角兽具有漂浮气泡的打招呼动画。
+
+### 2.2 双语启发引导式学习流（Core Learning Flow）
+每个故事均包含四个递进的学习步骤：
 1. **第一步：看图观察与双语探索 (Look & Explore)**
-   - **画面呈现**：首先展示精美的插图，无多余文字干扰，引导孩子进行视觉观察。
-   - **双语词汇认知**：孩子可以点击图中的各种元素（如：小狗、风筝、爸爸），点击后该物体会被柔和高亮，并同时显示中英文词卡（如 `小狗 / Puppy`）。
-   - **双语发音**：系统自动播放中英双语的清脆语音朗读（例如先读中文“小狗”，再读英文“Puppy”），帮助孩子建立图像、中文和英文的三维联想记忆。
-
+   - 画面中藏有闪烁的相对坐标热区，点击对应物品（如“彩虹风筝 / Rainbow Kite”）会弹出浮动气泡，并利用 Web Speech API 顺次播放中英文朗读。
+   - 找出全部热区后，孩子获得第一颗星星 ⭐ 并解锁下一步。
 2. **第二步：自由表达与录音 (Speak Freely & Record)**
-   - **启发引导**：小精灵会用亲切的声音提问：“宝贝，你在图片里看到了什么呢？用中文或英文大声说一下吧！”
-   - **自我录音**：孩子点击“麦克风”按钮，用自己的话描述看到的画面（如“There is a dog”，“爸爸和风筝”等），并可随时回放。系统会给予奖励星星，激发开口的成就感。
-
+   - 启发性引导词鼓励孩子开口。点击麦克风开始录音，记录孩子对画面的自主描述。
+   - 录制完成后激活本地回听，并提供“下载 / Save”按钮将音频保存到电脑本地盘，获得第二颗星星 ⭐。
 3. **第三步：双语组织语句描绘 (Organize & Describe)**
-   - **中英模式切换**：提供中/英文拼句切换键。
-   - **中文拼句积木**：提供中文“词卡积木”（如：`[小女孩]` `[在草地上]` `[放风筝]`），孩子组合成功后，系统朗读标准中文句子。
-   - **英文拼句积木**：提供英文“词卡积木”（如：`[The little girl]` `[is flying]` `[a kite]` `[on the grass]`），帮助孩子理解英文的语序（主谓宾+地点状语后置），拼对后系统用纯正的英文发音朗读。
-   - **对比与学习**：双语拼接完成，系统大声朗读，并闪烁金色光芒，强化语法语感。
-
-4. **第四步：双语范文朗读与复述 (Read & Repeat)**
-   - **双语对照展示**：完成拼句后解锁“双语故事书卡片”，左右或上下对照展示中英文范文故事。
-   - **双语跟读与复述**：孩子可以任意点击中文句子或英文句子进行高亮点读。系统使用对应的中文童声/英文童声发音，引导孩子复述和模仿，逐步培养双语思维。
+   - 提供**中文拼句**和**英文拼句**两种语言积木块。
+   - 乱序排列的积木卡片（如 `[小女孩]` `[和爸爸]` `[在草地上]` `[放风筝]`），孩子需要点击按正确语序拼接。拼对后大声朗读标准句，获得第三颗星星 ⭐ 并通关该书。
+4. **第四步：双语故事书跟读 (Read & Repeat)**
+   - 解锁精美的中英双语对照范文。孩子可以点击任意句子进行高点读朗读。
+   - 底部提供“下一本”按钮，可平滑跳转到下一本书。
 
 ---
 
-## 2. 功能模块规划
+## 3. 技术方案与核心代码实现
 
-### 2.1 主界面 (Home Dashboard)
-- **梦幻画卷关卡选择**：以旋转木马或卷轴形式展示的关卡选择器（Story Maps）。
-- **互动精灵（Mascot）**：点击会发出鼓励声音（例如：“今天我们去哪儿讲故事呢？”）。
-- **我的奖章墙（Sticker Book）**：展示孩子收集到的卡通贴纸，可进行二次拖拽贴图。
+### 3.1 本地盘下载方案（Download to Disk）
 
-### 2.2 故事学习核心舱 (Story Canvas)
-- **主插图区**：展示精美手绘或高质量卡通图片，内嵌点击热区（Hotspots）。
-- **引导式提问区**：提供中英双语启发性问题（例如：“图片里有谁呀？Who is in the picture?”）。
-- **中英双语切换器**：方便随时一键切换当前界面的主要教学语言（中文/英文/双语）。
-- **语音控制面板**：
-  - **喇叭按钮**：朗读当前提示或故事。
-  - **麦克风按钮**：录制孩子的声音，波形图动画展示录制状态。
-  - **播放按钮**：播放录音，供孩子和家长回听。
-- **任务目标区**：用可爱的星星表示学习任务完成度（词汇认知 ⭐、句子组装 ⭐、录音表达 ⭐）。
+为了避免在没有后端服务器的情况下丢失录音，同时防止大体积 Blob 占用浏览器运行内存，我们采用了 **下载到电脑本地盘** 的方案：
 
-### 2.3 双语拼句积木 (Sentence Builder)
-- 提供磁性贴纸般的词汇卡片，支持**中文**和**英文**两种拼句模式。
-- 支持拖拽或点击排序。
-- 拼对后卡片闪烁金色光芒，并根据所选语言，自动通过 Web Speech API 的对应发音人（中文女声/英文女声）播报句子。
-
-### 2.4 双语范文参考书 (Bilingual Storybook Card)
-- **中英绘本 UI**：通关拼句后解锁，呈现如翻开双语绘本般的卡片界面。
-- **拼音与词义辅助**：中文部分上方标注拼音，英文部分支持单词悬停划词翻译。
-- **双语高亮点读**：支持点击单句（中文或英文）播放对应语言的朗读发音，高亮当前句子，方便小女孩对比跟读。
-
-### 2.5 家长控制与成就系统 (Parent Center)
-
-
-- **成长手记**：记录孩子录音的历史轨迹，家长可以回听并写下鼓励语。
-- **词汇库积累**：展示孩子已经掌握的词语和表达模式。
-- **贴纸奖励**：每通关一个故事，获得一张可以自由贴在虚拟“贴纸板”上的可爱卡通贴纸（例如：小独角兽、城堡、草莓蛋糕等）。
-
----
-
-## 3. 技术栈建议
-
-- **前端框架**：Vite + React (配合现代 CSS 变量、CSS Flexbox/Grid，确保极高自定义性)。
-- **动画库**：Framer Motion 或 Vanilla CSS Keyframes (用于极度流畅的小组件微动效)。
-- **音频技术**：
-  - **Web Speech API (SpeechSynthesis)**：提供实时的文本转语音功能（TTS），采用亲切的女声/童声发音。
-  - **MediaRecorder API**：在浏览器端录音并根据运行设备动态选用最佳 MIME 类型格式（WebM/MP4/WAV）。
-  - **IndexedDB 本地数据库**：用于在本地浏览器中持久化保存宝贝的音频录音，使得录音在页面刷新或关闭后依然能够回听。
-  - **本地盘下载方案 (Download to Disk)**：支持将录音文件以正确的音频后缀（`.webm` / `.m4a` / `.wav`）直接下载保存至电脑本地盘。
-  - **本地录音导入**：允许在家长专区导入本地电脑上的录音文件，随时恢复并回听历史记录。
-- **状态存储**：使用 `localStorage` 保存关卡进度、贴纸册等轻量级状态，结合 `IndexedDB` 存储音频，实现纯本地离线持久化运行。
-
----
-
-## 4. 推荐故事场景（第一期）
-1. **《公园放风筝》**：包含人物（小女孩、爸爸）、小狗、天空、风筝、草地、野餐垫。
-2. **《猫咪去哪了》**：包含小猫、纸箱、床底下、桌子旁、毛线球，培养空间方位词（上、下、里、外）。
-3. **《小兔过生日》**：包含生日蛋糕、蜡烛、气球、礼物、兔子一家，培养情感词汇与社交表达。
-
----
-
-## 5. 故事插画资源与压缩工具 (Story Illustrations & Compression Tool)
-
-为了保证网页加载速度和性能，本项目集成了自动图像压缩工具：
-- **原始图片目录**：`raw_images/` （存放 AI 生成的高清 PNG 原始插画）
-- **优化输出目录**：`public/images/` （自动转换并压缩后的轻量级 JPG 图片，限定最大尺寸为 1024px，质量 80%，单张图片由 ~1MB 降至约 200KB）
-- **已生成并优化的 10 张核心学习场景插图**：
-  1. `kite_flying.jpg` - 公园放风筝 (Kite Flying)
-  2. `beach_sandcastle.jpg` - 海滩建城堡 (Beach Sandcastle)
-  3. `forest_picnic.jpg` - 森林野餐会 (Forest Picnic)
-  4. `rainbow_puddle.jpg` - 雨后彩虹 (Rainbow after the Rain)
-  5. `hidden_cat.jpg` - 猫咪去哪了 (Where is the Cat?)
-  6. `zoo_visit.jpg` - 欢乐动物园 (Fun Zoo Visit)
-  7. `bunny_birthday.jpg` - 小兔过生日 (Bunny's Birthday Party)
-  8. `space_adventure.jpg` - 太空旅行记 (Space Adventure)
-  9. `building_snowman.jpg` - 雪地堆雪人 (Building a Snowman)
-  10. `pond_concert.jpg` - 池塘音乐会 (Pond Concert)
-- **压缩脚本**：`compress_images.py`
-  - 使用说明：在终端运行 `python compress_images.py` 即可自动扫描并压缩 `raw_images/` 下的新增图片至 `public/images/`，支持单图压缩 `python compress_images.py <path_to_image>`。
-
-### 5.2 后续新增故事与图片工作流 (Workflow for Adding New Stories)
-
-项目在后续增加新故事和插画时，请按照以下标准流程执行以确保数据格式一致：
-
-1. **生成与压缩图片**：
-   - 使用 AI 图像生成工具生成儿童绘本风格的新插图。
-   - 将原始图片命名为英文下划线格式（如 `bunny_garden.png`），存入 `raw_images/` 文件夹。
-   - 运行终端命令进行自动优化压缩：
-     ```powershell
-     python compress_images.py
+1. **自动文件格式（MIME）解析**：
+   - 不同的浏览器录制音频的格式有所不同。例如 Chrome/Firefox 常用 `audio/webm`，而 Safari (macOS/iOS) 仅支持 `audio/mp4` (或 `audio/m4a`)，部分设备使用 `audio/wav`。
+   - 动态 MIME 协商代码：
+     ```javascript
+     let mimeType = "audio/webm";
+     if (MediaRecorder.isTypeSupported("audio/webm")) {
+       mimeType = "audio/webm";
+     } else if (MediaRecorder.isTypeSupported("audio/mp4")) {
+       mimeType = "audio/mp4";
+     } else if (MediaRecorder.isTypeSupported("audio/wav")) {
+       mimeType = "audio/wav";
+     }
      ```
-   - 优化后的 `bunny_garden.jpg` 将自动保存在 `public/images/` 目录中。
-
-2. **在前端元数据中配置新关卡**：
-   - 打开前端的故事数据文件 `src/data/storiesData.js`。
-   - 在配置数组中添加新的一项，包含热区坐标、探索词汇、拼句卡片及故事范文，参考模板如下：
-      ```javascript
-      {
-        id: "bunny_garden",
-        title: "小兔子的菜园 / Little Bunny's Garden",
-        image: "/images/bunny_garden.jpg",
-        hotspots: [
-          { id: "rabbit", name: "小兔子", nameEn: "Little Bunny", x: 30, y: 70, radius: 8 },
-          { id: "carrot", name: "胡萝卜", nameEn: "Carrot", x: 60, y: 80, radius: 6 }
-        ],
-        words: [
-          { zh: "小兔子", en: "Little Bunny" },
-          { zh: "胡萝卜", en: "Carrot" },
-          { zh: "菜园", en: "Garden" },
-          { zh: "拔", en: "Pull" }
-        ],
-        sentenceBlocksZh: ["小兔子", "在菜园里", "拔胡萝卜"],
-        sentenceBlocksEn: ["The little bunny", "is pulling up", "carrots", "in the garden"],
-        sampleEssayZh: "清晨，太阳公公升起来了。可爱的小兔子来到它的菜园里。地里的胡萝卜长得又大又红，小兔子用力地拔呀拔，心里开心极了！",
-        sampleEssayEn: "In the morning, the sun rises. The cute little bunny comes to its garden. The carrots in the soil are big and red. The little bunny pulls them up hard and feels very happy!"
-      }
-      ```
-    - **配置字段说明**：
-      - `hotspots`: 双语点击热区，包括中文名 `name` 和英文名 `nameEn`，以及百分比相对坐标。
-      - `words`: 词汇卡对象数组，包含中文 `zh` 和英文 `en`。
-      - `sentenceBlocksZh`: 中文拼句模式下打乱的词卡序列。
-      - `sentenceBlocksEn`: 英文拼句模式下打乱的英文词卡序列。
-      - `sampleEssayZh` 和 `sampleEssayEn`: 对应的中/英文范文，用于双语故事书卡片的高亮点读和跟读。
-
-3. **同步更新文档与 GitHub**：
-   - 在 `readme.md` 的插图列表中登记新关卡。
-   - 运行 Git 命令将新资源和代码提交并推送至 GitHub：
-     ```powershell
-     git add .
-     git commit -m "feat: add new story bunny_garden"
-     git push origin main
+2. **精确后缀下载处理 (`downloadAudio` 逻辑)**：
+   - 在触发下载时，使用 `fetch(url)` 在内存中读取 blob 的实际 MIME 类型。这保证了即便是从外部分享或导入的文件，也能得到正确的扩展名后缀：
+     ```javascript
+     const downloadAudio = async (url, storyName) => {
+       if (!url) return;
+       let ext = "webm";
+       try {
+         const response = await fetch(url);
+         const blob = await response.blob();
+         if (blob.type.includes("mp4") || blob.type.includes("m4a")) {
+           ext = "m4a";
+         } else if (blob.type.includes("wav")) {
+           ext = "wav";
+         } else if (blob.type.includes("ogg")) {
+           ext = "ogg";
+         } else if (blob.type.includes("webm")) {
+           ext = "webm";
+         }
+       } catch (e) {
+         // 回退机制
+       }
+       const a = document.createElement("a");
+       a.href = url;
+       a.download = `看图说话_${storyName}_宝贝录音.${ext}`;
+       document.body.appendChild(a);
+       a.click();
+       document.body.removeChild(a);
+     };
      ```
 
+### 3.2 录音持久化回听（IndexedDB 离线数据库）
+
+由于传统的 Blob URL（`blob:http://...`）只保存在当前页面会话的临时内存中，一旦刷新或关闭网页，录音便会失效。
+我们通过浏览器本地的 **IndexedDB** 数据库实现了录音文件的永久封存：
+
+1. **IndexedDB 工具函数**：
+   - 数据库初始化、Blob 存入、全量读取均在前端异步完成：
+     ```javascript
+     const DB_NAME = "ReadPictureTellStoryDB";
+     const STORE_NAME = "recordings";
+
+     const initDB = () => {
+       return new Promise((resolve, reject) => {
+         const request = indexedDB.open(DB_NAME, 1);
+         request.onupgradeneeded = (e) => {
+           const db = e.target.result;
+           if (!db.objectStoreNames.contains(STORE_NAME)) {
+             db.createObjectStore(STORE_NAME);
+           }
+         };
+         request.onsuccess = (e) => resolve(e.target.result);
+         request.onerror = (e) => reject(e.target.error);
+       });
+     };
+
+     // 保存音频数据
+     const saveAudioBlob = async (storyId, blob) => {
+       const db = await initDB();
+       return new Promise((resolve, reject) => {
+         const transaction = db.transaction(STORE_NAME, "readwrite");
+         const store = transaction.objectStore(STORE_NAME);
+         const request = store.put(blob, storyId);
+         request.onsuccess = () => resolve();
+         request.onerror = (e) => reject(e.target.error);
+       });
+     };
+
+     // 加载所有音频数据
+     const getAllAudioBlobs = async () => {
+       const db = await initDB();
+       return new Promise((resolve, reject) => {
+         const transaction = db.transaction(STORE_NAME, "readonly");
+         const store = transaction.objectStore(STORE_NAME);
+         const request = store.openCursor();
+         const results = {};
+         request.onsuccess = (e) => {
+           const cursor = e.target.result;
+           if (cursor) {
+             results[cursor.key] = cursor.value;
+             cursor.continue();
+           } else {
+             resolve(results);
+           }
+         };
+         request.onerror = (e) => reject(e.target.error);
+       });
+     };
+     ```
+2. **状态同步与生命周期**：
+   - 页面首次挂载时，触发 `getAllAudioBlobs` 读取所有已录制的故事音频，通过 `URL.createObjectURL(blob)` 转换为可播放的 URL，填充至 `recordings` 全局对象。
+   - 每次录制成功后，同步更新 IndexedDB 及当前页面的 `audioUrl`。
+
+### 3.3 顶部标题栏回听功能（🔊 回听录音按钮）
+* **界面表现**：位于工作舱上方，紧靠故事标题。如果还没有录音，按钮呈灰色不可点击状态（`opacity: 0.6; cursor: not-allowed`），引导孩子前往第二步录音。
+* **状态联动**：绑定统一的 `<audio>` 播放控制器。点击后切换播放和暂停状态，按钮内容变为 `⏸️ 停止`，并配合 CSS 呼吸灯扫光动效 (`pulseBorder`)。播放结束时，按钮状态和动效自动复原。
+
+### 3.4 家长控制台录音导入机制
+* **痛点解决**：如果孩子换了浏览器、清理了浏览器缓存或在其他电脑上打开网页，导致 IndexedDB 数据清空，可以通过此导入功能进行恢复。
+* **实现方案**：在“家长专区 / Dashboard”下，除了提供已录关卡的回听和本地盘备份，还为每一个故事提供了 `导入本地录音` 按钮。
+* **数据流向**：家长选择之前保存在本地盘的音频文件 -> React 读取文件 Blob -> 写入本地 IndexedDB -> 生成新的 URL 更新状态并激活关卡中的回听功能 -> 重新点亮对应故事的录音任务星星 ⭐。
+
+### 3.5 界面平滑滚动与导航修复 (`handleNextStory`)
+* **导航痛点**：由于学习视图高度较高，且“下一本”按钮位于页面最下方，直接切换故事会导致页面停留在滚动条最底部，无法看到上方的新故事插画。
+* **解决方案**：在 `handleNextStory` 和 story-card 切换方法中，添加 `window.scrollTo({ top: 0, behavior: 'smooth' })`。同时自动注销当前播放的音频，清空拼句积木池，保证下一个故事的状态是完全崭新且就绪的。
+
 ---
 
+## 4. 样式与动画系统 (CSS Aesthetics)
 
-## 6. 项目路线图 (Roadmap)
+项目全部采用 **Vanilla CSS** 进行高级定制，所有设计变量及动画效果均写在 `src/index.css` 和 `src/App.css` 中：
 
-### 第一阶段：设计、图片生成与Readme定义 (已完成)
-- [x] 确立面向 5 岁儿童的学习闭环方案。
-- [x] 生成 `README.md` 项目愿景与规范文档。
-- [x] 构思并使用 AI 生成第一批 10 张精美故事插画。
-- [x] 编写并测试 `compress_images.py` 图片压缩工具，完成对 10 张图片的高效优化。
-- [x] 对 10 张故事插画进行视觉坐标校对，精确校正全部 50 个点击热区坐标（修复了初版小狗定位点偏移至鞋子等坐标偏差问题）。
+### 4.1 全局 CSS 自定义变量 (`index.css`)
+```css
+:root {
+  --color-bg: #f5f5fc;                  /* 温馨粉糯背景色 */
+  --color-text-dark: #4a375a;           /* 卡通深紫色文字 */
+  --color-text-light: #8e7fa0;          /* 辅助淡紫灰色文字 */
+  --color-pink: #ff7ebb;                /* 主题粉色 */
+  --color-pink-hover: #ff60aa;
+  --color-purple: #9a7dfa;              /* 吉祥物独角兽紫色 */
+  --color-purple-hover: #8360f7;
+  --color-yellow: #ffd043;              /* 星星金色 */
+  --color-green: #67e1a3;               /* 成功薄荷绿 */
+  
+  --card-border: 4px solid #f0f0fa;
+  --card-shadow: 0 12px 32px rgba(154, 125, 250, 0.08);
+  --radius-md: 16px;
+  --radius-lg: 28px;
+}
+```
 
-### 第二阶段：环境初始化与工程搭建 (已完成)
-- [x] 初始化 Git 仓库并连接 GitHub 远程仓库 (`https://github.com/grenvill-create/ReadPictureTellStory.git`)。
-- [x] 初始化 React 现代前端工程项目。
-- [x] 配置并验证视觉风格基础变量（`index.css`）和全局双语布局。
+### 4.2 核心微交互动画 Keyframes (`App.css`)
+1. **小精灵/气泡漂浮动画 (`float`)**：
+   ```css
+   @keyframes float {
+     0%, 100% { transform: translateY(0); }
+     50% { transform: translateY(-8px); }
+   }
+   ```
+2. **播放状态呼吸脉冲动画 (`pulseBorder`)**：
+   ```css
+   @keyframes pulseBorder {
+     0% { box-shadow: 0 0 0 0 rgba(255, 75, 92, 0.4); }
+     70% { box-shadow: 0 0 0 10px rgba(255, 75, 92, 0); }
+     100% { box-shadow: 0 0 0 0 rgba(255, 75, 92, 0); }
+   }
+   ```
+3. **缓动回弹过渡 (`bounce-hover`)**：
+   所有交互卡片具有 `cubic-bezier(0.175, 0.885, 0.32, 1.275)` 贝塞尔曲线过渡，使悬停放大显得更富弹性、更具生命力。
 
-### 第三阶段：核心功能开发 (已完成)
-- [x] 实现看图查找（点击热区与双语词汇卡）。
-- [x] 开发语音录音与本地播放组件。
-- [x] 开发拖拽拼接句子的积木组件。
-- [x] 实现故事卡片轮播和精灵语音引导。
+---
 
-### 第四阶段：视觉美化与音效融合 (已完成)
-- [x] 融入精美的插图与图片优化资源。
-- [x] 添加动画（金色星星飘落、关卡解锁、贴纸收集）。
-- [x] 兼容移动端和平板设备的触控体验。
-- [x] 优化中文字体渲染，去除过于厚重且笔画融合的卡通字体，使用更清晰易读的系统无衬线字体（PingFang SC / Microsoft YaHei），并将词汇与句式字重从 700 调低至 600，方便 5 岁幼儿看清字形结构。
+## 5. 项目搭建与本地调试
 
-### 第五阶段：录音播放、下载与导航优化 (已完成)
-- [x] 新增 IndexedDB 录音本地持久化，刷新页面后仍可回听和管理录音。
-- [x] 实现 "Download to Disk" 下载至电脑本地盘方案，自动分析 MIME 并以正确后缀保存音频。
-- [x] 顶部标题栏增加 "回听录音" 播放按钮（无录音时暗淡不可点击，有录音时高亮且支持播放控制，同步播放状态）。
-- [x] 家长控制台支持 "导入本地录音"，支持拖拽或选择本地已下载文件导入网页回听。
-- [x] 修复 "下一本" 及画册跳转的响应体验（实现自动平滑滚动至顶部 `window.scrollTo` 及页面状态完全重置）。
+### 5.1 运行前提
+* 本地需安装 [Node.js](https://nodejs.org/) (推荐 LTS v20+ 或 v24 均可)。
+* 建议使用 Chrome、Edge 或 Safari 浏览器以获得最流畅的麦克风录音与 Web Speech 朗读体验。
 
+### 5.2 开发调试指令
+1. **克隆项目并进入目录**：
+   ```bash
+   cd ReadPictureTellStory
+   ```
+2. **安装项目前端依赖项**：
+   ```bash
+   npm install
+   ```
+3. **启动本地开发调试服务器**：
+   ```bash
+   npm run dev
+   ```
+   * 终端将输出 `Local: http://localhost:5173/`。打开该链接即可在浏览器中实时开发 and 调试。
 
+4. **进行生产打包校验**：
+   ```bash
+   npm run build
+   ```
+   * 校验项目是否存在静态资源引用缺失或语法报错。编译后的生产静态包将保存在 `dist/` 目录中。
+
+---
+
+## 6. GitHub Pages 自动化发布与部署
+
+本项目已配置自动化构建发布功能。发布的目标分支为 `gh-pages`。
+
+### 6.1 发布指令
+在主分支代码开发完毕并验证无误后，运行以下指令完成打包与线上部署发布：
+```bash
+npm run deploy
+```
+* **执行步骤**：该命令会先触发 `npm run build` 进行打包，随后通过 `gh-pages` 依赖自动将 `dist/` 产物推送到远程 GitHub 的 `gh-pages` 分支上。
+* **线上测试链接**：[https://grenvill-create.github.io/ReadPictureTellStory/](https://grenvill-create.github.io/ReadPictureTellStory/)
+
+### 6.2 注意事项
+* 项目中 Vite 的 `base` 路径配置在 `vite.config.js` 中设定为相对路径 `./`，这保证了不管是部署在 GitHub Pages（带子路径 `/ReadPictureTellStory/`），还是部署在 Cloudflare Pages（通常为根路径 `/`），静态资源（包含 `public/images/` 下的插画）都能被正确寻址加载，无需手动更改配置。
 
 ---
 
 ## 7. 开发者维护规范 🌟
 
 > [!IMPORTANT]
-> 1. **代码与文档同步**：本项目的任何功能或结构修改，必须在同一轮修改中**同步更新本 `readme.md`** 中的对应章节，确保文档永远是最新的。
-> 2. **自动推送 Github**：每次完成代码及文档修改并验证无误后，必须**自动/手动运行 git push 命令**，将最新版本推送到 Github：
->    `git push origin main`（或对应的当前开发分支）。
-
+> 1. **代码与文档保持完全一致**：为了保证团队或跨平台协作的效率，如果对 `App.jsx` 的状态参数、IndexedDB 结构、录音格式逻辑进行任何修改，请**同步更新本 README.md** 的对应章节。
+> 2. **自动推送 GitHub**：在本地完成开发调试并通过 `npm run build` 编译验证后，运行 Git 命令及时同步到 GitHub 仓库：
+>    ```bash
+>    git add .
+>    git commit -m "your commit message"
+>    git push origin main
+>    ```
