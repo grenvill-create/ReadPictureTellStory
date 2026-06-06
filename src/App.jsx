@@ -21,15 +21,23 @@ const STORE_NAME = "recordings";
 
 const initDB = () => {
   return new Promise((resolve, reject) => {
-    const request = indexedDB.open(DB_NAME, 1);
-    request.onupgradeneeded = (e) => {
-      const db = e.target.result;
-      if (!db.objectStoreNames.contains(STORE_NAME)) {
-        db.createObjectStore(STORE_NAME);
-      }
-    };
-    request.onsuccess = (e) => resolve(e.target.result);
-    request.onerror = (e) => reject(e.target.error);
+    if (typeof indexedDB === "undefined") {
+      reject(new Error("IndexedDB is not supported in this browser"));
+      return;
+    }
+    try {
+      const request = indexedDB.open(DB_NAME, 1);
+      request.onupgradeneeded = (e) => {
+        const db = e.target.result;
+        if (!db.objectStoreNames.contains(STORE_NAME)) {
+          db.createObjectStore(STORE_NAME);
+        }
+      };
+      request.onsuccess = (e) => resolve(e.target.result);
+      request.onerror = (e) => reject(e.target.error);
+    } catch (err) {
+      reject(err);
+    }
   });
 };
 
@@ -101,8 +109,13 @@ export default function App() {
 
   // Parent comments/encouragement messages
   const [encouragements, setEncouragements] = useState(() => {
-    const saved = localStorage.getItem("story_encouragements");
-    return saved ? JSON.parse(saved) : {};
+    try {
+      const saved = localStorage.getItem("story_encouragements");
+      return saved ? JSON.parse(saved) : {};
+    } catch (e) {
+      console.warn("localStorage is not available:", e);
+      return {};
+    }
   });
 
   // Parent Dashboard Modal State
@@ -115,13 +128,23 @@ export default function App() {
 
   // App Progress state
   const [starsCollected, setStarsCollected] = useState(() => {
-    const saved = localStorage.getItem("story_stars");
-    return saved ? JSON.parse(saved) : {};
+    try {
+      const saved = localStorage.getItem("story_stars");
+      return saved ? JSON.parse(saved) : {};
+    } catch (e) {
+      console.warn("localStorage is not available:", e);
+      return {};
+    }
   });
   
   const [unlockedStickers, setUnlockedStickers] = useState(() => {
-    const saved = localStorage.getItem("story_stickers");
-    return saved ? JSON.parse(saved) : [];
+    try {
+      const saved = localStorage.getItem("story_stickers");
+      return saved ? JSON.parse(saved) : [];
+    } catch (e) {
+      console.warn("localStorage is not available:", e);
+      return [];
+    }
   });
 
   const [showConfetti, setShowConfetti] = useState(false);
@@ -153,14 +176,20 @@ export default function App() {
 
   // Sync Progress to LocalStorage
   useEffect(() => {
-    localStorage.setItem("story_stars", JSON.stringify(starsCollected));
-    localStorage.setItem("story_stickers", JSON.stringify(unlockedStickers));
-    localStorage.setItem("story_encouragements", JSON.stringify(encouragements));
+    try {
+      localStorage.setItem("story_stars", JSON.stringify(starsCollected));
+      localStorage.setItem("story_stickers", JSON.stringify(unlockedStickers));
+      localStorage.setItem("story_encouragements", JSON.stringify(encouragements));
+    } catch (e) {
+      console.warn("Failed to sync progress to localStorage:", e);
+    }
   }, [starsCollected, unlockedStickers, encouragements]);
 
-  // Load SpeechSynthesis voices
+  // Load SpeechSynthesis voices safely
   useEffect(() => {
-    window.speechSynthesis.getVoices();
+    if (typeof window !== "undefined" && window.speechSynthesis) {
+      window.speechSynthesis.getVoices();
+    }
   }, []);
 
   // Pause audio playback when changing stories
@@ -199,21 +228,29 @@ export default function App() {
 
   // TTS Reader
   const speakText = (text, lang = "zh-CN") => {
-    window.speechSynthesis.cancel();
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = lang;
-    
-    // Choose appropriate voice
-    const voices = window.speechSynthesis.getVoices();
-    const matchingVoice = voices.find(v => 
-      lang.startsWith("zh") ? (v.lang.includes("zh") || v.lang.includes("ZH")) 
-                            : (v.lang.includes("en") || v.lang.includes("EN"))
-    );
-    if (matchingVoice) utterance.voice = matchingVoice;
-    
-    // Adjust rate for kids
-    utterance.rate = lang.startsWith("zh") ? 0.85 : 0.75;
-    window.speechSynthesis.speak(utterance);
+    if (typeof window === "undefined" || !window.speechSynthesis || !window.SpeechSynthesisUtterance) {
+      console.warn("Speech synthesis not supported in this browser:", text);
+      return;
+    }
+    try {
+      window.speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = lang;
+      
+      // Choose appropriate voice
+      const voices = window.speechSynthesis.getVoices();
+      const matchingVoice = voices.find(v => 
+        lang.startsWith("zh") ? (v.lang.includes("zh") || v.lang.includes("ZH")) 
+                              : (v.lang.includes("en") || v.lang.includes("EN"))
+      );
+      if (matchingVoice) utterance.voice = matchingVoice;
+      
+      // Adjust rate for kids
+      utterance.rate = lang.startsWith("zh") ? 0.85 : 0.75;
+      window.speechSynthesis.speak(utterance);
+    } catch (e) {
+      console.error("Speech synthesis failed:", e);
+    }
   };
 
   // Trigger Hotspot Click
