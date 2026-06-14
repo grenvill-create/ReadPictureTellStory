@@ -176,30 +176,14 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  // Mouse drag to scroll handlers for carousels
-  const handleDragStart = (e) => {
-    const slider = e.currentTarget;
-    slider.isDown = true;
-    slider.startX = e.pageX - slider.offsetLeft;
-    slider.scrollLeftInit = slider.scrollLeft;
-    slider.style.cursor = 'grabbing';
-    slider.style.scrollSnapType = 'none';
-  };
+  const dailyCarouselRef = useRef(null);
+  const fableCarouselRef = useRef(null);
 
-  const handleDragEnd = (e) => {
-    const slider = e.currentTarget;
-    slider.isDown = false;
-    slider.style.cursor = 'grab';
-    slider.style.scrollSnapType = 'x mandatory';
-  };
-
-  const handleDragMove = (e) => {
-    const slider = e.currentTarget;
-    if (!slider.isDown) return;
-    e.preventDefault();
-    const x = e.pageX - slider.offsetLeft;
-    const walk = (x - slider.startX) * 2;
-    slider.scrollLeft = slider.scrollLeftInit - walk;
+  const handleScrollCarousel = (ref, direction) => {
+    if (ref.current) {
+      const scrollAmount = direction === 'left' ? -300 : 300;
+      ref.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
   };
 
   const [unlockedStickers, setUnlockedStickers] = useState(() => {
@@ -223,6 +207,15 @@ export default function App() {
   const recordingMimeTypeRef = useRef("audio/webm");
 
   const currentStory = storiesData.find(s => s.id === currentStoryId);
+  const dailyCarouselRef = useRef(null);
+  const fableCarouselRef = useRef(null);
+
+  const handleScrollCarousel = (ref, direction) => {
+    if (ref.current) {
+      const scrollAmount = direction === 'left' ? -320 : 320;
+      ref.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+  };
 
   // Load recordings from IndexedDB on startup
   useEffect(() => {
@@ -707,13 +700,17 @@ export default function App() {
             </button>
           </div>
           
-          <div 
-            className="story-carousel"
-            onMouseDown={handleDragStart}
-            onMouseLeave={handleDragEnd}
-            onMouseUp={handleDragEnd}
-            onMouseMove={handleDragMove}
-          >
+          <div className="carousel-wrapper" style={{ position: 'relative' }}>
+            <button className="carousel-nav-btn left" onClick={() => handleScrollCarousel(dailyCarouselRef, 'left')}>
+              &#10094;
+            </button>
+            <button className="carousel-nav-btn right" onClick={() => handleScrollCarousel(dailyCarouselRef, 'right')}>
+              &#10095;
+            </button>
+            <div 
+              className="story-carousel"
+              ref={dailyCarouselRef}
+            >
             {storiesData.filter(s => s.type !== "fable").map(story => {
               const stars = starsCollected[story.id] || [false, false, false];
               const score = stars.filter(Boolean).length;
@@ -748,6 +745,7 @@ export default function App() {
                 </div>
               );
             })}
+            </div>
           </div>
 
           <div className="dashboard-header-row" style={{ marginTop: '40px' }}>
@@ -760,13 +758,17 @@ export default function App() {
             </button>
           </div>
           
-          <div 
-            className="story-carousel"
-            onMouseDown={handleDragStart}
-            onMouseLeave={handleDragEnd}
-            onMouseUp={handleDragEnd}
-            onMouseMove={handleDragMove}
-          >
+          <div className="carousel-wrapper" style={{ position: 'relative' }}>
+            <button className="carousel-nav-btn left" onClick={() => handleScrollCarousel(fableCarouselRef, 'left')}>
+              &#10094;
+            </button>
+            <button className="carousel-nav-btn right" onClick={() => handleScrollCarousel(fableCarouselRef, 'right')}>
+              &#10095;
+            </button>
+            <div 
+              className="story-carousel"
+              ref={fableCarouselRef}
+            >
             {storiesData.filter(s => s.type === "fable").map(story => {
               return (
                 <div key={story.id} className="story-card">
@@ -794,6 +796,7 @@ export default function App() {
                 </div>
               );
             })}
+            </div>
           </div>
 
           {/* Sticker Book / Achievement shelf */}
