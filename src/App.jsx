@@ -207,15 +207,6 @@ export default function App() {
   const recordingMimeTypeRef = useRef("audio/webm");
 
   const currentStory = storiesData.find(s => s.id === currentStoryId);
-  const dailyCarouselRef = useRef(null);
-  const fableCarouselRef = useRef(null);
-
-  const handleScrollCarousel = (ref, direction) => {
-    if (ref.current) {
-      const scrollAmount = direction === 'left' ? -320 : 320;
-      ref.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-    }
-  };
 
   // Load recordings from IndexedDB on startup
   useEffect(() => {
