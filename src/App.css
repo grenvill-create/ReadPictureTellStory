@@ -52,6 +52,11 @@
 }
 
 /* Dashboard / Story List */
+.dashboard-container {
+  width: 100%;
+  min-width: 0;
+}
+
 .dashboard-title {
   text-align: center;
   font-size: 32px;
