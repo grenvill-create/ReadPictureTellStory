@@ -181,8 +181,16 @@ export default function App() {
 
   const handleScrollCarousel = (ref, direction) => {
     if (ref.current) {
-      const scrollAmount = direction === 'left' ? -300 : 300;
+      const scrollAmount = direction === 'left' ? -320 : 320;
+      // Temporarily disable scroll snap to prevent browser from fighting the smooth scroll
+      ref.current.style.scrollSnapType = 'none';
       ref.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      // Re-enable scroll snap after animation completes
+      setTimeout(() => {
+        if (ref.current) {
+          ref.current.style.scrollSnapType = 'x mandatory';
+        }
+      }, 400);
     }
   };
 
