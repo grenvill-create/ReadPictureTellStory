@@ -155,6 +155,7 @@ export default function App() {
     setCurrentStoryId(storyId);
     setCurrentStep(1);
     setExploredHotspots([]);
+    setShowDirectoryModal(false); // Fix: close modal when starting to read
     
     const existingAudio = recordings[storyId];
     setAudioUrl(existingAudio || null);
@@ -793,8 +794,11 @@ export default function App() {
                       onClick={() => handleStartReading(s.id)}
                     >
                       <span className="idx">{idx + 1}.</span>
-                      <span className="title">{s.title.split("/")[0]}</span>
-                      <span className="status">{readStories.includes(s.id) ? '✅ 已读' : '🆕 未读'}</span>
+                      <img src={getImageUrl(s.image)} alt="" className="directory-thumbnail" />
+                      <div className="directory-item-info">
+                        <span className="title">{s.title.split("/")[0]}</span>
+                        <span className="status">{readStories.includes(s.id) ? '✅ 已读' : '🆕 未读'}</span>
+                      </div>
                     </div>
                   ))}
                 </div>
