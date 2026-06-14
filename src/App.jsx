@@ -138,6 +138,47 @@ export default function App() {
     }
   });
   
+  // Read status tracking
+  const [readStories, setReadStories] = useState(() => {
+    try {
+      const saved = localStorage.getItem("story_read_status");
+      return saved ? JSON.parse(saved) : [];
+    } catch (e) {
+      return [];
+    }
+  });
+
+  const [showDirectoryModal, setShowDirectoryModal] = useState(false);
+  const [directoryType, setDirectoryType] = useState(""); // "daily" or "fable"
+
+  const handleStartReading = (storyId) => {
+    setCurrentStoryId(storyId);
+    setCurrentStep(1);
+    setExploredHotspots([]);
+    
+    const existingAudio = recordings[storyId];
+    setAudioUrl(existingAudio || null);
+    setRecordingState(existingAudio ? "has_audio" : "idle");
+    
+    setActiveHotspot(null);
+    setIsSentenceCorrect(false);
+    setAssembledCards([]);
+    setActiveBookSentence(null);
+    setShowParentGuide(false);
+
+    if (!readStories.includes(storyId)) {
+      const newReadStatus = [...readStories, storyId];
+      setReadStories(newReadStatus);
+      localStorage.setItem("story_read_status", JSON.stringify(newReadStatus));
+    }
+
+    if (showDirectoryModal) {
+      setShowDirectoryModal(false);
+    }
+    
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   const [unlockedStickers, setUnlockedStickers] = useState(() => {
     try {
       const saved = localStorage.getItem("story_stickers");
@@ -633,10 +674,17 @@ export default function App() {
       {currentStoryId === null ? (
         /* Dashboard Scene Selection */
         <div className="dashboard-container">
-          <h2 className="dashboard-title">日常图画 / Daily Life</h2>
-          <p className="dashboard-subtitle">点击一幅画，开始我们的探索之旅吧！</p>
+          <div className="dashboard-header-row">
+            <div>
+              <h2 className="dashboard-title" style={{marginBottom: 0}}>日常图画 / Daily Life</h2>
+              <p className="dashboard-subtitle" style={{marginBottom: 0}}>点击一幅画，开始我们的探索之旅吧！</p>
+            </div>
+            <button className="directory-btn" onClick={() => {setDirectoryType("daily"); setShowDirectoryModal(true);}}>
+              📚 查看目录
+            </button>
+          </div>
           
-          <div className="story-grid">
+          <div className="story-carousel">
             {storiesData.filter(s => s.type !== "fable").map(story => {
               const stars = starsCollected[story.id] || [false, false, false];
               const score = stars.filter(Boolean).length;
@@ -645,6 +693,11 @@ export default function App() {
                   <div className="story-card-image-wrapper">
                     <img src={getImageUrl(story.image)} alt={story.title.split("/")[0]} className="story-card-image" />
                     {score === 3 && <div className="story-card-badge">已通关 🎉</div>}
+                    {readStories.includes(story.id) ? (
+                      <div className="read-badge">✅ 已读</div>
+                    ) : (
+                      <div className="new-badge">🆕</div>
+                    )}
                   </div>
                   <div className="story-card-info">
                     <h3 className="story-card-title">{story.title.split("/")[0]}</h3>
@@ -656,25 +709,7 @@ export default function App() {
                         ))}
                       </div>
                       <button 
-                        onClick={() => {
-                          setCurrentStoryId(story.id);
-                          setCurrentStep(1);
-                          setExploredHotspots([]);
-                          
-                          // Restore active session recording if exists
-                          const existingAudio = recordings[story.id];
-                          setAudioUrl(existingAudio || null);
-                          setRecordingState(existingAudio ? "has_audio" : "idle");
-                          
-                          setActiveHotspot(null);
-                          setIsSentenceCorrect(false);
-                          setAssembledCards([]);
-                          setActiveBookSentence(null);
-                          setShowParentGuide(false);
-
-                          // Reset scroll
-                          window.scrollTo({ top: 0, behavior: "smooth" });
-                        }} 
+                        onClick={() => handleStartReading(story.id)} 
                         className="play-btn bounce-hover"
                       >
                         出发 / Start
@@ -686,38 +721,34 @@ export default function App() {
             })}
           </div>
 
-          <h2 className="dashboard-title" style={{ marginTop: '40px' }}>寓言绘本 / Fables</h2>
-          <p className="dashboard-subtitle">爸爸妈妈亲自为你读的睡前故事！</p>
+          <div className="dashboard-header-row" style={{ marginTop: '40px' }}>
+            <div>
+              <h2 className="dashboard-title" style={{marginBottom: 0}}>寓言绘本 / Fables</h2>
+              <p className="dashboard-subtitle" style={{marginBottom: 0}}>爸爸妈妈亲自为你读的睡前故事！</p>
+            </div>
+            <button className="directory-btn" onClick={() => {setDirectoryType("fable"); setShowDirectoryModal(true);}}>
+              📚 查看目录
+            </button>
+          </div>
           
-          <div className="story-grid">
+          <div className="story-carousel">
             {storiesData.filter(s => s.type === "fable").map(story => {
               return (
                 <div key={story.id} className="story-card">
                   <div className="story-card-image-wrapper">
                     <img src={getImageUrl(story.image)} alt={story.title.split("/")[0]} className="story-card-image" />
+                    {readStories.includes(story.id) ? (
+                      <div className="read-badge">✅ 已读</div>
+                    ) : (
+                      <div className="new-badge">🆕</div>
+                    )}
                   </div>
                   <div className="story-card-info">
                     <h3 className="story-card-title">{story.title.split("/")[0]}</h3>
                     <p className="story-card-description">{story.title.split("/")[1]}</p>
                     <div className="story-card-footer" style={{ justifyContent: 'flex-end' }}>
                       <button 
-                        onClick={() => {
-                          setCurrentStoryId(story.id);
-                          setCurrentStep(1);
-                          setExploredHotspots([]);
-                          
-                          const existingAudio = recordings[story.id];
-                          setAudioUrl(existingAudio || null);
-                          setRecordingState(existingAudio ? "has_audio" : "idle");
-                          
-                          setActiveHotspot(null);
-                          setIsSentenceCorrect(false);
-                          setAssembledCards([]);
-                          setActiveBookSentence(null);
-                          setShowParentGuide(false);
-
-                          window.scrollTo({ top: 0, behavior: "smooth" });
-                        }} 
+                        onClick={() => handleStartReading(story.id)} 
                         className="play-btn bounce-hover"
                         style={{ backgroundColor: 'var(--color-yellow)', color: 'var(--color-text-dark)' }}
                       >
@@ -747,6 +778,29 @@ export default function App() {
               )}
             </div>
           </div>
+
+          {/* Directory Modal */}
+          {showDirectoryModal && (
+            <div className="modal-overlay" onClick={() => setShowDirectoryModal(false)}>
+              <div className="modal-content directory-modal" onClick={e => e.stopPropagation()}>
+                <button className="modal-close" onClick={() => setShowDirectoryModal(false)}>×</button>
+                <h3>{directoryType === 'daily' ? '日常图画 / Daily Life 目录' : '寓言绘本 / Fables 目录'}</h3>
+                <div className="directory-list">
+                  {storiesData.filter(s => directoryType === 'daily' ? s.type !== 'fable' : s.type === 'fable').map((s, idx) => (
+                    <div 
+                      key={s.id} 
+                      className={`directory-item ${readStories.includes(s.id) ? 'read' : 'unread'}`}
+                      onClick={() => handleStartReading(s.id)}
+                    >
+                      <span className="idx">{idx + 1}.</span>
+                      <span className="title">{s.title.split("/")[0]}</span>
+                      <span className="status">{readStories.includes(s.id) ? '✅ 已读' : '🆕 未读'}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       ) : (
         /* Inside Learning Story */
