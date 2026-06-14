@@ -312,7 +312,7 @@ export const storiesData = [
     id: "fable_tortoise_hare",
     type: "fable",
     title: "龟兔赛跑 / The Tortoise and the Hare",
-    image: "/images/tortoise_and_hare.png",
+    image: "/images/tortoise_and_hare.jpg",
     hotspots: [
       { id: "hare", name: "兔子", nameEn: "Hare", x: 70, y: 65, radius: 12 },
       { id: "tortoise", name: "乌龟", nameEn: "Tortoise", x: 30, y: 75, radius: 10 },
@@ -342,7 +342,7 @@ export const storiesData = [
     id: "fable_crow_pitcher",
     type: "fable",
     title: "乌鸦喝水 / The Crow and the Pitcher",
-    image: "/images/crow_and_pitcher.png",
+    image: "/images/crow_and_pitcher.jpg",
     hotspots: [
       { id: "crow", name: "乌鸦", nameEn: "Crow", x: 45, y: 35, radius: 10 },
       { id: "pitcher", name: "水瓶", nameEn: "Pitcher", x: 55, y: 70, radius: 12 },
