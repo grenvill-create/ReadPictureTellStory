@@ -678,5 +678,160 @@ export const storiesData = [
     ],
     lifeConnection: "就像小朋友长身体一样，要好好吃饭、睡觉，一点一滴地长大，不能着急，着急是没有用的。",
     retellingPrompt: "假装你是农夫的儿子，看到田里的禾苗都死了，你会怎么跟爸爸说？"
+  },
+  {
+    id: "fable_emperors_clothes",
+    type: "fable",
+    title: "皇帝的新装 / The Emperor's New Clothes",
+    image: "/images/emperors_clothes.jpg",
+    hotspots: [
+      { id: "emperor", name: "皇帝", nameEn: "Emperor", x: 50, y: 50, radius: 20 },
+      { id: "boy", name: "小男孩", nameEn: "Boy", x: 80, y: 70, radius: 10 },
+      { id: "crowd", name: "人群", nameEn: "Crowd", x: 20, y: 60, radius: 15 }
+    ],
+    words: [
+      { zh: "皇帝", en: "Emperor" },
+      { zh: "新衣服", en: "New Clothes" },
+      { zh: "笑", en: "Laugh" }
+    ],
+    fableText: [
+      "从前有个皇帝，他非常喜欢穿新衣服。有两个骗子跑来告诉他：‘我们能织出世界上最美的衣服，但愚蠢的人是看不见它的。’",
+      "皇帝听了非常高兴，给了骗子很多金银财宝。几天后，骗子假装捧着做好的衣服给皇帝穿上。其实，他们手里什么都没有！",
+      "皇帝什么也没看见，但他怕别人说他愚蠢，就假装夸奖衣服很漂亮。大臣们也都不敢说真话，纷纷夸赞新衣服。",
+      "于是，皇帝穿着这套‘看不见的新衣服’，光着身子去大街上游行。老百姓们也都不敢说实话，假装欢呼。",
+      "突然，一个小男孩指着皇帝大声笑了起来：‘可是，他明明什么也没穿呀！’大家听了，终于忍不住都笑了起来。"
+    ],
+    parentGuide: "皇帝明明光着身子，为什么大家一开始都不敢说真话呢？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "骗子说他们的衣服有什么神奇的地方？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "大臣们什么也没看到，为什么还要夸奖衣服漂亮？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "听到小男孩的话之后，皇帝心里会怎么想？", color: "#fa709a" }
+    ],
+    lifeConnection: "做人要诚实，不要为了面子去说假话，勇敢地说出真相才是最棒的！就像那个小男孩一样。",
+    retellingPrompt: "假装你是那个勇敢的小男孩，你会怎么指着皇帝告诉大家真相？"
+  },
+  {
+    id: "fable_blind_men_elephant",
+    type: "fable",
+    title: "盲人摸象 / The Blind Men and the Elephant",
+    image: "/images/blind_men_elephant.jpg",
+    hotspots: [
+      { id: "elephant", name: "大象", nameEn: "Elephant", x: 50, y: 50, radius: 25 },
+      { id: "trunk", name: "象鼻子", nameEn: "Trunk", x: 20, y: 60, radius: 10 },
+      { id: "leg", name: "象腿", nameEn: "Leg", x: 45, y: 80, radius: 10 }
+    ],
+    words: [
+      { zh: "大象", en: "Elephant" },
+      { zh: "盲人", en: "Blind Man" },
+      { zh: "摸", en: "Touch" }
+    ],
+    fableText: [
+      "古时候有几个盲人，他们从来没有见过大象，很想知道大象长什么样。于是，他们一起去摸一头大象。",
+      "第一个人摸到了大象的牙齿，说：‘大象就像一根大萝卜！’第二个人摸到了大象的耳朵，说：‘不对，大象像一把大扇子！’",
+      "第三个人摸到了大象的腿，大声说：‘你们都错了，大象明明像一根大柱子！’",
+      "第四个人摸到了大象的背，说：‘大象像一堵墙！’最后一个人摸到了大象的尾巴，笑着说：‘大象其实像一根绳子！’",
+      "他们每个人都觉得自己是对的，争吵不休。其实，他们每个人都只摸到了大象的一部分，没有了解大象的全部。"
+    ],
+    parentGuide: "他们为什么会觉得大象长得不一样呢？他们摸到了哪里？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "摸到大象腿的人说大象像什么？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "为什么每个人说出的大象形状都不一样？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "如果要让他们知道大象真正的样子，应该怎么办？", color: "#fa709a" }
+    ],
+    lifeConnection: "看问题不能只看一部分，要全面地了解事物，不然就会闹笑话的。",
+    retellingPrompt: "假装你是其中一个盲人，你摸到了大象的哪里，觉得它像什么？"
+  },
+  {
+    id: "fable_making_up_number",
+    type: "fable",
+    title: "滥竽充数 / Making up the Number",
+    image: "/images/making_up_number.jpg",
+    hotspots: [
+      { id: "musician", name: "乐师", nameEn: "Musician", x: 50, y: 50, radius: 15 },
+      { id: "flute", name: "竽 (乐器)", nameEn: "Flute", x: 45, y: 55, radius: 8 },
+      { id: "orchestra", name: "乐队", nameEn: "Orchestra", x: 80, y: 40, radius: 15 }
+    ],
+    words: [
+      { zh: "乐器", en: "Instrument" },
+      { zh: "吹", en: "Blow" },
+      { zh: "假装", en: "Pretend" }
+    ],
+    fableText: [
+      "古时候有个国王非常喜欢听大家一起吹竽（一种乐器）。他有一个三百人的大乐队。",
+      "有个叫南郭先生的人，根本不会吹竽。但他听说在乐队里能得到很多奖赏，就混了进去。",
+      "每次演奏的时候，南郭先生就坐在队伍里，鼓着腮帮子，捂着竽眼儿，装出非常投入的样子。其实，他一点声音也没吹出来！",
+      "就这样，他混了好几年，拿到了很多奖赏。后来，老国王去世了，新国王继位。",
+      "新国王不喜欢大家一起吹，他要求乐师们一个一个地单独吹给他听。南郭先生一听，吓得连夜逃跑了！"
+    ],
+    parentGuide: "南郭先生不会吹乐器，他刚开始是怎么拿到奖赏的？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "新国王想怎么听乐师们演奏？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "南郭先生为什么要逃跑？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "如果南郭先生没有逃跑，轮到他演奏的时候会发生什么？", color: "#fa709a" }
+    ],
+    lifeConnection: "我们要有真正的本领，不能靠骗人混日子，总有一天会被发现的。",
+    retellingPrompt: "你能表演一下南郭先生是怎么假装用力吹乐器的吗？"
+  },
+  {
+    id: "fable_marking_boat",
+    type: "fable",
+    title: "刻舟求剑 / Marking the Boat to Find the Sword",
+    image: "/images/marking_boat.jpg",
+    hotspots: [
+      { id: "man", name: "男人", nameEn: "Man", x: 50, y: 40, radius: 15 },
+      { id: "boat", name: "小船", nameEn: "Boat", x: 50, y: 70, radius: 20 },
+      { id: "water", name: "河水", nameEn: "Water", x: 80, y: 80, radius: 15 }
+    ],
+    words: [
+      { zh: "小船", en: "Boat" },
+      { zh: "剑", en: "Sword" },
+      { zh: "河水", en: "Water" }
+    ],
+    fableText: [
+      "古时候有个人坐船过河。船开到河中央时，他一不小心，身上的宝剑掉进了河里！",
+      "周围的人都替他着急，但他却一点也不慌张，不紧不慢地从口袋里拿出一把小刀。",
+      "他在船舷上掉剑的地方刻了一个深深的记号，得意地说：‘我的剑是从这个地方掉下去的，我已经做好记号了！’",
+      "船继续往前开，过了很久才靠岸。那个人顺着船舷上的记号，跳进水里去捞他的宝剑。",
+      "他在水里摸了半天，什么也没摸到。他非常纳闷：‘明明就是从这个记号处掉下去的，怎么会找不到呢？’"
+    ],
+    parentGuide: "他的剑掉进水里了，他在哪里做了记号？这样做有用吗？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "那个人是在什么时候去捞剑的？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "他为什么顺着记号找不到自己的剑？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "如果他想找回自己的剑，当时应该怎么做？", color: "#fa709a" }
+    ],
+    lifeConnection: "世界是一直在变化的，我们思考问题不能死脑筋，要学会根据变化来想办法。",
+    retellingPrompt: "假装你是船上的乘客，你会怎么提醒那个刻记号的人？"
+  },
+  {
+    id: "fable_waiting_for_hare",
+    type: "fable",
+    title: "守株待兔 / Waiting for a Hare by the Tree",
+    image: "/images/waiting_for_hare.jpg",
+    hotspots: [
+      { id: "farmer", name: "农夫", nameEn: "Farmer", x: 40, y: 60, radius: 15 },
+      { id: "tree", name: "大树", nameEn: "Tree", x: 70, y: 40, radius: 20 },
+      { id: "tools", name: "农具", nameEn: "Tools", x: 20, y: 80, radius: 10 }
+    ],
+    words: [
+      { zh: "农夫", en: "Farmer" },
+      { zh: "大树", en: "Tree" },
+      { zh: "等", en: "Wait" }
+    ],
+    fableText: [
+      "古时候有个农夫，他每天都在田里辛勤地干活。有一天，一只兔子突然从草丛里窜出来。",
+      "兔子跑得太快了，一头撞在了田边的一个大树桩上，扭断了脖子，死掉了。",
+      "农夫高兴极了，没有花一点力气就捡到了一只又肥又大的兔子，美美地吃了一顿。",
+      "从那以后，农夫心想：‘既然不用干活就能捡到兔子，我还种地干什么呢？’",
+      "于是，他每天什么活都不干，只是守在大树桩旁边，等着下一只兔子撞过来。可是，再也没有兔子撞在树桩上了，而他的田地也因为荒芜长满了杂草。"
+    ],
+    parentGuide: "农夫为什么不干活了？他一直在等什么？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "第一只兔子是怎么死掉的？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "为什么后来再也没有兔子撞到树桩上了？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "如果农夫一直这样等下去，冬天到了他会怎么样？", color: "#fa709a" }
+    ],
+    lifeConnection: "成功是需要靠自己努力劳动的，不能总是想着不劳而获，靠运气的事情是不会天天发生的！",
+    retellingPrompt: "你能表演一下农夫坐在树边等兔子时，无聊又期待的表情吗？"
   }
 ];
