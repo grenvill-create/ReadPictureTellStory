@@ -166,6 +166,33 @@ export default function App() {
     setAssembledCards([]);
     setActiveBookSentence(null);
     setShowParentGuide(false);
+  };
+
+  // Mouse drag to scroll handlers for carousels
+  const handleDragStart = (e) => {
+    const slider = e.currentTarget;
+    slider.isDown = true;
+    slider.startX = e.pageX - slider.offsetLeft;
+    slider.scrollLeftInit = slider.scrollLeft;
+    slider.style.cursor = 'grabbing';
+    slider.style.scrollSnapType = 'none';
+  };
+
+  const handleDragEnd = (e) => {
+    const slider = e.currentTarget;
+    slider.isDown = false;
+    slider.style.cursor = 'grab';
+    slider.style.scrollSnapType = 'x mandatory';
+  };
+
+  const handleDragMove = (e) => {
+    const slider = e.currentTarget;
+    if (!slider.isDown) return;
+    e.preventDefault();
+    const x = e.pageX - slider.offsetLeft;
+    const walk = (x - slider.startX) * 2;
+    slider.scrollLeft = slider.scrollLeftInit - walk;
+  };
 
     if (!readStories.includes(storyId)) {
       const newReadStatus = [...readStories, storyId];
@@ -685,7 +712,13 @@ export default function App() {
             </button>
           </div>
           
-          <div className="story-carousel">
+          <div 
+            className="story-carousel"
+            onMouseDown={handleDragStart}
+            onMouseLeave={handleDragEnd}
+            onMouseUp={handleDragEnd}
+            onMouseMove={handleDragMove}
+          >
             {storiesData.filter(s => s.type !== "fable").map(story => {
               const stars = starsCollected[story.id] || [false, false, false];
               const score = stars.filter(Boolean).length;
@@ -732,7 +765,13 @@ export default function App() {
             </button>
           </div>
           
-          <div className="story-carousel">
+          <div 
+            className="story-carousel"
+            onMouseDown={handleDragStart}
+            onMouseLeave={handleDragEnd}
+            onMouseUp={handleDragEnd}
+            onMouseMove={handleDragMove}
+          >
             {storiesData.filter(s => s.type === "fable").map(story => {
               return (
                 <div key={story.id} className="story-card">
