@@ -368,5 +368,315 @@ export const storiesData = [
     ],
     lifeConnection: "遇到困难的时候，我们要像乌鸦一样动动脑筋想办法。你上次遇到困难是怎么解决的？",
     retellingPrompt: "假装你是一只口渴的小乌鸦，你能一边做动作，一边给大家讲讲你是怎么喝到水的吗？"
+  },
+  {
+    id: "fable_lion_mouse",
+    type: "fable",
+    title: "狮子和老鼠 / The Lion and the Mouse",
+    image: "/images/lion_and_mouse.jpg",
+    hotspots: [
+      { id: "lion", name: "狮子", nameEn: "Lion", x: 45, y: 55, radius: 15 },
+      { id: "mouse", name: "老鼠", nameEn: "Mouse", x: 60, y: 80, radius: 8 },
+      { id: "net", name: "大网", nameEn: "Net", x: 20, y: 30, radius: 10 }
+    ],
+    words: [
+      { zh: "狮子", en: "Lion" },
+      { zh: "老鼠", en: "Mouse" },
+      { zh: "网", en: "Net" }
+    ],
+    fableText: [
+      "一天，森林之王大狮子正在树下睡觉，一只小老鼠不小心跑到了它的鼻子上。",
+      "狮子醒了，一把抓住小老鼠，生气地说：‘我要把你吃掉！’小老鼠害怕地求饶：‘求求您放了我吧，总有一天我会报答您的！’狮子觉得很好笑：‘你这么小，怎么可能帮得到我？’但它还是放了小老鼠。",
+      "几天后，狮子不小心掉进了猎人的陷阱，被一张大网紧紧地缠住了，怎么也挣脱不开。",
+      "就在这时，小老鼠听到了狮子的吼声，急忙跑过来。它用尖尖的牙齿，把大网咬出了一个大洞！",
+      "狮子终于得救了。它感激地对小老鼠说：‘原来，小小的朋友也能帮大忙呀！’"
+    ],
+    parentGuide: "大狮子那么厉害，小老鼠那么小，你觉得小老鼠能帮狮子什么忙呢？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "狮子一开始为什么想吃掉小老鼠？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "小老鼠是用什么把大网弄破的？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "狮子被救了以后，它和小老鼠会变成什么样？", color: "#fa709a" }
+    ],
+    lifeConnection: "这就告诉我们，不要看不起任何人，每个人都有自己的长处。你在幼儿园里有没有帮助过比你大的小朋友？",
+    retellingPrompt: "你来当威风的大狮子，我来当小老鼠，我们演一下狮子被网住的那段好不好？"
+  },
+  {
+    id: "fable_fox_grapes",
+    type: "fable",
+    title: "狐狸和葡萄 / The Fox and the Grapes",
+    image: "/images/fox_and_grapes.jpg",
+    hotspots: [
+      { id: "fox", name: "狐狸", nameEn: "Fox", x: 50, y: 70, radius: 12 },
+      { id: "grapes", name: "葡萄", nameEn: "Grapes", x: 65, y: 25, radius: 10 },
+      { id: "vine", name: "藤蔓", nameEn: "Vine", x: 30, y: 20, radius: 10 }
+    ],
+    words: [
+      { zh: "狐狸", en: "Fox" },
+      { zh: "葡萄", en: "Grapes" },
+      { zh: "跳", en: "Jump" }
+    ],
+    fableText: [
+      "一个炎热的夏天，一只口渴的狐狸走进了一个葡萄园。",
+      "它抬头一看，葡萄藤上挂着一串串紫红色的葡萄，看起来又大又甜，馋得狐狸直流口水。",
+      "狐狸用力往上一跳，想摘一串葡萄，可是葡萄太高了，它没够着。",
+      "它后退了几步，深吸一口气，再次使劲跳了起来！哎呀，还是差一点点。",
+      "狐狸跳了又跳，累得气喘吁吁，却一颗葡萄也没摘到。最后，它只好一边走一边安慰自己说：‘哼，那些葡萄肯定是酸的，我才不稀罕吃呢！’"
+    ],
+    parentGuide: "你看这只狐狸，它想吃什么？它够得到吗？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "葡萄是什么颜色的？长在哪里？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "狐狸为什么说葡萄是酸的？葡萄真的是酸的吗？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "如果狐狸这时候遇到了一只长颈鹿，它会怎么做？", color: "#fa709a" }
+    ],
+    lifeConnection: "有时候我们自己做不到一件事情，就会找借口说那件事情不好。下次遇到困难，我们可以找人帮忙，不要像狐狸一样找借口哦。",
+    retellingPrompt: "你能学狐狸跳起来抓葡萄的样子吗？跳不到的时候，狐狸说了什么？"
+  },
+  {
+    id: "fable_boy_wolf",
+    type: "fable",
+    title: "狼来了 / The Boy Who Cried Wolf",
+    image: "/images/boy_who_cried_wolf.jpg",
+    hotspots: [
+      { id: "boy", name: "男孩", nameEn: "Boy", x: 40, y: 50, radius: 12 },
+      { id: "sheep", name: "绵羊", nameEn: "Sheep", x: 60, y: 65, radius: 10 },
+      { id: "wolf_shadow", name: "狼的影子", nameEn: "Wolf Shadow", x: 80, y: 35, radius: 10 }
+    ],
+    words: [
+      { zh: "男孩", en: "Boy" },
+      { zh: "绵羊", en: "Sheep" },
+      { zh: "狼", en: "Wolf" }
+    ],
+    fableText: [
+      "从前，有个放羊的小男孩，他每天都在山上放羊，觉得很无聊。",
+      "有一天，他为了好玩，突然对着山下的村子大喊：‘狼来了！狼来了！狼来吃羊啦！’",
+      "村民们听到呼救，急忙拿着锄头和棍子跑上山来。可是山上根本没有狼，只有小男孩在哈哈大笑：‘我骗你们的！’",
+      "过了几天，小男孩又故技重施，再次骗了村民。村民们生气极了。",
+      "结果有一天，狼真的来了！狼张开大嘴扑向羊群。小男孩吓坏了，拼命地喊：‘狼来了！救命啊！’可是这一次，不管他怎么喊，再也没有人上山来救他了。"
+    ],
+    parentGuide: "小男孩觉得无聊的时候，做了什么不好的事情？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "小男孩第一次喊狼来了的时候，村民们是怎么做的？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "最后狼真的来了，为什么没有人来救他呢？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "经过这次教训，你觉得小男孩以后还会撒谎吗？", color: "#fa709a" }
+    ],
+    lifeConnection: "经常撒谎的孩子，即使最后说了真话，别人也不会相信了。所以我们要做一个诚实的好孩子。",
+    retellingPrompt: "假装你是村长，当小男孩第二次骗人被揭穿时，你会怎么教育他？"
+  },
+  {
+    id: "fable_ant_grasshopper",
+    type: "fable",
+    title: "蚂蚁和蝈蝈 / The Ant and the Grasshopper",
+    image: "/images/ant_and_grasshopper.jpg",
+    hotspots: [
+      { id: "ant", name: "蚂蚁", nameEn: "Ant", x: 35, y: 75, radius: 10 },
+      { id: "grasshopper", name: "蝈蝈", nameEn: "Grasshopper", x: 70, y: 55, radius: 12 },
+      { id: "seed", name: "种子", nameEn: "Seed", x: 30, y: 65, radius: 8 }
+    ],
+    words: [
+      { zh: "蚂蚁", en: "Ant" },
+      { zh: "蝈蝈", en: "Grasshopper" },
+      { zh: "种子", en: "Seed" }
+    ],
+    fableText: [
+      "炎热的夏天，一只蝈蝈在树荫下乘凉，拉着小提琴，唱着歌，开心极了。",
+      "这时，一只小蚂蚁背着一颗重重的种子，满头大汗地从它面前走过。蝈蝈嘲笑说：‘这么热的天，你为什么不歇会儿，和我一起唱歌呢？’",
+      "蚂蚁摇摇头说：‘不行，我得为冬天准备粮食。如果你现在不准备，冬天会挨饿的。’蝈蝈根本不听，继续唱歌。",
+      "转眼间，寒冷的冬天来了，大雪覆盖了地面。蝈蝈找不到任何吃的东西，冻得发抖，饿得头晕。",
+      "它只好去敲蚂蚁的门。小蚂蚁打开门，屋子里暖烘烘的，还有满满的粮食。蚂蚁叹了口气，还是把蝈蝈请进了屋子。"
+    ],
+    parentGuide: "夏天的时候，蚂蚁在做什么？蝈蝈在做什么？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "蚂蚁为什么要在那么热的天气里搬粮食？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "冬天到了，蝈蝈为什么要去找蚂蚁？它心里在想什么？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "到了第二年的夏天，你觉得蝈蝈会怎么做？", color: "#fa709a" }
+    ],
+    lifeConnection: "就像我们平时要先写完作业再看动画片一样，如果只顾着玩不努力，最后是要吃苦头的哦。",
+    retellingPrompt: "来，你演那只在夏天满头大汗搬东西的蚂蚁，告诉我你为什么这么辛苦？"
+  },
+  {
+    id: "fable_pony_river",
+    type: "fable",
+    title: "小马过河 / The Little Pony Crossing the River",
+    image: "/images/pony_crossing_river.jpg",
+    hotspots: [
+      { id: "pony", name: "小马", nameEn: "Pony", x: 30, y: 60, radius: 12 },
+      { id: "squirrel", name: "松鼠", nameEn: "Squirrel", x: 75, y: 35, radius: 8 },
+      { id: "ox", name: "老牛", nameEn: "Ox", x: 60, y: 75, radius: 15 }
+    ],
+    words: [
+      { zh: "小马", en: "Pony" },
+      { zh: "河水", en: "River" },
+      { zh: "松鼠", en: "Squirrel" }
+    ],
+    fableText: [
+      "小马长大了，妈妈让它把半口袋麦子驮到磨坊去。可是，去磨坊要过一条河，河水哗哗地流着，小马不知道水有多深，不敢过。",
+      "小马看到河边有一头老牛，就问：‘牛伯伯，我能过河吗？’老牛说：‘水很浅，刚没过小腿，能过去。’",
+      "小马听了正要过河，突然树上跳下一只小松鼠，大叫着：‘别过河，别过河！水深得很，昨天我的一个小伙伴都被淹死了！’",
+      "小马一下子没主意了，只好跑回家问妈妈。妈妈说：‘孩子，光听别人说是不行的。老牛那么高大，当然觉得水浅；松鼠那么矮小，当然觉得水深。你得自己去试一试。’",
+      "小马回到河边，小心翼翼地走到水里。原来，河水既不像老牛说的那么浅，也不像松鼠说的那么深。小马顺利地过了河！"
+    ],
+    parentGuide: "老牛说水浅，松鼠说水深，你觉得水到底是深还是浅呀？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "小马要背着麦子去哪里？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "为什么同样一条河，老牛觉得浅，松鼠觉得深呢？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "小马过了河之后，回来会怎么跟妈妈说？", color: "#fa709a" }
+    ],
+    lifeConnection: "遇到不知道该怎么办的事情，不能只听别人说，要自己勇敢地去试一试才知道结果！",
+    retellingPrompt: "假装你是一只正在过河的小马，你能边走边说水深不深吗？"
+  },
+  {
+    id: "fable_ugly_duckling",
+    type: "fable",
+    title: "丑小鸭 / The Ugly Duckling",
+    image: "/images/ugly_duckling.jpg",
+    hotspots: [
+      { id: "duckling", name: "丑小鸭", nameEn: "Duckling", x: 40, y: 65, radius: 12 },
+      { id: "swan", name: "天鹅", nameEn: "Swan", x: 75, y: 40, radius: 10 },
+      { id: "pond", name: "池塘", nameEn: "Pond", x: 50, y: 80, radius: 15 }
+    ],
+    words: [
+      { zh: "丑小鸭", en: "Duckling" },
+      { zh: "天鹅", en: "Swan" },
+      { zh: "池塘", en: "Pond" }
+    ],
+    fableText: [
+      "鸭妈妈孵出了一群小鸭子，其中有一只灰乎乎的，长得特别丑，大家都叫他‘丑小鸭’。",
+      "农场里的动物都不喜欢他，兄弟姐妹们也总是欺负他，小鸡啄他，连喂鸡的女孩也用脚踢他。",
+      "丑小鸭非常伤心，只好偷偷地离开了家。冬天来了，天气非常冷，他在冰天雪地里差点被冻死。",
+      "春天终于来了，丑小鸭在水里看到几只美丽的白天鹅，他害怕地低下头，却在水面的倒影里看到了一只雪白美丽的鸟！",
+      "原来，他不是一只丑陋的小鸭子，而是一只高贵的白天鹅！他张开宽阔的翅膀，和同伴们一起飞向了蓝天。"
+    ],
+    parentGuide: "大家都不喜欢丑小鸭，他心里一定很难过。但是最后他变成了什么呀？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "丑小鸭离开家的时候，是什么季节？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "当丑小鸭在水里看到自己的倒影时，他为什么会觉得惊讶？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "如果当初那些嘲笑他的小动物现在看到他，会说些什么呢？", color: "#fa709a" }
+    ],
+    lifeConnection: "有的小朋友可能长得胖一点或者瘦一点，但每个孩子都有自己闪光的地方，我们不能嘲笑别人，要相信自己是最棒的！",
+    retellingPrompt: "假装你是那只刚刚发现自己变成天鹅的丑小鸭，你现在的心情是怎么样的？"
+  },
+  {
+    id: "fable_frog_in_well",
+    type: "fable",
+    title: "井底之蛙 / The Frog in the Well",
+    image: "/images/frog_in_well.jpg",
+    hotspots: [
+      { id: "frog", name: "青蛙", nameEn: "Frog", x: 50, y: 80, radius: 10 },
+      { id: "well", name: "水井", nameEn: "Well", x: 50, y: 50, radius: 25 },
+      { id: "turtle", name: "海龟", nameEn: "Turtle", x: 50, y: 15, radius: 10 }
+    ],
+    words: [
+      { zh: "青蛙", en: "Frog" },
+      { zh: "水井", en: "Well" },
+      { zh: "海龟", en: "Turtle" }
+    ],
+    fableText: [
+      "一口废井里住着一只青蛙，它觉得自己在井里非常自由，一会儿在水里游，一会儿在泥里跳，觉得整个世界都在自己的掌控之中。",
+      "有一天，一只来自东海的大海龟来到了井边。青蛙得意地对海龟说：‘你看我住的地方多宽敞，多舒服！你快下来看看吧！’",
+      "海龟试着往下走，可是它的左脚还没进去，右脚就被井口卡住了。海龟后退了几步，对青蛙说：‘你见过大海吗？’",
+      "青蛙摇摇头。海龟说：‘大海非常深，非常广阔，就算下几年的雨，水也不会变多；旱上几年，水也不会变少。那才是真正的好地方呢。’",
+      "青蛙听了，惊讶得张大了嘴巴，觉得自己实在是太渺小了。"
+    ],
+    parentGuide: "小青蛙一直住在井里，它看到的天空有多大？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "是谁来到了井边，告诉青蛙关于大海的事情？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "青蛙为什么会觉得自己住的地方很大很舒服？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "听了海龟的话，你觉得青蛙接下来会做什么打算？", color: "#fa709a" }
+    ],
+    lifeConnection: "世界很大，我们要多去外面看看，多学习新知识，千万不要像井底的小青蛙一样哦。",
+    retellingPrompt: "如果你是那只海龟，你会怎么跟小青蛙描述大海的样子？"
+  },
+  {
+    id: "fable_farmer_and_snake",
+    type: "fable",
+    title: "农夫和蛇 / The Farmer and the Snake",
+    image: "/images/farmer_and_snake.jpg",
+    hotspots: [
+      { id: "farmer", name: "农夫", nameEn: "Farmer", x: 50, y: 40, radius: 15 },
+      { id: "snake", name: "蛇", nameEn: "Snake", x: 45, y: 60, radius: 10 },
+      { id: "snow", name: "白雪", nameEn: "Snow", x: 80, y: 80, radius: 10 }
+    ],
+    words: [
+      { zh: "农夫", en: "Farmer" },
+      { zh: "蛇", en: "Snake" },
+      { zh: "雪", en: "Snow" }
+    ],
+    fableText: [
+      "一个寒冷的冬天，一位善良的农夫在路边看到了一条被冻僵的蛇。",
+      "农夫看它可怜，觉得它快要冻死了，就把它捡起来，放在自己的怀里，想用自己的体温去温暖它。",
+      "过了一会儿，蛇在农夫温暖的怀抱里渐渐苏醒了过来。",
+      "可是，这只蛇的本性非常凶恶，它刚一醒来，不仅没有感谢农夫，反而狠狠地咬了农夫一口！",
+      "农夫中了剧毒，在倒下之前，他叹息着说：‘我真是太糊涂了，竟然去同情这样一个邪恶的坏家伙，这是我罪有应得啊。’"
+    ],
+    parentGuide: "农夫做了什么好事？但是那条蛇是怎么回报他的？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "农夫在哪里发现了这条蛇？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "蛇为什么要咬救它的农夫？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "如果你在路边遇到了一只有危险的野生动物，你会怎么做？", color: "#fa709a" }
+    ],
+    lifeConnection: "我们虽然要做善良的人，但是帮助别人之前，一定要分清楚好人和坏人，首先要保护好自己。",
+    retellingPrompt: "如果你是农夫的朋友，你会怎么劝阻他去捡那条蛇？"
+  },
+  {
+    id: "fable_fox_and_tiger",
+    type: "fable",
+    title: "狐假虎威 / The Fox and the Tiger",
+    image: "/images/fox_and_tiger.jpg",
+    hotspots: [
+      { id: "fox", name: "狐狸", nameEn: "Fox", x: 30, y: 60, radius: 10 },
+      { id: "tiger", name: "老虎", nameEn: "Tiger", x: 60, y: 55, radius: 15 },
+      { id: "animals", name: "小动物", nameEn: "Animals", x: 80, y: 40, radius: 8 }
+    ],
+    words: [
+      { zh: "狐狸", en: "Fox" },
+      { zh: "老虎", en: "Tiger" },
+      { zh: "害怕", en: "Scared" }
+    ],
+    fableText: [
+      "一天，老虎在森林里抓住了一只狐狸，正准备把它吃掉。",
+      "狐狸眼珠一转，大声对老虎说：‘你敢吃我？我可是老天爷派来的森林之王！你要是不信，就跟在我后面走一趟，看看小动物们怕不怕我！’",
+      "老虎觉得很奇怪，半信半疑地答应了，跟在狐狸的后面走。",
+      "森林里的兔子、小鹿、猴子看到他们走过来，吓得四处逃窜。",
+      "老虎以为小动物们真的是害怕狐狸，吓得赶紧跑掉了。其实，小动物们害怕的根本不是狐狸，而是狐狸身后的老虎！"
+    ],
+    parentGuide: "老虎跟在狐狸后面走，森林里的小动物们都吓跑了，它们到底在怕谁？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "老虎一开始抓住了谁？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "狐狸为什么要让老虎跟在自己后面走？它聪明吗？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "如果老虎回头发现了真相，会发生什么事情？", color: "#fa709a" }
+    ],
+    lifeConnection: "生活中也有这样借着别人的厉害来吓唬人的事情，我们要学会动脑筋，不要被骗了哦。",
+    retellingPrompt: "你能学狐狸那种非常神气的走路样子给大家看看吗？"
+  },
+  {
+    id: "fable_pulling_seedlings",
+    type: "fable",
+    title: "拔苗助长 / Pulling Up Seedlings",
+    image: "/images/pulling_seedlings.jpg",
+    hotspots: [
+      { id: "farmer", name: "农夫", nameEn: "Farmer", x: 50, y: 40, radius: 15 },
+      { id: "seedlings", name: "禾苗", nameEn: "Seedlings", x: 50, y: 75, radius: 12 },
+      { id: "sun", name: "太阳", nameEn: "Sun", x: 80, y: 20, radius: 10 }
+    ],
+    words: [
+      { zh: "农夫", en: "Farmer" },
+      { zh: "禾苗", en: "Seedlings" },
+      { zh: "长高", en: "Grow Taller" }
+    ],
+    fableText: [
+      "古时候有个农夫，他在田里种下了禾苗，每天都去看它们有没有长高。",
+      "可是过了好几天，禾苗好像一点儿也没有长。农夫心里非常着急，心想：‘有什么办法能让它们长得快一点呢？’",
+      "终于，他想到了一个“好”办法！他跑到田里，把每一棵禾苗都往上拔高了一截。他从早拔到晚，累得腰酸背痛，但心里却很高兴。",
+      "回到家，他气喘吁吁地对儿子说：‘今天可把我累坏了，不过我帮禾苗长高了好多！’",
+      "儿子听了觉得很奇怪，跑到田里一看，结果发现那些被拔高的禾苗，因为根离开了泥土，全都干枯死掉了！"
+    ],
+    parentGuide: "农夫想让禾苗快点长大，他用了什么办法？这个办法有用吗？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "农夫把禾苗往上拔了以后，禾苗怎么样了？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "为什么禾苗被拔高之后反而死掉了呢？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "如果农夫第二年再种禾苗，他还会去拔吗？", color: "#fa709a" }
+    ],
+    lifeConnection: "就像小朋友长身体一样，要好好吃饭、睡觉，一点一滴地长大，不能着急，着急是没有用的。",
+    retellingPrompt: "假装你是农夫的儿子，看到田里的禾苗都死了，你会怎么跟爸爸说？"
   }
 ];
