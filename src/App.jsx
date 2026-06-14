@@ -166,6 +166,14 @@ export default function App() {
     setAssembledCards([]);
     setActiveBookSentence(null);
     setShowParentGuide(false);
+
+    if (!readStories.includes(storyId)) {
+      const newReadStatus = [...readStories, storyId];
+      setReadStories(newReadStatus);
+      localStorage.setItem("story_read_status", JSON.stringify(newReadStatus));
+    }
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   // Mouse drag to scroll handlers for carousels
@@ -192,19 +200,6 @@ export default function App() {
     const x = e.pageX - slider.offsetLeft;
     const walk = (x - slider.startX) * 2;
     slider.scrollLeft = slider.scrollLeftInit - walk;
-  };
-
-    if (!readStories.includes(storyId)) {
-      const newReadStatus = [...readStories, storyId];
-      setReadStories(newReadStatus);
-      localStorage.setItem("story_read_status", JSON.stringify(newReadStatus));
-    }
-
-    if (showDirectoryModal) {
-      setShowDirectoryModal(false);
-    }
-    
-    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const [unlockedStickers, setUnlockedStickers] = useState(() => {
