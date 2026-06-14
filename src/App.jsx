@@ -99,6 +99,7 @@ export default function App() {
   const [cardsPool, setCardsPool] = useState([]);
   const [isSentenceCorrect, setIsSentenceCorrect] = useState(false);
   const [activeBookSentence, setActiveBookSentence] = useState(null);
+  const [showParentGuide, setShowParentGuide] = useState(false);
   
   // Audio playback state
   const [isPlaying, setIsPlaying] = useState(false);
@@ -455,6 +456,7 @@ export default function App() {
     setIsSentenceCorrect(false);
     setAssembledCards([]);
     setActiveBookSentence(null);
+    setShowParentGuide(false);
 
     // Smooth scroll to top of the page
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -630,12 +632,12 @@ export default function App() {
       {/* Main Content Area */}
       {currentStoryId === null ? (
         /* Dashboard Scene Selection */
-        <>
-          <h2 className="dashboard-title">小女孩的双语绘本画册</h2>
+        <div className="dashboard-container">
+          <h2 className="dashboard-title">日常图画 / Daily Life</h2>
           <p className="dashboard-subtitle">点击一幅画，开始我们的探索之旅吧！</p>
           
           <div className="story-grid">
-            {storiesData.map(story => {
+            {storiesData.filter(s => s.type !== "fable").map(story => {
               const stars = starsCollected[story.id] || [false, false, false];
               const score = stars.filter(Boolean).length;
               return (
@@ -668,6 +670,7 @@ export default function App() {
                           setIsSentenceCorrect(false);
                           setAssembledCards([]);
                           setActiveBookSentence(null);
+                          setShowParentGuide(false);
 
                           // Reset scroll
                           window.scrollTo({ top: 0, behavior: "smooth" });
@@ -675,6 +678,50 @@ export default function App() {
                         className="play-btn bounce-hover"
                       >
                         出发 / Start
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          <h2 className="dashboard-title" style={{ marginTop: '40px' }}>寓言绘本 / Fables</h2>
+          <p className="dashboard-subtitle">爸爸妈妈亲自为你读的睡前故事！</p>
+          
+          <div className="story-grid">
+            {storiesData.filter(s => s.type === "fable").map(story => {
+              return (
+                <div key={story.id} className="story-card">
+                  <div className="story-card-image-wrapper">
+                    <img src={getImageUrl(story.image)} alt={story.title.split("/")[0]} className="story-card-image" />
+                  </div>
+                  <div className="story-card-info">
+                    <h3 className="story-card-title">{story.title.split("/")[0]}</h3>
+                    <p className="story-card-description">{story.title.split("/")[1]}</p>
+                    <div className="story-card-footer" style={{ justifyContent: 'flex-end' }}>
+                      <button 
+                        onClick={() => {
+                          setCurrentStoryId(story.id);
+                          setCurrentStep(1);
+                          setExploredHotspots([]);
+                          
+                          const existingAudio = recordings[story.id];
+                          setAudioUrl(existingAudio || null);
+                          setRecordingState(existingAudio ? "has_audio" : "idle");
+                          
+                          setActiveHotspot(null);
+                          setIsSentenceCorrect(false);
+                          setAssembledCards([]);
+                          setActiveBookSentence(null);
+                          setShowParentGuide(false);
+
+                          window.scrollTo({ top: 0, behavior: "smooth" });
+                        }} 
+                        className="play-btn bounce-hover"
+                        style={{ backgroundColor: 'var(--color-yellow)', color: 'var(--color-text-dark)' }}
+                      >
+                        📖 开始共读
                       </button>
                     </div>
                   </div>
@@ -700,7 +747,7 @@ export default function App() {
               )}
             </div>
           </div>
-        </>
+        </div>
       ) : (
         /* Inside Learning Story */
         <div className="workspace-layout">
@@ -738,6 +785,15 @@ export default function App() {
                   <span key={idx} style={{ fontSize: "24px" }}>{active ? "⭐" : "☆"}</span>
                 ))}
               </div>
+              
+              {currentStep === 1 && (
+                <button 
+                  onClick={() => setShowParentGuide(!showParentGuide)} 
+                  className="parent-guide-toggle"
+                >
+                  👶 亲子共读锦囊
+                </button>
+              )}
             </div>
 
             <div className="image-canvas-wrapper">
@@ -807,12 +863,107 @@ export default function App() {
                 </div>
               </div>
             )}
+            
+            {/* Parent Guide Panel (Visible only when toggled in Step 1) */}
+            {currentStep === 1 && showParentGuide && (
+              <div className="parent-guide-panel">
+                <div className="guide-section">
+                  <h4 className="guide-title">📖 看图猜故事 (Picture Walk)</h4>
+                  <p className="guide-text">{currentStory.parentGuide}</p>
+                </div>
+                
+                {currentStory.dialogicQuestions && currentStory.dialogicQuestions.length > 0 && (
+                  <div className="guide-section">
+                    <h4 className="guide-title">💬 互动式提问 (Dialogic Questions)</h4>
+                    <div className="question-list">
+                      {currentStory.dialogicQuestions.map((q, i) => (
+                        <div key={i} className="question-item">
+                          <div className="question-badge" style={{ backgroundColor: q.color || "var(--color-purple)" }}>
+                            {q.label}
+                          </div>
+                          <div className="question-text">{q.text}</div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+                
+                {currentStory.lifeConnection && (
+                  <div className="guide-section">
+                    <h4 className="guide-title">🔗 生活连连看 (Life Connection)</h4>
+                    <p className="guide-text" style={{ borderColor: "var(--color-green)", backgroundColor: "rgba(103, 225, 163, 0.05)" }}>
+                      {currentStory.lifeConnection}
+                    </p>
+                  </div>
+                )}
+                
+                {currentStory.retellingPrompt && (
+                  <div className="guide-section" style={{ marginBottom: 0 }}>
+                    <h4 className="guide-title">🎭 故事小舞台 (Retelling & Roleplay)</h4>
+                    <p className="guide-text" style={{ borderColor: "var(--color-yellow)", backgroundColor: "rgba(255, 208, 67, 0.05)" }}>
+                      {currentStory.retellingPrompt}
+                    </p>
+                  </div>
+                )}
+              </div>
+            )}
           </div>
 
           {/* Right Control Panels */}
           <div className="control-panel">
             
-            {/* Step Navigator */}
+            {currentStory.type === "fable" ? (
+              <div className="step-content-card fable-teleprompter" style={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+                <h3 className="step-heading">📖 故事提词器 (共读模式)</h3>
+                <p className="step-instructions" style={{ marginBottom: '16px' }}>
+                  请看着下面的文字，给宝贝讲一讲这个故事吧！遇到有趣的动物，还可以让宝贝在左边找一找点读哦。
+                </p>
+                
+                <div className="fable-text-container" style={{ flexGrow: 1, overflowY: 'auto', background: 'rgba(255,255,255,0.6)', padding: '16px', borderRadius: '12px', border: '1px solid #eee' }}>
+                  {currentStory.fableText && currentStory.fableText.map((paragraph, idx) => (
+                    <p key={idx} className="fable-paragraph" style={{ fontSize: '20px', lineHeight: '1.6', marginBottom: '16px', color: '#333' }}>
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
+
+                <div className="fable-interactive-section" style={{ marginTop: '20px', background: 'rgba(154, 125, 250, 0.1)', padding: '16px', borderRadius: '12px' }}>
+                  <h4 className="fable-subheading" style={{ margin: '0 0 8px 0', color: 'var(--color-purple)' }}>🎤 听完啦？小老师来发言！</h4>
+                  <p className="step-instructions" style={{ fontSize: '15px', marginBottom: '12px', color: '#555' }}>
+                    鼓励宝贝说一说：{currentStory.retellingPrompt || "你喜欢这个故事吗？为什么？"}
+                  </p>
+                  <div className="recording-container" style={{ minHeight: 'auto', padding: 0, gap: '12px', flexDirection: 'row', justifyContent: 'flex-start' }}>
+                    {recordingState === "idle" && (
+                      <button onClick={startRecording} className="mic-button bounce-hover" style={{ width: '48px', height: '48px', fontSize: '20px' }}>🎙️</button>
+                    )}
+                    {recordingState === "recording" && (
+                      <button onClick={stopRecording} className="mic-button recording" style={{ width: '48px', height: '48px', fontSize: '20px' }}>⏹️</button>
+                    )}
+                    {recordingState === "has_audio" && (
+                      <>
+                        <button onClick={startRecording} className="mic-button bounce-hover" style={{ width: '48px', height: '48px', fontSize: '20px' }}>🔄</button>
+                        {audioUrl && (
+                          <button 
+                            onClick={() => handleTogglePlay(audioUrl)} 
+                            className={`play-recording-btn bounce-hover ${activePlaybackUrl === audioUrl && isPlaying ? "playing" : ""}`}
+                            style={{ margin: 0 }}
+                          >
+                            {activePlaybackUrl === audioUrl && isPlaying ? "⏸️ 停止" : "🔊 听宝宝讲"}
+                          </button>
+                        )}
+                      </>
+                    )}
+                    <span className="recording-status" style={{ margin: 0, fontSize: '13px' }}>
+                      {recordingState === "idle" && "点击麦克风，记录宝贝的话"}
+                      {recordingState === "recording" && "录音中..."}
+                      {recordingState === "has_audio" && "录音完成！"}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <>
+                {/* Step Navigator */}
             <div className="step-navigator">
               <div className="step-indicator">
                 {[1, 2, 3, 4].map(step => {
@@ -1056,7 +1207,8 @@ export default function App() {
                 </div>
               </div>
             )}
-
+            </>
+          )}
           </div>
 
         </div>

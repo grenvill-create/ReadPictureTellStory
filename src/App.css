@@ -222,6 +222,7 @@
   padding: 24px;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .canvas-header {
@@ -1083,3 +1084,105 @@
 }
 
 
+
+/* Parent Guide Overlay Styles */
+.parent-guide-toggle {
+  background: var(--color-purple);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(154, 125, 250, 0.3);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.parent-guide-toggle:hover {
+  background: var(--color-purple-hover);
+  transform: translateY(-2px);
+}
+
+.parent-guide-panel {
+  background: #fff;
+  border-radius: var(--radius-md);
+  padding: 24px;
+  box-shadow: 0 12px 36px rgba(74, 55, 90, 0.3);
+  border: 2px solid var(--color-purple);
+  animation: slideDown 0.3s ease-out forwards;
+  
+  /* Make it a floating overlay */
+  position: absolute;
+  top: 70px;
+  right: 24px;
+  width: 400px;
+  max-width: calc(100% - 48px);
+  z-index: 100;
+  max-height: calc(100% - 100px);
+  overflow-y: auto;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.guide-section {
+  margin-bottom: 16px;
+}
+
+.guide-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.guide-text {
+  font-size: 15px;
+  color: var(--color-text-light);
+  line-height: 1.5;
+  background: #f8f8fc;
+  padding: 12px;
+  border-radius: 8px;
+  border-left: 4px solid var(--color-purple);
+}
+
+.question-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.question-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  background: #fdfdfd;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.question-badge {
+  font-size: 12px;
+  font-weight: 700;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 12px;
+  white-space: nowrap;
+}
+
+.question-text {
+  font-size: 15px;
+  color: var(--color-text-dark);
+  line-height: 1.4;
+  margin-top: 2px;
+}
