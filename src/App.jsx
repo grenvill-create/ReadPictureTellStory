@@ -176,15 +176,7 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const dailyCarouselRef = useRef(null);
-  const fableCarouselRef = useRef(null);
 
-  const handleScrollCarousel = (ref, direction) => {
-    if (ref.current) {
-      const scrollAmount = direction === 'left' ? -320 : 320;
-      ref.current.scrollLeft += scrollAmount;
-    }
-  };
 
   const [unlockedStickers, setUnlockedStickers] = useState(() => {
     try {
@@ -692,16 +684,7 @@ export default function App() {
           </div>
           
           <div className="carousel-wrapper" style={{ position: 'relative' }}>
-            <button className="carousel-nav-btn left" onClick={() => handleScrollCarousel(dailyCarouselRef, 'left')}>
-              &#10094;
-            </button>
-            <button className="carousel-nav-btn right" onClick={() => handleScrollCarousel(dailyCarouselRef, 'right')}>
-              &#10095;
-            </button>
-            <div 
-              className="story-carousel"
-              ref={dailyCarouselRef}
-            >
+            <div className="story-carousel">
             {storiesData.filter(s => s.type !== "fable").map(story => {
               const stars = starsCollected[story.id] || [false, false, false];
               const score = stars.filter(Boolean).length;
@@ -750,16 +733,7 @@ export default function App() {
           </div>
           
           <div className="carousel-wrapper" style={{ position: 'relative' }}>
-            <button className="carousel-nav-btn left" onClick={() => handleScrollCarousel(fableCarouselRef, 'left')}>
-              &#10094;
-            </button>
-            <button className="carousel-nav-btn right" onClick={() => handleScrollCarousel(fableCarouselRef, 'right')}>
-              &#10095;
-            </button>
-            <div 
-              className="story-carousel"
-              ref={fableCarouselRef}
-            >
+            <div className="story-carousel">
             {storiesData.filter(s => s.type === "fable").map(story => {
               return (
                 <div key={story.id} className="story-card">
