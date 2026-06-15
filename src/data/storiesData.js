@@ -309,6 +309,37 @@ export const storiesData = [
     retellingPrompt: "请你假装是一只快乐的小青蛙，跳到沙发上，大声地告诉大家今晚的音乐会是怎么举办的！"
   },
   {
+    id: "supermarket_shopping",
+    title: "去超市买东西 / Shopping at the Supermarket",
+    image: "/images/supermarket_shopping.png",
+    hotspots: [
+      { id: "mom", name: "妈妈", nameEn: "Mom", x: 60, y: 50, radius: 15 },
+      { id: "kid", name: "小朋友", nameEn: "Kid", x: 40, y: 65, radius: 12 },
+      { id: "cart", name: "购物车", nameEn: "Shopping Cart", x: 50, y: 70, radius: 15 },
+      { id: "apple", name: "苹果", nameEn: "Apple", x: 48, y: 65, radius: 8 },
+      { id: "shelf", name: "货架", nameEn: "Shelf", x: 20, y: 40, radius: 20 }
+    ],
+    words: [
+      { zh: "超市", en: "Supermarket" },
+      { zh: "购物车", en: "Shopping Cart" },
+      { zh: "妈妈", en: "Mom" },
+      { zh: "苹果", en: "Apple" },
+      { zh: "货架", en: "Shelf" }
+    ],
+    sentenceBlocksZh: ["妈妈和孩子", "推着购物车", "在明亮的超市里", "买东西"],
+    sentenceBlocksEn: ["Mom and the kid", "are pushing a cart", "in the bright supermarket", "buying things"],
+    sampleEssayZh: "周末到了，妈妈带着小朋友去逛大超市。超市里亮堂堂的，货架上摆满了各种各样的商品。他们推着购物车，挑了红红的大苹果。买东西真是一件开心的事！",
+    sampleEssayEn: "It is the weekend, and mom takes the kid to the big supermarket. The supermarket is bright, and the shelves are full of various goods. They push a shopping cart and pick some big red apples. Shopping is so much fun!",
+    parentGuide: "你看他们在什么地方呀？购物车里装了什么好吃的？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "小朋友帮妈妈推着什么东西？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "他们脸上的表情看起来开心吗？为什么？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "买完苹果之后，你觉得他们还会去买什么？", color: "#fa709a" }
+    ],
+    lifeConnection: "我们平时去超市的时候，你最喜欢推购物车还是选零食呢？",
+    retellingPrompt: "你能假装自己是去买菜的大人，推着购物车给大家介绍一下你买了什么吗？"
+  },
+  {
     id: "fable_tortoise_hare",
     type: "fable",
     title: "龟兔赛跑 / The Tortoise and the Hare",
