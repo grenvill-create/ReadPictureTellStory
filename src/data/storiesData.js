@@ -833,5 +833,315 @@ export const storiesData = [
     ],
     lifeConnection: "成功是需要靠自己努力劳动的，不能总是想着不劳而获，靠运气的事情是不会天天发生的！",
     retellingPrompt: "你能表演一下农夫坐在树边等兔子时，无聊又期待的表情吗？"
+  },
+  {
+    id: "fable_fox_and_crow",
+    type: "fable",
+    title: "狐狸和乌鸦 / The Fox and the Crow",
+    image: "/images/fox_and_crow.png",
+    hotspots: [
+      { id: "fox", name: "狐狸", nameEn: "Fox", x: 30, y: 80, radius: 15 },
+      { id: "crow", name: "乌鸦", nameEn: "Crow", x: 60, y: 30, radius: 15 },
+      { id: "cheese", name: "奶酪", nameEn: "Cheese", x: 60, y: 35, radius: 10 }
+    ],
+    words: [
+      { zh: "狐狸", en: "Fox" },
+      { zh: "乌鸦", en: "Crow" },
+      { zh: "肉", en: "Meat/Cheese" }
+    ],
+    fableText: [
+      "有一天，乌鸦得到了一块美味的肉，她高兴地停在树枝上准备享用。",
+      "一只饥饿的狐狸路过，看到了乌鸦嘴里的肉，口水直流。",
+      "狐狸眼珠一转，对乌鸦说：‘亲爱的乌鸦，你的羽毛多漂亮啊！我想你的嗓音一定也像百灵鸟一样动听，你能给我唱首歌吗？’",
+      "乌鸦听了狐狸的赞美，心里得意极了，她张开嘴巴，想要大声歌唱。",
+      "可是，她刚一张嘴，嘴里的肉就掉了下来。狐狸马上叼起肉，头也不回地跑掉了。"
+    ],
+    parentGuide: "乌鸦为什么会张开嘴巴？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "狐狸看到了什么？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "狐狸真的是想听乌鸦唱歌吗？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "乌鸦发现肉被骗走后，心里会怎么想？", color: "#fa709a" }
+    ],
+    lifeConnection: "不要被好听的谎话骗了，别人夸你的时候，一定要保持清醒的头脑哦！",
+    retellingPrompt: "你能学一学狐狸骗人时那狡猾的表情吗？"
+  },
+  {
+    id: "fable_wolf_and_lamb",
+    type: "fable",
+    title: "狼和小羊 / The Wolf and the Lamb",
+    image: "/images/wolf_and_lamb.png",
+    hotspots: [
+      { id: "wolf", name: "狼", nameEn: "Wolf", x: 30, y: 50, radius: 20 },
+      { id: "lamb", name: "小羊", nameEn: "Lamb", x: 70, y: 60, radius: 15 },
+      { id: "stream", name: "小溪", nameEn: "Stream", x: 50, y: 70, radius: 15 }
+    ],
+    words: [
+      { zh: "狼", en: "Wolf" },
+      { zh: "小羊", en: "Lamb" },
+      { zh: "水", en: "Water" }
+    ],
+    fableText: [
+      "一只小羊在小溪边喝水。一只凶恶的狼走过来，想要吃掉小羊，但又想找个借口。",
+      "狼故意找茬说：‘你为什么把我要喝的水弄脏了？’",
+      "小羊委屈地回答：‘狼先生，你在上游，我在下游，我怎么会弄脏你的水呢？’",
+      "狼气急败坏地说：‘就算水没弄脏，那你去年为什么要偷偷骂我？’",
+      "小羊害怕地说：‘可是，我去年还没有出生呢！’狼不再讲理，大吼一声，直接扑向了小羊。"
+    ],
+    parentGuide: "狼为什么要找各种借口？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "狼先是用什么借口责怪小羊的？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "为什么狼的借口都不成立？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "如果你是小羊，你会怎么逃跑？", color: "#fa709a" }
+    ],
+    lifeConnection: "对于那些故意找茬的坏人，跟他们讲道理是没有用的，要想办法保护自己！",
+    retellingPrompt: "你能分别模仿一下大灰狼凶狠的声音和小羊害怕的声音吗？"
+  },
+  {
+    id: "fable_monkeys_fishing_moon",
+    type: "fable",
+    title: "猴子捞月 / Monkeys Fishing for the Moon",
+    image: "/images/monkeys_fishing_moon.png",
+    hotspots: [
+      { id: "monkey", name: "猴子", nameEn: "Monkey", x: 50, y: 40, radius: 20 },
+      { id: "moon_water", name: "水中的月亮", nameEn: "Moon in Water", x: 50, y: 80, radius: 15 },
+      { id: "tree", name: "大树", nameEn: "Tree", x: 20, y: 30, radius: 20 }
+    ],
+    words: [
+      { zh: "猴子", en: "Monkey" },
+      { zh: "月亮", en: "Moon" },
+      { zh: "水", en: "Water" }
+    ],
+    fableText: [
+      "一天晚上，一群猴子在树上玩耍。突然，一只小猴子指着井里大喊：‘不好了，月亮掉进井里啦！’",
+      "老猴子一看，水里真的有一个圆圆的月亮，赶紧招呼大家：‘快，我们赶紧把月亮捞上来！’",
+      "于是，猴子们一只抓着一只的尾巴，从树上倒挂下来，一直伸到水面上。",
+      "最下面的猴子伸出手去捞月亮，可是手一碰到水面，月亮就碎了。等水面平静下来，月亮又出现了。",
+      "猴子们捞了半天也没捞着。这时，老猴子抬头一看，拍着大腿说：‘哎呀，月亮好好的挂在天上呢，水里的只是倒影啊！’"
+    ],
+    parentGuide: "猴子们最后捞到月亮了吗？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "小猴子在井里看到了什么？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "为什么猴子一碰水，月亮就碎了？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "猴子们知道真相后会是什么表情？", color: "#fa709a" }
+    ],
+    lifeConnection: "遇到事情要先动脑筋想一想，看清楚是不是真的，不能盲目跟着别人做哦！",
+    retellingPrompt: "你能表演一下猴子们是怎么一只抓着一只挂在树上的吗？"
+  },
+  {
+    id: "fable_weighing_elephant",
+    type: "fable",
+    title: "曹冲称象 / Cao Chong Weighing the Elephant",
+    image: "/images/weighing_elephant.png",
+    hotspots: [
+      { id: "caochong", name: "曹冲", nameEn: "Cao Chong", x: 30, y: 50, radius: 15 },
+      { id: "elephant", name: "大象", nameEn: "Elephant", x: 60, y: 45, radius: 25 },
+      { id: "boat", name: "船", nameEn: "Boat", x: 50, y: 70, radius: 20 }
+    ],
+    words: [
+      { zh: "大象", en: "Elephant" },
+      { zh: "船", en: "Boat" },
+      { zh: "石头", en: "Stone" }
+    ],
+    fableText: [
+      "古时候，有人送给曹操一头大象。曹操想知道这头大象有多重，可是却没有那么大的秤。",
+      "大臣们想了很多办法，有的说砍一棵大树做秤，有的说把大象宰了切成块称，大家议论纷纷。",
+      "这时候，曹操七岁的儿子曹冲站了出来说：‘我有办法！把大象赶到船上，看船沉下多少，在船舷上做个记号。’",
+      "‘然后把大象牵上岸，往船里装石头，等船下沉到刚才的记号那里，再把石头的重量加起来，不就知道大象的重量了吗？’",
+      "曹操听了非常高兴，大家照着曹冲的办法，果然称出了大象的重量。"
+    ],
+    parentGuide: "曹冲是怎么想到这个好办法的？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "大人想出了哪些称大象的办法？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "为什么石头的重量加起来就是大象的重量？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "如果你在现场，你还能想出别的好办法吗？", color: "#fa709a" }
+    ],
+    lifeConnection: "遇到难题不要慌，多动脑筋换个角度思考，很多问题就能迎刃而解！",
+    retellingPrompt: "假装你是小曹冲，自豪地给大人们讲讲你的好办法吧！"
+  },
+  {
+    id: "fable_smashing_vat",
+    type: "fable",
+    title: "司马光砸缸 / Sima Guang Smashing the Vat",
+    image: "/images/smashing_vat.png",
+    hotspots: [
+      { id: "simaguang", name: "司马光", nameEn: "Sima Guang", x: 30, y: 60, radius: 15 },
+      { id: "vat", name: "水缸", nameEn: "Water Vat", x: 60, y: 55, radius: 20 },
+      { id: "child", name: "小孩", nameEn: "Child", x: 65, y: 65, radius: 10 }
+    ],
+    words: [
+      { zh: "石头", en: "Stone" },
+      { zh: "水缸", en: "Vat" },
+      { zh: "救人", en: "Save" }
+    ],
+    fableText: [
+      "司马光小时候，常常和小朋友们在院子里玩耍。院子里有一口大水缸，里面装满了水。",
+      "有个小朋友调皮，爬到了缸沿上，结果一不小心扑通一声掉进了水缸里。",
+      "水缸又高又大，别的小朋友都吓坏了，有的哭，有的跑去喊大人。",
+      "司马光却没有慌。他冷静地四处看了一下，搬起地上的一块大石头，使劲向水缸砸去。",
+      "哐当一声，水缸被砸破了一个大洞，水哗啦啦地流了出来，掉进缸里的小朋友得救了！"
+    ],
+    parentGuide: "别的小朋友遇到危险时是怎么做的？司马光是怎么做的？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "那个小朋友是怎么掉进水缸里的？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "司马光为什么要砸水缸而不是伸手去拉那个小朋友？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "大人赶来后会对司马光说什么？", color: "#fa709a" }
+    ],
+    lifeConnection: "遇到突发事件和危险的时候，不要害怕和慌张，要像司马光一样冷静勇敢地想办法！",
+    retellingPrompt: "你能表演一下司马光举起大石头砸缸的勇敢动作吗？"
+  },
+  {
+    id: "fable_drawing_legs_snake",
+    type: "fable",
+    title: "画蛇添足 / Drawing Legs on a Snake",
+    image: "/images/drawing_legs_snake.png",
+    hotspots: [
+      { id: "painter", name: "画画的人", nameEn: "Painter", x: 40, y: 50, radius: 20 },
+      { id: "snake", name: "蛇", nameEn: "Snake", x: 60, y: 70, radius: 15 },
+      { id: "brush", name: "毛笔", nameEn: "Brush", x: 50, y: 60, radius: 10 }
+    ],
+    words: [
+      { zh: "画画", en: "Draw" },
+      { zh: "蛇", en: "Snake" },
+      { zh: "脚", en: "Legs" }
+    ],
+    fableText: [
+      "古时候有几个人得到了一壶好酒，但是酒不够大家分。于是他们决定：每个人在地上画一条蛇，谁先画完，酒就给谁喝。",
+      "有个人画得特别快，一眨眼就画好了一条蛇。他端起酒壶准备喝酒。",
+      "但是他看了看别人，发现大家都没画完。他得意洋洋地想：‘我还有时间，不如给我的蛇添上几只脚吧！’",
+      "于是他拿起笔，开始给蛇画脚。就在这个时候，另一个人也画完了蛇，一把抢过酒壶说：‘蛇本来就没有脚，你画的根本不是蛇！’",
+      "说完，那个人把酒喝光了，而那个给蛇画脚的人只能在一旁干瞪眼。"
+    ],
+    parentGuide: "画画最快的那个人最后喝到酒了吗？为什么？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "他们是怎么决定谁喝酒的？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "为什么给蛇画脚反而输了比赛？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "如果他画完蛇直接喝酒，会怎么样？", color: "#fa709a" }
+    ],
+    lifeConnection: "做事情完成了就好，不要自作聪明去增加不必要的东西，有时候反而会弄巧成拙！",
+    retellingPrompt: "如果你是那个被抢走酒壶的人，你现在心情怎么样？"
+  },
+  {
+    id: "fable_stealing_bell",
+    type: "fable",
+    title: "掩耳盗铃 / Plugging Ears to Steal a Bell",
+    image: "/images/stealing_bell.png",
+    hotspots: [
+      { id: "thief", name: "小偷", nameEn: "Thief", x: 40, y: 50, radius: 20 },
+      { id: "bell", name: "铃铛", nameEn: "Bell", x: 60, y: 40, radius: 15 },
+      { id: "ears", name: "耳朵", nameEn: "Ears", x: 35, y: 45, radius: 10 }
+    ],
+    words: [
+      { zh: "铃铛", en: "Bell" },
+      { zh: "耳朵", en: "Ears" },
+      { zh: "捂住", en: "Cover" }
+    ],
+    fableText: [
+      "从前有个小偷，他看到一户人家门前挂着一口精美的大钟，就想把它偷走。",
+      "可是钟太重了，他打算用锤子把钟砸碎再搬走。但是锤子一敲，钟就发出了巨大的响声。",
+      "小偷吓了一跳，心想：‘这么大的声音，肯定会被别人听见的，这可怎么办？’",
+      "他灵机一动：‘对了！如果我捂住自己的耳朵，不就听不见了吗？这样别人肯定也听不见了！’",
+      "于是他紧紧捂住自己的耳朵，继续用力砸钟。结果，钟声把全村的人都引来了，把他抓了个正着。"
+    ],
+    parentGuide: "小偷为什么要把自己的耳朵捂起来？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "小偷想偷什么东西？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "小偷捂住自己的耳朵，别人真的听不见了吗？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "村里人看到小偷捂着耳朵砸钟，会觉得他怎么样？", color: "#fa709a" }
+    ],
+    lifeConnection: "做错事想掩饰是没用的，欺骗自己并不能改变事实，只能骗自己，骗不了别人！",
+    retellingPrompt: "你能表演一下小偷捂着耳朵砸铃铛的滑稽动作吗？"
+  },
+  {
+    id: "fable_mending_fold",
+    type: "fable",
+    title: "亡羊补牢 / Mending the Fold",
+    image: "/images/mending_fold.png",
+    hotspots: [
+      { id: "farmer", name: "农夫", nameEn: "Farmer", x: 40, y: 50, radius: 20 },
+      { id: "sheep", name: "羊", nameEn: "Sheep", x: 70, y: 60, radius: 15 },
+      { id: "fence", name: "羊圈围栏", nameEn: "Fence", x: 50, y: 45, radius: 20 }
+    ],
+    words: [
+      { zh: "羊", en: "Sheep" },
+      { zh: "狼", en: "Wolf" },
+      { zh: "修补", en: "Mend" }
+    ],
+    fableText: [
+      "有个牧羊人养了一群羊。有一天早上，他发现羊圈破了一个洞，少了一只羊，原来是夜里被狼叼走了。",
+      "邻居劝他说：‘赶快把羊圈修好吧，把那个洞堵上。’",
+      "牧羊人却不在乎地说：‘反正羊已经丢了，修羊圈还有什么用呢？’于是他没有听邻居的劝告。",
+      "第二天早上，他去放羊，发现又少了一只羊！原来狼又顺着那个破洞钻进来把羊叼走了。",
+      "这下牧羊人后悔极了，他马上拿起工具，把羊圈修得结结实实的。从此以后，他的羊再也没有丢过。"
+    ],
+    parentGuide: "牧羊人第一天为什么不修羊圈？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "牧羊人的羊为什么会丢失？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "如果他第二天还不修羊圈，会发生什么事情？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "狼第三天晚上再来的时候会怎么样？", color: "#fa709a" }
+    ],
+    lifeConnection: "做错事情或者出了问题不要紧，只要及时发现并改正，就能避免更大的损失！",
+    retellingPrompt: "你能表演一下牧羊人第二天发现又丢了一只羊时后悔的表情吗？"
+  },
+  {
+    id: "fable_proud_peacock",
+    type: "fable",
+    title: "骄傲的孔雀 / The Proud Peacock",
+    image: "/images/proud_peacock.png",
+    hotspots: [
+      { id: "peacock", name: "孔雀", nameEn: "Peacock", x: 50, y: 50, radius: 25 },
+      { id: "feathers", name: "尾羽", nameEn: "Feathers", x: 50, y: 30, radius: 20 },
+      { id: "birds", name: "小鸟", nameEn: "Birds", x: 20, y: 70, radius: 15 }
+    ],
+    words: [
+      { zh: "孔雀", en: "Peacock" },
+      { zh: "羽毛", en: "Feathers" },
+      { zh: "骄傲", en: "Proud" }
+    ],
+    fableText: [
+      "森林里有一只孔雀，她有长长的美丽的尾羽，走起路来总是高高地昂着头，非常骄傲。",
+      "每当她展开绚丽的尾巴，其他的小鸟都会惊叹地说：‘哇，太美了！’这让孔雀更加目中无人了。",
+      "有一天，一只仙鹤落在湖边。孔雀走过去嘲笑仙鹤：‘看看你那灰白色的羽毛，多难看啊，看看我多美！’",
+      "仙鹤平静地说：‘你的羽毛确实很漂亮，可是它太笨重了。’",
+      "仙鹤说完，展开双翅，轻盈地飞上了高高的蓝天。而孔雀只能站在地上，看着仙鹤在云端飞翔，再也骄傲不起来了。"
+    ],
+    parentGuide: "孔雀有什么值得骄傲的地方？仙鹤有什么本领？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "孔雀是怎么嘲笑仙鹤的？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "为什么孔雀最后再也骄傲不起来了？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "从那以后，孔雀对待其他小鸟的态度会有变化吗？", color: "#fa709a" }
+    ],
+    lifeConnection: "每个人都有自己的长处和短处，不要总是拿自己的长处去嘲笑别人的短处，要学会谦虚。",
+    retellingPrompt: "假装你是一只骄傲的孔雀，给大家展示一下你走路的样子吧！"
+  },
+  {
+    id: "fable_golden_goose",
+    type: "fable",
+    title: "生金蛋的鹅 / The Goose That Laid the Golden Eggs",
+    image: "/images/golden_goose.png",
+    hotspots: [
+      { id: "farmer", name: "农夫", nameEn: "Farmer", x: 30, y: 50, radius: 20 },
+      { id: "goose", name: "鹅", nameEn: "Goose", x: 60, y: 60, radius: 15 },
+      { id: "golden_egg", name: "金蛋", nameEn: "Golden Egg", x: 45, y: 65, radius: 10 }
+    ],
+    words: [
+      { zh: "鹅", en: "Goose" },
+      { zh: "金子", en: "Gold" },
+      { zh: "贪心", en: "Greedy" }
+    ],
+    fableText: [
+      "从前，有一对贫穷的农夫夫妇，他们养了一只神奇的鹅。这只鹅每天都会生下一只闪闪发光的金蛋！",
+      "靠着每天卖掉一只金蛋，农夫夫妇很快就变得非常富有，买了新房子和很多好吃的。",
+      "可是，农夫越来越贪心。他心想：‘这只鹅每天只生一只金蛋，太慢了！它的肚子里肯定装满了一大块金子。’",
+      "为了把肚子里的金子一次性全都拿出来，农夫残忍地把这只神奇的鹅杀掉了。",
+      "当他剖开鹅的肚子时，却发现里面和普通的鹅一模一样，根本没有金块。就这样，他们再也得不到金蛋了。"
+    ],
+    parentGuide: "农夫为什么要杀掉那只鹅？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "这只神奇的鹅每天会生出什么？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "鹅的肚子里为什么没有装满金块？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "失去鹅之后，农夫一家的生活会变成什么样？", color: "#fa709a" }
+    ],
+    lifeConnection: "做人不能太贪心，如果为了眼前的一点小利益而毁掉长远的好处，最后只会一无所有。",
+    retellingPrompt: "如果你是农夫的朋友，你会怎么劝告他不要杀这只鹅？"
   }
 ];
