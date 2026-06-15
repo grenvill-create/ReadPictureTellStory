@@ -1298,5 +1298,67 @@ export const storiesData = [
     ],
     lifeConnection: "贪得无厌的人最后什么也得不到，我们要懂得知足常乐！",
     retellingPrompt: "你能表演出渔夫妻子那副贪婪又生气的模样吗？"
+  },
+  {
+    id: "fable_lute_and_cow",
+    type: "fable",
+    title: "对牛弹琴 / Playing the Lute to a Cow",
+    image: "/images/lute_and_cow.png",
+    hotspots: [
+      { id: "scholar", name: "书生", nameEn: "Scholar", x: 30, y: 50, radius: 20 },
+      { id: "lute", name: "古琴", nameEn: "Lute", x: 45, y: 60, radius: 15 },
+      { id: "cow", name: "牛", nameEn: "Cow", x: 70, y: 50, radius: 25 }
+    ],
+    words: [
+      { zh: "弹琴", en: "Play Lute" },
+      { zh: "牛", en: "Cow" },
+      { zh: "听不懂", en: "Don't Understand" }
+    ],
+    fableText: [
+      "古时候有一个非常有名的音乐家，叫公明仪。他弹奏的古琴曲非常动听，人们都喜欢听。",
+      "有一天，他在郊外的草地上散步，看到一头老黄牛正在低头吃草。",
+      "公明仪突发奇想，觉得这么美的风景，应该配上高雅的音乐。于是他摆好古琴，对着黄牛弹奏起最高雅的曲子。",
+      "可是，老黄牛只顾着低头吃草，连头都没有抬一下。公明仪觉得是不是这首曲子太高深了？",
+      "于是他又弹了一首像蚊子嗡嗡叫、小牛呼唤妈妈的曲子。这一次，老黄牛停止了吃草，竖起耳朵听了起来。"
+    ],
+    parentGuide: "老黄牛为什么不听高雅的曲子？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "公明仪一开始给老黄牛弹了什么曲子？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "为什么老黄牛对小牛叫的声音有反应？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "如果公明仪一直弹高雅的曲子，老黄牛会怎么样？", color: "#fa709a" }
+    ],
+    lifeConnection: "说话和做事要看对象，如果不看对象随便说话，就像对牛弹琴一样，白费力气！",
+    retellingPrompt: "你能表演一下公明仪对着黄牛弹琴时认真的样子吗？"
+  },
+  {
+    id: "fable_snipe_and_clam",
+    type: "fable",
+    title: "鹬蚌相争 / The Snipe and the Clam",
+    image: "/images/snipe_and_clam.png",
+    hotspots: [
+      { id: "snipe", name: "鹬鸟", nameEn: "Snipe", x: 40, y: 40, radius: 20 },
+      { id: "clam", name: "蚌", nameEn: "Clam", x: 50, y: 60, radius: 15 },
+      { id: "fisherman", name: "渔翁", nameEn: "Fisherman", x: 80, y: 30, radius: 20 }
+    ],
+    words: [
+      { zh: "鸟", en: "Bird" },
+      { zh: "贝壳", en: "Shell" },
+      { zh: "渔翁", en: "Fisherman" }
+    ],
+    fableText: [
+      "有一天，一只河蚌张开壳，在河滩上晒太阳。突然，飞来一只长嘴的鹬鸟，一口啄住了河蚌的肉。",
+      "河蚌疼得立刻把壳合上，紧紧地夹住了鹬鸟的长嘴巴，怎么也不肯松开。",
+      "鹬鸟生气地说：‘今天不下雨，明天不下雨，你就会被干死在沙滩上！’",
+      "河蚌也毫不示弱地回答：‘今天不松口，明天不松口，你就会被饿死在这里！’",
+      "它们俩就这样互不相让，谁也不肯先松口。这时，一个打鱼的老头（渔翁）路过，毫不费力地把它们两个一起抓走了。"
+    ],
+    parentGuide: "鹬鸟和河蚌为什么会被渔翁一起抓走？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "鹬鸟啄了河蚌之后，河蚌是怎么做的？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "如果它们两个互相让一步，会发生什么？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "渔翁抓走它们之后会多高兴？", color: "#fa709a" }
+    ],
+    lifeConnection: "如果和别人互不相让、一直争吵，最后只会两败俱伤，让别人占了便宜哦！",
+    retellingPrompt: "你能表演一下鹬鸟和河蚌互相不服气、一直争吵的样子吗？"
   }
 ];
