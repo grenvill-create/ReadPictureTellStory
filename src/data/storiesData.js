@@ -1360,5 +1360,159 @@ export const storiesData = [
     ],
     lifeConnection: "如果和别人互不相让、一直争吵，最后只会两败俱伤，让别人占了便宜哦！",
     retellingPrompt: "你能表演一下鹬鸟和河蚌互相不服气、一直争吵的样子吗？"
+  },
+  {
+    id: "fable_man_of_qi",
+    type: "fable",
+    title: "杞人忧天 / The Man of Qi",
+    image: "/images/man_of_qi.png",
+    hotspots: [
+      { id: "man", name: "杞人", nameEn: "Man", x: 40, y: 60, radius: 25 },
+      { id: "sky", name: "天空", nameEn: "Sky", x: 50, y: 20, radius: 30 }
+    ],
+    words: [
+      { zh: "天空", en: "Sky" },
+      { zh: "害怕", en: "Scared" },
+      { zh: "掉下来", en: "Fall Down" }
+    ],
+    fableText: [
+      "古时候，杞国有一个人，他总是担心天会塌下来，地会陷下去。",
+      "他每天望着天空发愁，连饭都吃不下，觉也睡不好，整个人变得面黄肌瘦。",
+      "他的朋友看到他这样，就去开导他说：‘天是由气体组成的，到处都是气，怎么会塌下来呢？’",
+      "杞人听了，还是不放心，问：‘那日月星辰不会掉下来砸到我吗？’",
+      "朋友笑着说：‘日月星辰也只是发光的气体，就算掉下来也不会砸伤人的。’杞人听了这才放下心来。"
+    ],
+    parentGuide: "杞人为什么每天都不开心？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "杞人每天在担心什么事情？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "朋友是怎么开导杞人的？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "你觉得天会塌下来吗？为什么？", color: "#fa709a" }
+    ],
+    lifeConnection: "不要为了那些不可能发生的事情而白白担心，开开心心地过好每一天才是最重要的！",
+    retellingPrompt: "你能表演一下杞人看着天空发愁害怕的样子吗？"
+  },
+  {
+    id: "fable_box_and_pearl",
+    type: "fable",
+    title: "买椟还珠 / The Box and the Pearl",
+    image: "/images/box_and_pearl.png",
+    hotspots: [
+      { id: "merchant", name: "商人", nameEn: "Merchant", x: 30, y: 50, radius: 25 },
+      { id: "box", name: "木匣子", nameEn: "Wooden Box", x: 55, y: 55, radius: 15 },
+      { id: "pearl", name: "珍珠", nameEn: "Pearl", x: 75, y: 65, radius: 15 }
+    ],
+    words: [
+      { zh: "盒子", en: "Box" },
+      { zh: "珍珠", en: "Pearl" },
+      { zh: "买卖", en: "Trade" }
+    ],
+    fableText: [
+      "楚国有一个商人，他有一颗非常珍贵的珍珠。为了把珍珠卖个好价钱，他做了一个非常精美的木匣子。",
+      "他在木匣子上雕刻了美丽的花纹，还用香料把它熏得香喷喷的，最后把珍珠装了进去。",
+      "有一个郑国人看到了这个木匣子，觉得它太漂亮了，非常喜欢。",
+      "于是，郑国人花重金买下了这个木匣子。可是，你猜他做了什么？",
+      "他把木匣子里的那颗名贵珍珠拿出来还给了商人，只把木匣子高高兴兴地带走了。"
+    ],
+    parentGuide: "郑国人买走木匣子后，把什么还给了商人？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "商人为了卖珍珠，做了一个什么样的木匣子？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "为什么郑国人要把珍珠还给商人？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "商人收到退回来的珍珠，心里会怎么想？", color: "#fa709a" }
+    ],
+    lifeConnection: "做事情不要只看华丽的外表，而忽略了真正有价值的东西哦！",
+    retellingPrompt: "你能表演一下郑国人抱着木匣子开心，却把珍珠扔掉的动作吗？"
+  },
+  {
+    id: "fable_lord_ye_dragon",
+    type: "fable",
+    title: "叶公好龙 / Lord Ye's Love of Dragons",
+    image: "/images/lord_ye_dragon.png",
+    hotspots: [
+      { id: "lord_ye", name: "叶公", nameEn: "Lord Ye", x: 40, y: 65, radius: 20 },
+      { id: "dragon", name: "真龙", nameEn: "Real Dragon", x: 70, y: 30, radius: 30 },
+      { id: "window", name: "窗户", nameEn: "Window", x: 60, y: 40, radius: 20 }
+    ],
+    words: [
+      { zh: "龙", en: "Dragon" },
+      { zh: "喜欢", en: "Like" },
+      { zh: "害怕", en: "Scared" }
+    ],
+    fableText: [
+      "从前有一个叫叶公的人，他非常喜欢龙。他的衣服上绣着龙，酒杯上刻着龙，连家里的墙壁和柱子上都画满了龙。",
+      "天上的真龙听说地上有个人这么喜欢自己，非常感动，决定亲自去拜访他。",
+      "真龙把头伸进了叶公家的窗户，长长的尾巴拖到了大厅里。",
+      "叶公一看到这庞大、威风凛凛的真龙，顿时吓得面如土色。",
+      "他赶紧躲到桌子底下，连滚带爬地逃跑了。原来，他喜欢的只是画上的假龙，并不是真的龙呀！"
+    ],
+    parentGuide: "叶公看到真龙后是什么反应？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "叶公家里都有哪些东西上面有龙？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "真龙为什么要亲自去找叶公？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "真龙看到叶公被吓跑了，会有多失望？", color: "#fa709a" }
+    ],
+    lifeConnection: "有些人口头上说喜欢一件事，但当那件事真的发生时，他们却会退缩。我们要做到表里如一！",
+    retellingPrompt: "你能表演一下叶公看到真龙后，吓得躲到桌子底下的样子吗？"
+  },
+  {
+    id: "fable_startled_bird",
+    type: "fable",
+    title: "惊弓之鸟 / The Startled Bird",
+    image: "/images/startled_bird.png",
+    hotspots: [
+      { id: "archer", name: "射手", nameEn: "Archer", x: 25, y: 70, radius: 25 },
+      { id: "bow", name: "空弓", nameEn: "Empty Bow", x: 35, y: 55, radius: 15 },
+      { id: "bird", name: "大雁", nameEn: "Wild Goose", x: 70, y: 25, radius: 20 }
+    ],
+    words: [
+      { zh: "弓箭", en: "Bow" },
+      { zh: "鸟", en: "Bird" },
+      { zh: "掉下", en: "Fall Down" }
+    ],
+    fableText: [
+      "战国时期，有一个神箭手叫更羸。有一天，他和魏王散步，看到天上有只大雁在孤单地慢慢飞着。",
+      "更羸对魏王说：‘大王，我不用箭，只要拉一下弓弦，就能让那只大雁掉下来。’",
+      "魏王不相信。于是，更羸拿起弓，没有搭箭，只是用力拨了一下空弓弦，发出‘嘣’的一声巨响。",
+      "天上的大雁听到弓弦响，吓得拼命往高处飞，结果伤口裂开，‘扑通’一声掉到了地上。",
+      "更羸解释说：‘这只大雁受过箭伤还没好，心里非常害怕。听到弓弦响，它以为又要被射中了，一紧张就掉下来了。’"
+    ],
+    parentGuide: "神箭手更羸为什么没有用箭就把大雁射下来了？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "更羸是用什么东西把大雁打下来的？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "大雁为什么听到弓弦响就会拼命往高处飞？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "如果这只大雁以前没有受过伤，它听到弓弦声会掉下来吗？", color: "#fa709a" }
+    ],
+    lifeConnection: "受过惊吓的人遇到一点类似的情况就会非常害怕，我们要学会勇敢地克服内心的恐惧！",
+    retellingPrompt: "你能表演一下射手拉响空弓弦，大雁被吓得掉下来的样子吗？"
+  },
+  {
+    id: "fable_foolish_old_man",
+    type: "fable",
+    title: "愚公移山 / The Foolish Old Man",
+    image: "/images/foolish_old_man.png",
+    hotspots: [
+      { id: "old_man", name: "愚公", nameEn: "Old Man", x: 30, y: 65, radius: 25 },
+      { id: "hoe", name: "锄头", nameEn: "Hoe", x: 45, y: 55, radius: 15 },
+      { id: "mountain", name: "大山", nameEn: "Mountain", x: 75, y: 40, radius: 35 }
+    ],
+    words: [
+      { zh: "爷爷", en: "Grandpa" },
+      { zh: "挖土", en: "Dig Dirt" },
+      { zh: "大山", en: "Mountain" }
+    ],
+    fableText: [
+      "古时候有一个叫愚公的近九十岁老爷爷，他家门前被两座大山挡住了去路，出门非常不方便。",
+      "于是，愚公决定带领全家人，用锄头和簸箕把这两座大山挖走，把土块运到海边扔掉。",
+      "有一个叫智叟的人嘲笑他说：‘你都这么老了，怎么可能挖得平这两座大山呢？太可笑了！’",
+      "愚公毫不动摇地说：‘我死了还有儿子，儿子死了还有孙子，子子孙孙无穷无尽，而山是不会变高的，总有一天能挖平！’",
+      "天帝被愚公坚持不懈的精神感动了，派了两个神仙把这两座大山搬走了。"
+    ],
+    parentGuide: "智叟为什么嘲笑愚公？愚公是怎么回答的？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "愚公为什么要带全家人去挖山？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "为什么天帝最后派神仙把山搬走了？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "如果愚公半途而废，大山会被搬走吗？", color: "#fa709a" }
+    ],
+    lifeConnection: "只要我们有恒心、有毅力，坚持不懈地去做一件事，再大的困难也一定能够克服！",
+    retellingPrompt: "你能表演一下老爷爷拿着锄头用力挖山的动作吗？"
   }
 ];
