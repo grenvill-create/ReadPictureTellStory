@@ -1143,5 +1143,160 @@ export const storiesData = [
     ],
     lifeConnection: "做人不能太贪心，如果为了眼前的一点小利益而毁掉长远的好处，最后只会一无所有。",
     retellingPrompt: "如果你是农夫的朋友，你会怎么劝告他不要杀这只鹅？"
+  },
+  {
+    id: "fable_spear_and_shield",
+    type: "fable",
+    title: "自相矛盾 / The Spear and the Shield",
+    image: "/images/spear_and_shield.png",
+    hotspots: [
+      { id: "merchant", name: "商人", nameEn: "Merchant", x: 40, y: 50, radius: 20 },
+      { id: "spear", name: "长矛", nameEn: "Spear", x: 30, y: 40, radius: 15 },
+      { id: "shield", name: "盾牌", nameEn: "Shield", x: 60, y: 50, radius: 15 }
+    ],
+    words: [
+      { zh: "商人", en: "Merchant" },
+      { zh: "矛", en: "Spear" },
+      { zh: "盾", en: "Shield" }
+    ],
+    fableText: [
+      "古时候有个楚国人，他在集市上卖长矛和盾牌。",
+      "他先举起自己的盾牌，大声夸口说：‘我的盾牌非常坚固，无论什么尖锐的东西都刺不穿它！’",
+      "过了一会儿，他又举起自己的长矛，大声叫卖：‘我的长矛非常锋利，无论什么坚固的东西，它都能刺穿！’",
+      "旁边看热闹的人听了，笑着问他：‘如果用你的长矛，去刺你的盾牌，结果会怎么样呢？’",
+      "那个卖兵器的人听了，张口结舌，半天说不出一句话来。"
+    ],
+    parentGuide: "大家为什么会笑话这个卖兵器的人？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "商人是怎么夸赞自己的长矛和盾牌的？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "为什么他无法回答路人的问题？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "你觉得他的长矛能不能刺穿他的盾牌？", color: "#fa709a" }
+    ],
+    lifeConnection: "我们说话做事要前后一致，不能互相冲突，不然就会像这个商人一样闹笑话！",
+    retellingPrompt: "你能学着商人的语气，夸张地叫卖一下长矛和盾牌吗？"
+  },
+  {
+    id: "fable_buying_shoes",
+    type: "fable",
+    title: "郑人买履 / A Man from Zheng Buying Shoes",
+    image: "/images/buying_shoes.png",
+    hotspots: [
+      { id: "man", name: "郑人", nameEn: "Man", x: 30, y: 50, radius: 20 },
+      { id: "shoes", name: "鞋子", nameEn: "Shoes", x: 60, y: 60, radius: 15 },
+      { id: "string", name: "尺码绳", nameEn: "Measuring String", x: 45, y: 55, radius: 10 }
+    ],
+    words: [
+      { zh: "买鞋", en: "Buy Shoes" },
+      { zh: "尺子", en: "Measure" },
+      { zh: "脚", en: "Foot" }
+    ],
+    fableText: [
+      "古时候，郑国有一个人想去集市上买一双新鞋。",
+      "他在家里先量好了自己脚的尺寸，并把尺码记在了一根绳子上。可是出门的时候，他走得太急，把绳子忘在家里了。",
+      "到了集市的鞋店，他挑中了一双鞋，正准备试穿，突然说：‘哎呀，我忘了带量好的尺码了！’说完转身就往家里跑。",
+      "等他拿了绳子满头大汗地跑回集市时，鞋店已经关门了。他一双鞋也没买成。",
+      "有人问他：‘你为什么不直接用自己的脚去试穿鞋子呢？’他认真地回答：‘我只相信尺码，不相信自己的脚！’"
+    ],
+    parentGuide: "郑国人买到鞋子了吗？为什么没买到？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "郑国人回家拿什么东西去了？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "为什么大家觉得他很可笑？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "如果他相信自己的脚，那天他能买到鞋吗？", color: "#fa709a" }
+    ],
+    lifeConnection: "规矩和工具是死的，人是活的，遇到问题要知道变通，不能死脑筋哦！",
+    retellingPrompt: "假装你是那个郑国人，你会怎么回答别人的疑问？"
+  },
+  {
+    id: "fable_bow_and_snake",
+    type: "fable",
+    title: "杯弓蛇影 / Mistaking a Bow for a Snake",
+    image: "/images/bow_and_snake.png",
+    hotspots: [
+      { id: "man", name: "男人", nameEn: "Man", x: 40, y: 50, radius: 20 },
+      { id: "cup", name: "酒杯", nameEn: "Cup", x: 50, y: 60, radius: 15 },
+      { id: "bow", name: "弓", nameEn: "Bow", x: 70, y: 30, radius: 15 }
+    ],
+    words: [
+      { zh: "弓", en: "Bow" },
+      { zh: "蛇", en: "Snake" },
+      { zh: "酒杯", en: "Cup" }
+    ],
+    fableText: [
+      "古时候有个叫乐广的人，请朋友到家里喝酒。朋友端起酒杯，突然发现杯子里有一条小蛇在游动。",
+      "朋友心里很害怕，但又不好意思说，只好硬着头皮把酒喝了下去。回家后，他就因为害怕生了一场大病。",
+      "乐广去看望他，问他为什么生病。朋友说：‘那天在你家喝酒，杯子里有一条小蛇，我喝下去以后觉得肚子里很不舒服。’",
+      "乐广觉得很奇怪，回家后坐在朋友坐过的地方一看，原来墙上挂着一把弓，弓的影子正好落在酒杯里，看起来就像一条游动的蛇。",
+      "乐广马上把这件事告诉了朋友，朋友恍然大悟，病立刻就好了。"
+    ],
+    parentGuide: "酒杯里真的有蛇吗？那是什么？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "朋友为什么会生病？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "知道真相后，朋友的病为什么立刻就好了？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "如果乐广没有去调查真相，朋友会一直生病吗？", color: "#fa709a" }
+    ],
+    lifeConnection: "有时候我们害怕的东西，其实并不存在，只要弄清楚事实真相，就不会感到害怕了！",
+    retellingPrompt: "你能表演一下朋友发现酒杯里有蛇时，那种害怕又不敢说的表情吗？"
+  },
+  {
+    id: "fable_grinding_needle",
+    type: "fable",
+    title: "铁杵磨成针 / Grinding an Iron Pestle into a Needle",
+    image: "/images/grinding_needle.png",
+    hotspots: [
+      { id: "grandma", name: "老奶奶", nameEn: "Grandma", x: 40, y: 50, radius: 20 },
+      { id: "boy", name: "小男孩", nameEn: "Boy", x: 70, y: 50, radius: 15 },
+      { id: "iron", name: "铁杵", nameEn: "Iron Pestle", x: 50, y: 60, radius: 15 }
+    ],
+    words: [
+      { zh: "铁杵", en: "Iron Pestle" },
+      { zh: "针", en: "Needle" },
+      { zh: "努力", en: "Effort" }
+    ],
+    fableText: [
+      "大诗人李白小的时候很贪玩，不爱学习。有一天，他逃学在街上闲逛，走到了一条小河边。",
+      "他看到一位白发苍苍的老奶奶，正蹲在河边的石头上，吃力地磨着一根粗大的铁棍。",
+      "李白觉得很奇怪，就走过去问：‘老奶奶，您在磨什么呀？’老奶奶头也不抬地说：‘我要把它磨成一根绣花针。’",
+      "李白吃惊地说：‘这么粗的铁棍，怎么可能磨成针呢？’老奶奶笑着说：‘只要功夫深，铁杵磨成针。我每天不停地磨，它总会越来越细的。’",
+      "李白听了老奶奶的话，非常惭愧。从此他再也不逃学了，每天刻苦读书，后来成了一位伟大的诗人。"
+    ],
+    parentGuide: "老奶奶的坚持给了李白什么启发？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "老奶奶在河边磨什么东西？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "李白听了老奶奶的话后，为什么感到惭愧？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "如果老奶奶中途放弃了，铁杵还能变成针吗？", color: "#fa709a" }
+    ],
+    lifeConnection: "做任何事情都不能半途而废，只要我们坚持不懈地努力，再困难的事情也能做成！",
+    retellingPrompt: "假装你是那位老奶奶，语重心长地对小李白说出那句名言吧！"
+  },
+  {
+    id: "fable_fisherman_and_fish",
+    type: "fable",
+    title: "渔夫和金鱼 / The Fisherman and the Golden Fish",
+    image: "/images/fisherman_and_fish.png",
+    hotspots: [
+      { id: "fisherman", name: "渔夫", nameEn: "Fisherman", x: 30, y: 50, radius: 20 },
+      { id: "gold_fish", name: "金鱼", nameEn: "Golden Fish", x: 60, y: 60, radius: 15 },
+      { id: "sea", name: "大海", nameEn: "Sea", x: 70, y: 40, radius: 20 }
+    ],
+    words: [
+      { zh: "渔夫", en: "Fisherman" },
+      { zh: "金鱼", en: "Golden Fish" },
+      { zh: "愿望", en: "Wish" }
+    ],
+    fableText: [
+      "从前，有一位老渔夫和他的妻子住在大海边破旧的茅草房里。有一天，渔夫打到了一条会说话的魔法金鱼。",
+      "金鱼哀求说：‘放了我吧，我会满足你所有的愿望！’善良的渔夫什么也没要，就把金鱼放回了大海。",
+      "渔夫的妻子知道后非常生气，逼着渔夫去找金鱼，要一个新木盆、一座大房子，甚至要当高贵的统治者。",
+      "金鱼一次又一次地满足了他们的愿望。可是，妻子越来越贪婪，最后竟然要求当海上的女霸王，还要金鱼亲自来伺候她！",
+      "金鱼听了，什么话也没说，甩了甩尾巴游进了深海。当渔夫回到家时，发现一切又变回了原来破旧的茅草房和一个破木盆。"
+    ],
+    parentGuide: "渔夫的妻子最后得到了什么？为什么？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "善良的老渔夫最初向金鱼要了什么？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "金鱼最后为什么一句话都没说就游走了？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "如果你抓到了这条金鱼，你会许什么愿望？", color: "#fa709a" }
+    ],
+    lifeConnection: "贪得无厌的人最后什么也得不到，我们要懂得知足常乐！",
+    retellingPrompt: "你能表演出渔夫妻子那副贪婪又生气的模样吗？"
   }
 ];
