@@ -1346,3 +1346,42 @@
   line-height: 1.4;
   margin-top: 2px;
 }
+
+/* Pinyin Styles */
+.pinyin-toggle-btn {
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  border: 2px solid var(--color-border);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.pinyin-toggle-btn:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.pinyin-toggle-btn.active {
+  background-color: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+}
+
+.pinyin-text-wrapper {
+  display: inline;
+}
+
+.pinyin-ruby {
+  ruby-position: over;
+  margin: 0 2px;
+}
+
+.pinyin-ruby rt {
+  font-size: 0.6em;
+  color: var(--color-text-light);
+  font-family: Arial, sans-serif;
+  font-weight: normal;
+}

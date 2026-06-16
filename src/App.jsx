@@ -1,6 +1,37 @@
 import React, { useState, useEffect, useRef } from "react";
 import { storiesData } from "./data/storiesData";
+import { scenesData } from "./data/scenesData";
+import MemoryGame from "./MemoryGame";
+import SceneExplorer from "./SceneExplorer";
+import MagneticBoard from "./MagneticBoard";
+import { pinyin } from "pinyin-pro";
 import "./App.css";
+
+// Helper component to render text with pinyin ruby tags
+const PinyinText = ({ text, showPinyin }) => {
+  if (!text) return null;
+  if (!showPinyin) return <span>{text}</span>;
+  
+  const charArray = text.split("");
+  const pinyinArray = pinyin(text, { type: "array" });
+  
+  return (
+    <span className="pinyin-text-wrapper">
+      {charArray.map((char, index) => {
+        const isChinese = /[\u4e00-\u9fa5]/.test(char);
+        if (isChinese && pinyinArray[index]) {
+          return (
+            <ruby key={index} className="pinyin-ruby">
+              {char}
+              <rt>{pinyinArray[index]}</rt>
+            </ruby>
+          );
+        }
+        return <span key={index}>{char}</span>;
+      })}
+    </span>
+  );
+};
 
 // Decorative Stickers mapped to Story IDs
 const STICKERS = {
@@ -89,6 +120,8 @@ const getImageUrl = (path) => {
 
 export default function App() {
   const [currentStoryId, setCurrentStoryId] = useState(null);
+  const [currentSceneId, setCurrentSceneId] = useState(null);
+  const [showMagneticBoard, setShowMagneticBoard] = useState(false);
   const [currentStep, setCurrentStep] = useState(1); // 1: Explore, 2: Speak, 3: Assemble, 4: Storybook
   const [activeHotspot, setActiveHotspot] = useState(null);
   const [exploredHotspots, setExploredHotspots] = useState([]);
@@ -104,6 +137,21 @@ export default function App() {
   // Audio playback state
   const [isPlaying, setIsPlaying] = useState(false);
   const [activePlaybackUrl, setActivePlaybackUrl] = useState(null);
+
+  // Global Pinyin toggle state
+  const [showPinyin, setShowPinyin] = useState(() => {
+    try {
+      const saved = localStorage.getItem("story_show_pinyin");
+      return saved ? JSON.parse(saved) : false;
+    } catch (e) {
+      return false;
+    }
+  });
+
+  useEffect(() => {
+    localStorage.setItem("story_show_pinyin", JSON.stringify(showPinyin));
+  }, [showPinyin]);
+
   
   // Persistent recordings state for the active session (restored from IndexedDB)
   const [recordings, setRecordings] = useState({});
@@ -658,9 +706,17 @@ export default function App() {
           <span className="logo-icon">🌟</span>
           <h1 className="logo-text">看图说话小乐园</h1>
         </div>
-        <button onClick={handleOpenParentDashboard} className="parent-btn bounce-hover">
-          <span>🧸</span> 家长专区 / Dashboard
-        </button>
+        <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
+          <button 
+            onClick={() => setShowPinyin(!showPinyin)} 
+            className={`pinyin-toggle-btn bounce-hover ${showPinyin ? 'active' : ''}`}
+          >
+            {showPinyin ? "🔤 隐藏拼音" : "🔤 显示拼音"}
+          </button>
+          <button onClick={handleOpenParentDashboard} className="parent-btn bounce-hover">
+            <span>🧸</span> 家长专区 / Dashboard
+          </button>
+        </div>
       </header>
 
       {/* Mascot Speech Bubble */}
@@ -670,9 +726,59 @@ export default function App() {
       </div>
 
       {/* Main Content Area */}
-      {currentStoryId === null ? (
+      {showMagneticBoard ? (
+        <MagneticBoard onBack={() => setShowMagneticBoard(false)} />
+      ) : currentSceneId !== null ? (
+        <SceneExplorer 
+          scene={scenesData.find(s => s.id === currentSceneId)} 
+          onBack={() => setCurrentSceneId(null)} 
+          speakText={speakText}
+        />
+      ) : currentStoryId === null ? (
         /* Dashboard Scene Selection */
         <div className="dashboard-container">
+          {/* Scenes Exploration Section */}
+          <div className="dashboard-header-row" style={{ marginTop: '0' }}>
+            <div>
+              <h2 className="dashboard-title" style={{marginBottom: 0}}>世界探索 / World Exploration</h2>
+              <p className="dashboard-subtitle" style={{marginBottom: 0}}>超大自由探索场景，点哪学哪！</p>
+            </div>
+          </div>
+          
+          <div className="scenes-grid" style={{ display: 'flex', gap: '20px', overflowX: 'auto', padding: '10px 0', marginBottom: '40px' }}>
+            <div 
+              className="story-card bounce-hover" 
+              style={{ flex: '0 0 300px', cursor: 'pointer', border: '4px solid var(--color-purple)' }}
+              onClick={() => setShowMagneticBoard(true)}
+            >
+              <div className="story-card-image-wrapper">
+                <img src="/images/storyboard_bg.png" alt="磁力贴故事板" className="story-card-image" style={{ height: '160px' }} />
+                <div className="new-badge" style={{ background: 'var(--color-purple)' }}>✨ 创作</div>
+              </div>
+              <div className="story-card-info">
+                <h3 className="story-card-title">🧲 磁力贴故事板</h3>
+                <p className="story-card-description" style={{ color: 'var(--color-purple)' }}>自由拼贴，讲自己的故事！</p>
+              </div>
+            </div>
+
+            {scenesData.map(scene => (
+              <div 
+                key={scene.id} 
+                className="story-card bounce-hover" 
+                style={{ flex: '0 0 300px', cursor: 'pointer' }}
+                onClick={() => setCurrentSceneId(scene.id)}
+              >
+                <div className="story-card-image-wrapper">
+                  <img src={getImageUrl(scene.image)} alt={scene.title} className="story-card-image" style={{ height: '160px' }} />
+                </div>
+                <div className="story-card-info">
+                  <h3 className="story-card-title">{scene.title.split("/")[0]}</h3>
+                  <p className="story-card-description" style={{ color: 'var(--color-primary)' }}>开始探索 🔍</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
           <div className="dashboard-header-row">
             <div>
               <h2 className="dashboard-title" style={{marginBottom: 0}}>日常图画 / Daily Life</h2>
@@ -929,7 +1035,9 @@ export default function App() {
               <div className="parent-guide-panel">
                 <div className="guide-section">
                   <h4 className="guide-title">📖 看图猜故事 (Picture Walk)</h4>
-                  <p className="guide-text">{currentStory.parentGuide}</p>
+                  <p className="guide-text">
+                    <PinyinText text={currentStory.parentGuide} showPinyin={showPinyin} />
+                  </p>
                 </div>
                 
                 {currentStory.dialogicQuestions && currentStory.dialogicQuestions.length > 0 && (
@@ -941,7 +1049,9 @@ export default function App() {
                           <div className="question-badge" style={{ backgroundColor: q.color || "var(--color-purple)" }}>
                             {q.label}
                           </div>
-                          <div className="question-text">{q.text}</div>
+                          <div className="question-text">
+                            <PinyinText text={q.text} showPinyin={showPinyin} />
+                          </div>
                         </div>
                       ))}
                     </div>
@@ -952,7 +1062,7 @@ export default function App() {
                   <div className="guide-section">
                     <h4 className="guide-title">🔗 生活连连看 (Life Connection)</h4>
                     <p className="guide-text" style={{ borderColor: "var(--color-green)", backgroundColor: "rgba(103, 225, 163, 0.05)" }}>
-                      {currentStory.lifeConnection}
+                      <PinyinText text={currentStory.lifeConnection} showPinyin={showPinyin} />
                     </p>
                   </div>
                 )}
@@ -961,7 +1071,7 @@ export default function App() {
                   <div className="guide-section" style={{ marginBottom: 0 }}>
                     <h4 className="guide-title">🎭 故事小舞台 (Retelling & Roleplay)</h4>
                     <p className="guide-text" style={{ borderColor: "var(--color-yellow)", backgroundColor: "rgba(255, 208, 67, 0.05)" }}>
-                      {currentStory.retellingPrompt}
+                      <PinyinText text={currentStory.retellingPrompt} showPinyin={showPinyin} />
                     </p>
                   </div>
                 )}
@@ -982,7 +1092,7 @@ export default function App() {
                 <div className="fable-text-container" style={{ flexGrow: 1, overflowY: 'auto', background: 'rgba(255,255,255,0.6)', padding: '16px', borderRadius: '12px', border: '1px solid #eee' }}>
                   {currentStory.fableText && currentStory.fableText.map((paragraph, idx) => (
                     <p key={idx} className="fable-paragraph" style={{ fontSize: '20px', lineHeight: '1.6', marginBottom: '16px', color: '#333' }}>
-                      {paragraph}
+                      <PinyinText text={paragraph} showPinyin={showPinyin} />
                     </p>
                   ))}
                 </div>
@@ -1026,7 +1136,7 @@ export default function App() {
                 {/* Step Navigator */}
             <div className="step-navigator">
               <div className="step-indicator">
-                {[1, 2, 3, 4].map(step => {
+                {[1, 2, 3, 4, 5].map(step => {
                   const stars = starsCollected[currentStory.id] || [false, false, false];
                   const isCompleted = step === 1 ? exploredHotspots.length === currentStory.hotspots.length :
                                       step === 2 ? stars[1] :
@@ -1040,7 +1150,7 @@ export default function App() {
                         setActiveHotspot(null);
                       }}
                     >
-                      {step === 4 ? "📖" : step}
+                      {step === 5 ? "🎴" : step === 4 ? "📖" : step}
                     </button>
                   );
                 })}
@@ -1050,6 +1160,7 @@ export default function App() {
                 {currentStep === 2 && "第二步：自由说说"}
                 {currentStep === 3 && "第三步：词卡拼句"}
                 {currentStep === 4 && "第四步：双语故事书"}
+                {currentStep === 5 && "第五步：记忆翻牌赛"}
               </div>
             </div>
 
@@ -1241,7 +1352,7 @@ export default function App() {
                         className={`story-sentence-item ${activeBookSentence === 1 ? "active" : ""}`}
                         onClick={() => handleReadSentence(currentStory.sampleEssayZh, currentStory.sampleEssayEn, 1)}
                       >
-                        <span className="sentence-zh">🇨🇳 {currentStory.sampleEssayZh}</span>
+                        <span className="sentence-zh">🇨🇳 <PinyinText text={currentStory.sampleEssayZh} showPinyin={showPinyin} /></span>
                         <span className="sentence-en">🇬🇧 {currentStory.sampleEssayEn}</span>
                       </div>
                     </div>
@@ -1256,14 +1367,49 @@ export default function App() {
                     >
                       ⬅ 返回画册
                     </button>
-                    <button 
-                      onClick={handleNextStory} 
-                      className="next-step-btn"
-                      style={{ background: "var(--color-green)", flex: 1, marginTop: 0 }}
-                    >
-                      下一本 ➡
-                    </button>
+                      <button 
+                        onClick={() => setCurrentStep(5)} 
+                        className="next-step-btn"
+                        style={{ background: "var(--color-pink)", flex: 1, marginTop: 0 }}
+                      >
+                        下一步：记忆翻牌 ➡
+                      </button>
+                    </div>
                   </div>
+                </div>
+              </div>
+            )}
+
+            {/* Step 5: Memory Game */}
+            {currentStep === 5 && (
+              <div className="step-content-card">
+                <h3 className="step-heading">🎴 记忆翻牌挑战赛</h3>
+                <p className="step-instructions">
+                  翻开卡片，把中文词语和对应的英文配对起来吧！看看你的记忆力有多棒！
+                </p>
+
+                <MemoryGame 
+                  words={currentStory.words} 
+                  onComplete={() => {
+                    speakText("太棒了！翻牌成功！", "zh-CN");
+                  }} 
+                />
+
+                <div style={{ display: "flex", gap: "12px", marginTop: "30px" }}>
+                  <button 
+                    onClick={() => setCurrentStoryId(null)} 
+                    className="next-step-btn"
+                    style={{ background: "var(--color-purple)", flex: 1, marginTop: 0 }}
+                  >
+                    ⬅ 返回画册
+                  </button>
+                  <button 
+                    onClick={handleNextStory} 
+                    className="next-step-btn"
+                    style={{ background: "var(--color-green)", flex: 1, marginTop: 0 }}
+                  >
+                    下一本 ➡
+                  </button>
                 </div>
               </div>
             )}

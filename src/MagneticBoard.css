@@ -1,0 +1,108 @@
+.magnetic-board-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+.board-instructions {
+  background: rgba(255,255,255,0.8);
+  padding: 15px;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 18px;
+  color: #555;
+  font-weight: bold;
+}
+
+.board-canvas {
+  position: relative;
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  border: 8px solid white;
+  touch-action: none; /* Crucial for pointer events */
+}
+
+.board-bg {
+  width: 100%;
+  height: auto;
+  display: block;
+  pointer-events: none;
+}
+
+.board-sticker {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  user-select: none;
+  filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.3));
+  transition: transform 0.1s;
+}
+
+.board-sticker:active {
+  transform: translate(-50%, -50%) scale(1.1);
+  filter: drop-shadow(4px 8px 12px rgba(0,0,0,0.4));
+}
+
+.sticker-delete-btn {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 24px;
+  height: 24px;
+  background: #ff4757;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.board-sticker:hover .sticker-delete-btn {
+  opacity: 1;
+}
+
+.sticker-palette {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  background: rgba(255,255,255,0.7);
+  padding: 15px;
+  border-radius: 20px;
+  justify-content: center;
+}
+
+.palette-item {
+  width: 50px;
+  height: 50px;
+  font-size: 30px;
+  background: white;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.palette-item.clear-btn {
+  font-size: 16px;
+  width: auto;
+  padding: 0 15px;
+  font-weight: bold;
+  color: #ff4757;
+  border-color: #ff4757;
+}
+
+.storyboard-controls {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
