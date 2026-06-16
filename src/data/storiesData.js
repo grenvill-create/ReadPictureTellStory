@@ -2287,5 +2287,129 @@ export const storiesData = [
     ],
     lifeConnection: "在家里有好吃的，我们也要像孔融一样，懂得和家人分享，不要一个人独吞哦！你上次分享东西给了谁？",
     retellingPrompt: "如果你是小孔融，当爸爸问你为什么拿小梨的时候，请用有礼貌的声音再说一遍你的理由。"
+  },
+  {
+    id: "fable_ants_moving",
+    type: "fable",
+    title: "蚂蚁搬家 / The Ants Moving House",
+    image: "/images/ants_moving.jpg",
+    hotspots: [
+      { id: "ants", name: "蚂蚁队伍", nameEn: "Ant Parade", x: 50, y: 70, radius: 20 },
+      { id: "crumb", name: "面包屑", nameEn: "Bread Crumb", x: 30, y: 65, radius: 10 },
+      { id: "anthill", name: "蚁穴", nameEn: "Anthill", x: 80, y: 60, radius: 12 }
+    ],
+    words: [
+      { zh: "蚂蚁", en: "Ant" },
+      { zh: "搬家", en: "Move" },
+      { zh: "合作", en: "Teamwork" }
+    ],
+    fableText: [
+      "一群小蚂蚁住在草地上的一个小蚁穴里。有一天，天空变得灰蒙蒙的，蚂蚁队长闻了闻空气说：'要下大雨了，我们必须赶紧搬到高处去！'",
+      "蚂蚁们立刻行动起来。它们排成一条整齐的长队，有的搬粮食，有的搬蚁卵，有的搬树叶当雨伞。",
+      "路上，一只小蚂蚁发现了一块大面包屑，比它自己大十倍！它一个人根本搬不动，急得团团转。",
+      "但是很快，四五只蚂蚁跑来帮忙。它们齐心协力，喊着'一二三！'，一起把大面包屑抬了起来，稳稳地搬回了新家。",
+      "就在最后一只蚂蚁进洞的时候，豆大的雨点噼里啪啦地落了下来。大家安全地待在新家里，开心地分享着美味的面包屑。"
+    ],
+    parentGuide: "小蚂蚁们为什么要搬家呢？它们搬家的时候是怎么配合的？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "蚂蚁队长是怎么知道要下雨了的？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "为什么一只小蚂蚁搬不动面包屑，但几只蚂蚁一起就能搬动了？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "如果雨停了以后，蚂蚁们还会搬回原来的家吗？", color: "#fa709a" }
+    ],
+    lifeConnection: "蚂蚁虽然个头小，但团结合作就能做成大事！你在幼儿园和小朋友一起完成过什么事情？",
+    retellingPrompt: "假装你是蚂蚁队长，你大声喊一句命令，让所有蚂蚁赶快行动起来！"
+  },
+  {
+    id: "fable_careless_bear",
+    type: "fable",
+    title: "小马虎 / The Careless Little Bear",
+    image: "/images/careless_bear.jpg",
+    hotspots: [
+      { id: "bear", name: "小熊", nameEn: "Little Bear", x: 45, y: 55, radius: 15 },
+      { id: "backpack", name: "书包", nameEn: "Backpack", x: 25, y: 65, radius: 10 },
+      { id: "school", name: "学校", nameEn: "School", x: 80, y: 40, radius: 15 }
+    ],
+    words: [
+      { zh: "马虎", en: "Careless" },
+      { zh: "检查", en: "Check" },
+      { zh: "细心", en: "Careful" }
+    ],
+    fableText: [
+      "小熊贝贝做事总是马马虎虎。早上上学出门前，妈妈提醒他：'贝贝，检查一下书包哦！'贝贝拍拍胸脯说：'放心吧，都带齐了！'",
+      "到了学校，语文课上，老师让大家拿出课本。贝贝翻遍了书包，发现语文课本忘在家里的枕头底下了。他只好红着脸和同桌一起看。",
+      "数学课上，老师让大家做练习。贝贝翻书包找铅笔，结果发现自己带了三块橡皮，却一支铅笔都没有。他又不好意思地向后桌借。",
+      "放学回家后，贝贝主动对妈妈说：'妈妈，我以后出门前一定要仔细检查书包！'妈妈笑着拿出一张清单递给他。",
+      "从那以后，贝贝每天晚上睡觉前都对着清单一样一样地把东西放进书包里，再也没有忘带过东西。大家都说贝贝变成了一个细心的好孩子。"
+    ],
+    parentGuide: "小熊贝贝上学的时候忘了带什么？后来他是怎么改掉马虎的坏习惯的？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "贝贝到了学校发现自己忘了带哪些东西？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "妈妈给贝贝的那张清单上可能写了什么内容？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "如果贝贝的好朋友也很马虎，贝贝会怎么帮他？", color: "#fa709a" }
+    ],
+    lifeConnection: "我们做事情也要细心，出门之前先检查好要带的东西。你每天上学前会检查书包吗？",
+    retellingPrompt: "假装你是小熊贝贝，你在学校发现忘带课本的时候，你的心里是什么感觉？请说出来。"
+  },
+  {
+    id: "fable_two_silly_bears",
+    type: "fable",
+    title: "两只笨狗熊 / Two Silly Bears",
+    image: "/images/two_silly_bears.jpg",
+    hotspots: [
+      { id: "big_bear", name: "大狗熊", nameEn: "Big Bear", x: 30, y: 55, radius: 12 },
+      { id: "small_bear", name: "小狗熊", nameEn: "Small Bear", x: 55, y: 60, radius: 12 },
+      { id: "fox", name: "狐狸", nameEn: "Fox", x: 75, y: 50, radius: 10 }
+    ],
+    words: [
+      { zh: "狗熊", en: "Bear" },
+      { zh: "干饼", en: "Pancake" },
+      { zh: "狐狸", en: "Fox" }
+    ],
+    fableText: [
+      "两只狗熊兄弟在路上捡到了一张又大又圆的干饼。哥哥说：'我先捡到的，我分多一点！'弟弟说：'不行，我也看到了，应该平均分！'",
+      "两只狗熊吵来吵去，谁也不肯让步。正在这时候，一只狐狸笑嘻嘻地走了过来：'别吵啦，让我来帮你们公平地分吧！'",
+      "狐狸把干饼掰成了两半，故意一块大一块小。哥哥喊道：'不公平，他那块比我的大！'",
+      "狐狸说：'别急！'它张嘴在大的那块上咬了一口。这下大的变成了小的，弟弟又喊：'不公平！'狐狸又在另一块上咬了一口……",
+      "就这样，狐狸左咬一口右咬一口，一张大饼越变越小。等两只狗熊反应过来的时候，每人手里只剩下了一点点饼渣。狐狸摸着圆滚滚的肚子，心满意足地走了。"
+    ],
+    parentGuide: "两只笨狗熊为什么最后只剩下一点点饼渣了呢？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "狐狸是用什么办法帮两只狗熊分饼的？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "狐狸真的是想帮忙吗？它心里其实在想什么？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "如果两只狗熊自己商量好怎么分，就不找狐狸帮忙，结果会怎么样？", color: "#fa709a" }
+    ],
+    lifeConnection: "和朋友分东西的时候，自己商量比让别人来分更好。你和好朋友是怎么分享零食的？",
+    retellingPrompt: "假装你是那只狡猾的狐狸，一边咬饼一边笑嘻嘻地说一句话！"
+  },
+  {
+    id: "fable_fisherman_genie",
+    type: "fable",
+    title: "渔夫和魔鬼 / The Fisherman and the Genie",
+    image: "/images/fisherman_genie.jpg",
+    hotspots: [
+      { id: "fisherman", name: "渔夫", nameEn: "Fisherman", x: 30, y: 65, radius: 12 },
+      { id: "bottle", name: "瓶子", nameEn: "Bottle", x: 55, y: 55, radius: 10 },
+      { id: "genie", name: "魔鬼", nameEn: "Genie", x: 65, y: 30, radius: 15 }
+    ],
+    words: [
+      { zh: "渔夫", en: "Fisherman" },
+      { zh: "瓶子", en: "Bottle" },
+      { zh: "魔鬼", en: "Genie" }
+    ],
+    fableText: [
+      "一个穷渔夫在大海里撒网捕鱼，拉上来一只铜瓶子。他好奇地打开瓶盖，呼地一声，从瓶子里冒出一股浓烟，变成了一个巨大的魔鬼。",
+      "魔鬼凶巴巴地对渔夫说：'我在瓶子里被关了一千年！谁放我出来，我就要吃掉谁！'",
+      "渔夫非常害怕，但他假装不相信地说：'你这么大的身体，怎么可能住在这么小的瓶子里？我不信！除非你变回去让我看看。'",
+      "笨魔鬼为了证明自己，立刻化成一缕烟，钻回了铜瓶子里。渔夫眼疾手快，立刻把瓶盖牢牢地盖上了。",
+      "魔鬼在瓶子里拼命喊叫，可再也出不来了。聪明的渔夫把瓶子扔回了大海深处。有智慧的人，连凶恶的魔鬼也不用怕！"
+    ],
+    parentGuide: "渔夫打开瓶子后遇到了什么危险？他是怎么用智慧战胜魔鬼的？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "魔鬼告诉渔夫，它在瓶子里被关了多少年？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "渔夫为什么要骗魔鬼说不相信它能住在瓶子里？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "如果将来又有人在大海里捞到了这个瓶子，你觉得他会打开吗？", color: "#fa709a" }
+    ],
+    lifeConnection: "遇到困难和危险的时候，不要害怕，要像渔夫一样冷静思考，用聪明的脑袋想办法！",
+    retellingPrompt: "假装你是那个渔夫，用很勇敢的声音对魔鬼说：'我才不信你能住在这个小瓶子里呢！'"
   }
 ];
