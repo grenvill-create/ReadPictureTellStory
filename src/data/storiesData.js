@@ -1853,5 +1853,191 @@ export const storiesData = [
     ],
     lifeConnection: "每个人都有自己的长处和短处，不要总是去和别人比自己不擅长的事情，要学会接受真实的自己！",
     retellingPrompt: "你能学一学青蛙妈妈是怎么用力吸气把肚子鼓起来的吗？"
+  },
+  {
+    id: "fable_wolf_sheep",
+    type: "fable",
+    title: "披着羊皮的狼 / The Wolf in Sheep's Clothing",
+    image: "/images/wolf_in_sheep_clothing.jpg",
+    hotspots: [
+      { id: "wolf", name: "狼", nameEn: "Wolf", x: 50, y: 55, radius: 12 },
+      { id: "sheepskin", name: "羊皮", nameEn: "Sheepskin", x: 48, y: 45, radius: 10 },
+      { id: "sheep", name: "小羊", nameEn: "Sheep", x: 75, y: 65, radius: 10 }
+    ],
+    words: [
+      { zh: "狼", en: "Wolf" },
+      { zh: "羊皮", en: "Sheepskin" },
+      { zh: "小羊", en: "Sheep" }
+    ],
+    fableText: [
+      "一只饿了很久的狼想吃羊，但是牧羊人和牧羊犬看得很紧，它找不到机会。",
+      "有一天，它在草丛里发现了一张羊皮，于是它把羊皮披在自己身上，混进了羊群里。",
+      "小羊们以为它是新来的伙伴，都跑过来和它一起吃草。",
+      "到了晚上，牧羊人把羊群赶进了羊圈，狼心里暗暗高兴，准备饱餐一顿。",
+      "可是，牧羊人今晚刚好想煮点肉汤，他走进羊圈，一眼看中了这只又大又肥的‘羊’，把它抓了出去。坏人伪装得再好，最终也会害了自己！"
+    ],
+    parentGuide: "这只狼为什么要把羊皮披在身上呀？它想做什么坏事？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "狼混进羊群的时候，小羊们发现了没有？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "到了晚上，牧羊人为什么会把这只假羊抓走？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "如果小羊们发现了它是狼，它们会怎么做？", color: "#fa709a" }
+    ],
+    lifeConnection: "有些坏人会假装成好人的样子来骗我们。所以如果有不认识的叔叔阿姨给你糖果，你要小心哦！",
+    retellingPrompt: "假装你是一只识破了伪装的小羊，你会怎么大声告诉牧羊犬呢？"
+  },
+  {
+    id: "fable_honest_woodcutter",
+    type: "fable",
+    title: "金斧头和银斧头 / The Honest Woodcutter",
+    image: "/images/honest_woodcutter.jpg",
+    hotspots: [
+      { id: "woodcutter", name: "樵夫", nameEn: "Woodcutter", x: 30, y: 60, radius: 12 },
+      { id: "river_god", name: "河神", nameEn: "River God", x: 65, y: 55, radius: 15 },
+      { id: "axes", name: "斧头", nameEn: "Axes", x: 50, y: 70, radius: 10 }
+    ],
+    words: [
+      { zh: "樵夫", en: "Woodcutter" },
+      { zh: "河神", en: "River God" },
+      { zh: "斧头", en: "Axe" }
+    ],
+    fableText: [
+      "从前有个诚实的樵夫，他在河边砍树时，一不小心，把破旧的铁斧头掉进了河里。他伤心地哭了起来。",
+      "这时，河神出现了。河神潜入水里，捞出了一把金闪闪的金斧头，问樵夫：‘这是你的斧头吗？’樵夫摇摇头说：‘不是我的。’",
+      "河神又潜入水里，捞出了一把银晃晃的银斧头，问：‘这是你的吗？’樵夫还是摇摇头说：‘也不是我的。’",
+      "最后，河神捞出了那把破铁斧，樵夫高兴地说：‘对，这就是我的！’",
+      "河神赞赏樵夫的诚实，就把金斧头和银斧头都送给了他。诚实的人总会得到好报的！"
+    ],
+    parentGuide: "河神拿出了金斧头和银斧头，樵夫为什么都说不是他的？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "樵夫自己掉进河里的斧头是什么做的？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "河神为什么最后把三把斧头都送给了樵夫？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "如果后来有个贪心的人也故意把铁斧扔进河里，河神会怎么惩罚他？", color: "#fa709a" }
+    ],
+    lifeConnection: "不属于我们的东西我们不能拿，诚实是最宝贵的品质。你有没有像小樵夫一样诚实的时候？",
+    retellingPrompt: "假装你是那个好心的河神，当你捞起金斧头时，你会怎么问樵夫？"
+  },
+  {
+    id: "fable_dongguo_wolf",
+    type: "fable",
+    title: "东郭先生和狼 / Mr. Dongguo and the Wolf",
+    image: "/images/dongguo_and_wolf.jpg",
+    hotspots: [
+      { id: "dongguo", name: "东郭先生", nameEn: "Mr. Dongguo", x: 40, y: 55, radius: 12 },
+      { id: "wolf", name: "狼", nameEn: "Wolf", x: 65, y: 75, radius: 10 },
+      { id: "bag", name: "布袋", nameEn: "Bag", x: 30, y: 70, radius: 12 }
+    ],
+    words: [
+      { zh: "先生", en: "Gentleman" },
+      { zh: "狼", en: "Wolf" },
+      { zh: "布袋", en: "Bag" }
+    ],
+    fableText: [
+      "东郭先生是一个好心肠的书生。有一天，他在路上遇到了一只被猎人追赶受伤的狼。狼苦苦哀求东郭先生救救它。",
+      "东郭先生心软了，就把狼藏进了自己装书的布袋里，骗过了猎人。",
+      "可是，猎人走后，狼从袋子里爬出来，不仅不感谢东郭先生，还露出了尖牙说：‘我现在很饿，既然你那么好心，不如让我把你吃了吧！’",
+      "东郭先生吓坏了。幸好这时路过一位聪明的农夫。农夫听了事情的经过，假装不信：‘我不信这么大的狼能装进这么小的袋子里，你再装一次给我看！’",
+      "笨狼一钻进袋子，农夫马上把袋口扎紧，打死了这只忘恩负义的狼。"
+    ],
+    parentGuide: "东郭先生好心救了狼，可是狼是怎么报答他的？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "东郭先生把狼藏在什么地方躲过猎人的？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "农夫为什么要让狼重新钻回袋子里？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "以后如果东郭先生再遇到受伤的野兽，他还会随便帮忙吗？", color: "#fa709a" }
+    ],
+    lifeConnection: "我们对待好人要善良，但是对待像狼一样的坏人就不能心软。遇到坏人要赶紧找警察叔叔帮忙！",
+    retellingPrompt: "你来演那个聪明的农夫，你会怎么骗狼钻进袋子里？"
+  },
+  {
+    id: "fable_blind_lantern",
+    type: "fable",
+    title: "盲人提灯 / The Blind Man with a Lantern",
+    image: "/images/blind_man_lantern.jpg",
+    hotspots: [
+      { id: "blind_man", name: "盲人", nameEn: "Blind Man", x: 45, y: 60, radius: 12 },
+      { id: "lantern", name: "灯笼", nameEn: "Lantern", x: 65, y: 55, radius: 8 },
+      { id: "stick", name: "拐杖", nameEn: "Cane", x: 35, y: 75, radius: 6 }
+    ],
+    words: [
+      { zh: "盲人", en: "Blind Man" },
+      { zh: "灯笼", en: "Lantern" },
+      { zh: "黑夜", en: "Dark Night" }
+    ],
+    fableText: [
+      "在一个漆黑的夜晚，一个看不见东西的盲人，手里提着一盏明亮的灯笼在街上走着。",
+      "路人觉得很奇怪，嘲笑他说：‘你是个瞎子，什么也看不见，提着灯笼有什么用呢？真是多此一举！’",
+      "盲人微笑着回答：‘我提灯笼确实不是为了给自己照路。黑夜里你们也看不清路，我提着灯笼，别人就能看见我，就不会撞到我了。’",
+      "路人们听了，都惭愧地低下了头，向盲人道歉。",
+      "盲人点亮了灯笼，既照亮了别人，也保护了自己。"
+    ],
+    parentGuide: "盲人自己看不见，为什么还要提着灯笼走路呢？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "路人一开始看到盲人提灯笼时说了什么？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "听了盲人的话，路人为什么会觉得惭愧？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "如果盲人不提灯笼在黑夜里走，会发生什么事？", color: "#fa709a" }
+    ],
+    lifeConnection: "帮助别人，有时候就是在帮助我们自己！在幼儿园里，你借给小朋友玩具，小朋友是不是也很愿意和你玩？",
+    retellingPrompt: "假装你就是那个聪明的盲人，请你用温柔的声音告诉路人你为什么要提灯笼。"
+  },
+  {
+    id: "fable_fox_goat",
+    type: "fable",
+    title: "狐狸和山羊 / The Fox and the Goat",
+    image: "/images/fox_and_goat.jpg",
+    hotspots: [
+      { id: "goat", name: "山羊", nameEn: "Goat", x: 50, y: 25, radius: 12 },
+      { id: "fox", name: "狐狸", nameEn: "Fox", x: 45, y: 75, radius: 10 },
+      { id: "well", name: "深井", nameEn: "Deep Well", x: 50, y: 60, radius: 15 }
+    ],
+    words: [
+      { zh: "狐狸", en: "Fox" },
+      { zh: "山羊", en: "Goat" },
+      { zh: "水井", en: "Well" }
+    ],
+    fableText: [
+      "一只狐狸不小心掉进了一口深井里，怎么爬也爬不出来。到了下午，一只口渴的山羊来到了井边。",
+      "山羊看到井里的狐狸，好奇地问：‘井里的水好喝吗？’狐狸眼珠一转，装作很高兴的样子说：‘这水可甜啦！你快跳下来喝吧！’",
+      "单纯的山羊没多想，扑通一声就跳了下去。它刚喝足了水，就发现井太深，自己也出不去了。",
+      "狐狸说：‘我有办法！你把前腿趴在井壁上，我踩着你的背先跳出去，然后再拉你上来！’山羊同意了。",
+      "狐狸踩着山羊的背跳出了水井，却头也不回地跑了，留下可怜的山羊在井底咩咩叫。做事情之前，一定要先想好退路呀！"
+    ],
+    parentGuide: "狐狸为了自己能爬出水井，对山羊撒了什么谎？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "狐狸是怎么逃出那口深井的？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "狐狸跑到井外之后，为什么不把山羊拉上来？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "如果山羊在跳下去之前，能先动脑筋想想，它应该怎么回答狐狸？", color: "#fa709a" }
+    ],
+    lifeConnection: "当我们做一件事情的时候，不能只看眼前，要先想想后果。不要轻易相信陌生人的花言巧语哦！",
+    retellingPrompt: "现在你是一只聪明的小山羊，站在井口看着狐狸，你会怎么拆穿它的谎话？"
+  },
+  {
+    id: "fable_farmer_sons",
+    type: "fable",
+    title: "老农夫和他的儿子们 / The Farmer and His Sons",
+    image: "/images/farmer_and_sons.jpg",
+    hotspots: [
+      { id: "farmer", name: "老农夫", nameEn: "Old Farmer", x: 50, y: 40, radius: 12 },
+      { id: "sons", name: "儿子们", nameEn: "Sons", x: 75, y: 60, radius: 15 },
+      { id: "bundle", name: "一捆树枝", nameEn: "Bundle of Sticks", x: 45, y: 70, radius: 8 }
+    ],
+    words: [
+      { zh: "农夫", en: "Farmer" },
+      { zh: "树枝", en: "Sticks" },
+      { zh: "折断", en: "Break" }
+    ],
+    fableText: [
+      "有一位老农夫，他有几个儿子。这几个儿子虽然很强壮，但总是在一起吵架，不团结。",
+      "老农夫病重了，为了教育儿子们，他让人拿来一捆树枝。他把这捆树枝递给儿子们说：‘你们谁能把这捆树枝折断？’",
+      "几个儿子轮流使出最大的力气，可是那捆树枝结实得很，谁也没能折断它。",
+      "接着，老农夫解开绳子，把树枝一根一根分给儿子们，说：‘现在再试试。’这次，大家轻轻一折，就把手里的树枝折断了。",
+      "老农夫笑着说：‘孩子们，如果你们不团结，就会像一根树枝一样容易被打败；但如果你们团结在一起，就像那捆树枝一样坚不可摧啊！’"
+    ],
+    parentGuide: "老农夫让儿子们折断一捆树枝，他们成功了吗？为什么？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "老农夫是用什么东西来教育儿子们的？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "为什么一捆树枝折不断，一根一根就很容易折断呢？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "听了爸爸的话，你觉得这几个兄弟以后还会整天吵架吗？", color: "#fa709a" }
+    ],
+    lifeConnection: "团结力量大！你在幼儿园里和好朋友们一起玩搭积木的时候，是不是比一个人搭得更高更快？",
+    retellingPrompt: "假装你是一位力气很大的哥哥，你用力折一捆树枝折不断时，你会说句什么话？"
   }
 ];
