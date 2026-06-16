@@ -5,6 +5,8 @@ import MemoryGame from "./MemoryGame";
 import SceneExplorer from "./SceneExplorer";
 import MagneticBoard from "./MagneticBoard";
 import { pinyin } from "pinyin-pro";
+import { saveAudioBlob, getAllAudioBlobs } from "./utils/db";
+import AudioLibraryModal from "./AudioLibraryModal";
 import "./App.css";
 
 // Helper component to render text with pinyin ruby tags
@@ -47,78 +49,7 @@ const STICKERS = {
   pond_concert: "🐸"
 };
 
-const DB_NAME = "ReadPictureTellStoryDB";
-const STORE_NAME = "recordings";
-
-const initDB = () => {
-  return new Promise((resolve, reject) => {
-    if (typeof indexedDB === "undefined") {
-      reject(new Error("IndexedDB is not supported in this browser"));
-      return;
-    }
-    try {
-      const request = indexedDB.open(DB_NAME, 1);
-      request.onupgradeneeded = (e) => {
-        const db = e.target.result;
-        if (!db.objectStoreNames.contains(STORE_NAME)) {
-          db.createObjectStore(STORE_NAME);
-        }
-      };
-      request.onsuccess = (e) => resolve(e.target.result);
-      request.onerror = (e) => reject(e.target.error);
-    } catch (err) {
-      reject(err);
-    }
-  });
-};
-
-const saveAudioBlob = async (storyId, blob) => {
-  try {
-    const db = await initDB();
-    return new Promise((resolve, reject) => {
-      const transaction = db.transaction(STORE_NAME, "readwrite");
-      const store = transaction.objectStore(STORE_NAME);
-      const getReq = store.get(storyId);
-      getReq.onsuccess = (e) => {
-        let existing = e.target.result;
-        if (!existing) existing = [];
-        if (!Array.isArray(existing)) existing = [existing];
-        existing.push(blob);
-        const putReq = store.put(existing, storyId);
-        putReq.onsuccess = () => resolve();
-        putReq.onerror = (e) => reject(e.target.error);
-      };
-      getReq.onerror = (e) => reject(e.target.error);
-    });
-  } catch (err) {
-    console.error("Failed to save to IndexedDB:", err);
-  }
-};
-
-const getAllAudioBlobs = async () => {
-  try {
-    const db = await initDB();
-    return new Promise((resolve, reject) => {
-      const transaction = db.transaction(STORE_NAME, "readonly");
-      const store = transaction.objectStore(STORE_NAME);
-      const request = store.openCursor();
-      const results = {};
-      request.onsuccess = (e) => {
-        const cursor = e.target.result;
-        if (cursor) {
-          results[cursor.key] = cursor.value;
-          cursor.continue();
-        } else {
-          resolve(results);
-        }
-      };
-      request.onerror = (e) => reject(e.target.error);
-    });
-  } catch (err) {
-    console.error("Failed to get all from IndexedDB:", err);
-    return {};
-  }
-};
+// DB logic moved to utils/db.js
 
 const getImageUrl = (path) => {
   if (!path) return "";
@@ -141,6 +72,7 @@ export default function App() {
   const [isSentenceCorrect, setIsSentenceCorrect] = useState(false);
   const [activeBookSentence, setActiveBookSentence] = useState(null);
   const [showParentGuide, setShowParentGuide] = useState(false);
+  const [showAudioLibrary, setShowAudioLibrary] = useState(false);
   
   // Audio playback state
   const [isPlaying, setIsPlaying] = useState(false);
@@ -258,14 +190,24 @@ export default function App() {
   // Load recordings from IndexedDB on startup
   useEffect(() => {
     const loadRecordings = async () => {
-      const storedBlobs = await getAllAudioBlobs();
-      const loadedRecordings = {};
-      for (const [storyId, blob] of Object.entries(storedBlobs)) {
-        if (blob instanceof Blob) {
-          loadedRecordings[storyId] = URL.createObjectURL(blob);
-        }
-      }
-      setRecordings(loadedRecordings);
+      const data = await getAllAudioBlobs();
+      const urls = {};
+      Object.keys(data).forEach(key => {
+        let items = data[key];
+        if (!Array.isArray(items)) items = [{ blob: items, timestamp: Date.now() }];
+        
+        urls[key] = items.map(item => {
+          const isBlob = item instanceof Blob;
+          const blob = isBlob ? item : item.blob;
+          const timestamp = isBlob ? Date.now() : item.timestamp;
+          return {
+            url: URL.createObjectURL(blob),
+            blob,
+            timestamp
+          };
+        });
+      });
+      setRecordings(urls);
     };
     loadRecordings();
   }, []);
@@ -466,7 +408,7 @@ export default function App() {
         setAudioUrl(url);
         setRecordings(prev => {
           const currentList = prev[currentStoryId] || [];
-          return { ...prev, [currentStoryId]: [...currentList, url] };
+          return { ...prev, [currentStoryId]: [...currentList, { url, blob: audioBlob, timestamp: Date.now() }] };
         });
         setRecordingState("idle");
         awardStar(currentStoryId, 2);
@@ -518,7 +460,7 @@ export default function App() {
 
     const a = document.createElement("a");
     a.href = url;
-    a.download = `看图说话_${storyName}_宝贝录音.${ext}`;
+    a.download = `${storyName}_宝贝录音_${new Date().toLocaleDateString()}.${ext}`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -664,7 +606,7 @@ export default function App() {
       // Update recordings state
       setRecordings(prev => {
         const currentList = prev[storyId] || [];
-        return { ...prev, [storyId]: [...currentList, url] };
+        return { ...prev, [storyId]: [...currentList, { url, blob: file, timestamp: Date.now() }] };
       });
       
       // Award the recording star since they now have a recording
@@ -738,6 +680,14 @@ export default function App() {
             <div>
               <h2 className="dashboard-title" style={{marginBottom: 0}}>世界探索 / World Exploration</h2>
               <p className="dashboard-subtitle" style={{marginBottom: 0}}>超大自由探索场景，点哪学哪！</p>
+            </div>
+            <div style={{ display: 'flex', gap: '10px' }}>
+              <div className="parent-btn bounce-hover" onClick={() => setShowParentModal(true)}>
+                👨‍👩‍👧 家长中心
+              </div>
+              <div className="parent-btn bounce-hover" onClick={() => setShowAudioLibrary(true)}>
+                🎵 我的录音库
+              </div>
             </div>
           </div>
           
@@ -889,6 +839,8 @@ export default function App() {
             <div className="modal-overlay" onClick={() => setShowDirectoryModal(false)}>
               <div className="modal-content directory-modal" onClick={e => e.stopPropagation()}>
                 <button className="modal-close" onClick={() => setShowDirectoryModal(false)}>×</button>
+                <div style={{ display: 'flex', gap: '10px', marginBottom: '20px' }}>
+                </div>
                 <h3>{directoryType === 'daily' ? '日常图画 / Daily Life 目录' : '寓言绘本 / Fables 目录'}</h3>
                 <div className="directory-list">
                   {storiesData.filter(s => directoryType === 'daily' ? s.type !== 'fable' : s.type === 'fable').map((s, idx) => (
@@ -1553,6 +1505,12 @@ export default function App() {
         onPlay={() => setIsPlaying(true)}
         style={{ display: "none" }} 
       />
+      {showAudioLibrary && (
+        <AudioLibraryModal 
+          recordings={recordings} 
+          onClose={() => setShowAudioLibrary(false)} 
+        />
+      )}
     </div>
   );
 }

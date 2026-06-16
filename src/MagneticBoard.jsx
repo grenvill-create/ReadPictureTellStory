@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { saveAudioBlob } from './utils/db';
 import './MagneticBoard.css';
 
 const STICKERS_PALETTE = ['🦄', '🐶', '🐱', '🐰', '🦊', '🐻', '🐼', '🐨', '🦁', '🐯', '🐸', '🦆', '🦋', '🐞', '🚗', '🎈', '⭐', '🍎', '🍓', '🥕'];
@@ -66,8 +67,12 @@ export default function MagneticBoard({ onBack }) {
         }
       };
 
-      mediaRecorder.onstop = () => {
+      mediaRecorder.onstop = async () => {
         const audioBlob = new Blob(audioChunksRef.current, { type: 'audio/webm' });
+        
+        // Save to IndexedDB globally
+        await saveAudioBlob("magnetic_board", audioBlob);
+
         const url = URL.createObjectURL(audioBlob);
         setAudioUrls(prev => [...prev, url]);
         setRecordingState('idle');

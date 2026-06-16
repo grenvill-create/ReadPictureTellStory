@@ -1,0 +1,156 @@
+.audio-library-modal {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  max-width: 600px;
+  width: 90%;
+  max-height: 85vh;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.library-title {
+  color: var(--color-purple);
+  margin-top: 0;
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 28px;
+}
+
+.library-subtitle {
+  color: #666;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 40px;
+  color: #999;
+  font-size: 18px;
+  background: #f9f9f9;
+  border-radius: 12px;
+}
+
+.library-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  background: #f0f7ff;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.select-all-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #444;
+}
+
+.batch-download-btn {
+  background: var(--color-blue);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.2s;
+}
+
+.batch-download-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.recordings-list-scroll {
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-right: 5px;
+}
+
+.recording-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  border: 2px solid #eee;
+  border-radius: 12px;
+  transition: all 0.2s;
+}
+
+.recording-item.selected {
+  border-color: var(--color-blue);
+  background: #f8fbff;
+}
+
+.recording-checkbox {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.recording-info {
+  flex: 1;
+  min-width: 0; /* for text ellipsis */
+}
+
+.recording-name {
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.recording-meta {
+  font-size: 13px;
+  color: #888;
+}
+
+.recording-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.mini-play-btn, .mini-download-btn {
+  border: none;
+  padding: 6px 12px;
+  border-radius: 15px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 13px;
+  transition: all 0.2s;
+}
+
+.mini-play-btn {
+  background: #fff;
+  border: 2px solid var(--color-green);
+  color: var(--color-green);
+}
+
+.mini-play-btn.playing {
+  background: var(--color-green);
+  color: white;
+}
+
+.mini-download-btn {
+  background: #fff;
+  border: 2px solid var(--color-orange);
+  color: var(--color-orange);
+}
+
+.mini-play-btn:hover, .mini-download-btn:hover {
+  transform: scale(1.05);
+}
