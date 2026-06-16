@@ -2039,5 +2039,253 @@ export const storiesData = [
     ],
     lifeConnection: "团结力量大！你在幼儿园里和好朋友们一起玩搭积木的时候，是不是比一个人搭得更高更快？",
     retellingPrompt: "假装你是一位力气很大的哥哥，你用力折一捆树枝折不断时，你会说句什么话？"
+  },
+  {
+    id: "fable_three_pigs",
+    type: "fable",
+    title: "三只小猪 / The Three Little Pigs",
+    image: "/images/three_little_pigs.jpg",
+    hotspots: [
+      { id: "pigs", name: "三只小猪", nameEn: "Three Pigs", x: 40, y: 65, radius: 15 },
+      { id: "brick_house", name: "砖房子", nameEn: "Brick House", x: 75, y: 55, radius: 20 },
+      { id: "wolf", name: "大灰狼", nameEn: "Big Bad Wolf", x: 20, y: 60, radius: 12 }
+    ],
+    words: [
+      { zh: "小猪", en: "Pig" },
+      { zh: "砖房子", en: "Brick House" },
+      { zh: "大灰狼", en: "Wolf" }
+    ],
+    fableText: [
+      "猪妈妈让三只小猪自己去盖房子。老大很懒，用稻草盖了一间草房子；老二也贪玩，用木头盖了一间木房子。",
+      "只有老三最勤劳，他搬来一块块砖头，不怕辛苦，盖了一间结实的大砖房。",
+      "有一天，大灰狼来了。他深吸一口气，‘呼——’的一下，把老大的草房子吹倒了。老大吓得赶紧跑到老二的木房里。",
+      "大灰狼又深吸一口气，‘呼——’的一下，把老二的木房子也吹塌了。两只小猪拼命逃到了老三的砖房里。",
+      "大灰狼来到砖房前，使出全身力气吹呀吹，可是砖房子一动也不动。大灰狼累坏了，最后只能灰溜溜地逃走了。"
+    ],
+    parentGuide: "三只小猪盖了三种不一样的房子，你觉得哪一种房子最结实呀？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "老大和老二分别用什么材料盖的房子？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "大灰狼为什么吹不倒老三的房子呢？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "如果大灰狼想从烟囱里爬进砖房子，老三会想什么办法对付它？", color: "#fa709a" }
+    ],
+    lifeConnection: "做事情不能像老大老二一样偷懒，只有像老三那样脚踏实地，才能取得最好的结果！你搭积木的时候，是怎么搭得很稳的？",
+    retellingPrompt: "你来演那只大灰狼，用力吹草房子的时候，你会发出什么声音？"
+  },
+  {
+    id: "fable_monkey_crocodile",
+    type: "fable",
+    title: "猴子和鳄鱼 / The Monkey and the Crocodile",
+    image: "/images/monkey_crocodile.jpg",
+    hotspots: [
+      { id: "monkey", name: "猴子", nameEn: "Monkey", x: 30, y: 45, radius: 12 },
+      { id: "crocodile", name: "鳄鱼", nameEn: "Crocodile", x: 65, y: 65, radius: 15 },
+      { id: "tree", name: "果树", nameEn: "Fruit Tree", x: 20, y: 50, radius: 20 }
+    ],
+    words: [
+      { zh: "猴子", en: "Monkey" },
+      { zh: "鳄鱼", en: "Crocodile" },
+      { zh: "心脏", en: "Heart" }
+    ],
+    fableText: [
+      "一只聪明的猴子住在河边的一棵果树上，它经常把甜美的果子扔给河里的鳄鱼吃。鳄鱼觉得猴子的果子很甜，心想猴子的心一定更甜。",
+      "有一天，鳄鱼对猴子说：‘猴子老弟，河对岸有更好吃的水果，你坐到我的背上，我驮你过去吧。’",
+      "猴子高兴地跳上了鳄鱼的背。游到河中间时，鳄鱼露出了凶相：‘其实我是想吃你的心！’",
+      "猴子吓了一跳，但它很冷静，故意笑着说：‘哎呀，你怎么不早说？我们猴子为了安全，平时都把心脏挂在树上的。你把我驮回去，我拿给你！’",
+      "笨鳄鱼信以为真，立刻掉头游回岸边。猴子一靠岸，立刻敏捷地爬上了树，大笑着说：‘笨蛋，谁能把心拿出来呀！’鳄鱼只好饿着肚子游走了。"
+    ],
+    parentGuide: "鳄鱼背着猴子游到河中间的时候，它露出了什么真面目？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "猴子告诉鳄鱼它的心脏放在哪里了？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "猴子为什么不直接逃跑，而是要骗鳄鱼说心脏在树上？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "如果鳄鱼下次再来果树下，猴子还会给它扔果子吃吗？", color: "#fa709a" }
+    ],
+    lifeConnection: "遇到危险的时候，我们要像小猴子一样保持冷静，用智慧保护自己！",
+    retellingPrompt: "假装你就是那只机智的小猴子，你会用什么样的语气把笨鳄鱼骗回去？"
+  },
+  {
+    id: "fable_donkey_salt",
+    type: "fable",
+    title: "驴和盐 / The Donkey and the Salt",
+    image: "/images/donkey_salt.jpg",
+    hotspots: [
+      { id: "donkey", name: "驴子", nameEn: "Donkey", x: 50, y: 60, radius: 15 },
+      { id: "river", name: "小河", nameEn: "River", x: 50, y: 80, radius: 20 },
+      { id: "salt_bags", name: "盐袋", nameEn: "Salt Bags", x: 50, y: 45, radius: 10 }
+    ],
+    words: [
+      { zh: "驴子", en: "Donkey" },
+      { zh: "盐", en: "Salt" },
+      { zh: "河水", en: "River" }
+    ],
+    fableText: [
+      "一只驴子背着沉重的盐袋过河。一不小心，它滑倒在水里。等它站起来时，发现背上的盐被水化掉了一大半，顿时觉得轻松了许多。",
+      "驴子心里暗暗高兴，以为自己发现了一个偷懒的好办法。",
+      "几天后，主人让驴子驮着一筐海绵过河。驴子走到河中间时，故意装作滑倒，一屁股坐在了水里。",
+      "它本以为站起来后会变得更轻松，谁知道海绵吸满了水，变得比石头还要重！",
+      "最后，这只自作聪明的驴子被重重的海绵压在水里，差点淹死。小聪明有时候会带来大麻烦哦。"
+    ],
+    parentGuide: "驴子第一次摔在水里的时候，为什么觉得背上的东西变轻了？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "驴子第二次过河的时候，背上背的是什么东西？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "为什么海绵掉进水里之后，会变得越来越重呢？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "如果主人下次让它驮木头过河，你觉得它还敢故意摔倒吗？", color: "#fa709a" }
+    ],
+    lifeConnection: "就像我们学习和做家务一样，不能总是想着耍小聪明偷懒，不然最后吃亏的还是自己哦。",
+    retellingPrompt: "你来演那只驴子，背着吸满水的海绵走路时，你的表情是什么样的？"
+  },
+  {
+    id: "fable_bear_travelers",
+    type: "fable",
+    title: "熊和两个旅人 / The Bear and the Travelers",
+    image: "/images/bear_travelers.jpg",
+    hotspots: [
+      { id: "bear", name: "大熊", nameEn: "Bear", x: 50, y: 55, radius: 15 },
+      { id: "tree_man", name: "树上的人", nameEn: "Man in Tree", x: 75, y: 30, radius: 10 },
+      { id: "ground_man", name: "地上的人", nameEn: "Man on Ground", x: 45, y: 75, radius: 10 }
+    ],
+    words: [
+      { zh: "朋友", en: "Friend" },
+      { zh: "大熊", en: "Bear" },
+      { zh: "爬树", en: "Climb" }
+    ],
+    fableText: [
+      "有两个好朋友一起在森林里赶路，突然，一头大熊从树丛里咆哮着冲了出来。",
+      "其中一个人反应很快，立刻丢下同伴，敏捷地爬上了一棵大树躲了起来。",
+      "另一个人不会爬树，眼看大熊就要扑过来了，他情急之下趴在地上，屏住呼吸，一动不动地装死。",
+      "大熊走到他身边，低着头围着他嗅了嗅，以为他已经死了，就摇晃着身体走开了。因为熊是不吃死人的。",
+      "等大熊走远了，树上那个人爬下来，笑着问：‘刚才熊在你耳边说了什么呀？’那个人冷冷地回答：‘熊告诉我，不要和遇到危险就丢下朋友的人做朋友。’"
+    ],
+    parentGuide: "遇到大熊的时候，树上的那个人是怎么做的？他有没有管自己的朋友？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "不会爬树的那个人是怎么躲过大熊的？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "地上那个人为什么以后不想和树上那个人做朋友了？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "如果下次他们两个再遇到危险，你觉得地上那个人会帮树上那个人吗？", color: "#fa709a" }
+    ],
+    lifeConnection: "真正的好朋友是互相帮助的，而不是在遇到困难时只顾自己逃跑。你在幼儿园有好朋友吗？",
+    retellingPrompt: "如果你是地上装死的那个人，大熊走后你会对你的朋友说什么？"
+  },
+  {
+    id: "fable_stag_reflection",
+    type: "fable",
+    title: "鹿和倒影 / The Stag at the Pool",
+    image: "/images/stag_reflection.jpg",
+    hotspots: [
+      { id: "stag", name: "雄鹿", nameEn: "Stag", x: 40, y: 50, radius: 15 },
+      { id: "horns", name: "鹿角", nameEn: "Antlers", x: 45, y: 35, radius: 10 },
+      { id: "reflection", name: "水面倒影", nameEn: "Reflection", x: 45, y: 75, radius: 15 }
+    ],
+    words: [
+      { zh: "雄鹿", en: "Stag" },
+      { zh: "鹿角", en: "Antlers" },
+      { zh: "倒影", en: "Reflection" }
+    ],
+    fableText: [
+      "一只口渴的雄鹿来到清澈的池塘边喝水。它看着水里自己的倒影，非常满意地说：‘看我的鹿角多么雄伟美丽，像王冠一样！’",
+      "但是，当它看到自己细细长长的腿时，又嫌弃地叹了口气：‘唉，我的腿怎么这么细这么难看，一点也配不上我美丽的鹿角。’",
+      "突然，远处传来猎人的脚步声和猎狗的吠叫声。雄鹿撒开它那嫌弃的细腿，在开阔的平原上飞快地奔跑，把猎人远远地甩在了后面。",
+      "可是，当它跑进茂密的森林时，它引以为傲的美丽鹿角却被树枝死死地缠住了，怎么拔也拔不出来！",
+      "猎狗追了上来。雄鹿临死前懊悔地说：‘我真傻！那双被我嫌弃的腿差点救了我的命，而我最喜欢的鹿角却害死了我！’"
+    ],
+    parentGuide: "这只鹿最喜欢自己身上的什么地方？最讨厌什么地方？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "雄鹿逃跑的时候，是什么被树枝缠住了？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "为什么说最后是它讨厌的腿差点救了它？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "如果这只鹿没有美丽的鹿角，只有光秃秃的脑袋，它还能逃过猎狗吗？", color: "#fa709a" }
+    ],
+    lifeConnection: "有时候看起来不好看的东西，可能非常有用；看起来很漂亮的东西，反而会带来麻烦。我们不能只看外表哦！",
+    retellingPrompt: "假装你是一头骄傲的鹿，你看着水里的影子，会怎么夸奖自己的鹿角？"
+  },
+  {
+    id: "fable_bat_birds_beasts",
+    type: "fable",
+    title: "蝙蝠、鸟和野兽 / The Bat, Birds, and Beasts",
+    image: "/images/bat_birds_beasts.jpg",
+    hotspots: [
+      { id: "bat", name: "蝙蝠", nameEn: "Bat", x: 50, y: 30, radius: 10 },
+      { id: "birds", name: "鸟类", nameEn: "Birds", x: 25, y: 40, radius: 12 },
+      { id: "beasts", name: "野兽", nameEn: "Beasts", x: 75, y: 70, radius: 15 }
+    ],
+    words: [
+      { zh: "蝙蝠", en: "Bat" },
+      { zh: "鸟类", en: "Birds" },
+      { zh: "野兽", en: "Beasts" }
+    ],
+    fableText: [
+      "很久以前，天上的鸟类和地上的野兽发生了一场战争。",
+      "蝙蝠既有牙齿又有翅膀。当野兽打胜仗时，蝙蝠就跑到野兽的阵营里说：‘你看我长着牙齿，我是野兽，我站在你们这边！’",
+      "可是没过多久，鸟类打赢了。蝙蝠又飞到鸟类的阵营里说：‘你看我长着翅膀，我是鸟类，我和你们是一伙的！’",
+      "蝙蝠就这样在两边摇摆不定，只帮赢的那一边。",
+      "最后，鸟类和野兽讲和了。大家聚在一起，揭穿了蝙蝠的两面派行为。从此以后，蝙蝠既不敢见鸟类，也不敢见野兽，只能在黑夜里偷偷摸摸地飞出来。"
+    ],
+    parentGuide: "蝙蝠为什么一会儿说自己是野兽，一会儿又说自己是鸟类？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "野兽打胜仗的时候，蝙蝠展示了自己身上的什么部位？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "为什么最后大家都不和蝙蝠做朋友了？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "如果以后再发生战争，蝙蝠还会跑到赢的那边去吗？", color: "#fa709a" }
+    ],
+    lifeConnection: "做人要诚实，不能像墙头草一样两边倒，这样最后会失去所有的朋友。你觉得我们应该怎么做个好朋友？",
+    retellingPrompt: "请你用生气的语气，代替鸟类和野兽对蝙蝠说一句批评的话！"
+  },
+  {
+    id: "fable_mouse_frog",
+    type: "fable",
+    title: "老鼠和青蛙 / The Mouse and the Frog",
+    image: "/images/mouse_frog.jpg",
+    hotspots: [
+      { id: "mouse", name: "老鼠", nameEn: "Mouse", x: 35, y: 65, radius: 10 },
+      { id: "frog", name: "青蛙", nameEn: "Frog", x: 60, y: 70, radius: 10 },
+      { id: "hawk", name: "老鹰", nameEn: "Hawk", x: 75, y: 20, radius: 12 }
+    ],
+    words: [
+      { zh: "老鼠", en: "Mouse" },
+      { zh: "青蛙", en: "Frog" },
+      { zh: "老鹰", en: "Hawk" }
+    ],
+    fableText: [
+      "一只陆地上的老鼠和一只水里的青蛙成了好朋友。青蛙想开个玩笑，用一根绳子把老鼠的脚和自己的脚绑在了一起。",
+      "一开始他们在草地上玩得很高兴。可是后来，青蛙跳进了一个池塘里，拉着老鼠也一起下水了。",
+      "青蛙在水里游得很欢快，还开心地‘呱呱’叫。可是可怜的老鼠根本不会游泳，在水里扑腾了几下，很快就淹死了，漂在水面上。",
+      "就在这时，天空中飞过一只老鹰。老鹰一眼就看到了水面上死去的老鼠，立刻俯冲下来，抓起老鼠飞向天空。",
+      "因为青蛙的脚和老鼠绑在一起，所以青蛙也被老鹰一起带到了天空中，变成了老鹰的美餐。害人终害己呀！"
+    ],
+    parentGuide: "青蛙为什么要用绳子把自己和老鼠绑在一起呢？它是故意的吗？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "老鼠跳进水里之后发生了什么事？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "青蛙最后为什么也会被老鹰抓走？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "如果老鼠在下水之前挣脱了绳子，老鹰还会抓走青蛙吗？", color: "#fa709a" }
+    ],
+    lifeConnection: "随便开别人的玩笑，有时候不仅会伤害别人，还会给自己带来很大的麻烦。我们平时和小朋友玩要注意安全哦！",
+    retellingPrompt: "假装你是那只无辜的小老鼠，被青蛙拉下水时，你会怎么喊救命？"
+  },
+  {
+    id: "fable_kongrong_pears",
+    type: "fable",
+    title: "孔融让梨 / Kong Rong Giving up Pears",
+    image: "/images/kongrong_pears.jpg",
+    hotspots: [
+      { id: "kongrong", name: "小孔融", nameEn: "Kong Rong", x: 45, y: 65, radius: 12 },
+      { id: "pears", name: "一筐梨", nameEn: "Basket of Pears", x: 60, y: 70, radius: 10 },
+      { id: "father", name: "父亲", nameEn: "Father", x: 30, y: 40, radius: 15 }
+    ],
+    words: [
+      { zh: "孔融", en: "Kong Rong" },
+      { zh: "梨", en: "Pear" },
+      { zh: "谦让", en: "Yield" }
+    ],
+    fableText: [
+      "古时候有个聪明懂事的小男孩叫孔融。他四岁的时候，有一天父亲买回了一大筐又香又甜的梨子。",
+      "父亲把梨子放在桌上，让孔融先挑一个吃。孔融看了看，挑了一个最小的梨子拿在手里。",
+      "父亲觉得很奇怪，问他：‘那么多大梨你不拿，为什么偏偏挑一个最小的呢？’",
+      "孔融恭敬地回答说：‘我的年纪最小，所以应该吃最小的梨。大的梨要留给哥哥们吃。’",
+      "大家听了，都夸奖小孔融是个懂得谦让的好孩子。这个美德一直流传到了今天。"
+    ],
+    parentGuide: "孔融四岁的时候，爸爸买回来一筐梨，他是怎么挑的呢？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "孔融为什么要把大梨留给哥哥们？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "爸爸听了孔融的话，心里一定觉得怎么样？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "如果是你分东西，你会把自己最喜欢的那个分给谁？", color: "#fa709a" }
+    ],
+    lifeConnection: "在家里有好吃的，我们也要像孔融一样，懂得和家人分享，不要一个人独吞哦！你上次分享东西给了谁？",
+    retellingPrompt: "如果你是小孔融，当爸爸问你为什么拿小梨的时候，请用有礼貌的声音再说一遍你的理由。"
   }
 ];
