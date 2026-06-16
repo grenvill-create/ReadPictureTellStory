@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import './MagneticBoard.css';
 
-const STICKERS_PALETTE = ['??', '??', '??', '??', '??', '??', '??', '??', '??', '??', '??', '??', '??', '??', '??', '??', '?', '??', '??', '??'];
+const STICKERS_PALETTE = ['ğŸ¦„', 'ğŸ¶', 'ğŸ±', 'ğŸ°', 'ğŸ¦Š', 'ğŸ»', 'ğŸ¼', 'ğŸ¨', 'ğŸ¦', 'ğŸ¯', 'ğŸ¸', 'ğŸ¦†', 'ğŸ¦‹', 'ğŸ', 'ğŸš—', 'ğŸˆ', 'â­', 'ğŸ', 'ğŸ“', 'ğŸ¥•'];
 
 export default function MagneticBoard({ onBack }) {
   const [stickers, setStickers] = useState([]);
@@ -77,7 +77,7 @@ export default function MagneticBoard({ onBack }) {
       setRecordingState('recording');
     } catch (err) {
       console.error("Recording error:", err);
-      alert("ÎŞ·¨·ÃÎÊÂó¿Ë·ç£¬Çë¼ì²éä¯ÀÀÆ÷È¨ÏŞ¡£");
+      alert("æ— æ³•è®¿é—®éº¦å…‹é£ï¼Œè¯·æ£€æŸ¥æµè§ˆå™¨æƒé™ã€‚");
     }
   };
 
@@ -97,12 +97,12 @@ export default function MagneticBoard({ onBack }) {
   return (
     <div className="magnetic-board-container">
       <div className="scene-header">
-        <button onClick={onBack} className="back-link bounce-hover">? ·µ»ØÖ÷Ò³</button>
-        <h2 className="scene-title">?? ´ÅÁ¦Ìù¹ÊÊÂ°å</h2>
+        <button onClick={onBack} className="back-link bounce-hover">â¬… è¿”å›ä¸»é¡µ</button>
+        <h2 className="scene-title">ğŸ§² ç£åŠ›è´´æ•…äº‹æ¿</h2>
       </div>
 
       <div className="board-instructions">
-        µã»÷ÏÂ·½µÄÌùÖ½Ìí¼Óµ½»­²¼£¬Äã¿ÉÒÔ×ÔÓÉÍÏ¶¯ËüÃÇ°Ú·Å£¬È»ºó°´Â¼Òô¼ü½²Ò»¸öÊôÓÚÄã×Ô¼ºµÄ¹ÊÊÂ£¡
+        ç‚¹å‡»ä¸‹æ–¹çš„è´´çº¸æ·»åŠ åˆ°ç”»å¸ƒï¼Œä½ å¯ä»¥è‡ªç”±æ‹–åŠ¨å®ƒä»¬æ‘†æ”¾ï¼Œç„¶åæŒ‰å½•éŸ³é”®è®²ä¸€ä¸ªå±äºä½ è‡ªå·±çš„æ•…äº‹ï¼
       </div>
 
       <div 
@@ -117,9 +117,9 @@ export default function MagneticBoard({ onBack }) {
             key={sticker.id}
             className="board-sticker"
             style={{
-              left: \\%\,
-              top: \\%\,
-              fontSize: \\px\,
+              left: `${sticker.x}%`,
+              top: `${sticker.y}%`,
+              fontSize: `${sticker.size}px`,
               cursor: draggingId === sticker.id ? 'grabbing' : 'grab',
               zIndex: draggingId === sticker.id ? 100 : 10
             }}
@@ -131,7 +131,7 @@ export default function MagneticBoard({ onBack }) {
                 className="sticker-delete-btn"
                 onClick={(e) => removeSticker(e, sticker.id)}
               >
-                ¡Á
+                Ã—
               </button>
             )}
           </div>
@@ -152,22 +152,22 @@ export default function MagneticBoard({ onBack }) {
           className="palette-item clear-btn bounce-hover"
           onClick={() => setStickers([])}
         >
-          ??? Çå¿Õ
+          ğŸ—‘ï¸ æ¸…ç©º
         </button>
       </div>
 
       <div className="storyboard-controls">
         <div className="recording-container" style={{ margin: '0 auto', background: 'white' }}>
           {recordingState === 'idle' && (
-            <button onClick={startRecording} className="mic-button bounce-hover">??? ¿ªÊ¼½²¹ÊÊÂ</button>
+            <button onClick={startRecording} className="mic-button bounce-hover">ğŸ™ï¸ å¼€å§‹è®²æ•…äº‹</button>
           )}
           {recordingState === 'recording' && (
-            <button onClick={stopRecording} className="mic-button recording">?? Íê³ÉÂ¼Òô</button>
+            <button onClick={stopRecording} className="mic-button recording">â¹ï¸ å®Œæˆå½•éŸ³</button>
           )}
           {recordingState === 'has_audio' && (
             <>
-              <button onClick={startRecording} className="mic-button bounce-hover" style={{ width: 'auto', padding: '0 20px', fontSize: '20px' }}>?? ÖØÂ¼</button>
-              <button onClick={playRecording} className="play-recording-btn bounce-hover" style={{ margin: 0, padding: '0 20px', fontSize: '20px' }}>?? Ìı±¦±¦½²</button>
+              <button onClick={startRecording} className="mic-button bounce-hover" style={{ width: 'auto', padding: '0 20px', fontSize: '20px' }}>ğŸ”„ é‡å½•</button>
+              <button onClick={playRecording} className="play-recording-btn bounce-hover" style={{ margin: 0, padding: '0 20px', fontSize: '20px' }}>ğŸ”Š å¬å®å®è®²</button>
             </>
           )}
         </div>

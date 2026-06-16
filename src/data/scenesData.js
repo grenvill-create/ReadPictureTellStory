@@ -1,27 +1,27 @@
 export const scenesData = [
   {
     id: "scene_farm",
-    title: "ÈÈÄÖµÄÅ©³¡ / The Bustling Farm",
+    title: "çƒ­é—¹çš„å†œåœº / The Bustling Farm",
     image: "/images/farm_panorama.png",
     hotspots: [
-      { id: "red_barn", name: "ºìÉ«¹È²Ö", nameEn: "Red Barn", x: 25, y: 40, radius: 10 },
-      { id: "tractor", name: "ÍÏÀ­»ú", nameEn: "Tractor", x: 45, y: 60, radius: 8 },
-      { id: "duck_pond", name: "Ñ¼×Ó³ØÌÁ", nameEn: "Duck Pond", x: 75, y: 65, radius: 8 },
-      { id: "cow", name: "ÄÌÅ£", nameEn: "Cow", x: 15, y: 70, radius: 6 },
-      { id: "pig", name: "Ğ¡Öí", nameEn: "Pig", x: 85, y: 75, radius: 5 },
-      { id: "sun", name: "Ì«Ñô", nameEn: "Sun", x: 85, y: 15, radius: 8 }
+      { id: "red_barn", name: "çº¢è‰²è°·ä»“", nameEn: "Red Barn", x: 25, y: 40, radius: 10 },
+      { id: "tractor", name: "æ‹–æ‹‰æœº", nameEn: "Tractor", x: 45, y: 60, radius: 8 },
+      { id: "duck_pond", name: "é¸­å­æ± å¡˜", nameEn: "Duck Pond", x: 75, y: 65, radius: 8 },
+      { id: "cow", name: "å¥¶ç‰›", nameEn: "Cow", x: 15, y: 70, radius: 6 },
+      { id: "pig", name: "å°çŒª", nameEn: "Pig", x: 85, y: 75, radius: 5 },
+      { id: "sun", name: "å¤ªé˜³", nameEn: "Sun", x: 85, y: 15, radius: 8 }
     ]
   },
   {
     id: "scene_underwater",
-    title: "º£µ×ÊÀ½ç / Underwater World",
+    title: "æµ·åº•ä¸–ç•Œ / Underwater World",
     image: "/images/underwater_panorama.png",
     hotspots: [
-      { id: "submarine", name: "Ç±Ë®Í§", nameEn: "Submarine", x: 50, y: 40, radius: 12 },
-      { id: "turtle", name: "º£¹ê", nameEn: "Sea Turtle", x: 25, y: 60, radius: 8 },
-      { id: "treasure", name: "±¦Ïä", nameEn: "Treasure Chest", x: 75, y: 75, radius: 7 },
-      { id: "shark", name: "öèÓã", nameEn: "Shark", x: 80, y: 30, radius: 10 },
-      { id: "coral", name: "Éºº÷", nameEn: "Coral Reef", x: 40, y: 80, radius: 15 }
+      { id: "submarine", name: "æ½œæ°´è‰‡", nameEn: "Submarine", x: 50, y: 40, radius: 12 },
+      { id: "turtle", name: "æµ·é¾Ÿ", nameEn: "Sea Turtle", x: 25, y: 60, radius: 8 },
+      { id: "treasure", name: "å®ç®±", nameEn: "Treasure Chest", x: 75, y: 75, radius: 7 },
+      { id: "shark", name: "é²¨é±¼", nameEn: "Shark", x: 80, y: 30, radius: 10 },
+      { id: "coral", name: "çŠç‘š", nameEn: "Coral Reef", x: 40, y: 80, radius: 15 }
     ]
   }
 ];

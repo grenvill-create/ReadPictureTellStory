@@ -15,7 +15,7 @@ export default function SceneExplorer({ scene, onBack, speakText }) {
   return (
     <div className="scene-explorer-container">
       <div className="scene-header">
-        <button onClick={onBack} className="back-link bounce-hover">? ·µ»ØÖ÷Ò³</button>
+        <button onClick={onBack} className="back-link bounce-hover">â¬… è¿”å›ä¸»é¡µ</button>
         <h2 className="scene-title">{scene.title}</h2>
       </div>
 
@@ -29,12 +29,12 @@ export default function SceneExplorer({ scene, onBack, speakText }) {
         {scene.hotspots.map(hotspot => (
           <div
             key={hotspot.id}
-            className={\scene-hotspot \\}
+            className={`scene-hotspot ${activeHotspot === hotspot.id ? "active" : ""}`}
             style={{
-              left: \\%\,
-              top: \\%\,
-              width: \\%\,
-              paddingTop: \\%\
+              left: `${hotspot.x}%`,
+              top: `${hotspot.y}%`,
+              width: `${hotspot.radius * 2}%`,
+              paddingTop: `${hotspot.radius * 2}%`
             }}
             onClick={() => handleHotspotClick(hotspot)}
           >
@@ -49,14 +49,14 @@ export default function SceneExplorer({ scene, onBack, speakText }) {
               <div 
                 className="scene-vocab-bubble"
                 style={{
-                  left: \\%\,
-                  top: \\%\
+                  left: `${hotspot.x}%`,
+                  top: `${hotspot.y}%`
                 }}
                 onClick={() => handleHotspotClick(hotspot)}
               >
                 <span className="vocab-zh">{hotspot.name}</span>
                 <span className="vocab-en">{hotspot.nameEn}</span>
-                <span className="vocab-speaker-icon">??</span>
+                <span className="vocab-speaker-icon">ğŸ”Š</span>
               </div>
             );
           })()
@@ -64,7 +64,7 @@ export default function SceneExplorer({ scene, onBack, speakText }) {
       </div>
       
       <div className="scene-instructions">
-        ?? ÔÚÕâ·ù¾Ş´óµÄ»­¾íÀïÑ°ÕÒÒş²ØµÄÎïÆ·£¬µã»÷ËüÃÇÌıÌıÖĞÓ¢ÎÄ·¢Òô°É£¡
+        ğŸ” åœ¨è¿™å¹…å·¨å¤§çš„ç”»å·é‡Œå¯»æ‰¾éšè—çš„ç‰©å“ï¼Œç‚¹å‡»å®ƒä»¬å¬å¬ä¸­è‹±æ–‡å‘éŸ³å§ï¼
       </div>
     </div>
   );

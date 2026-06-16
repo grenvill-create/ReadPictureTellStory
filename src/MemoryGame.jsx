@@ -16,8 +16,8 @@ export default function MemoryGame({ words, onComplete }) {
     
     let initialCards = [];
     selectedWords.forEach(word => {
-      initialCards.push({ id: \\_zh\, content: word.zh, type: 'zh', matchId: word.zh });
-      initialCards.push({ id: \\_en\, content: word.en, type: 'en', matchId: word.zh });
+      initialCards.push({ id: `${word.zh}_zh`, content: word.zh, type: 'zh', matchId: word.zh });
+      initialCards.push({ id: `${word.zh}_en`, content: word.en, type: 'en', matchId: word.zh });
     });
     
     // Shuffle cards
@@ -66,7 +66,7 @@ export default function MemoryGame({ words, onComplete }) {
   };
 
   if (!words || words.length === 0) {
-    return <div style={{padding: '20px', textAlign: 'center'}}>Õâ±¾¹ÊÊÂÃ»ÓĞ´Ê»ã¿ÉÒÔ¸´Ï°Å¶£¡</div>;
+    return <div style={{padding: '20px', textAlign: 'center'}}>è¿™æœ¬æ•…äº‹æ²¡æœ‰è¯æ±‡å¯ä»¥å¤ä¹ å“¦ï¼</div>;
   }
 
   return (
@@ -79,15 +79,15 @@ export default function MemoryGame({ words, onComplete }) {
           return (
             <div 
               key={card.id} 
-              className={\memory-card \ \\}
+              className={`memory-card ${isFlipped ? 'flipped' : ''} ${isMatched ? 'matched' : ''}`}
               onClick={() => handleCardClick(index)}
             >
               <div className="memory-card-inner">
                 <div className="memory-card-front">
-                  <span>?</span>
+                  <span>â“</span>
                 </div>
                 <div className="memory-card-back">
-                  <span className={\memory-card-content \\}>
+                  <span className={`memory-card-content ${card.type}`}>
                     {card.content}
                   </span>
                 </div>
