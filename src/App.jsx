@@ -1367,14 +1367,13 @@ export default function App() {
                     >
                       ⬅ 返回画册
                     </button>
-                      <button 
-                        onClick={() => setCurrentStep(5)} 
-                        className="next-step-btn"
-                        style={{ background: "var(--color-pink)", flex: 1, marginTop: 0 }}
-                      >
-                        下一步：记忆翻牌 ➡
-                      </button>
-                    </div>
+                    <button 
+                      onClick={() => setCurrentStep(5)} 
+                      className="next-step-btn"
+                      style={{ background: "var(--color-pink)", flex: 1, marginTop: 0 }}
+                    >
+                      下一步：记忆翻牌 ➡
+                    </button>
                   </div>
                 </div>
               </div>
