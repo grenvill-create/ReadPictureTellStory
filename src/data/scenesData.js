@@ -4,12 +4,14 @@ export const scenesData = [
     title: "热闹的农场 / The Bustling Farm",
     image: "/images/farm_panorama.png",
     hotspots: [
-      { id: "red_barn", name: "红色谷仓", nameEn: "Red Barn", x: 25, y: 40, radius: 10 },
-      { id: "tractor", name: "拖拉机", nameEn: "Tractor", x: 45, y: 60, radius: 8 },
-      { id: "duck_pond", name: "鸭子池塘", nameEn: "Duck Pond", x: 75, y: 65, radius: 8 },
-      { id: "cow", name: "奶牛", nameEn: "Cow", x: 15, y: 70, radius: 6 },
-      { id: "pig", name: "小猪", nameEn: "Pig", x: 85, y: 75, radius: 5 },
-      { id: "sun", name: "太阳", nameEn: "Sun", x: 85, y: 15, radius: 8 }
+      { id: "red_barn", name: "红色谷仓", nameEn: "Red Barn", x: 38, y: 35, radius: 10 },
+      { id: "tractor", name: "拖拉机", nameEn: "Tractor", x: 38, y: 65, radius: 8 },
+      { id: "duck_pond", name: "鸭子池塘", nameEn: "Duck Pond", x: 70, y: 70, radius: 8 },
+      { id: "cow", name: "奶牛", nameEn: "Cow", x: 15, y: 88, radius: 8 },
+      { id: "dog", name: "小狗", nameEn: "Dog", x: 55, y: 55, radius: 6 },
+      { id: "horse", name: "马", nameEn: "Horse", x: 92, y: 38, radius: 8 },
+      { id: "scarecrow", name: "稻草人", nameEn: "Scarecrow", x: 74, y: 38, radius: 8 },
+      { id: "chicken", name: "小鸡", nameEn: "Chicken", x: 10, y: 72, radius: 6 }
     ]
   },
   {
@@ -17,11 +19,14 @@ export const scenesData = [
     title: "海底世界 / Underwater World",
     image: "/images/underwater_panorama.png",
     hotspots: [
-      { id: "submarine", name: "潜水艇", nameEn: "Submarine", x: 50, y: 40, radius: 12 },
-      { id: "turtle", name: "海龟", nameEn: "Sea Turtle", x: 25, y: 60, radius: 8 },
-      { id: "treasure", name: "宝箱", nameEn: "Treasure Chest", x: 75, y: 75, radius: 7 },
-      { id: "shark", name: "鲨鱼", nameEn: "Shark", x: 80, y: 30, radius: 10 },
-      { id: "coral", name: "珊瑚", nameEn: "Coral Reef", x: 40, y: 80, radius: 15 }
+      { id: "submarine", name: "潜水艇", nameEn: "Submarine", x: 22, y: 32, radius: 15 },
+      { id: "turtle", name: "海龟", nameEn: "Sea Turtle", x: 20, y: 68, radius: 10 },
+      { id: "treasure", name: "宝箱", nameEn: "Treasure Chest", x: 63, y: 78, radius: 10 },
+      { id: "shark", name: "鲨鱼", nameEn: "Shark", x: 75, y: 50, radius: 12 },
+      { id: "coral", name: "珊瑚", nameEn: "Coral Reef", x: 80, y: 25, radius: 12 },
+      { id: "anchor", name: "铁锚", nameEn: "Anchor", x: 73, y: 88, radius: 6 },
+      { id: "boat", name: "小船", nameEn: "Boat", x: 20, y: 5, radius: 5 },
+      { id: "clownfish", name: "小丑鱼", nameEn: "Clownfish", x: 53, y: 53, radius: 5 }
     ]
   }
 ];
