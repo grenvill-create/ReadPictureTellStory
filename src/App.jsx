@@ -698,7 +698,7 @@ export default function App() {
               onClick={() => setShowMagneticBoard(true)}
             >
               <div className="story-card-image-wrapper">
-                <img src="/images/storyboard_bg.png" alt="磁力贴故事板" className="story-card-image" style={{ height: '160px' }} />
+                <img src={getImageUrl("/images/storyboard_bg.png")} alt="磁力贴故事板" className="story-card-image" style={{ height: '160px' }} />
                 <div className="new-badge" style={{ background: 'var(--color-purple)' }}>✨ 创作</div>
               </div>
               <div className="story-card-info">
