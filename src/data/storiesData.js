@@ -1545,5 +1545,313 @@ export const storiesData = [
     ],
     lifeConnection: "只要我们有恒心、有毅力，坚持不懈地去做一件事，再大的困难也一定能够克服！",
     retellingPrompt: "你能表演一下老爷爷拿着锄头用力挖山的动作吗？"
+  },
+  {
+    id: "fable_blessing_in_disguise",
+    type: "fable",
+    title: "塞翁失马 / A Blessing in Disguise",
+    image: "/images/blessing_in_disguise.png",
+    hotspots: [
+      { id: "old_man", name: "老爷爷", nameEn: "Old Man", x: 40, y: 60, radius: 25 },
+      { id: "horse", name: "马", nameEn: "Horse", x: 70, y: 50, radius: 25 }
+    ],
+    words: [
+      { zh: "老人", en: "Old Man" },
+      { zh: "马", en: "Horse" },
+      { zh: "丢失", en: "Lost" }
+    ],
+    fableText: [
+      "古时候，边塞住着一位老爷爷（塞翁），他养了一匹好马。有一天，这匹马挣脱缰绳跑到了外族人的领地。",
+      "邻居们都来安慰他，老爷爷却一点也不着急，说：‘这未必是一件坏事呀！’",
+      "几个月后，那匹跑丢的马不仅自己回来了，还带回了一匹纯种的骏马。邻居们都来祝贺他。",
+      "老爷爷却皱起眉头说：‘白白得了一匹好马，这未必是一件好事呀！’",
+      "后来，老爷爷的儿子因为骑这匹烈马摔断了腿。但正因为腿瘸了，儿子免去了去前线打仗，父子俩平安地保全了性命。"
+    ],
+    parentGuide: "老爷爷的马跑丢了，他为什么一点也不伤心？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "老爷爷跑丢的马回来时，带了什么东西？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "为什么后来儿子摔断了腿，反而变成了一件好事？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "如果那匹马没有跑丢，儿子还会遇到危险吗？", color: "#fa709a" }
+    ],
+    lifeConnection: "坏事有时候会变成好事，好事有时候也可能变成坏事。遇到挫折时不要太难过哦！",
+    retellingPrompt: "你能表演一下老爷爷一会儿开心一会儿发愁的样子吗？"
+  },
+  {
+    id: "fable_watching_plums",
+    type: "fable",
+    title: "望梅止渴 / Quenching Thirst by Thinking of Plums",
+    image: "/images/watching_plums.png",
+    hotspots: [
+      { id: "general", name: "将军", nameEn: "General", x: 40, y: 60, radius: 25 },
+      { id: "sword", name: "宝剑", nameEn: "Sword", x: 55, y: 40, radius: 15 },
+      { id: "soldier", name: "士兵", nameEn: "Soldier", x: 70, y: 65, radius: 20 }
+    ],
+    words: [
+      { zh: "将军", en: "General" },
+      { zh: "梅子", en: "Plum" },
+      { zh: "口渴", en: "Thirsty" }
+    ],
+    fableText: [
+      "三国时期，曹操带领军队去打仗。正值烈日炎炎的夏天，士兵们走了很远的路，水壶里的水都喝光了。",
+      "大家又累又渴，嘴唇都干裂了，实在走不动了。曹操心里很着急，到处找水也找不到。",
+      "突然，曹操灵机一动，他骑在马上，用马鞭指着前方大喊：‘前面有一大片梅林，结满了又酸又甜的梅子！’",
+      "士兵们一听到‘酸梅子’这三个字，嘴里立刻分泌出许多口水，感觉也不那么渴了。",
+      "于是，大家鼓起力气继续往前走，终于走出了这片荒野，找到了一处有水的地方。"
+    ],
+    parentGuide: "曹操是用什么办法让士兵们不觉得口渴的？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "士兵们在路上遇到了什么困难？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "为什么士兵们一听到梅子就不觉得渴了？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "如果曹操说前面有大石头，士兵们会流口水吗？", color: "#fa709a" }
+    ],
+    lifeConnection: "当我们遇到困难觉得坚持不下去时，可以想一些美好的事情来给自己打气！",
+    retellingPrompt: "你能表演一下吃到很酸很酸的梅子时，嘴巴的表情吗？"
+  },
+  {
+    id: "fable_drawing_cake",
+    type: "fable",
+    title: "画饼充饥 / Drawing a Cake to Satisfy Hunger",
+    image: "/images/drawing_cake.png",
+    hotspots: [
+      { id: "man", name: "饥饿的人", nameEn: "Hungry Man", x: 40, y: 60, radius: 25 },
+      { id: "paper", name: "纸", nameEn: "Paper", x: 60, y: 70, radius: 20 },
+      { id: "cake", name: "画的饼", nameEn: "Drawn Cake", x: 60, y: 70, radius: 15 }
+    ],
+    words: [
+      { zh: "画画", en: "Draw" },
+      { zh: "大饼", en: "Cake" },
+      { zh: "肚子饿", en: "Hungry" }
+    ],
+    fableText: [
+      "从前有一个人，他非常穷，经常吃不饱饭。有一天，他又饿得肚子咕咕叫，可是家里一点吃的都没有了。",
+      "他实在太饿了，于是找来一张纸和一支笔，在纸上画了一个又大又圆的芝麻饼。",
+      "他看着画好的饼，假装拿起来咬了一口，一边嚼一边说：‘嗯，真香啊！’",
+      "可是，无论他画得多么逼真，肚子还是饿得咕咕叫。",
+      "毕竟，画在纸上的饼是不能填饱肚子的，只有真正努力去工作才能换来食物。"
+    ],
+    parentGuide: "这个人饿了为什么不去吃饭，而要在纸上画饼？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "这个人在纸上画了什么东西？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "画的饼能让他不饿吗？为什么？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "他接下来应该去做什么才能真正吃到饼？", color: "#fa709a" }
+    ],
+    lifeConnection: "光靠空想是解决不了问题的，想要得到什么，必须付诸实际行动才行哦！",
+    retellingPrompt: "你能表演一下肚子很饿，却只能看着假饼流口水的样子吗？"
+  },
+  {
+    id: "fable_fox_and_stork",
+    type: "fable",
+    title: "狐狸和鹳鸟 / The Fox and the Stork",
+    image: "/images/fox_and_stork.png",
+    hotspots: [
+      { id: "fox", name: "狐狸", nameEn: "Fox", x: 30, y: 60, radius: 25 },
+      { id: "stork", name: "鹳鸟", nameEn: "Stork", x: 70, y: 40, radius: 25 },
+      { id: "jar", name: "高罐子", nameEn: "Tall Jar", x: 50, y: 70, radius: 15 }
+    ],
+    words: [
+      { zh: "狐狸", en: "Fox" },
+      { zh: "鹳鸟", en: "Stork" },
+      { zh: "罐子", en: "Jar" }
+    ],
+    fableText: [
+      "有一天，狐狸请鹳鸟来家里吃饭。可是坏心眼的狐狸故意把汤倒在一个很平的盘子里。",
+      "鹳鸟的嘴巴又长又尖，它怎么啄也喝不到盘子里的汤，而狐狸却用舌头舔得干干净净。",
+      "过了几天，鹳鸟也请狐狸来吃饭。它把美味的肉汤装在一个有着长长细脖子的罐子里。",
+      "鹳鸟把长嘴巴伸进罐子里，吃得津津有味。可是狐狸的嘴巴太宽，根本伸不进罐子里。",
+      "狐狸只能围着罐子干着急，最后饿着肚子回家了。它终于明白了自己捉弄别人的后果。"
+    ],
+    parentGuide: "狐狸请客的时候，为什么要用平底盘子装汤？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "鹳鸟请狐狸吃饭时，用了什么样的容器？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "狐狸为什么喝不到长脖子罐子里的汤？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "狐狸以后还会随便捉弄别人吗？", color: "#fa709a" }
+    ],
+    lifeConnection: "你怎么对待别人，别人就会怎么对待你。我们要学会尊重和体谅朋友！",
+    retellingPrompt: "你能表演一下狐狸看着长脖子罐子却吃不到东西，急得团团转的样子吗？"
+  },
+  {
+    id: "fable_city_country_mouse",
+    type: "fable",
+    title: "城里老鼠和乡下老鼠 / City Mouse and Country Mouse",
+    image: "/images/city_country_mouse.png",
+    hotspots: [
+      { id: "city_mouse", name: "城里老鼠", nameEn: "City Mouse", x: 35, y: 60, radius: 20 },
+      { id: "country_mouse", name: "乡下老鼠", nameEn: "Country Mouse", x: 65, y: 60, radius: 20 },
+      { id: "cheese", name: "奶酪", nameEn: "Cheese", x: 50, y: 55, radius: 15 }
+    ],
+    words: [
+      { zh: "城市", en: "City" },
+      { zh: "乡下", en: "Country" },
+      { zh: "奶酪", en: "Cheese" }
+    ],
+    fableText: [
+      "乡下老鼠邀请城里的表哥来做客。它拿出自己最好的食物——玉米和麦子招待表哥。",
+      "城里老鼠嫌弃地说：‘你吃的太差了！跟我去城里吧，那里有吃不完的山珍海味。’",
+      "于是，乡下老鼠跟着表哥来到了城里的一座大房子，桌子上摆满了奶酪、蛋糕和水果。",
+      "就在它们正准备大吃一顿的时候，突然冲出来一只大花猫，吓得它们拼命逃回洞里，半天不敢出来。",
+      "乡下老鼠擦了擦冷汗说：‘虽然城里的食物很好吃，但我还是喜欢乡下，哪怕只吃玉米，至少平平安安。’"
+    ],
+    parentGuide: "乡下老鼠为什么最后还是决定回乡下？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "城里老鼠给乡下老鼠准备了什么好吃的？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "为什么城里老鼠吃得那么好，却每天担惊受怕？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "如果乡下老鼠留在城里，每天会过怎样的日子？", color: "#fa709a" }
+    ],
+    lifeConnection: "最适合自己的生活才是最好的生活，平平安安比什么都重要！",
+    retellingPrompt: "你能表演一下两只老鼠看到大花猫时，吓得赶紧逃跑的样子吗？"
+  },
+  {
+    id: "fable_belling_cat",
+    type: "fable",
+    title: "给猫挂铃铛 / Belling the Cat",
+    image: "/images/belling_cat.png",
+    hotspots: [
+      { id: "mouse", name: "小老鼠", nameEn: "Mouse", x: 40, y: 65, radius: 20 },
+      { id: "bell", name: "铃铛", nameEn: "Bell", x: 50, y: 55, radius: 10 },
+      { id: "cat", name: "熟睡的猫", nameEn: "Sleeping Cat", x: 75, y: 60, radius: 25 }
+    ],
+    words: [
+      { zh: "老鼠", en: "Mouse" },
+      { zh: "猫", en: "Cat" },
+      { zh: "铃铛", en: "Bell" }
+    ],
+    fableText: [
+      "一户人家里有一只非常厉害的猫，每天都会抓到好几只老鼠。老鼠们非常害怕，决定开会商量对策。",
+      "老鼠们七嘴八舌地讨论着。这时，一只年轻的小老鼠站出来说：‘我有个好主意！’",
+      "‘只要我们在猫的脖子上挂一个小铃铛，以后猫一走动，铃铛就会响，我们就能提前逃跑了！’",
+      "所有的老鼠都觉得这个主意太棒了，高兴得欢呼起来。",
+      "可是，一只年老的老鼠叹了口气问：‘主意是不错，但是……谁去把铃铛挂在猫的脖子上呢？’大家听了，全都不说话了。"
+    ],
+    parentGuide: "老鼠们觉得挂铃铛的主意好吗？为什么最后大家都不说话了？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "小老鼠想出了什么好主意来对付猫？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "为什么没有老鼠愿意去给猫挂铃铛？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "如果真的有老鼠去挂铃铛，会发生什么事？", color: "#fa709a" }
+    ],
+    lifeConnection: "说一个好主意很容易，但真正去做却是很难的。想出的办法一定要能做到才行！",
+    retellingPrompt: "你能表演一下老爷爷鼠问大家“谁去挂铃铛”时，大家吓得不敢出声的样子吗？"
+  },
+  {
+    id: "fable_dog_and_shadow",
+    type: "fable",
+    title: "狗和影子 / The Dog and Its Reflection",
+    image: "/images/dog_and_shadow.png",
+    hotspots: [
+      { id: "dog", name: "狗", nameEn: "Dog", x: 40, y: 40, radius: 25 },
+      { id: "bone", name: "骨头", nameEn: "Bone", x: 50, y: 45, radius: 15 },
+      { id: "reflection", name: "水里的影子", nameEn: "Reflection", x: 50, y: 80, radius: 25 }
+    ],
+    words: [
+      { zh: "狗", en: "Dog" },
+      { zh: "骨头", en: "Bone" },
+      { zh: "影子", en: "Shadow" }
+    ],
+    fableText: [
+      "有一只狗得到了一根非常大、非常香的肉骨头。它高高兴兴地叼着骨头准备回家去吃。",
+      "在回家的路上，它必须要经过一座小木桥。当它走到桥中间时，它往河水里看了一眼。",
+      "它看到水里也有一只狗，而且那只狗的嘴里也叼着一根很大的肉骨头。",
+      "这只贪心的狗心想：‘如果我把它的骨头也抢过来，我不就有两根骨头了吗！’",
+      "于是，它张开嘴巴，恶狠狠地对着水里的狗大吼一声。结果，它嘴里的骨头‘噗通’一声掉进了河里，被水冲走了。"
+    ],
+    parentGuide: "那只狗看到水里的另一只狗，其实是谁呀？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "狗过桥的时候嘴里叼着什么？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "狗为什么要把嘴巴张开冲着水里叫？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "骨头掉进河里以后，这只狗会有多伤心？", color: "#fa709a" }
+    ],
+    lifeConnection: "人不能太贪心，如果总是看着别人碗里的东西，最后可能连自己本来拥有的都会失去。",
+    retellingPrompt: "你能表演一下狗为了抢水里的骨头，张大嘴巴大吼的动作吗？"
+  },
+  {
+    id: "fable_wind_and_sun",
+    type: "fable",
+    title: "北风和太阳 / The North Wind and the Sun",
+    image: "/images/wind_and_sun.png",
+    hotspots: [
+      { id: "sun", name: "太阳", nameEn: "Sun", x: 70, y: 20, radius: 25 },
+      { id: "wind", name: "北风", nameEn: "Wind", x: 20, y: 20, radius: 20 },
+      { id: "person", name: "行人", nameEn: "Person", x: 50, y: 70, radius: 20 }
+    ],
+    words: [
+      { zh: "北风", en: "Wind" },
+      { zh: "太阳", en: "Sun" },
+      { zh: "脱衣服", en: "Take Off Clothes" }
+    ],
+    fableText: [
+      "北风和太阳在争论谁的力气更大。这时，路上走来一个穿着厚厚外套的行人。",
+      "他们打赌说，谁能让这个行人脱下外套，谁就赢了。北风自告奋勇地先来。",
+      "北风深吸一口气，吹出了冰冷刺骨的狂风。可是风越大，行人觉得越冷，就把外套裹得越紧。",
+      "北风吹得精疲力尽，只好认输。接着，轮到太阳出场了。",
+      "太阳从云层后走出来，把温暖的阳光洒在行人身上。行人觉得越来越热，开始流汗，于是主动脱下了厚外套。太阳赢了！"
+    ],
+    parentGuide: "北风用了那么大的力气，为什么行人没有脱衣服？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "太阳和北风比赛要让行人做什么？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "为什么太阳只是发光，行人就自己把衣服脱了？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "如果接下来突然下起了大雪，行人会把衣服穿上吗？", color: "#fa709a" }
+    ],
+    lifeConnection: "有时候，温柔和善良比强硬和粗暴更有力量！",
+    retellingPrompt: "你能表演一下行人在大风里把衣服裹紧，然后在太阳下热得脱衣服的样子吗？"
+  },
+  {
+    id: "fable_thief_and_dog",
+    type: "fable",
+    title: "小偷和看门狗 / The Thief and the Watchdog",
+    image: "/images/thief_and_dog.png",
+    hotspots: [
+      { id: "thief", name: "小偷", nameEn: "Thief", x: 30, y: 55, radius: 25 },
+      { id: "meat", name: "肉", nameEn: "Meat", x: 50, y: 65, radius: 10 },
+      { id: "dog", name: "看门狗", nameEn: "Watchdog", x: 70, y: 65, radius: 20 }
+    ],
+    words: [
+      { zh: "小偷", en: "Thief" },
+      { zh: "肉块", en: "Meat" },
+      { zh: "看门狗", en: "Watchdog" }
+    ],
+    fableText: [
+      "在一个漆黑的夜晚，一个小偷偷偷摸摸地来到一户有钱人的家门口，准备进去偷东西。",
+      "这户人家养了一只非常凶猛的看门狗。小偷刚一走近，狗就狂叫了起来。",
+      "小偷怕狗的叫声把主人吵醒，赶紧从口袋里掏出一块香喷喷的肉，扔给看门狗。",
+      "小偷心想：‘只要狗吃了肉，就不会叫了。’ 可是，看门狗闻了闻肉，连一口都没吃。",
+      "看门狗更加大声地叫了起来：‘你给我吃肉，是想塞住我的嘴巴去偷主人的东西，我才不会上你的当呢！’主人被惊醒，抓住了小偷。"
+    ],
+    parentGuide: "小偷为什么要扔肉给看门狗吃？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "看门狗吃到小偷给的肉了吗？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "看门狗为什么拒绝吃那块香喷喷的肉？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "如果看门狗真的吃了肉睡着了，主人家会发生什么事？", color: "#fa709a" }
+    ],
+    lifeConnection: "不能因为别人给了一点小恩小惠，就忘记了自己的职责。要做一个忠诚、守规矩的好孩子！",
+    retellingPrompt: "你能假装自己是那只看门狗，大声地汪汪叫赶走小偷吗？"
+  },
+  {
+    id: "fable_frog_and_ox",
+    type: "fable",
+    title: "青蛙和牛 / The Frog and the Ox",
+    image: "/images/frog_and_ox.png",
+    hotspots: [
+      { id: "frog", name: "青蛙", nameEn: "Frog", x: 35, y: 75, radius: 15 },
+      { id: "ox", name: "大牛", nameEn: "Ox", x: 70, y: 50, radius: 30 }
+    ],
+    words: [
+      { zh: "青蛙", en: "Frog" },
+      { zh: "大牛", en: "Ox" },
+      { zh: "肚子", en: "Belly" }
+    ],
+    fableText: [
+      "有一只小青蛙在池塘边玩耍，突然看到了一头巨大的棕色老牛。小青蛙从来没见过这么大的动物，惊讶极了。",
+      "小青蛙跑回家，对妈妈说：‘妈妈，我今天看到了一只像山一样大的怪物！’",
+      "青蛙妈妈不服气地说：‘有那么大吗？看妈妈的！’于是青蛙妈妈拼命地吸气，把肚子鼓得圆圆的。",
+      "‘有这么大吗？’妈妈问。小青蛙摇摇头说：‘还要大得多！’妈妈又用力吸了一大口气，肚子鼓得像个气球。",
+      "不管小青蛙怎么说，妈妈还是觉得不够大。最后，她又狠狠吸了一大口气，结果‘砰’的一声，肚子撑破了！"
+    ],
+    parentGuide: "青蛙妈妈为了和牛比大小，最后把自己怎么样了？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "小青蛙在池塘边看到了一只什么动物？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "青蛙妈妈为什么一定要把肚子鼓得那么大？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "如果青蛙妈妈再也不和牛比大小了，她会快乐吗？", color: "#fa709a" }
+    ],
+    lifeConnection: "每个人都有自己的长处和短处，不要总是去和别人比自己不擅长的事情，要学会接受真实的自己！",
+    retellingPrompt: "你能学一学青蛙妈妈是怎么用力吸气把肚子鼓起来的吗？"
   }
 ];
