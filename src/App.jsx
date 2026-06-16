@@ -78,9 +78,17 @@ const saveAudioBlob = async (storyId, blob) => {
     return new Promise((resolve, reject) => {
       const transaction = db.transaction(STORE_NAME, "readwrite");
       const store = transaction.objectStore(STORE_NAME);
-      const request = store.put(blob, storyId);
-      request.onsuccess = () => resolve();
-      request.onerror = (e) => reject(e.target.error);
+      const getReq = store.get(storyId);
+      getReq.onsuccess = (e) => {
+        let existing = e.target.result;
+        if (!existing) existing = [];
+        if (!Array.isArray(existing)) existing = [existing];
+        existing.push(blob);
+        const putReq = store.put(existing, storyId);
+        putReq.onsuccess = () => resolve();
+        putReq.onerror = (e) => reject(e.target.error);
+      };
+      getReq.onerror = (e) => reject(e.target.error);
     });
   } catch (err) {
     console.error("Failed to save to IndexedDB:", err);
@@ -205,9 +213,8 @@ export default function App() {
     setExploredHotspots([]);
     setShowDirectoryModal(false); // Fix: close modal when starting to read
     
-    const existingAudio = recordings[storyId];
-    setAudioUrl(existingAudio || null);
-    setRecordingState(existingAudio ? "has_audio" : "idle");
+    setAudioUrl(null);
+    setRecordingState("idle");
     
     setActiveHotspot(null);
     setIsSentenceCorrect(false);
@@ -458,12 +465,10 @@ export default function App() {
         const url = URL.createObjectURL(audioBlob);
         setAudioUrl(url);
         setRecordings(prev => {
-          if (prev[currentStoryId]) {
-            URL.revokeObjectURL(prev[currentStoryId]);
-          }
-          return { ...prev, [currentStoryId]: url };
+          const currentList = prev[currentStoryId] || [];
+          return { ...prev, [currentStoryId]: [...currentList, url] };
         });
-        setRecordingState("has_audio");
+        setRecordingState("idle");
         awardStar(currentStoryId, 2);
       };
 
@@ -536,9 +541,8 @@ export default function App() {
     setExploredHotspots([]);
     
     // Restore recording from active session if exists
-    const existingAudio = recordings[nextStory.id];
-    setAudioUrl(existingAudio || null);
-    setRecordingState(existingAudio ? "has_audio" : "idle");
+    setAudioUrl(null);
+    setRecordingState("idle");
     
     setActiveHotspot(null);
     setIsSentenceCorrect(false);
@@ -659,17 +663,9 @@ export default function App() {
       
       // Update recordings state
       setRecordings(prev => {
-        if (prev[storyId]) {
-          URL.revokeObjectURL(prev[storyId]);
-        }
-        return { ...prev, [storyId]: url };
+        const currentList = prev[storyId] || [];
+        return { ...prev, [storyId]: [...currentList, url] };
       });
-      
-      // If we are currently looking at this story, update the audioUrl and recordingState
-      if (currentStoryId === storyId) {
-        setAudioUrl(url);
-        setRecordingState("has_audio");
-      }
       
       // Award the recording star since they now have a recording
       awardStar(storyId, 2);
@@ -1109,26 +1105,33 @@ export default function App() {
                     {recordingState === "recording" && (
                       <button onClick={stopRecording} className="mic-button recording" style={{ width: '48px', height: '48px', fontSize: '20px' }}>⏹️</button>
                     )}
-                    {recordingState === "has_audio" && (
-                      <>
-                        <button onClick={startRecording} className="mic-button bounce-hover" style={{ width: '48px', height: '48px', fontSize: '20px' }}>🔄</button>
-                        {audioUrl && (
-                          <button 
-                            onClick={() => handleTogglePlay(audioUrl)} 
-                            className={`play-recording-btn bounce-hover ${activePlaybackUrl === audioUrl && isPlaying ? "playing" : ""}`}
-                            style={{ margin: 0 }}
-                          >
-                            {activePlaybackUrl === audioUrl && isPlaying ? "⏸️ 停止" : "🔊 听宝宝讲"}
-                          </button>
-                        )}
-                      </>
-                    )}
                     <span className="recording-status" style={{ margin: 0, fontSize: '13px' }}>
                       {recordingState === "idle" && "点击麦克风，记录宝贝的话"}
                       {recordingState === "recording" && "录音中..."}
-                      {recordingState === "has_audio" && "录音完成！"}
                     </span>
                   </div>
+                  {(recordings[currentStory.id] || []).length > 0 && (
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginTop: '12px' }}>
+                      {(recordings[currentStory.id] || []).map((url, idx) => (
+                        <div key={idx} style={{ display: 'flex', gap: '8px' }}>
+                          <button 
+                            onClick={() => handleTogglePlay(url)} 
+                            className={`play-recording-btn bounce-hover ${activePlaybackUrl === url && isPlaying ? "playing" : ""}`}
+                            style={{ margin: 0, flex: 1, padding: '8px' }}
+                          >
+                            {activePlaybackUrl === url && isPlaying ? "⏸️ 停止" : `🔊 听宝宝讲 (录音 ${idx + 1})`}
+                          </button>
+                          <button 
+                            onClick={() => downloadAudio(url, currentStory.title.split("/")[0])} 
+                            className="parent-btn bounce-hover"
+                            style={{ padding: "8px 12px", borderRadius: "var(--radius-md)" }}
+                          >
+                            📥 下载
+                          </button>
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </div>
             ) : (
@@ -1206,34 +1209,33 @@ export default function App() {
                       ⏹️
                     </button>
                   )}
-                  {recordingState === "has_audio" && (
-                    <button onClick={startRecording} className="mic-button bounce-hover">
-                      🔄 重录
-                    </button>
-                  )}
                   
                   <span className="recording-status">
                     {recordingState === "idle" && "点击麦克风开始说话"}
                     {recordingState === "recording" && "录音中... 再次点击即可停止"}
-                    {recordingState === "has_audio" && "录制成功！可以回听哦"}
                   </span>
 
-                  {audioUrl && (
-                    <div className="audio-player-controls">
-                      <button 
-                        onClick={() => handleTogglePlay(audioUrl)} 
-                        className={`play-recording-btn bounce-hover ${activePlaybackUrl === audioUrl && isPlaying ? "playing" : ""}`}
-                      >
-                        {activePlaybackUrl === audioUrl && isPlaying ? "⏸️ 停止播放" : "🔊 听我的录音 / Play"}
-                      </button>
-                      <button 
-                        onClick={() => downloadAudio(audioUrl, currentStory.title.split("/")[0])} 
-                        className="parent-btn bounce-hover"
-                        style={{ padding: "10px 15px", borderRadius: "var(--radius-md)", display: "flex", gap: "6px" }}
-                        title="下载录音文件"
-                      >
-                        📥 下载 / Save
-                      </button>
+                  {(recordings[currentStory.id] || []).length > 0 && (
+                    <div className="recordings-list" style={{display: 'flex', flexDirection: 'column', gap: '10px', marginTop: '10px', width: '100%'}}>
+                      {(recordings[currentStory.id] || []).map((url, idx) => (
+                        <div key={idx} className="audio-player-controls" style={{background: 'rgba(255,255,255,0.5)', padding: '10px', borderRadius: '10px', display: 'flex', gap: '10px'}}>
+                          <button 
+                            onClick={() => handleTogglePlay(url)} 
+                            className={`play-recording-btn bounce-hover ${activePlaybackUrl === url && isPlaying ? "playing" : ""}`}
+                            style={{flex: 1, margin: 0}}
+                          >
+                            {activePlaybackUrl === url && isPlaying ? "⏸️ 停止播放" : `🔊 听我的录音 ${idx + 1}`}
+                          </button>
+                          <button 
+                            onClick={() => downloadAudio(url, currentStory.title.split("/")[0])} 
+                            className="parent-btn bounce-hover"
+                            style={{ padding: "10px 15px", borderRadius: "var(--radius-md)", display: "flex", gap: "6px", margin: 0 }}
+                            title="下载录音文件"
+                          >
+                            📥 下载
+                          </button>
+                        </div>
+                      ))}
                     </div>
                   )}
                 </div>
@@ -1241,11 +1243,11 @@ export default function App() {
                 <div style={{ marginTop: "auto" }}>
                   <button 
                     className="next-step-btn"
-                    disabled={!audioUrl}
+                    disabled={(recordings[currentStory.id] || []).length === 0}
                     onClick={() => setCurrentStep(3)}
                     style={{
-                      opacity: audioUrl ? 1 : 0.6,
-                      cursor: audioUrl ? "pointer" : "not-allowed"
+                      opacity: (recordings[currentStory.id] || []).length > 0 ? 1 : 0.6,
+                      cursor: (recordings[currentStory.id] || []).length > 0 ? "pointer" : "not-allowed"
                     }}
                   >
                     下一步：词卡拼句 ➡

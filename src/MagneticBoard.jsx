@@ -5,8 +5,8 @@ const STICKERS_PALETTE = ['🦄', '🐶', '🐱', '🐰', '🦊', '🐻', '🐼'
 
 export default function MagneticBoard({ onBack }) {
   const [stickers, setStickers] = useState([]);
-  const [recordingState, setRecordingState] = useState('idle'); // idle, recording, has_audio
-  const [audioUrl, setAudioUrl] = useState(null);
+  const [recordingState, setRecordingState] = useState('idle'); // idle, recording
+  const [audioUrls, setAudioUrls] = useState([]);
   
   const boardRef = useRef(null);
   const mediaRecorderRef = useRef(null);
@@ -69,8 +69,8 @@ export default function MagneticBoard({ onBack }) {
       mediaRecorder.onstop = () => {
         const audioBlob = new Blob(audioChunksRef.current, { type: 'audio/webm' });
         const url = URL.createObjectURL(audioBlob);
-        setAudioUrl(url);
-        setRecordingState('has_audio');
+        setAudioUrls(prev => [...prev, url]);
+        setRecordingState('idle');
       };
 
       mediaRecorder.start();
@@ -87,12 +87,7 @@ export default function MagneticBoard({ onBack }) {
     }
   };
 
-  const playRecording = () => {
-    if (audioUrl) {
-      const audio = new Audio(audioUrl);
-      audio.play();
-    }
-  };
+  // Play function handled inline now
 
   return (
     <div className="magnetic-board-container">
@@ -157,18 +152,29 @@ export default function MagneticBoard({ onBack }) {
       </div>
 
       <div className="storyboard-controls">
-        <div className="recording-container" style={{ margin: '0 auto', background: 'white' }}>
+        <div className="recording-container" style={{ margin: '0 auto', background: 'white', flexWrap: 'wrap' }}>
           {recordingState === 'idle' && (
-            <button onClick={startRecording} className="mic-button bounce-hover">🎙️ 开始讲故事</button>
+            <button onClick={startRecording} className="mic-button bounce-hover" style={{width: '100%', minWidth: '200px'}}>🎙️ 开始讲故事</button>
           )}
           {recordingState === 'recording' && (
-            <button onClick={stopRecording} className="mic-button recording">⏹️ 完成录音</button>
+            <button onClick={stopRecording} className="mic-button recording" style={{width: '100%', minWidth: '200px'}}>⏹️ 完成录音</button>
           )}
-          {recordingState === 'has_audio' && (
-            <>
-              <button onClick={startRecording} className="mic-button bounce-hover" style={{ width: 'auto', padding: '0 20px', fontSize: '20px' }}>🔄 重录</button>
-              <button onClick={playRecording} className="play-recording-btn bounce-hover" style={{ margin: 0, padding: '0 20px', fontSize: '20px' }}>🔊 听宝宝讲</button>
-            </>
+          {audioUrls.length > 0 && (
+            <div style={{display: 'flex', gap: '10px', flexWrap: 'wrap', width: '100%', marginTop: '10px'}}>
+              {audioUrls.map((url, idx) => (
+                <button 
+                  key={idx}
+                  onClick={() => {
+                    const audio = new Audio(url);
+                    audio.play();
+                  }} 
+                  className="play-recording-btn bounce-hover" 
+                  style={{ margin: 0, padding: '10px 20px', fontSize: '16px', flex: '1 1 45%' }}
+                >
+                  🔊 播放故事 {idx + 1}
+                </button>
+              ))}
+            </div>
           )}
         </div>
       </div>
