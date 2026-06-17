@@ -2598,5 +2598,193 @@ export const storiesData = [
     ],
     lifeConnection: "每个人都有自己特别的地方，像你虽然不是超人，但你有自己最可爱的地方！告诉妈妈你哪里最棒？",
     retellingPrompt: "假装你是那些孔雀，用生气的语气对假装成孔雀的乌鸦说一句话！"
+  },
+  {
+    id: "fable_three_monks",
+    type: "fable",
+    title: "三个和尚 / Three Monks",
+    image: "/images/three_monks.jpg",
+    hotspots: [
+      { id: "monk1", name: "小和尚", nameEn: "Little Monk", x: 30, y: 60, radius: 10 },
+      { id: "monk2", name: "高和尚", nameEn: "Tall Monk", x: 50, y: 55, radius: 12 },
+      { id: "monk3", name: "胖和尚", nameEn: "Plump Monk", x: 70, y: 65, radius: 12 },
+      { id: "temple", name: "山上寺庙", nameEn: "Temple on the Hill", x: 50, y: 25, radius: 15 }
+    ],
+    words: [
+      { zh: "和尚", en: "Monk" },
+      { zh: "水桶", en: "Water Bucket" },
+      { zh: "寺庙", en: "Temple" }
+    ],
+    fableText: [
+      "山上有座小寺庙，刚开始只有一个小和尚。他每天自己下山挑水，喝水很充足。",
+      "后来来了一个高和尚。两个人谁也不愿意多干活，只好用一根扁担一起抬水喝，虽然累但也够喝。",
+      "不久又来了一个胖和尚。这下大家都想偷懒，互相推脱，谁也不去挑水了。",
+      "结果，三个和尚都渴得受不了，连菩萨面前的净水瓶也干了。",
+      "如果不肯互相合作、只顾自己偷懒，最后大家都会吃大亏的！"
+    ],
+    parentGuide: "为什么一个和尚有水喝，三个和尚反而没水喝了？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "最后来的那个和尚是什么样子的？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "如果有第四个和尚来，你觉得他们会有水喝吗？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "三个渴坏了的和尚接下来会怎么做呢？", color: "#fa709a" }
+    ],
+    lifeConnection: "在幼儿园大扫除的时候，如果我们都等别人去扫地，教室还能变干净吗？",
+    retellingPrompt: "假装你是那个渴得不行的胖和尚，叹着气抱怨一句没水喝的话吧！"
+  },
+  {
+    id: "fable_lion_boar",
+    type: "fable",
+    title: "狮子和野猪 / The Lion and the Boar",
+    image: "/images/lion_boar.jpg",
+    hotspots: [
+      { id: "lion", name: "狮子", nameEn: "Lion", x: 35, y: 60, radius: 15 },
+      { id: "boar", name: "野猪", nameEn: "Boar", x: 65, y: 65, radius: 12 },
+      { id: "vultures", name: "秃鹰", nameEn: "Vultures", x: 50, y: 20, radius: 10 }
+    ],
+    words: [
+      { zh: "狮子", en: "Lion" },
+      { zh: "野猪", en: "Boar" },
+      { zh: "秃鹰", en: "Vultures" }
+    ],
+    fableText: [
+      "炎热的夏天，狮子和野猪来到一口小泉水边。他们为了谁先喝水，互不相让，激烈地打了起来。",
+      "打得筋疲力尽的时候，他们停下来喘气，突然抬头看了看天空。",
+      "原来天上有几只饥饿的秃鹰正在盘旋，就等着他们中间谁被咬死，好下来饱餐一顿。",
+      "狮子和野猪看到这个情形，立刻停止了打斗。他们互相说：'我们还是做朋友吧，总比变成秃鹰的午餐好！'",
+      "在遇到争执时，各退一步，和平相处，才不会让坏人坐收渔翁之利。"
+    ],
+    parentGuide: "狮子和野猪为什么要打架？后来为什么又不打了？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "天上盘旋着什么动物？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "秃鹰希望狮子和野猪谁打赢？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "做回好朋友的狮子和野猪会怎么分享泉水呢？", color: "#fa709a" }
+    ],
+    lifeConnection: "当你和好朋友抢一个玩具时，最好的解决办法是什么呢？是一起玩还是把它扔掉？",
+    retellingPrompt: "假装你是那头聪明的野猪，指着天上的秃鹰对狮子说出你的发现！"
+  },
+  {
+    id: "fable_peacock_crane",
+    type: "fable",
+    title: "孔雀和白鹤 / The Peacock and the Crane",
+    image: "/images/peacock_crane.jpg",
+    hotspots: [
+      { id: "peacock", name: "孔雀", nameEn: "Peacock", x: 30, y: 65, radius: 15 },
+      { id: "crane", name: "白鹤", nameEn: "Crane", x: 70, y: 55, radius: 12 },
+      { id: "clouds", name: "白云", nameEn: "Clouds", x: 50, y: 20, radius: 20 }
+    ],
+    words: [
+      { zh: "孔雀", en: "Peacock" },
+      { zh: "白鹤", en: "Crane" },
+      { zh: "羽毛", en: "Feathers" }
+    ],
+    fableText: [
+      "孔雀骄傲地向白鹤炫耀自己美丽的羽毛，嘲笑白鹤的羽毛单调又灰暗。",
+      "孔雀展开了五彩缤纷的尾巴，得意地说：'看我像国王一样华丽，而你就像个普通的泥巴球！'",
+      "白鹤并没有生气，它张开宽阔的翅膀，直接飞向了高高的蓝天。",
+      "白鹤在云端对孔雀喊道：'你的羽毛确实很美，但你只能在地上像公鸡一样走来走去。而我，能在广阔的天空中自由飞翔！'",
+      "外表的美丽不是最重要的，拥有真正的本领才值得骄傲。"
+    ],
+    parentGuide: "孔雀炫耀了什么？白鹤用什么本领让孔雀闭嘴了？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "孔雀怎么形容白鹤的羽毛？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "白鹤飞上天空的时候，孔雀心里会怎么想？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "以后孔雀还会到处炫耀自己的羽毛吗？", color: "#fa709a" }
+    ],
+    lifeConnection: "如果有小朋友炫耀他的新衣服，你可以用自己画的漂亮图画或者搭的乐高来展示你的本领呀！",
+    retellingPrompt: "假装你是那只飞在天上的白鹤，大声地告诉孔雀你的本领！"
+  },
+  {
+    id: "fable_oak_reed",
+    type: "fable",
+    title: "橡树和芦苇 / The Oak and the Reed",
+    image: "/images/oak_reed.jpg",
+    hotspots: [
+      { id: "oak", name: "橡树", nameEn: "Oak Tree", x: 35, y: 50, radius: 20 },
+      { id: "reed", name: "芦苇", nameEn: "Reed", x: 75, y: 70, radius: 10 },
+      { id: "wind", name: "狂风", nameEn: "Fierce Wind", x: 50, y: 30, radius: 25 }
+    ],
+    words: [
+      { zh: "橡树", en: "Oak" },
+      { zh: "芦苇", en: "Reed" },
+      { zh: "狂风", en: "Wind" }
+    ],
+    fableText: [
+      "高大的橡树看不起河边的芦苇，嘲笑它们太软弱，连一只小鸟停在上面都会弯腰。",
+      "橡树骄傲地说：'你看我，树干多么粗壮！哪怕是狂风来袭，我也能站得笔直，绝不低头。'",
+      "不久，一场可怕的飓风席卷而来。芦苇立刻顺着风的方向弯下腰，贴在水面上，躲过了狂风的摧残。",
+      "而骄傲的橡树拼命对抗狂风，怎么也不肯弯腰，最后'咔嚓'一声，连根拔起，倒在了地上。",
+      "懂得在困难面前灵活变通的人，往往比那些顽固不化的人更容易生存下来。"
+    ],
+    parentGuide: "狂风来了，芦苇是怎么保护自己的？橡树为什么倒下了？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "橡树嘲笑芦苇什么？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "芦苇弯下腰是因为它害怕风吗，还是因为它聪明？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "风停了以后，芦苇会变成什么样？", color: "#fa709a" }
+    ],
+    lifeConnection: "当我们玩游戏快要输的时候，稍微改变一下策略，说不定就能赢哦！懂得变通很重要。",
+    retellingPrompt: "假装你是狂风中的芦苇，一边弯腰一边大声说出你的躲避秘诀！"
+  },
+  {
+    id: "fable_dog_manger",
+    type: "fable",
+    title: "狗占马槽 / The Dog in the Manger",
+    image: "/images/dog_manger.jpg",
+    hotspots: [
+      { id: "dog", name: "凶恶的狗", nameEn: "Fierce Dog", x: 50, y: 60, radius: 10 },
+      { id: "manger", name: "马槽", nameEn: "Manger", x: 50, y: 65, radius: 18 },
+      { id: "horse", name: "饿肚子马", nameEn: "Hungry Horse", x: 25, y: 50, radius: 15 }
+    ],
+    words: [
+      { zh: "狗", en: "Dog" },
+      { zh: "马槽", en: "Manger" },
+      { zh: "干草", en: "Hay" }
+    ],
+    fableText: [
+      "一条恶狗跑进马厩，舒舒服服地躺在装满干草的马槽里睡大觉。",
+      "干了一天活儿的马儿们饿坏了，回到马厩想吃马槽里的干草。可是狗立刻跳起来，冲着马儿狂吠。",
+      "马儿们上前一步，狗就张着大嘴要咬它们，死活不让马儿吃草。",
+      "一匹马无奈地说：'你这只自私的狗！你自己明明不吃干草，却还要霸占着，不让需要它的我们吃！'",
+      "霸占着自己用不着的东西，也不肯分享给别人，这种自私的行为是非常讨厌的。"
+    ],
+    parentGuide: "狗自己吃干草吗？它为什么不让马吃？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "狗躺在哪里睡觉？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "马儿辛苦工作了一天，吃不到草心情会怎么样？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "如果农夫发现了这件事，他会怎么教训这只狗？", color: "#fa709a" }
+    ],
+    lifeConnection: "如果你有一个自己不玩的旧玩具，把它送给需要的小朋友是不是比一直藏在柜子里更好？",
+    retellingPrompt: "假装你是那匹饿肚子的马，用生气的语气去质问那只霸占马槽的狗！"
+  },
+  {
+    id: "fable_monkey_dolphin",
+    type: "fable",
+    title: "猴子和海豚 / The Monkey and the Dolphin",
+    image: "/images/monkey_dolphin.jpg",
+    hotspots: [
+      { id: "monkey", name: "猴子", nameEn: "Monkey", x: 50, y: 40, radius: 10 },
+      { id: "dolphin", name: "海豚", nameEn: "Dolphin", x: 50, y: 60, radius: 15 },
+      { id: "sea", name: "大海", nameEn: "Sea", x: 50, y: 75, radius: 25 }
+    ],
+    words: [
+      { zh: "猴子", en: "Monkey" },
+      { zh: "海豚", en: "Dolphin" },
+      { zh: "大海", en: "Sea" }
+    ],
+    fableText: [
+      "一只猴子坐船遇到了风暴，掉进了海里。一只善良的海豚游过来，把猴子背在背上救了它。",
+      "海豚问猴子：'你是雅典人吗？'猴子觉得雅典人很神气，就撒谎说：'是呀，而且我在雅典很有名！'",
+      "海豚又问：'那你认识比雷埃夫斯（雅典著名的海港）吗？'",
+      "猴子以为那也是个人的名字，就得意地说：'当然！他是我最好的朋友！'",
+      "海豚一听，知道猴子是个爱吹牛的骗子，气愤地潜入水底游走了，把这只爱撒谎的猴子留在了海里。",
+      "不懂装懂，用谎言来吹嘘自己，迟早会被人揭穿，甚至陷入绝境。"
+    ],
+    parentGuide: "猴子为了面子撒了什么谎？它最后的结果怎么样？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "海豚问猴子是否认识'比雷埃夫斯'，比雷埃夫斯到底是什么？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "海豚为什么最开始要救猴子？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "如果猴子诚实地说自己不知道，海豚会怎么做？", color: "#fa709a" }
+    ],
+    lifeConnection: "如果你遇到了不懂的问题，是大方地说'我不知道'比较好，还是瞎猜一个答案比较好呢？",
+    retellingPrompt: "假装你是那只正在吹牛的猴子，闭着眼睛得意地说出你的谎言！"
   }
 ];
