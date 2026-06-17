@@ -890,7 +890,7 @@ export default function App() {
                 className="back-link bounce-hover"
                 style={{ marginLeft: "10px", backgroundColor: "var(--color-blue)", color: "white" }}
               >
-                📖 查看目录
+                查看目录
               </button>
               
               <h2 className="canvas-title">{currentStory.title.split("/")[0]}</h2>
