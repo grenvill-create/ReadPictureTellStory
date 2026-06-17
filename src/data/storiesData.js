@@ -2418,9 +2418,9 @@ export const storiesData = [
     title: "骄傲的蚊子 / The Proud Mosquito",
     image: "/images/proud_mosquito.jpg",
     hotspots: [
-      { id: "mosquito", name: "蚊子", nameEn: "Mosquito", x: 45, y: 35, radius: 8 },
-      { id: "lion", name: "狮子", nameEn: "Lion", x: 60, y: 65, radius: 15 },
-      { id: "spiderweb", name: "蜘蛛网", nameEn: "Spider Web", x: 80, y: 25, radius: 10 }
+      { id: "mosquito", name: "蚊子", nameEn: "Mosquito", x: 70, y: 62, radius: 8 },
+      { id: "lion", name: "狮子", nameEn: "Lion", x: 35, y: 50, radius: 15 },
+      { id: "spiderweb", name: "蜘蛛网", nameEn: "Spider Web", x: 65, y: 22, radius: 10 }
     ],
     words: [
       { zh: "蚊子", en: "Mosquito" },
@@ -2449,9 +2449,9 @@ export const storiesData = [
     title: "骆驼和帐篷 / The Camel and the Tent",
     image: "/images/camel_tent.jpg",
     hotspots: [
-      { id: "camel", name: "骆驼", nameEn: "Camel", x: 65, y: 55, radius: 15 },
-      { id: "arab", name: "阿拉伯人", nameEn: "Arab", x: 35, y: 65, radius: 12 },
-      { id: "tent", name: "帐篷", nameEn: "Tent", x: 50, y: 50, radius: 20 }
+      { id: "camel", name: "骆驼", nameEn: "Camel", x: 52, y: 45, radius: 15 },
+      { id: "arab", name: "阿拉伯人", nameEn: "Arab", x: 75, y: 70, radius: 12 },
+      { id: "tent", name: "帐篷", nameEn: "Tent", x: 28, y: 52, radius: 20 }
     ],
     words: [
       { zh: "骆驼", en: "Camel" },
@@ -2480,9 +2480,9 @@ export const storiesData = [
     title: "聪明的公鸡 / The Clever Rooster",
     image: "/images/clever_rooster.jpg",
     hotspots: [
-      { id: "rooster", name: "公鸡", nameEn: "Rooster", x: 50, y: 30, radius: 10 },
-      { id: "fox", name: "狐狸", nameEn: "Fox", x: 50, y: 70, radius: 15 },
-      { id: "tree", name: "大树", nameEn: "Tree", x: 50, y: 50, radius: 20 }
+      { id: "rooster", name: "公鸡", nameEn: "Rooster", x: 62, y: 22, radius: 10 },
+      { id: "fox", name: "狐狸", nameEn: "Fox", x: 35, y: 76, radius: 15 },
+      { id: "tree", name: "大树", nameEn: "Tree", x: 82, y: 55, radius: 20 }
     ],
     words: [
       { zh: "公鸡", en: "Rooster" },
@@ -2511,9 +2511,9 @@ export const storiesData = [
     title: "两只罐子 / The Two Pots",
     image: "/images/two_pots.jpg",
     hotspots: [
-      { id: "brass_pot", name: "铜罐", nameEn: "Brass Pot", x: 35, y: 65, radius: 12 },
-      { id: "earthen_pot", name: "陶罐", nameEn: "Earthen Pot", x: 65, y: 65, radius: 12 },
-      { id: "river", name: "河流", nameEn: "River", x: 50, y: 75, radius: 25 }
+      { id: "brass_pot", name: "铜罐", nameEn: "Brass Pot", x: 39, y: 55, radius: 12 },
+      { id: "earthen_pot", name: "陶罐", nameEn: "Earthen Pot", x: 72, y: 72, radius: 12 },
+      { id: "river", name: "河流", nameEn: "River", x: 50, y: 40, radius: 25 }
     ],
     words: [
       { zh: "铜罐", en: "Brass Pot" },
@@ -2542,10 +2542,10 @@ export const storiesData = [
     title: "老鹰和乌龟 / The Eagle and the Turtle",
     image: "/images/eagle_turtle.jpg",
     hotspots: [
-      { id: "eagle", name: "老鹰", nameEn: "Eagle", x: 50, y: 30, radius: 15 },
-      { id: "turtle", name: "乌龟", nameEn: "Turtle", x: 50, y: 45, radius: 10 },
-      { id: "sky", name: "天空", nameEn: "Sky", x: 50, y: 15, radius: 25 },
-      { id: "rocks", name: "岩石", nameEn: "Rocks", x: 50, y: 85, radius: 20 }
+      { id: "eagle", name: "老鹰", nameEn: "Eagle", x: 50, y: 32, radius: 15 },
+      { id: "turtle", name: "乌龟", nameEn: "Turtle", x: 48, y: 58, radius: 10 },
+      { id: "sky", name: "天空", nameEn: "Sky", x: 50, y: 12, radius: 25 },
+      { id: "rocks", name: "岩石", nameEn: "Rocks", x: 75, y: 82, radius: 20 }
     ],
     words: [
       { zh: "老鹰", en: "Eagle" },
@@ -2574,9 +2574,9 @@ export const storiesData = [
     title: "乌鸦和孔雀 / The Crow and the Peacocks",
     image: "/images/crow_peacock.jpg",
     hotspots: [
-      { id: "crow", name: "乌鸦", nameEn: "Crow", x: 40, y: 60, radius: 10 },
-      { id: "peacock_feathers", name: "孔雀羽毛", nameEn: "Peacock Feathers", x: 35, y: 65, radius: 12 },
-      { id: "peacocks", name: "孔雀群", nameEn: "Peacocks", x: 70, y: 55, radius: 20 }
+      { id: "crow", name: "乌鸦", nameEn: "Crow", x: 40, y: 65, radius: 10 },
+      { id: "peacock_feathers", name: "孔雀羽毛", nameEn: "Peacock Feathers", x: 22, y: 56, radius: 12 },
+      { id: "peacocks", name: "孔雀群", nameEn: "Peacocks", x: 75, y: 52, radius: 20 }
     ],
     words: [
       { zh: "乌鸦", en: "Crow" },
@@ -2605,10 +2605,10 @@ export const storiesData = [
     title: "三个和尚 / Three Monks",
     image: "/images/three_monks.jpg",
     hotspots: [
-      { id: "monk1", name: "小和尚", nameEn: "Little Monk", x: 30, y: 60, radius: 10 },
-      { id: "monk2", name: "高和尚", nameEn: "Tall Monk", x: 50, y: 55, radius: 12 },
-      { id: "monk3", name: "胖和尚", nameEn: "Plump Monk", x: 70, y: 65, radius: 12 },
-      { id: "temple", name: "山上寺庙", nameEn: "Temple on the Hill", x: 50, y: 25, radius: 15 }
+      { id: "monk1", name: "小和尚", nameEn: "Little Monk", x: 25, y: 70, radius: 10 },
+      { id: "monk2", name: "高和尚", nameEn: "Tall Monk", x: 43, y: 65, radius: 12 },
+      { id: "monk3", name: "胖和尚", nameEn: "Plump Monk", x: 65, y: 68, radius: 12 },
+      { id: "temple", name: "山上寺庙", nameEn: "Temple on the Hill", x: 82, y: 20, radius: 15 }
     ],
     words: [
       { zh: "和尚", en: "Monk" },
@@ -2637,9 +2637,9 @@ export const storiesData = [
     title: "狮子和野猪 / The Lion and the Boar",
     image: "/images/lion_boar.jpg",
     hotspots: [
-      { id: "lion", name: "狮子", nameEn: "Lion", x: 35, y: 60, radius: 15 },
-      { id: "boar", name: "野猪", nameEn: "Boar", x: 65, y: 65, radius: 12 },
-      { id: "vultures", name: "秃鹰", nameEn: "Vultures", x: 50, y: 20, radius: 10 }
+      { id: "lion", name: "狮子", nameEn: "Lion", x: 68, y: 62, radius: 15 },
+      { id: "boar", name: "野猪", nameEn: "Boar", x: 28, y: 68, radius: 12 },
+      { id: "vultures", name: "秃鹰", nameEn: "Vultures", x: 78, y: 14, radius: 10 }
     ],
     words: [
       { zh: "狮子", en: "Lion" },
@@ -2668,9 +2668,9 @@ export const storiesData = [
     title: "孔雀和白鹤 / The Peacock and the Crane",
     image: "/images/peacock_crane.jpg",
     hotspots: [
-      { id: "peacock", name: "孔雀", nameEn: "Peacock", x: 30, y: 65, radius: 15 },
-      { id: "crane", name: "白鹤", nameEn: "Crane", x: 70, y: 55, radius: 12 },
-      { id: "clouds", name: "白云", nameEn: "Clouds", x: 50, y: 20, radius: 20 }
+      { id: "peacock", name: "孔雀", nameEn: "Peacock", x: 48, y: 72, radius: 15 },
+      { id: "crane", name: "白鹤", nameEn: "Crane", x: 68, y: 16, radius: 12 },
+      { id: "clouds", name: "白云", nameEn: "Clouds", x: 28, y: 20, radius: 20 }
     ],
     words: [
       { zh: "孔雀", en: "Peacock" },
@@ -2699,9 +2699,9 @@ export const storiesData = [
     title: "橡树和芦苇 / The Oak and the Reed",
     image: "/images/oak_reed.jpg",
     hotspots: [
-      { id: "oak", name: "橡树", nameEn: "Oak Tree", x: 35, y: 50, radius: 20 },
-      { id: "reed", name: "芦苇", nameEn: "Reed", x: 75, y: 70, radius: 10 },
-      { id: "wind", name: "狂风", nameEn: "Fierce Wind", x: 50, y: 30, radius: 25 }
+      { id: "oak", name: "橡树", nameEn: "Oak Tree", x: 32, y: 48, radius: 20 },
+      { id: "reed", name: "芦苇", nameEn: "Reed", x: 65, y: 88, radius: 10 },
+      { id: "wind", name: "狂风", nameEn: "Fierce Wind", x: 75, y: 22, radius: 25 }
     ],
     words: [
       { zh: "橡树", en: "Oak" },
@@ -2730,9 +2730,9 @@ export const storiesData = [
     title: "狗占马槽 / The Dog in the Manger",
     image: "/images/dog_manger.jpg",
     hotspots: [
-      { id: "dog", name: "凶恶的狗", nameEn: "Fierce Dog", x: 50, y: 60, radius: 10 },
-      { id: "manger", name: "马槽", nameEn: "Manger", x: 50, y: 65, radius: 18 },
-      { id: "horse", name: "饿肚子马", nameEn: "Hungry Horse", x: 25, y: 50, radius: 15 }
+      { id: "dog", name: "凶恶的狗", nameEn: "Fierce Dog", x: 32, y: 58, radius: 10 },
+      { id: "manger", name: "马槽", nameEn: "Manger", x: 35, y: 80, radius: 15 },
+      { id: "horse", name: "饿肚子马", nameEn: "Hungry Horse", x: 72, y: 55, radius: 15 }
     ],
     words: [
       { zh: "狗", en: "Dog" },
@@ -2761,9 +2761,9 @@ export const storiesData = [
     title: "猴子和海豚 / The Monkey and the Dolphin",
     image: "/images/monkey_dolphin.jpg",
     hotspots: [
-      { id: "monkey", name: "猴子", nameEn: "Monkey", x: 50, y: 40, radius: 10 },
-      { id: "dolphin", name: "海豚", nameEn: "Dolphin", x: 50, y: 60, radius: 15 },
-      { id: "sea", name: "大海", nameEn: "Sea", x: 50, y: 75, radius: 25 }
+      { id: "monkey", name: "猴子", nameEn: "Monkey", x: 48, y: 38, radius: 10 },
+      { id: "dolphin", name: "海豚", nameEn: "Dolphin", x: 52, y: 64, radius: 15 },
+      { id: "sea", name: "大海", nameEn: "Sea", x: 50, y: 80, radius: 25 }
     ],
     words: [
       { zh: "猴子", en: "Monkey" },
