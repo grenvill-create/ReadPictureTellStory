@@ -888,7 +888,7 @@ export default function App() {
                   setShowDirectoryModal(true);
                 }} 
                 className="back-link bounce-hover"
-                style={{ marginLeft: "10px", backgroundColor: "var(--color-blue)", color: "white" }}
+                style={{ marginLeft: "10px", backgroundColor: "var(--color-green)", color: "white" }}
               >
                 查看目录
               </button>
