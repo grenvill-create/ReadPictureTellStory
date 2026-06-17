@@ -51,6 +51,28 @@
   color: white;
 }
 
+.catalogue-btn {
+  background: var(--color-green);
+  border: 2px solid white;
+  box-shadow: 0 4px 12px rgba(103, 225, 163, 0.4);
+  padding: 8px 18px;
+  border-radius: 20px;
+  color: white;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  margin-left: 15px;
+}
+
+.catalogue-btn:hover {
+  background: var(--color-green-hover, #4ac789);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(103, 225, 163, 0.6);
+}
+
 /* Dashboard / Story List */
 .dashboard-container {
   width: 100%;

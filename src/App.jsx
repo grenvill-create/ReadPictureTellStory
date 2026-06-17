@@ -861,8 +861,7 @@ export default function App() {
                   setDirectoryType(currentStory.type === "fable" ? "fable" : "daily");
                   setShowDirectoryModal(true);
                 }} 
-                className="back-link bounce-hover"
-                style={{ marginLeft: "10px", backgroundColor: "var(--color-green)", color: "white" }}
+                className="catalogue-btn"
               >
                 查看目录
               </button>
