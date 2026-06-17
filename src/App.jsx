@@ -834,33 +834,7 @@ export default function App() {
             </div>
           </div>
 
-          {/* Directory Modal */}
-          {showDirectoryModal && (
-            <div className="modal-overlay" onClick={() => setShowDirectoryModal(false)}>
-              <div className="modal-content directory-modal" onClick={e => e.stopPropagation()}>
-                <button className="modal-close" onClick={() => setShowDirectoryModal(false)}>×</button>
-                <div style={{ display: 'flex', gap: '10px', marginBottom: '20px' }}>
-                </div>
-                <h3>{directoryType === 'daily' ? '日常图画 / Daily Life 目录' : '寓言绘本 / Fables 目录'}</h3>
-                <div className="directory-list">
-                  {storiesData.filter(s => directoryType === 'daily' ? s.type !== 'fable' : s.type === 'fable').map((s, idx) => (
-                    <div 
-                      key={s.id} 
-                      className={`directory-item ${readStories.includes(s.id) ? 'read' : 'unread'}`}
-                      onClick={() => handleStartReading(s.id)}
-                    >
-                      <span className="idx">{idx + 1}.</span>
-                      <img src={getImageUrl(s.image)} alt="" className="directory-thumbnail" />
-                      <div className="directory-item-info">
-                        <span className="title">{s.title.split("/")[0]}</span>
-                        <span className="status">{readStories.includes(s.id) ? '✅ 已读' : '🆕 未读'}</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          )}
+
         </div>
       ) : (
         /* Inside Learning Story */
@@ -1515,6 +1489,34 @@ export default function App() {
         onPlay={() => setIsPlaying(true)}
         style={{ display: "none" }} 
       />
+
+      {/* Directory Modal */}
+      {showDirectoryModal && (
+        <div className="modal-overlay" onClick={() => setShowDirectoryModal(false)}>
+          <div className="modal-content directory-modal" onClick={e => e.stopPropagation()}>
+            <button className="modal-close" onClick={() => setShowDirectoryModal(false)}>×</button>
+            <div style={{ display: 'flex', gap: '10px', marginBottom: '20px' }}>
+            </div>
+            <h3>{directoryType === 'daily' ? '日常图画 / Daily Life 目录' : '寓言绘本 / Fables 目录'}</h3>
+            <div className="directory-list">
+              {storiesData.filter(s => directoryType === 'daily' ? s.type !== 'fable' : s.type === 'fable').map((s, idx) => (
+                <div 
+                  key={s.id} 
+                  className={`directory-item ${readStories.includes(s.id) ? 'read' : 'unread'}`}
+                  onClick={() => handleStartReading(s.id)}
+                >
+                  <span className="idx">{idx + 1}.</span>
+                  <img src={getImageUrl(s.image)} alt="" className="directory-thumbnail" />
+                  <div className="directory-item-info">
+                    <span className="title">{s.title.split("/")[0]}</span>
+                    <span className="status">{readStories.includes(s.id) ? '✅ 已读' : '🆕 未读'}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
       {showAudioLibrary && (
         <AudioLibraryModal 
           recordings={recordings} 
