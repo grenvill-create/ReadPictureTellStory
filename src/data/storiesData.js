@@ -2786,5 +2786,160 @@ export const storiesData = [
     ],
     lifeConnection: "如果你遇到了不懂的问题，是大方地说'我不知道'比较好，还是瞎猜一个答案比较好呢？",
     retellingPrompt: "假装你是那只正在吹牛的猴子，闭着眼睛得意地说出你的谎言！"
+  },
+  {
+    id: "fable_ant_dove",
+    type: "fable",
+    title: "蚂蚁和鸽子 / The Ant and the Dove",
+    image: "/images/ant_and_dove.jpg",
+    hotspots: [
+      { id: "dove", name: "鸽子", nameEn: "Dove", x: 35, y: 30, radius: 15 },
+      { id: "ant", name: "蚂蚁", nameEn: "Ant", x: 50, y: 75, radius: 10 },
+      { id: "leaf", name: "树叶", nameEn: "Leaf", x: 45, y: 50, radius: 10 }
+    ],
+    words: [
+      { zh: "鸽子", en: "Dove" },
+      { zh: "蚂蚁", en: "Ant" },
+      { zh: "树叶", en: "Leaf" }
+    ],
+    fableText: [
+      "一只小蚂蚁去河边喝水，一不小心掉进了水里。水流很急，小蚂蚁拼命挣扎，快要淹死了。",
+      "一只鸽子刚好停在河边的树上，看到小蚂蚁在水中挣扎，立刻咬下一片树叶丢在蚂蚁旁边。",
+      "小蚂蚁拼尽全力爬上了树叶，安全地飘到了岸边，非常感激鸽子的救命之恩。",
+      "没过多久，一个捕鸟人悄悄地走向鸽子，正准备用网抓住它。小蚂蚁看到了，立刻爬过去，狠狠地咬了捕鸟人的脚一口。",
+      "捕鸟人疼得大叫一声扔掉了网，鸽子听到声音立刻飞走了。善有善报，帮助别人也就是帮助自己。"
+    ],
+    parentGuide: "鸽子是怎么救小蚂蚁的？小蚂蚁后来又怎么报答了鸽子？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "小蚂蚁一开始为什么会掉进河里？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "如果小蚂蚁没有咬捕鸟人，鸽子会怎么样？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "鸽子和小蚂蚁以后会成为好朋友吗？", color: "#fa709a" }
+    ],
+    lifeConnection: "如果别的小朋友借给你玩具，下次他没有玩具的时候，你是不是也可以借给他呢？",
+    retellingPrompt: "假装你是那只小蚂蚁，在树叶上对飞走的鸽子大声说声谢谢吧！"
+  },
+  {
+    id: "fable_lion_fox",
+    type: "fable",
+    title: "老狮子和狐狸 / The Lion and the Fox",
+    image: "/images/lion_and_fox.jpg",
+    hotspots: [
+      { id: "fox", name: "狐狸", nameEn: "Fox", x: 35, y: 55, radius: 15 },
+      { id: "lion_eyes", name: "狮子", nameEn: "Lion", x: 80, y: 38, radius: 15 },
+      { id: "footprints", name: "脚印", nameEn: "Footprints", x: 60, y: 70, radius: 20 }
+    ],
+    words: [
+      { zh: "狐狸", en: "Fox" },
+      { zh: "狮子", en: "Lion" },
+      { zh: "脚印", en: "Footprints" }
+    ],
+    fableText: [
+      "一头老狮子老得已经没有力气去打猎了，于是他躲进了一个山洞里，假装生了重病。",
+      "森林里的小动物们听说狮子病了，纷纷跑到山洞里去探望他。可是，只要小动物一走进山洞，就被老狮子一口吃掉了。",
+      "一只聪明的狐狸也来了，但它没有进去，而是远远地站在山洞外面，向狮子问好。",
+      "狮子见狐狸不进来，就装出虚弱的声音说：'狐狸兄弟，你为什么不进来看看我呢？'",
+      "狐狸指着地上的脚印笑着说：'我看到许多脚印都是走进洞里的，却没有一个脚印是走出来的！'遇到危险要多观察，不要轻易相信敌人的话。"
+    ],
+    parentGuide: "老狮子为什么要假装生病？狐狸是怎么看穿狮子的诡计的？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "老狮子躲在哪里装病？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "那些走进山洞的小动物们都去哪儿了？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "狐狸离开后，会去告诉其他小动物吗？", color: "#fa709a" }
+    ],
+    lifeConnection: "如果陌生人给你好吃的，让你跟他走，我们能不能去？",
+    retellingPrompt: "假装你是那只聪明的狐狸，指着地上的脚印大声揭穿狮子的谎言！"
+  },
+  {
+    id: "fable_ass_lion_skin",
+    type: "fable",
+    title: "披着狮子皮的驴 / The Ass in the Lion's Skin",
+    image: "/images/ass_lion_skin.jpg",
+    hotspots: [
+      { id: "donkey", name: "驴子", nameEn: "Donkey", x: 45, y: 50, radius: 20 },
+      { id: "lion_skin", name: "狮子皮", nameEn: "Lion's Skin", x: 45, y: 35, radius: 15 },
+      { id: "animals", name: "小动物", nameEn: "Animals", x: 75, y: 55, radius: 15 }
+    ],
+    words: [
+      { zh: "驴子", en: "Donkey" },
+      { zh: "狮子皮", en: "Lion's Skin" },
+      { zh: "动物", en: "Animals" }
+    ],
+    fableText: [
+      "一只驴子在森林里发现了一张猎人留下的狮子皮。他觉得很好玩，就把狮子皮披在了自己身上。",
+      "驴子大摇大摆地在森林里走着。小动物们看到一头'狮子'走过来，吓得四处逃窜，连狐狸也吓跑了。",
+      "驴子觉得非常得意，开心得忍不住大声叫了起来：'呃啊——呃啊——'",
+      "小动物们听到这熟悉的叫声，立刻明白原来这不是可怕的狮子，只是一只披着狮子皮的驴子而已。",
+      "大家气愤地跑回来，把驴子狠狠地教训了一顿。伪装只能骗人一时，只要一开口，真面目就会暴露。"
+    ],
+    parentGuide: "小动物们一开始为什么害怕驴子？后来是怎么发现它是假扮的？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "驴子在森林里捡到了什么东西？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "驴子为什么要发出'呃啊呃啊'的叫声？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "驴子以后还会披着狮子皮去吓唬别人吗？", color: "#fa709a" }
+    ],
+    lifeConnection: "做真实的自己才是最棒的，不用假装成别人的样子来显摆自己哦！",
+    retellingPrompt: "假装你是那只披着狮子皮的驴子，先装出吓人的样子，然后不小心发出了驴叫声！"
+  },
+  {
+    id: "fable_wolf_crane",
+    type: "fable",
+    title: "狼和仙鹤 / The Wolf and the Crane",
+    image: "/images/wolf_and_crane.jpg",
+    hotspots: [
+      { id: "wolf", name: "狼", nameEn: "Wolf", x: 35, y: 60, radius: 20 },
+      { id: "crane", name: "仙鹤", nameEn: "Crane", x: 70, y: 55, radius: 15 },
+      { id: "bone", name: "骨头", nameEn: "Bone", x: 45, y: 35, radius: 8 }
+    ],
+    words: [
+      { zh: "狼", en: "Wolf" },
+      { zh: "仙鹤", en: "Crane" },
+      { zh: "骨头", en: "Bone" }
+    ],
+    fableText: [
+      "一只狼吃肉的时候太着急，不小心把一根骨头卡在了喉咙里。他疼得在地上打滚，可是自己怎么也拔不出来。",
+      "狼痛苦地哀求经过的动物们帮忙，并承诺给丰厚的报酬，可是大家都不敢靠近。",
+      "这时，一只善良的仙鹤走过来，看狼实在可怜，就把自己长长的脖子伸进狼的嘴里，小心翼翼地把骨头夹了出来。",
+      "仙鹤松了一口气，对狼说：'好了，你可以把答应的报酬给我了。'",
+      "狼却露出尖锐的牙齿，恶狠狠地说：'你把头伸进我的嘴里，我没有把你吃掉，这就已经是给你最大的报酬了！'不要指望坏人会懂得感恩。"
+    ],
+    parentGuide: "仙鹤是怎么帮助狼拔出骨头的？狼最后给仙鹤报酬了吗？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "狼的喉咙里卡了什么东西？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "为什么一开始别的动物都不愿意帮狼？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "如果下次狼又卡住骨头，仙鹤还会帮它吗？", color: "#fa709a" }
+    ],
+    lifeConnection: "我们要学会对帮助过我们的人说谢谢，做一个懂礼貌、知恩图报的好孩子。",
+    retellingPrompt: "假装你是那只凶恶的狼，用吓人的语气对仙鹤说出那句不要脸的话！"
+  },
+  {
+    id: "fable_boy_nuts",
+    type: "fable",
+    title: "贪心的小男孩 / The Boy and the Nuts",
+    image: "/images/boy_and_nuts.jpg",
+    hotspots: [
+      { id: "boy", name: "小男孩", nameEn: "Boy", x: 40, y: 45, radius: 15 },
+      { id: "jar", name: "玻璃罐", nameEn: "Glass Jar", x: 65, y: 60, radius: 15 },
+      { id: "nuts", name: "坚果", nameEn: "Nuts", x: 65, y: 65, radius: 12 }
+    ],
+    words: [
+      { zh: "小男孩", en: "Boy" },
+      { zh: "玻璃罐", en: "Jar" },
+      { zh: "坚果", en: "Nuts" }
+    ],
+    fableText: [
+      "一个小男孩看到桌子上有一个装满坚果的透明玻璃罐，罐子的口很小。",
+      "男孩非常想吃坚果，于是把手伸进罐子里，抓了满满一大把。",
+      "可是，当他想把手拔出来的时候，因为手里攥着的坚果太多，手腕被罐子口卡住了，怎么也拔不出来。",
+      "男孩急得哇哇大哭。旁边的人告诉他：'你只要松开手，少拿几颗，手自然就能出来了呀！'",
+      "有时候，做人不能太贪心。如果什么都想要，最后可能什么都得不到。"
+    ],
+    parentGuide: "小男孩的手为什么会被卡在罐子里拔不出来？他怎么做才能拿出坚果？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "玻璃罐的口是大还是小？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "小男孩为什么急得哇哇大哭？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "听了旁边人的建议后，小男孩会怎么做？", color: "#fa709a" }
+    ],
+    lifeConnection: "吃好吃的东西时，我们拿够自己吃的部分就好了，不能太贪心哦，不然肚子也会不舒服的。",
+    retellingPrompt: "假装你是那个小男孩，一边假装用力拔手，一边大声哭着求救！"
   }
 ];

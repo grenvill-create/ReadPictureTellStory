@@ -882,6 +882,16 @@ export default function App() {
               >
                 ⬅ 返回画册
               </button>
+              <button 
+                onClick={() => {
+                  setDirectoryType(currentStory.type === "fable" ? "fable" : "daily");
+                  setShowDirectoryModal(true);
+                }} 
+                className="back-link bounce-hover"
+                style={{ marginLeft: "10px", backgroundColor: "var(--color-blue)", color: "white" }}
+              >
+                📖 查看目录
+              </button>
               
               <h2 className="canvas-title">{currentStory.title.split("/")[0]}</h2>
               
