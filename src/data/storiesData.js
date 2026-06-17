@@ -2411,5 +2411,192 @@ export const storiesData = [
     ],
     lifeConnection: "遇到困难和危险的时候，不要害怕，要像渔夫一样冷静思考，用聪明的脑袋想办法！",
     retellingPrompt: "假装你是那个渔夫，用很勇敢的声音对魔鬼说：'我才不信你能住在这个小瓶子里呢！'"
+  },
+  {
+    id: "fable_proud_mosquito",
+    type: "fable",
+    title: "骄傲的蚊子 / The Proud Mosquito",
+    image: "/images/proud_mosquito.jpg",
+    hotspots: [
+      { id: "mosquito", name: "蚊子", nameEn: "Mosquito", x: 45, y: 35, radius: 8 },
+      { id: "lion", name: "狮子", nameEn: "Lion", x: 60, y: 65, radius: 15 },
+      { id: "spiderweb", name: "蜘蛛网", nameEn: "Spider Web", x: 80, y: 25, radius: 10 }
+    ],
+    words: [
+      { zh: "蚊子", en: "Mosquito" },
+      { zh: "狮子", en: "Lion" },
+      { zh: "蜘蛛网", en: "Spider Web" }
+    ],
+    fableText: [
+      "一只骄傲的小蚊子飞到狮子面前，大声说：'我一点都不怕你，而且我比你更强大！'",
+      "说完，蚊子就扑上去，专门咬狮子鼻子上没有毛的地方。",
+      "狮子气坏了，用爪子去抓蚊子，结果没抓到蚊子，反而把自己的鼻子抓破了。狮子只好认输。",
+      "蚊子得意极了，吹着喇叭飞走了。谁知它光顾着高兴，一头撞进了蜘蛛网里，被蜘蛛抓住了。",
+      "小蚊子打败了最强大的狮子，却死在了小小的蜘蛛手里。取得一点成绩就骄傲自满，早晚会吃大亏的。"
+    ],
+    parentGuide: "蚊子为什么能打败狮子？它最后怎么会被蜘蛛抓住呢？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "蚊子专门咬了狮子哪个地方？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "如果蚊子打败狮子后不骄傲，它还会撞到蜘蛛网里吗？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "你觉得狮子以后再遇到蚊子，会怎么做呢？", color: "#fa709a" }
+    ],
+    lifeConnection: "当我们做得很棒、得了第一名的时候，也要保持谦虚，因为总有一些事情是我们不会的呀！",
+    retellingPrompt: "假装你是那只得意忘形的蚊子，在被蜘蛛网粘住时会喊些什么？"
+  },
+  {
+    id: "fable_camel_tent",
+    type: "fable",
+    title: "骆驼和帐篷 / The Camel and the Tent",
+    image: "/images/camel_tent.jpg",
+    hotspots: [
+      { id: "camel", name: "骆驼", nameEn: "Camel", x: 65, y: 55, radius: 15 },
+      { id: "arab", name: "阿拉伯人", nameEn: "Arab", x: 35, y: 65, radius: 12 },
+      { id: "tent", name: "帐篷", nameEn: "Tent", x: 50, y: 50, radius: 20 }
+    ],
+    words: [
+      { zh: "骆驼", en: "Camel" },
+      { zh: "阿拉伯人", en: "Arab" },
+      { zh: "帐篷", en: "Tent" }
+    ],
+    fableText: [
+      "一个寒冷的沙漠夜晚，阿拉伯人在温暖的帐篷里休息。外面的骆驼冷得发抖，请求说：'主人，请让我的头伸进来暖和一下吧。'",
+      "主人同意了。过了一会儿，骆驼又说：'我的脖子也快冻僵了，让我把脖子也伸进去吧。'",
+      "主人心软又答应了。没多久，骆驼继续得寸进尺：'我只放前腿进去，不占什么地方的。'",
+      "主人刚一答应，骆驼就把整个身子都挤进了帐篷。帐篷太小了，装不下他们两个。",
+      "最后，自私的骆驼把主人挤出了帐篷，自己舒舒服服地睡在里面。对贪得无厌的人一味让步，最后只会让自己无路可走。"
+    ],
+    parentGuide: "骆驼是怎么一步步把主人挤出帐篷的？主人做得对吗？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "骆驼最开始请求把身体的哪个部位伸进帐篷？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "如果主人一开始就坚定地拒绝骆驼，会发生什么事？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "第二天早上，主人会怎么对待这只骆驼呢？", color: "#fa709a" }
+    ],
+    lifeConnection: "遇到别人提过分的要求时，我们要勇敢地说'不'，学会保护自己应有的权利哦。",
+    retellingPrompt: "假装你是那个在寒风中发抖的主人，对霸占了帐篷的骆驼说一句话！"
+  },
+  {
+    id: "fable_clever_rooster",
+    type: "fable",
+    title: "聪明的公鸡 / The Clever Rooster",
+    image: "/images/clever_rooster.jpg",
+    hotspots: [
+      { id: "rooster", name: "公鸡", nameEn: "Rooster", x: 50, y: 30, radius: 10 },
+      { id: "fox", name: "狐狸", nameEn: "Fox", x: 50, y: 70, radius: 15 },
+      { id: "tree", name: "大树", nameEn: "Tree", x: 50, y: 50, radius: 20 }
+    ],
+    words: [
+      { zh: "公鸡", en: "Rooster" },
+      { zh: "狐狸", en: "Fox" },
+      { zh: "大树", en: "Tree" }
+    ],
+    fableText: [
+      "一只公鸡飞到高高的大树上休息。一只狡猾的狐狸走过来，想把公鸡骗下来吃掉。",
+      "狐狸甜言蜜语地说：'公鸡弟弟，好消息呀！所有的动物都签订了和平条约，以后大家就是好朋友了，快下来我们拥抱一下吧！'",
+      "聪明的公鸡一眼就看穿了狐狸的诡计，它伸长脖子向远处看，装作很惊讶的样子。",
+      "狐狸问它在看什么，公鸡说：'哎呀，有几只猎狗正朝我们这里跑来，它们肯定也是来拥抱你的！'",
+      "狐狸一听有猎狗，吓得夹起尾巴拼命逃跑了。遇到坏人时，不要慌张，动动脑筋就能保护自己。"
+    ],
+    parentGuide: "狐狸对公鸡撒了什么谎？公鸡是怎么吓跑狐狸的？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "公鸡站在哪里休息？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "狐狸为什么要说动物们签订了'和平条约'？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "如果狐狸发现根本没有猎狗，它会回来吗？", color: "#fa709a" }
+    ],
+    lifeConnection: "如果遇到陌生人给你糖果或者让你跟他走，你应该怎么做呢？",
+    retellingPrompt: "假装你是那只站在树上的聪明公鸡，用夸张的语气对狐狸喊出有猎狗跑过来的消息！"
+  },
+  {
+    id: "fable_two_pots",
+    type: "fable",
+    title: "两只罐子 / The Two Pots",
+    image: "/images/two_pots.jpg",
+    hotspots: [
+      { id: "brass_pot", name: "铜罐", nameEn: "Brass Pot", x: 35, y: 65, radius: 12 },
+      { id: "earthen_pot", name: "陶罐", nameEn: "Earthen Pot", x: 65, y: 65, radius: 12 },
+      { id: "river", name: "河流", nameEn: "River", x: 50, y: 75, radius: 25 }
+    ],
+    words: [
+      { zh: "铜罐", en: "Brass Pot" },
+      { zh: "陶罐", en: "Earthen Pot" },
+      { zh: "河流", en: "River" }
+    ],
+    fableText: [
+      "洪水冲走了一只铜罐和一只陶罐。它们顺着河水一起往下游漂去。",
+      "铜罐很骄傲，对陶罐说：'陶罐兄弟，你靠近我一点，我可以保护你，不让你被水冲破。'",
+      "陶罐却赶紧躲开说：'谢谢你！但我更怕碰到你。如果你不小心撞到我，我就碎成碎片了。我们还是保持距离吧。'",
+      "果然，河水湍急，波浪翻滚。铜罐不管怎么小心，还是常常被水浪推得撞来撞去。",
+      "陶罐远远地避开铜罐，安全地漂过了急流。交朋友要看清对方，有些看似能保护你的人，反而会给你带来危险。"
+    ],
+    parentGuide: "铜罐想靠近陶罐保护它，陶罐为什么拒绝了？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "是什么把两只罐子冲走的？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "陶罐为什么害怕铜罐撞到自己？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "如果它们两个一直靠在一起，最后陶罐会变成什么样？", color: "#fa709a" }
+    ],
+    lifeConnection: "和别人玩耍的时候，我们要学会保护自己，不要去做那些可能会让自己受伤的危险游戏哦。",
+    retellingPrompt: "假装你是那只小陶罐，用害怕的声音告诉铜罐你为什么要躲开它。"
+  },
+  {
+    id: "fable_eagle_turtle",
+    type: "fable",
+    title: "老鹰和乌龟 / The Eagle and the Turtle",
+    image: "/images/eagle_turtle.jpg",
+    hotspots: [
+      { id: "eagle", name: "老鹰", nameEn: "Eagle", x: 50, y: 30, radius: 15 },
+      { id: "turtle", name: "乌龟", nameEn: "Turtle", x: 50, y: 45, radius: 10 },
+      { id: "sky", name: "天空", nameEn: "Sky", x: 50, y: 15, radius: 25 },
+      { id: "rocks", name: "岩石", nameEn: "Rocks", x: 50, y: 85, radius: 20 }
+    ],
+    words: [
+      { zh: "老鹰", en: "Eagle" },
+      { zh: "乌龟", en: "Turtle" },
+      { zh: "天空", en: "Sky" }
+    ],
+    fableText: [
+      "一只乌龟看到老鹰在天空中自由飞翔，心里非常羡慕，一直梦想着自己也能飞。",
+      "它恳求老鹰教它飞翔。老鹰劝它说：'乌龟弟弟，你的身体太重了，而且没有翅膀，是不可能飞起来的。'",
+      "可是乌龟不听，一再坚持，甚至答应送给老鹰许多珍宝。老鹰无奈，只好用爪子抓住乌龟飞上了高空。",
+      "到了半空中，老鹰松开爪子，对乌龟说：'那你自己飞吧！'结果乌龟像石头一样直直地掉下去，摔在岩石上粉身碎骨了。",
+      "每个人都有自己的长处和短处，如果盲目追求不切实际的东西，往往会带来不幸的后果。"
+    ],
+    parentGuide: "乌龟为什么想要飞？它最后的结果怎么样？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "老鹰为什么认为乌龟不能飞？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "老鹰把它带到天上后松手，是真的想教它飞吗？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "如果乌龟还有一次机会，它还会要求老鹰带它飞吗？", color: "#fa709a" }
+    ],
+    lifeConnection: "虽然乌龟不能飞，但它在水里游泳很厉害呀！你觉得自己最擅长、最棒的事情是什么呢？",
+    retellingPrompt: "假装你是那只在天上开始掉下来的乌龟，大声喊出你现在的心情！"
+  },
+  {
+    id: "fable_crow_peacock",
+    type: "fable",
+    title: "乌鸦和孔雀 / The Crow and the Peacocks",
+    image: "/images/crow_peacock.jpg",
+    hotspots: [
+      { id: "crow", name: "乌鸦", nameEn: "Crow", x: 40, y: 60, radius: 10 },
+      { id: "peacock_feathers", name: "孔雀羽毛", nameEn: "Peacock Feathers", x: 35, y: 65, radius: 12 },
+      { id: "peacocks", name: "孔雀群", nameEn: "Peacocks", x: 70, y: 55, radius: 20 }
+    ],
+    words: [
+      { zh: "乌鸦", en: "Crow" },
+      { zh: "孔雀羽毛", en: "Peacock Feathers" },
+      { zh: "孔雀群", en: "Peacocks" }
+    ],
+    fableText: [
+      "一只乌鸦非常嫌弃自己黑乎乎的羽毛。有一天，它在草地上捡到了一些孔雀掉落的美丽羽毛。",
+      "乌鸦把这些绚丽的羽毛插在自己的尾巴上，觉得自己美极了。它骄傲地离开了乌鸦家族，跑去加入孔雀群体。",
+      "可是孔雀们一眼就看出了这是一只伪装的乌鸦。它们毫不客气地啄掉了乌鸦身上的假羽毛，把它赶了出去。",
+      "伤心的乌鸦只好跑回原来的乌鸦群。但是同伴们也很生气它之前的背叛，不肯再接纳它了。",
+      "这只爱慕虚荣的乌鸦最后变得孤苦伶仃。我们应该做真实的自己，不要去伪装成别人的样子。"
+    ],
+    parentGuide: "乌鸦为了变美做了什么傻事？它为什么最后谁都不理它了？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "乌鸦把什么东西插在了自己的尾巴上？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "孔雀们为什么要啄掉乌鸦身上的假羽毛？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "如果其他小乌鸦看到了这只被赶回来的乌鸦，会对它说什么？", color: "#fa709a" }
+    ],
+    lifeConnection: "每个人都有自己特别的地方，像你虽然不是超人，但你有自己最可爱的地方！告诉妈妈你哪里最棒？",
+    retellingPrompt: "假装你是那些孔雀，用生气的语气对假装成孔雀的乌鸦说一句话！"
   }
 ];
