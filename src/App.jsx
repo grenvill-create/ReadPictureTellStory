@@ -8,9 +8,10 @@ import { pinyin } from "pinyin-pro";
 import { saveAudioBlob, getAllAudioBlobs } from "./utils/db";
 import AudioLibraryModal from "./AudioLibraryModal";
 import "./App.css";
+import MultiPageBookViewer from "./components/MultiPageBookViewer";
 
 // Helper component to render text with pinyin ruby tags
-const PinyinText = ({ text, showPinyin }) => {
+export const PinyinText = ({ text, showPinyin }) => {
   if (!text) return null;
   if (!showPinyin) return <span>{text}</span>;
   
@@ -761,7 +762,7 @@ export default function App() {
                     return (
                       <div key={story.id} className="story-card">
                         <div className="story-card-image-wrapper">
-                          <img src={getImageUrl(story.image)} alt={story.title.split("/")[0]} className="story-card-image" />
+                          <img src={getImageUrl(story.image || story.coverImage)} alt={story.title.split("/")[0]} className="story-card-image" />
                           {category.badgeType === "score" && score === 3 && <div className="story-card-badge">已通关 🎉</div>}
                           {readStories.includes(story.id) ? (
                             <div className="read-badge">✅ 已读</div>
@@ -818,6 +819,22 @@ export default function App() {
 
 
         </div>
+      ) : currentStory?.format === "multipage" ? (
+        <MultiPageBookViewer 
+          story={currentStory} 
+          onBack={() => {
+            if (playbackAudioRef.current) {
+              playbackAudioRef.current.pause();
+              setIsPlaying(false);
+            }
+            setCurrentStoryId(null);
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
+          showPinyin={showPinyin}
+          speakText={speakText}
+          getImageUrl={getImageUrl}
+          saveAudioBlob={saveAudioBlob}
+        />
       ) : (
         /* Inside Learning Story */
         <div className="workspace-layout">
@@ -1395,24 +1412,26 @@ export default function App() {
                         </div>
 
                         {/* Audio controls */}
-                        <div className="parent-record-controls" style={{ display: "flex", gap: "10px", alignItems: "center", flexWrap: "wrap" }}>
-                          {audio ? (
-                            <>
-                              <button 
-                                onClick={() => handleTogglePlay(audio)} 
-                                className={`play-recording-btn bounce-hover ${activePlaybackUrl === audio && isPlaying ? "playing" : ""}`}
-                                style={{ padding: "6px 14px", fontSize: "13px" }}
-                              >
-                                {activePlaybackUrl === audio && isPlaying ? "⏸️ 停止播放" : "🔊 播放宝贝录音"}
-                              </button>
-                              <button 
-                                onClick={() => downloadAudio(audio, story.title.split("/")[0])} 
-                                className="parent-btn bounce-hover"
-                                style={{ padding: "6px 14px", borderRadius: "10px", fontSize: "13px" }}
-                              >
-                                📥 下载音频
-                              </button>
-                            </>
+                        <div className="parent-record-controls" style={{ display: "flex", gap: "10px", alignItems: "center", flexWrap: "wrap", width: "100%" }}>
+                          {audio && audio.length > 0 ? (
+                            audio.map((recordItem, rIdx) => (
+                              <div key={rIdx} style={{ display: "flex", gap: "10px", alignItems: "center" }}>
+                                <button 
+                                  onClick={() => handleTogglePlay(recordItem.url)} 
+                                  className={`play-recording-btn bounce-hover ${activePlaybackUrl === recordItem.url && isPlaying ? "playing" : ""}`}
+                                  style={{ padding: "6px 14px", fontSize: "13px" }}
+                                >
+                                  {activePlaybackUrl === recordItem.url && isPlaying ? "⏸️ 停止" : `🔊 播放录音 ${rIdx + 1}`}
+                                </button>
+                                <button 
+                                  onClick={() => downloadAudio(recordItem.url, `${story.title.split("/")[0]}_${rIdx + 1}`)} 
+                                  className="parent-btn bounce-hover"
+                                  style={{ padding: "6px 14px", borderRadius: "10px", fontSize: "13px" }}
+                                >
+                                  📥 下载
+                                </button>
+                              </div>
+                            ))
                           ) : (
                             <span style={{ color: "var(--color-text-light)", fontSize: "14px" }}>
                               宝贝今天还没有在这个关卡录音

@@ -3191,5 +3191,56 @@ export const storiesData = [
     ],
     lifeConnection: "孙悟空有很多神奇的本领，比如七十二变。如果你有魔法，你最想变成什么？",
     retellingPrompt: "假装你是齐天大圣，举起一根假装的'金箍棒'，威风地耍一套猴拳！"
+  },
+  {
+    id: "multipage_seed_journey",
+    type: "science",
+    format: "multipage",
+    title: "小种子的旅行 / The Little Seed's Journey",
+    coverImage: "/images/seed_page1.png",
+    pages: [
+      {
+        pageNumber: 1,
+        image: "/images/seed_page1.png",
+        hotspots: [
+          { id: "seed", name: "小种子", nameEn: "Little Seed", x: 67, y: 38, radius: 15 },
+          { id: "sun", name: "太阳", nameEn: "Sun", x: 80, y: 15, radius: 15 },
+          { id: "wind", name: "风", nameEn: "Wind", x: 30, y: 30, radius: 25 }
+        ],
+        fableText: [
+          "秋天到了，一阵温暖的风吹过。",
+          "一颗带着小翅膀的小种子，告别了妈妈，随着风飞向了远方。",
+          "太阳公公微笑着看着它，祝它旅途愉快。"
+        ]
+      },
+      {
+        pageNumber: 2,
+        image: "/images/seed_page2.png",
+        hotspots: [
+          { id: "seed", name: "小种子", nameEn: "Little Seed", x: 50, y: 78, radius: 15 },
+          { id: "rain", name: "雨水", nameEn: "Rain", x: 60, y: 40, radius: 15 },
+          { id: "cloud", name: "云朵", nameEn: "Cloud", x: 75, y: 15, radius: 20 }
+        ],
+        fableText: [
+          "小种子飞呀飞，最后落在了一片松软泥土里。",
+          "天空中飘来了一朵调皮的小云朵，哗啦啦地下起了雨。",
+          "小种子咕咚咕咚地喝着甜甜的雨水，准备在泥土里美美地睡一觉。"
+        ]
+      },
+      {
+        pageNumber: 3,
+        image: "/images/seed_page3.png",
+        hotspots: [
+          { id: "sunflower", name: "向日葵", nameEn: "Sunflower", x: 50, y: 45, radius: 25 },
+          { id: "sun", name: "太阳", nameEn: "Sun", x: 80, y: 18, radius: 15 },
+          { id: "bee", name: "蜜蜂", nameEn: "Bee", x: 20, y: 28, radius: 10 }
+        ],
+        fableText: [
+          "春天来了，小种子长出了绿色的叶子，开出了一朵大大的向日葵！",
+          "它每天都对着太阳公公露出灿烂的笑脸。",
+          "小蜜蜂也飞来和它做朋友。小种子的旅行真是太奇妙了！"
+        ]
+      }
+    ]
   }
 ];
