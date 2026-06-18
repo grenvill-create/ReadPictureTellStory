@@ -64,7 +64,9 @@ const APP_CATEGORIES = [
   { id: "habit", title: "情绪与习惯 / Habits", subtitle: "养成好习惯，做个棒棒的小孩！", badgeType: "read" },
   { id: "occupation", title: "职业体验 / Occupations", subtitle: "长大后我想成为...", badgeType: "read" },
   { id: "magic", title: "奇幻童话 / Fairy Tales", subtitle: "插上想象的翅膀，飞向魔法世界！", badgeType: "read" },
-  { id: "festival", title: "节日文化 / Festivals", subtitle: "感受欢乐的节日气氛！", badgeType: "read" }
+  { id: "festival", title: "节日文化 / Festivals", subtitle: "感受欢乐的节日气氛！", badgeType: "read" },
+  { id: "safety", title: "安全教育 / Safety", subtitle: "学会保护自己，安全最重要！", badgeType: "read" },
+  { id: "myth", title: "神话故事 / Mythology", subtitle: "领略中国传统神话的魅力！", badgeType: "read" }
 ];
 
 export default function App() {

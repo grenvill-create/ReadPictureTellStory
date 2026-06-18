@@ -587,68 +587,6 @@ export const storiesData = [
     retellingPrompt: "假装你是那只刚刚发现自己变成天鹅的丑小鸭，你现在的心情是怎么样的？"
   },
   {
-    id: "fable_frog_in_well",
-    type: "fable",
-    title: "井底之蛙 / The Frog in the Well",
-    image: "/images/frog_in_well.jpg",
-    hotspots: [
-      { id: "frog", name: "青蛙", nameEn: "Frog", x: 50, y: 80, radius: 10 },
-      { id: "well", name: "水井", nameEn: "Well", x: 50, y: 50, radius: 25 },
-      { id: "turtle", name: "海龟", nameEn: "Turtle", x: 50, y: 15, radius: 10 }
-    ],
-    words: [
-      { zh: "青蛙", en: "Frog" },
-      { zh: "水井", en: "Well" },
-      { zh: "海龟", en: "Turtle" }
-    ],
-    fableText: [
-      "一口废井里住着一只青蛙，它觉得自己在井里非常自由，一会儿在水里游，一会儿在泥里跳，觉得整个世界都在自己的掌控之中。",
-      "有一天，一只来自东海的大海龟来到了井边。青蛙得意地对海龟说：‘你看我住的地方多宽敞，多舒服！你快下来看看吧！’",
-      "海龟试着往下走，可是它的左脚还没进去，右脚就被井口卡住了。海龟后退了几步，对青蛙说：‘你见过大海吗？’",
-      "青蛙摇摇头。海龟说：‘大海非常深，非常广阔，就算下几年的雨，水也不会变多；旱上几年，水也不会变少。那才是真正的好地方呢。’",
-      "青蛙听了，惊讶得张大了嘴巴，觉得自己实在是太渺小了。"
-    ],
-    parentGuide: "小青蛙一直住在井里，它看到的天空有多大？",
-    dialogicQuestions: [
-      { type: "fact", label: "事实", text: "是谁来到了井边，告诉青蛙关于大海的事情？", color: "#4facfe" },
-      { type: "inference", label: "推理", text: "青蛙为什么会觉得自己住的地方很大很舒服？", color: "#43e97b" },
-      { type: "prediction", label: "预测", text: "听了海龟的话，你觉得青蛙接下来会做什么打算？", color: "#fa709a" }
-    ],
-    lifeConnection: "世界很大，我们要多去外面看看，多学习新知识，千万不要像井底的小青蛙一样哦。",
-    retellingPrompt: "如果你是那只海龟，你会怎么跟小青蛙描述大海的样子？"
-  },
-  {
-    id: "fable_farmer_and_snake",
-    type: "fable",
-    title: "农夫和蛇 / The Farmer and the Snake",
-    image: "/images/farmer_and_snake.jpg",
-    hotspots: [
-      { id: "farmer", name: "农夫", nameEn: "Farmer", x: 50, y: 40, radius: 15 },
-      { id: "snake", name: "蛇", nameEn: "Snake", x: 45, y: 60, radius: 10 },
-      { id: "snow", name: "白雪", nameEn: "Snow", x: 80, y: 80, radius: 10 }
-    ],
-    words: [
-      { zh: "农夫", en: "Farmer" },
-      { zh: "蛇", en: "Snake" },
-      { zh: "雪", en: "Snow" }
-    ],
-    fableText: [
-      "一个寒冷的冬天，一位善良的农夫在路边看到了一条被冻僵的蛇。",
-      "农夫看它可怜，觉得它快要冻死了，就把它捡起来，放在自己的怀里，想用自己的体温去温暖它。",
-      "过了一会儿，蛇在农夫温暖的怀抱里渐渐苏醒了过来。",
-      "可是，这只蛇的本性非常凶恶，它刚一醒来，不仅没有感谢农夫，反而狠狠地咬了农夫一口！",
-      "农夫中了剧毒，在倒下之前，他叹息着说：‘我真是太糊涂了，竟然去同情这样一个邪恶的坏家伙，这是我罪有应得啊。’"
-    ],
-    parentGuide: "农夫做了什么好事？但是那条蛇是怎么回报他的？",
-    dialogicQuestions: [
-      { type: "fact", label: "事实", text: "农夫在哪里发现了这条蛇？", color: "#4facfe" },
-      { type: "inference", label: "推理", text: "蛇为什么要咬救它的农夫？", color: "#43e97b" },
-      { type: "prediction", label: "预测", text: "如果你在路边遇到了一只有危险的野生动物，你会怎么做？", color: "#fa709a" }
-    ],
-    lifeConnection: "我们虽然要做善良的人，但是帮助别人之前，一定要分清楚好人和坏人，首先要保护好自己。",
-    retellingPrompt: "如果你是农夫的朋友，你会怎么劝阻他去捡那条蛇？"
-  },
-  {
     id: "fable_fox_and_tiger",
     type: "fable",
     title: "狐假虎威 / The Fox and the Tiger",
@@ -1145,37 +1083,6 @@ export const storiesData = [
     retellingPrompt: "假装你是一只骄傲的孔雀，给大家展示一下你走路的样子吧！"
   },
   {
-    id: "fable_golden_goose",
-    type: "fable",
-    title: "生金蛋的鹅 / The Goose That Laid the Golden Eggs",
-    image: "/images/golden_goose.png",
-    hotspots: [
-      { id: "farmer", name: "农夫", nameEn: "Farmer", x: 30, y: 50, radius: 20 },
-      { id: "goose", name: "鹅", nameEn: "Goose", x: 60, y: 60, radius: 15 },
-      { id: "golden_egg", name: "金蛋", nameEn: "Golden Egg", x: 45, y: 65, radius: 10 }
-    ],
-    words: [
-      { zh: "鹅", en: "Goose" },
-      { zh: "金子", en: "Gold" },
-      { zh: "贪心", en: "Greedy" }
-    ],
-    fableText: [
-      "从前，有一对贫穷的农夫夫妇，他们养了一只神奇的鹅。这只鹅每天都会生下一只闪闪发光的金蛋！",
-      "靠着每天卖掉一只金蛋，农夫夫妇很快就变得非常富有，买了新房子和很多好吃的。",
-      "可是，农夫越来越贪心。他心想：‘这只鹅每天只生一只金蛋，太慢了！它的肚子里肯定装满了一大块金子。’",
-      "为了把肚子里的金子一次性全都拿出来，农夫残忍地把这只神奇的鹅杀掉了。",
-      "当他剖开鹅的肚子时，却发现里面和普通的鹅一模一样，根本没有金块。就这样，他们再也得不到金蛋了。"
-    ],
-    parentGuide: "农夫为什么要杀掉那只鹅？",
-    dialogicQuestions: [
-      { type: "fact", label: "事实", text: "这只神奇的鹅每天会生出什么？", color: "#4facfe" },
-      { type: "inference", label: "推理", text: "鹅的肚子里为什么没有装满金块？", color: "#43e97b" },
-      { type: "prediction", label: "预测", text: "失去鹅之后，农夫一家的生活会变成什么样？", color: "#fa709a" }
-    ],
-    lifeConnection: "做人不能太贪心，如果为了眼前的一点小利益而毁掉长远的好处，最后只会一无所有。",
-    retellingPrompt: "如果你是农夫的朋友，你会怎么劝告他不要杀这只鹅？"
-  },
-  {
     id: "fable_spear_and_shield",
     type: "fable",
     title: "自相矛盾 / The Spear and the Shield",
@@ -1670,37 +1577,6 @@ export const storiesData = [
     retellingPrompt: "你能表演一下狐狸看着长脖子罐子却吃不到东西，急得团团转的样子吗？"
   },
   {
-    id: "fable_city_country_mouse",
-    type: "fable",
-    title: "城里老鼠和乡下老鼠 / City Mouse and Country Mouse",
-    image: "/images/city_country_mouse.png",
-    hotspots: [
-      { id: "city_mouse", name: "城里老鼠", nameEn: "City Mouse", x: 35, y: 60, radius: 20 },
-      { id: "country_mouse", name: "乡下老鼠", nameEn: "Country Mouse", x: 65, y: 60, radius: 20 },
-      { id: "cheese", name: "奶酪", nameEn: "Cheese", x: 50, y: 55, radius: 15 }
-    ],
-    words: [
-      { zh: "城市", en: "City" },
-      { zh: "乡下", en: "Country" },
-      { zh: "奶酪", en: "Cheese" }
-    ],
-    fableText: [
-      "乡下老鼠邀请城里的表哥来做客。它拿出自己最好的食物——玉米和麦子招待表哥。",
-      "城里老鼠嫌弃地说：‘你吃的太差了！跟我去城里吧，那里有吃不完的山珍海味。’",
-      "于是，乡下老鼠跟着表哥来到了城里的一座大房子，桌子上摆满了奶酪、蛋糕和水果。",
-      "就在它们正准备大吃一顿的时候，突然冲出来一只大花猫，吓得它们拼命逃回洞里，半天不敢出来。",
-      "乡下老鼠擦了擦冷汗说：‘虽然城里的食物很好吃，但我还是喜欢乡下，哪怕只吃玉米，至少平平安安。’"
-    ],
-    parentGuide: "乡下老鼠为什么最后还是决定回乡下？",
-    dialogicQuestions: [
-      { type: "fact", label: "事实", text: "城里老鼠给乡下老鼠准备了什么好吃的？", color: "#4facfe" },
-      { type: "inference", label: "推理", text: "为什么城里老鼠吃得那么好，却每天担惊受怕？", color: "#43e97b" },
-      { type: "prediction", label: "预测", text: "如果乡下老鼠留在城里，每天会过怎样的日子？", color: "#fa709a" }
-    ],
-    lifeConnection: "最适合自己的生活才是最好的生活，平平安安比什么都重要！",
-    retellingPrompt: "你能表演一下两只老鼠看到大花猫时，吓得赶紧逃跑的样子吗？"
-  },
-  {
     id: "fable_belling_cat",
     type: "fable",
     title: "给猫挂铃铛 / Belling the Cat",
@@ -1730,68 +1606,6 @@ export const storiesData = [
     ],
     lifeConnection: "说一个好主意很容易，但真正去做却是很难的。想出的办法一定要能做到才行！",
     retellingPrompt: "你能表演一下老爷爷鼠问大家“谁去挂铃铛”时，大家吓得不敢出声的样子吗？"
-  },
-  {
-    id: "fable_dog_and_shadow",
-    type: "fable",
-    title: "狗和影子 / The Dog and Its Reflection",
-    image: "/images/dog_and_shadow.png",
-    hotspots: [
-      { id: "dog", name: "狗", nameEn: "Dog", x: 40, y: 40, radius: 25 },
-      { id: "bone", name: "骨头", nameEn: "Bone", x: 50, y: 45, radius: 15 },
-      { id: "reflection", name: "水里的影子", nameEn: "Reflection", x: 50, y: 80, radius: 25 }
-    ],
-    words: [
-      { zh: "狗", en: "Dog" },
-      { zh: "骨头", en: "Bone" },
-      { zh: "影子", en: "Shadow" }
-    ],
-    fableText: [
-      "有一只狗得到了一根非常大、非常香的肉骨头。它高高兴兴地叼着骨头准备回家去吃。",
-      "在回家的路上，它必须要经过一座小木桥。当它走到桥中间时，它往河水里看了一眼。",
-      "它看到水里也有一只狗，而且那只狗的嘴里也叼着一根很大的肉骨头。",
-      "这只贪心的狗心想：‘如果我把它的骨头也抢过来，我不就有两根骨头了吗！’",
-      "于是，它张开嘴巴，恶狠狠地对着水里的狗大吼一声。结果，它嘴里的骨头‘噗通’一声掉进了河里，被水冲走了。"
-    ],
-    parentGuide: "那只狗看到水里的另一只狗，其实是谁呀？",
-    dialogicQuestions: [
-      { type: "fact", label: "事实", text: "狗过桥的时候嘴里叼着什么？", color: "#4facfe" },
-      { type: "inference", label: "推理", text: "狗为什么要把嘴巴张开冲着水里叫？", color: "#43e97b" },
-      { type: "prediction", label: "预测", text: "骨头掉进河里以后，这只狗会有多伤心？", color: "#fa709a" }
-    ],
-    lifeConnection: "人不能太贪心，如果总是看着别人碗里的东西，最后可能连自己本来拥有的都会失去。",
-    retellingPrompt: "你能表演一下狗为了抢水里的骨头，张大嘴巴大吼的动作吗？"
-  },
-  {
-    id: "fable_wind_and_sun",
-    type: "fable",
-    title: "北风和太阳 / The North Wind and the Sun",
-    image: "/images/wind_and_sun.png",
-    hotspots: [
-      { id: "sun", name: "太阳", nameEn: "Sun", x: 70, y: 20, radius: 25 },
-      { id: "wind", name: "北风", nameEn: "Wind", x: 20, y: 20, radius: 20 },
-      { id: "person", name: "行人", nameEn: "Person", x: 50, y: 70, radius: 20 }
-    ],
-    words: [
-      { zh: "北风", en: "Wind" },
-      { zh: "太阳", en: "Sun" },
-      { zh: "脱衣服", en: "Take Off Clothes" }
-    ],
-    fableText: [
-      "北风和太阳在争论谁的力气更大。这时，路上走来一个穿着厚厚外套的行人。",
-      "他们打赌说，谁能让这个行人脱下外套，谁就赢了。北风自告奋勇地先来。",
-      "北风深吸一口气，吹出了冰冷刺骨的狂风。可是风越大，行人觉得越冷，就把外套裹得越紧。",
-      "北风吹得精疲力尽，只好认输。接着，轮到太阳出场了。",
-      "太阳从云层后走出来，把温暖的阳光洒在行人身上。行人觉得越来越热，开始流汗，于是主动脱下了厚外套。太阳赢了！"
-    ],
-    parentGuide: "北风用了那么大的力气，为什么行人没有脱衣服？",
-    dialogicQuestions: [
-      { type: "fact", label: "事实", text: "太阳和北风比赛要让行人做什么？", color: "#4facfe" },
-      { type: "inference", label: "推理", text: "为什么太阳只是发光，行人就自己把衣服脱了？", color: "#43e97b" },
-      { type: "prediction", label: "预测", text: "如果接下来突然下起了大雪，行人会把衣服穿上吗？", color: "#fa709a" }
-    ],
-    lifeConnection: "有时候，温柔和善良比强硬和粗暴更有力量！",
-    retellingPrompt: "你能表演一下行人在大风里把衣服裹紧，然后在太阳下热得脱衣服的样子吗？"
   },
   {
     id: "fable_thief_and_dog",
@@ -2943,15 +2757,201 @@ export const storiesData = [
     retellingPrompt: "假装你是那个小男孩，一边假装用力拔手，一边大声哭着求救！"
   },
   {
+    id: "fable_farmer_snake",
+    type: "fable",
+    title: "农夫与蛇 / The Farmer and the Snake",
+    image: "/images/fable_farmer_snake.png",
+    hotspots: [
+      { id: "farmer", name: "农夫", nameEn: "Farmer", x: 50, y: 50, radius: 15 },
+      { id: "snake", name: "蛇", nameEn: "Snake", x: 55, y: 45, radius: 10 },
+      { id: "house", name: "农舍", nameEn: "House", x: 80, y: 40, radius: 12 }
+    ],
+    words: [
+      { zh: "农夫", en: "Farmer" },
+      { zh: "蛇", en: "Snake" },
+      { zh: "农舍", en: "House" }
+    ],
+    fableText: [
+      "在一个寒冷的冬天，一位善良的农夫在路边发现了一条冻僵的蛇。",
+      "农夫觉得它很可怜，就把蛇捡起来放在自己的怀里，想用体温给它取暖。",
+      "过了一会儿，蛇苏醒了过来，恢复了力气。",
+      "可是，它并没有感谢农夫，反而狠狠地咬了农夫一口。",
+      "农夫临死前叹息道：'我可怜恶人，结果害了自己。'对恶人千万不能心慈手软。"
+    ],
+    parentGuide: "农夫是怎么帮助冻僵的蛇的？蛇醒来后做了什么？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "农夫在哪里发现了蛇？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "农夫为什么要把它放在怀里？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "如果农夫再看到冻僵的蛇，他还会去救吗？", color: "#fa709a" }
+    ],
+    lifeConnection: "我们要学会分辨好人和坏人，同情心也要用在值得帮助的人身上哦。",
+    retellingPrompt: "假装你就是那位农夫，抱着肩膀做出觉得很冷的样子，然后假装把蛇捡起来！"
+  },
+  {
+    id: "fable_golden_goose",
+    type: "fable",
+    title: "生金蛋的鹅 / The Golden Goose",
+    image: "/images/fable_golden_goose.png",
+    hotspots: [
+      { id: "farmer", name: "农夫", nameEn: "Farmer", x: 65, y: 55, radius: 15 },
+      { id: "goose", name: "鹅", nameEn: "Goose", x: 30, y: 65, radius: 15 },
+      { id: "egg", name: "金蛋", nameEn: "Golden Egg", x: 45, y: 75, radius: 10 }
+    ],
+    words: [
+      { zh: "农夫", en: "Farmer" },
+      { zh: "鹅", en: "Goose" },
+      { zh: "金蛋", en: "Golden Egg" }
+    ],
+    fableText: [
+      "从前，一个农夫养了一只神奇的白鹅，这只鹅每天都会生下一个金光闪闪的金蛋。",
+      "农夫把金蛋拿去卖，很快就变得非常富有。",
+      "可是，农夫越来越贪心，他心想：'鹅的肚子里一定装满了金子！'",
+      "于是，他把鹅杀了，希望能一次性拿到所有的金子。",
+      "然而，鹅的肚子里和普通的鹅一样，什么金子也没有。因为贪心，农夫什么都失去了。"
+    ],
+    parentGuide: "这只白鹅每天会生下什么？农夫为什么要杀掉它？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "农夫发现鹅肚子里有金子吗？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "农夫变得越来越富有时，他的心情是怎样的？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "没有了金蛋，农夫以后的生活会变成什么样？", color: "#fa709a" }
+    ],
+    lifeConnection: "这就告诉我们，做人不能太贪婪，要珍惜现在拥有的好东西。",
+    retellingPrompt: "假装你是农夫，看到金蛋时，睁大眼睛露出非常惊喜的表情！"
+  },
+  {
+    id: "fable_dog_reflection",
+    type: "fable",
+    title: "狗和它的影子 / The Dog and His Reflection",
+    image: "/images/fable_dog_reflection.png",
+    hotspots: [
+      { id: "dog", name: "狗", nameEn: "Dog", x: 50, y: 40, radius: 15 },
+      { id: "bone", name: "骨头", nameEn: "Bone", x: 45, y: 45, radius: 10 },
+      { id: "reflection", name: "倒影", nameEn: "Reflection", x: 50, y: 80, radius: 15 }
+    ],
+    words: [
+      { zh: "狗", en: "Dog" },
+      { zh: "骨头", en: "Bone" },
+      { zh: "倒影", en: "Reflection" }
+    ],
+    fableText: [
+      "一只小狗得到了一块很大很美味的骨头，它高高兴兴地叼着骨头跑回家。",
+      "在路过一座小木桥时，它低头看到了河水中自己的倒影。",
+      "小狗以为水里是另一只狗，而且嘴里叼着一块更大的骨头！",
+      "它贪心地想要抢走那块骨头，于是冲着水里的倒影大叫了一声。",
+      "结果，它刚一开口，嘴里的骨头就掉进了河里，被水冲走了。它什么也没捞着。"
+    ],
+    parentGuide: "小狗在水里看到了什么？它为什么会冲着水里叫？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "小狗嘴里本来叼着什么？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "水里的另一只狗和骨头是真的吗？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "小狗看着被冲走的骨头，心里会想些什么？", color: "#fa709a" }
+    ],
+    lifeConnection: "这也是贪心带来的坏结果！有时候看着别人手里的东西更好，其实自己拥有的才是最真实的。",
+    retellingPrompt: "假装你是那只小狗，嘴里叼着东西，然后冲着水里'汪汪汪'地大叫！"
+  },
+  {
+    id: "fable_town_country_mouse",
+    type: "fable",
+    title: "城市老鼠与乡下老鼠 / The Town Mouse and the Country Mouse",
+    image: "/images/fable_town_country_mouse.png",
+    hotspots: [
+      { id: "townmouse", name: "城市老鼠", nameEn: "Town Mouse", x: 25, y: 55, radius: 15 },
+      { id: "countrymouse", name: "乡下老鼠", nameEn: "Country Mouse", x: 75, y: 55, radius: 15 },
+      { id: "cheese", name: "奶酪", nameEn: "Cheese", x: 50, y: 55, radius: 15 }
+    ],
+    words: [
+      { zh: "城市老鼠", en: "Town Mouse" },
+      { zh: "乡下老鼠", en: "Country Mouse" },
+      { zh: "奶酪", en: "Cheese" }
+    ],
+    fableText: [
+      "乡下老鼠邀请城市老鼠来做客，拿出了自己存的花生和玉米。城市老鼠嫌弃地说乡下太寒酸了，便邀请它去城里享受大餐。",
+      "两只老鼠来到城里的一户人家，桌上摆满了美味的奶酪和蛋糕。",
+      "乡下老鼠刚准备大吃一顿，突然听到了大门打开的声音，还有猫的叫声！",
+      "它们吓得四处逃窜，好不容易才躲进一个黑黑的小洞里，饿得肚子咕咕叫。",
+      "乡下老鼠对城市老鼠说：'城里的食物虽然丰盛，但每天提心吊胆的，还不如我在乡下吃粗粮来得安心自在！'"
+    ],
+    parentGuide: "乡下老鼠在城里吃到了大餐吗？为什么它们被吓得四处逃窜？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "乡下老鼠拿什么招待城市老鼠？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "为什么乡下老鼠最后觉得还是乡下好？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "你觉得以后乡下老鼠还会去城里吗？", color: "#fa709a" }
+    ],
+    lifeConnection: "平平安安、快快乐乐的生活，比每天担惊受怕地追求物质享受要好得多哦。",
+    retellingPrompt: "假装你是乡下老鼠，听到猫叫声时，吓得赶紧捂住嘴巴趴在地上！"
+  },
+  {
+    id: "fable_wind_sun",
+    type: "fable",
+    title: "北风与太阳 / The North Wind and the Sun",
+    image: "/images/fable_wind_sun.png",
+    hotspots: [
+      { id: "wind", name: "北风", nameEn: "North Wind", x: 25, y: 25, radius: 15 },
+      { id: "sun", name: "太阳", nameEn: "Sun", x: 75, y: 20, radius: 15 },
+      { id: "traveler", name: "旅行者", nameEn: "Traveler", x: 65, y: 70, radius: 15 }
+    ],
+    words: [
+      { zh: "北风", en: "North Wind" },
+      { zh: "太阳", en: "Sun" },
+      { zh: "旅行者", en: "Traveler" }
+    ],
+    fableText: [
+      "北风和太阳争吵起来，都说自己的力量更大。最后他们决定比赛：谁能让路上的旅行者脱下大衣，谁就赢了。",
+      "北风首先出场。它鼓起腮帮子，用力吹出冰冷刺骨的狂风。",
+      "可是，北风吹得越猛，旅行者觉得越冷，反而把大衣裹得更紧了。北风认输了。",
+      "接着轮到太阳了。太阳微微笑，向大地散发出温暖柔和的光芒。",
+      "没过一会儿，旅行者热得满头大汗，自己把大衣脱了下来。太阳用温和赢得了比赛。"
+    ],
+    parentGuide: "北风和太阳在比赛什么？是谁赢了？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "当北风用力吹时，旅行者是怎么做的？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "为什么太阳能让旅行者脱下衣服？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "如果接下来下起了雨，旅行者又会怎么做？", color: "#fa709a" }
+    ],
+    lifeConnection: "温和耐心的劝导往往比强硬的手段更有力量。我们要多对别人微笑哦。",
+    retellingPrompt: "假装你是那阵凛冽的北风，鼓起腮帮子'呼呼呼'地用力吹气！"
+  },
+  {
+    id: "fable_frog_well",
+    type: "fable",
+    title: "井底之蛙 / The Frog in the Well",
+    image: "/images/fable_frog_well.png",
+    hotspots: [
+      { id: "frog", name: "青蛙", nameEn: "Frog", x: 50, y: 75, radius: 15 },
+      { id: "sky", name: "蓝天", nameEn: "Sky", x: 50, y: 15, radius: 15 },
+      { id: "moss", name: "青苔", nameEn: "Moss", x: 25, y: 60, radius: 10 }
+    ],
+    words: [
+      { zh: "青蛙", en: "Frog" },
+      { zh: "蓝天", en: "Sky" },
+      { zh: "青苔", en: "Moss" }
+    ],
+    fableText: [
+      "一只青蛙生活在一口很深的古井里。它看着井口的一小圈蓝天，得意地想：'世界就是这么大，而我就是这里的主人！'",
+      "一天，一只从东海来的大海龟停在井边。青蛙自豪地向海龟炫耀自己舒适的家。",
+      "海龟本来想下井看看，但右脚还没伸进去，左脚就被卡住了。于是它退了回来，开始向青蛙描述大海的广阔。",
+      "'大海一眼望不到边，深不见底，那才是真正宽广的世界啊！'海龟说道。",
+      "青蛙听了，惊讶得张大了嘴巴，这才明白原来外面的世界有那么大。"
+    ],
+    parentGuide: "青蛙以为世界有多大？是谁告诉它外面还有更大的世界？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "海龟是从哪里来的？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "青蛙为什么会觉得世界只有井口那么大？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "听了海龟的话，青蛙会想跳出井口去看看大海吗？", color: "#fa709a" }
+    ],
+    lifeConnection: "我们要多读书、多出去走走，增长自己的见识，不能像井底的小青蛙一样只看到眼前的一点点东西哦。",
+    retellingPrompt: "假装你是那只骄傲的小青蛙，抬起头自豪地夸奖自己的家有多棒！"
+  },
+  {
     id: "science_dinosaur",
     type: "science",
     title: "神秘的恐龙乐园 / The Dinosaur Park",
     image: "/images/dinosaur_park.jpg",
     hotspots: [
-      { id: "trex", name: "霸王龙", nameEn: "T-Rex", x: 35, y: 50, radius: 15 },
-      { id: "triceratops", name: "三角龙", nameEn: "Triceratops", x: 75, y: 70, radius: 12 },
-      { id: "volcano", name: "火山", nameEn: "Volcano", x: 50, y: 25, radius: 10 },
-      { id: "fern", name: "蕨类植物", nameEn: "Fern", x: 20, y: 80, radius: 12 }
+      { id: "trex", name: "霸王龙", nameEn: "T-Rex", x: 30, y: 65, radius: 15 },
+      { id: "triceratops", name: "三角龙", nameEn: "Triceratops", x: 65, y: 60, radius: 15 },
+      { id: "volcano", name: "火山", nameEn: "Volcano", x: 62, y: 25, radius: 15 },
+      { id: "fern", name: "蕨类植物", nameEn: "Fern", x: 45, y: 45, radius: 15 }
     ],
     words: [
       { zh: "霸王龙", en: "T-Rex" },
@@ -2980,10 +2980,10 @@ export const storiesData = [
     title: "我的牙齿亮晶晶 / Brave at the Dentist",
     image: "/images/brave_dentist.jpg",
     hotspots: [
-      { id: "dentist", name: "牙医", nameEn: "Dentist", x: 70, y: 50, radius: 15 },
-      { id: "chair", name: "牙医椅", nameEn: "Dentist Chair", x: 40, y: 60, radius: 20 },
-      { id: "mirror", name: "小镜子", nameEn: "Mouth Mirror", x: 55, y: 45, radius: 8 },
-      { id: "cavity", name: "蛀牙虫", nameEn: "Cavity Bug", x: 80, y: 85, radius: 10 }
+      { id: "dentist", name: "牙医", nameEn: "Dentist", x: 70, y: 55, radius: 15 },
+      { id: "chair", name: "牙医椅", nameEn: "Dentist Chair", x: 45, y: 70, radius: 20 },
+      { id: "mirror", name: "小镜子", nameEn: "Mouth Mirror", x: 62, y: 48, radius: 10 },
+      { id: "cavity", name: "蛀牙虫", nameEn: "Cavity Bug", x: 85, y: 85, radius: 10 }
     ],
     words: [
       { zh: "牙医", en: "Dentist" },
@@ -3013,9 +3013,9 @@ export const storiesData = [
     image: "/images/fire_station.jpg",
     hotspots: [
       { id: "fireengine", name: "消防车", nameEn: "Fire Engine", x: 40, y: 55, radius: 20 },
-      { id: "firefighter", name: "消防员", nameEn: "Firefighter", x: 70, y: 50, radius: 15 },
-      { id: "hose", name: "水管", nameEn: "Hose", x: 60, y: 75, radius: 10 },
-      { id: "dog", name: "斑点狗", nameEn: "Dalmatian", x: 20, y: 80, radius: 12 }
+      { id: "firefighter", name: "消防员", nameEn: "Firefighter", x: 80, y: 65, radius: 15 },
+      { id: "hose", name: "水管", nameEn: "Hose", x: 60, y: 66, radius: 10 },
+      { id: "dog", name: "斑点狗", nameEn: "Dalmatian", x: 55, y: 82, radius: 12 }
     ],
     words: [
       { zh: "消防车", en: "Fire Engine" },
@@ -3044,10 +3044,10 @@ export const storiesData = [
     title: "森林里的魔法学校 / The Magic Forest School",
     image: "/images/magic_school.jpg",
     hotspots: [
-      { id: "wizardhat", name: "魔法帽", nameEn: "Wizard Hat", x: 40, y: 60, radius: 12 },
-      { id: "mushroom", name: "发光蘑菇", nameEn: "Glowing Mushroom", x: 80, y: 85, radius: 10 },
-      { id: "spellbook", name: "魔法书", nameEn: "Spellbook", x: 50, y: 30, radius: 12 },
-      { id: "cauldron", name: "魔药锅", nameEn: "Cauldron", x: 50, y: 75, radius: 15 }
+      { id: "wizardhat", name: "魔法帽", nameEn: "Wizard Hat", x: 28, y: 38, radius: 12 },
+      { id: "mushroom", name: "发光蘑菇", nameEn: "Glowing Mushroom", x: 68, y: 90, radius: 10 },
+      { id: "spellbook", name: "魔法书", nameEn: "Spellbook", x: 68, y: 40, radius: 15 },
+      { id: "cauldron", name: "魔药锅", nameEn: "Cauldron", x: 52, y: 75, radius: 15 }
     ],
     words: [
       { zh: "魔法帽", en: "Wizard Hat" },
@@ -3076,10 +3076,10 @@ export const storiesData = [
     title: "热闹的中国年 / Happy Chinese New Year",
     image: "/images/chinese_new_year.jpg",
     hotspots: [
-      { id: "firecracker", name: "鞭炮", nameEn: "Firecrackers", x: 25, y: 70, radius: 12 },
-      { id: "lantern", name: "红灯笼", nameEn: "Red Lantern", x: 20, y: 20, radius: 15 },
-      { id: "dragon", name: "舞龙", nameEn: "Dragon Dance", x: 60, y: 40, radius: 20 },
-      { id: "redenvelope", name: "红包", nameEn: "Red Envelope", x: 80, y: 80, radius: 10 }
+      { id: "firecracker", name: "鞭炮", nameEn: "Firecrackers", x: 50, y: 80, radius: 12 },
+      { id: "lantern", name: "红灯笼", nameEn: "Red Lantern", x: 50, y: 15, radius: 15 },
+      { id: "dragon", name: "舞龙", nameEn: "Dragon Dance", x: 75, y: 35, radius: 20 },
+      { id: "redenvelope", name: "红包", nameEn: "Red Envelope", x: 80, y: 90, radius: 10 }
     ],
     words: [
       { zh: "鞭炮", en: "Firecrackers" },
@@ -3101,5 +3101,95 @@ export const storiesData = [
     ],
     lifeConnection: "你最喜欢过年时候的哪一个习俗？是吃饺子、拿红包还是看烟花？",
     retellingPrompt: "假装你正在看舞龙表演，开心地拍着手为大家大声叫好！"
+  },
+  {
+    id: "safety_traffic_light",
+    type: "safety",
+    title: "红绿灯眨眼睛 / Traffic Lights",
+    image: "/images/safety_traffic_light.png",
+    hotspots: [
+      { id: "trafficlight", name: "红绿灯", nameEn: "Traffic Light", x: 35, y: 15, radius: 15 },
+      { id: "police", name: "交警叔叔", nameEn: "Police Officer", x: 75, y: 55, radius: 20 },
+      { id: "child", name: "小朋友", nameEn: "Child", x: 30, y: 70, radius: 15 }
+    ],
+    words: [
+      { zh: "红绿灯", en: "Traffic Light" },
+      { zh: "交警叔叔", en: "Police Officer" },
+      { zh: "小朋友", en: "Child" }
+    ],
+    fableText: [
+      "马路口有一个高高的红绿灯，它就像一只会眨眼睛的大眼睛。",
+      "红灯亮起的时候，所有的人和车都要停下来乖乖等待。",
+      "路边站着一位和蔼的交警叔叔，他正在指挥交通，保护大家的安全。",
+      "小朋友拉着妈妈的手，耐心地等待着绿灯亮起，才安全地走过斑马线。"
+    ],
+    parentGuide: "红灯亮起的时候，我们应该怎么做？谁在路边保护大家？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "图片上的红绿灯亮的是什么颜色？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "为什么过马路一定要拉着大人的手？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "等一会儿绿灯亮了，小朋友会做什么？", color: "#fa709a" }
+    ],
+    lifeConnection: "下次我们一起出门的时候，你来当小警察，告诉爸爸妈妈什么时候可以过马路好不好？",
+    retellingPrompt: "假装你是一个神气的交警叔叔，伸出手臂大声说：'红灯停，绿灯行！'"
+  },
+  {
+    id: "emotion_angry_dragon",
+    type: "habit",
+    title: "我变成了一只喷火龙 / The Angry Little Dragon",
+    image: "/images/emotion_angry_dragon.png",
+    hotspots: [
+      { id: "boy", name: "生气的小男孩", nameEn: "Angry Boy", x: 50, y: 50, radius: 20 },
+      { id: "dragon", name: "火龙影子", nameEn: "Dragon Shadow", x: 75, y: 30, radius: 15 },
+      { id: "toys", name: "散落的玩具", nameEn: "Messy Toys", x: 50, y: 85, radius: 20 }
+    ],
+    words: [
+      { zh: "生气的小男孩", en: "Angry Boy" },
+      { zh: "火龙影子", en: "Dragon Shadow" },
+      { zh: "散落的玩具", en: "Messy Toys" }
+    ],
+    fableText: [
+      "今天小男孩非常非常生气！他的眉头紧紧地皱在了一起，双手交叉放在胸前。",
+      "因为太生气了，他的身后居然出现了一只喷着火焰的小恶龙影子！",
+      "房间里到处都是散落的玩具，小火龙似乎想把这些玩具全部烧掉。",
+      "可是生气并不能解决问题，我们需要深呼吸，把心里的火龙慢慢赶走。"
+    ],
+    parentGuide: "小男孩现在的心情是怎么样的？他身后出现了什么可怕的东西？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "房间的地板上有什么？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "你觉得小男孩为什么会发这么大的脾气？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "深呼吸之后，小男孩身后的火龙影子会发生什么变化？", color: "#fa709a" }
+    ],
+    lifeConnection: "下次你觉得心里也有一只小火龙要跑出来的时候，试试深吸一口气，从一数到十吧！",
+    retellingPrompt: "假装你是一只生气的小火龙，双手叉腰，大口大口地呼出热气！"
+  },
+  {
+    id: "myth_monkey_king",
+    type: "myth",
+    title: "大闹天宫 / The Monkey King",
+    image: "/images/myth_monkey_king.png",
+    hotspots: [
+      { id: "monkey", name: "孙悟空", nameEn: "Monkey King", x: 65, y: 50, radius: 15 },
+      { id: "peach", name: "大蟠桃", nameEn: "Giant Peach", x: 50, y: 45, radius: 15 },
+      { id: "staff", name: "金箍棒", nameEn: "Golden Staff", x: 82, y: 45, radius: 10 }
+    ],
+    words: [
+      { zh: "孙悟空", en: "Monkey King" },
+      { zh: "大蟠桃", en: "Giant Peach" },
+      { zh: "金箍棒", en: "Golden Staff" }
+    ],
+    fableText: [
+      "在云雾缭绕的天庭里，神奇的齐天大圣孙悟空偷偷溜进了王母娘娘的蟠桃园。",
+      "他穿着威风凛凛的黄金甲，手里还拿着一根神奇的如意金箍棒。",
+      "孙悟空摘下了一个比他脸还要大的仙桃，开心地大口吃了起来。",
+      "吃饱喝足后，他准备回花果山，给小猴子们讲讲天上的趣事呢。"
+    ],
+    parentGuide: "孙悟空手里拿着什么神奇的武器？他正在津津有味地吃什么？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "孙悟空穿着什么颜色的衣服？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "王母娘娘发现蟠桃被偷吃后会是什么心情？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "吃完这个大蟠桃，孙悟空接下来会去哪里？", color: "#fa709a" }
+    ],
+    lifeConnection: "孙悟空有很多神奇的本领，比如七十二变。如果你有魔法，你最想变成什么？",
+    retellingPrompt: "假装你是齐天大圣，举起一根假装的'金箍棒'，威风地耍一套猴拳！"
   }
 ];

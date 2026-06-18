@@ -15,15 +15,14 @@ ReadPictureTellStory/
 ├── .git/                     # Git 版本控制
 ├── node_modules/             # 依赖包目录
 ├── public/                   # 静态资源目录
-│   └── images/               # 经过优化压缩后的故事插画 (JPEG 格式)
+│   └── images/               # 故事插画与绘本图片资源 (JPG/PNG格式)
 │       ├── kite_flying.jpg
-│       ├── beach_sandcastle.jpg
-│       └── ... (共10个场景)
-├── raw_images/               # 原始高清图片 (AI 生成的 PNG 格式，不直接部署)
+│       ├── fable_golden_goose.png
+│       └── ... (包含上百张精美插图)
 ├── src/                      # 前端源代码目录
 │   ├── assets/               # 静态资源 (可选 SVG、小图标等)
 │   ├── data/                 # 核心静态配置数据
-│   │   └── storiesData.js    # 10 个故事场景的元数据 (包含热区、词卡、拼句、范文)
+│   │   └── storiesData.js    # 近百个故事场景的元数据 (涵盖日常、寓言、科普、神话等9大类)
 │   ├── App.css               # 全局及组件样式表 (包括色彩系统与核心动画)
 │   ├── App.jsx               # 核心交互逻辑与状态管理器 (包含录音、播放、数据库和 UI 渲染)
 │   ├── index.css             # 基础重置样式与 CSS 变量声明
@@ -61,6 +60,18 @@ ReadPictureTellStory/
 4. **第四步：双语故事书跟读 (Read & Repeat)**
    - 解锁精美的中英双语对照范文。孩子可以点击任意句子进行高点读朗读。
    - 底部提供“下一本”按钮，可平滑跳转到下一本书。
+
+### 2.3 海量故事资源库 (Massive Story Library)
+项目内置了涵盖 9 大核心主题的百余个故事场景，确保学习过程趣味盎然：
+1. **日常行为 (Daily Life)**：如起床、穿衣、刷牙。
+2. **自然科学 (Nature & Science)**：如动物习性、季节变换。
+3. **经典寓言 (Classic Fables)**：如龟兔赛跑、狼来了。
+4. **社交技能 (Social Skills)**：如分享玩具、礼貌用语。
+5. **情感教育 (Social Emotional Learning)**：如管理愤怒、表达爱意。
+6. **奇幻童话 (Magic Fairy Tales)**：如奇妙的森林魔法学校。
+7. **节日文化 (Festivals & Culture)**：如体验热闹的中国年。
+8. **安全教育 (Safety)**：如红绿灯过马路的安全常识。
+9. **神话故事 (Mythology)**：如大闹天宫的孙悟空。
 
 ---
 
