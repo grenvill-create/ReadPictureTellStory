@@ -57,6 +57,16 @@ const getImageUrl = (path) => {
   return import.meta.env.BASE_URL + cleanPath;
 };
 
+const APP_CATEGORIES = [
+  { id: "daily", title: "日常图画 / Daily Life", subtitle: "点击一幅画，开始我们的探索之旅吧！", badgeType: "score" },
+  { id: "fable", title: "寓言绘本 / Fables", subtitle: "爸爸妈妈亲自为你读的睡前故事！", badgeType: "read" },
+  { id: "science", title: "科普探索 / Science", subtitle: "满足好奇心，探索神奇的大自然！", badgeType: "read" },
+  { id: "habit", title: "情绪与习惯 / Habits", subtitle: "养成好习惯，做个棒棒的小孩！", badgeType: "read" },
+  { id: "occupation", title: "职业体验 / Occupations", subtitle: "长大后我想成为...", badgeType: "read" },
+  { id: "magic", title: "奇幻童话 / Fairy Tales", subtitle: "插上想象的翅膀，飞向魔法世界！", badgeType: "read" },
+  { id: "festival", title: "节日文化 / Festivals", subtitle: "感受欢乐的节日气氛！", badgeType: "read" }
+];
+
 export default function App() {
   const [currentStoryId, setCurrentStoryId] = useState(null);
   const [currentSceneId, setCurrentSceneId] = useState(null);
@@ -725,96 +735,66 @@ export default function App() {
             ))}
           </div>
 
-          <div className="dashboard-header-row">
-            <div>
-              <h2 className="dashboard-title" style={{marginBottom: 0}}>日常图画 / Daily Life</h2>
-              <p className="dashboard-subtitle" style={{marginBottom: 0}}>点击一幅画，开始我们的探索之旅吧！</p>
-            </div>
-            <button className="directory-btn" onClick={() => {setDirectoryType("daily"); setShowDirectoryModal(true);}}>
-              📚 查看目录
-            </button>
-          </div>
-          
-          <div className="carousel-wrapper" style={{ position: 'relative' }}>
-            <div className="story-carousel">
-            {storiesData.filter(s => s.type !== "fable").map(story => {
-              const stars = starsCollected[story.id] || [false, false, false];
-              const score = stars.filter(Boolean).length;
-              return (
-                <div key={story.id} className="story-card">
-                  <div className="story-card-image-wrapper">
-                    <img src={getImageUrl(story.image)} alt={story.title.split("/")[0]} className="story-card-image" />
-                    {score === 3 && <div className="story-card-badge">已通关 🎉</div>}
-                    {readStories.includes(story.id) ? (
-                      <div className="read-badge">✅ 已读</div>
-                    ) : (
-                      <div className="new-badge">🆕</div>
-                    )}
+          {APP_CATEGORIES.map((category, catIdx) => {
+            const categoryStories = storiesData.filter(s => (s.type || "daily") === category.id);
+            if (categoryStories.length === 0) return null;
+            
+            return (
+              <div key={category.id}>
+                <div className="dashboard-header-row" style={{ marginTop: catIdx === 0 ? '0' : '40px' }}>
+                  <div>
+                    <h2 className="dashboard-title" style={{marginBottom: 0}}>{category.title}</h2>
+                    <p className="dashboard-subtitle" style={{marginBottom: 0}}>{category.subtitle}</p>
                   </div>
-                  <div className="story-card-info">
-                    <h3 className="story-card-title">{story.title.split("/")[0]}</h3>
-                    <p className="story-card-description">{story.title.split("/")[1]}</p>
-                    <div className="story-card-footer">
-                      <div className="stars-collected">
-                        {stars.map((active, idx) => (
-                          <span key={idx}>{active ? "⭐" : "☆"}</span>
-                        ))}
+                  <button className="directory-btn" onClick={() => {setDirectoryType(category.id); setShowDirectoryModal(true);}}>
+                    📚 查看目录
+                  </button>
+                </div>
+                
+                <div className="carousel-wrapper" style={{ position: 'relative' }}>
+                  <div className="story-carousel">
+                  {categoryStories.map(story => {
+                    const stars = starsCollected[story.id] || [false, false, false];
+                    const score = stars.filter(Boolean).length;
+                    return (
+                      <div key={story.id} className="story-card">
+                        <div className="story-card-image-wrapper">
+                          <img src={getImageUrl(story.image)} alt={story.title.split("/")[0]} className="story-card-image" />
+                          {category.badgeType === "score" && score === 3 && <div className="story-card-badge">已通关 🎉</div>}
+                          {readStories.includes(story.id) ? (
+                            <div className="read-badge">✅ 已读</div>
+                          ) : (
+                            <div className="new-badge">🆕</div>
+                          )}
+                        </div>
+                        <div className="story-card-info">
+                          <h3 className="story-card-title">{story.title.split("/")[0]}</h3>
+                          <p className="story-card-description">{story.title.split("/")[1]}</p>
+                          <div className="story-card-footer" style={{ justifyContent: category.badgeType === "read" ? 'flex-end' : 'space-between' }}>
+                            {category.badgeType === "score" && (
+                              <div className="stars-collected">
+                                {stars.map((active, idx) => (
+                                  <span key={idx}>{active ? "⭐" : "☆"}</span>
+                                ))}
+                              </div>
+                            )}
+                            <button 
+                              onClick={() => handleStartReading(story.id)} 
+                              className="play-btn bounce-hover"
+                              style={category.badgeType === "read" ? { backgroundColor: 'var(--color-yellow)', color: 'var(--color-text-dark)' } : {}}
+                            >
+                              {category.badgeType === "read" ? "📖 开始共读" : "出发 / Start"}
+                            </button>
+                          </div>
+                        </div>
                       </div>
-                      <button 
-                        onClick={() => handleStartReading(story.id)} 
-                        className="play-btn bounce-hover"
-                      >
-                        出发 / Start
-                      </button>
-                    </div>
+                    );
+                  })}
                   </div>
                 </div>
-              );
-            })}
-            </div>
-          </div>
-
-          <div className="dashboard-header-row" style={{ marginTop: '40px' }}>
-            <div>
-              <h2 className="dashboard-title" style={{marginBottom: 0}}>寓言绘本 / Fables</h2>
-              <p className="dashboard-subtitle" style={{marginBottom: 0}}>爸爸妈妈亲自为你读的睡前故事！</p>
-            </div>
-            <button className="directory-btn" onClick={() => {setDirectoryType("fable"); setShowDirectoryModal(true);}}>
-              📚 查看目录
-            </button>
-          </div>
-          
-          <div className="carousel-wrapper" style={{ position: 'relative' }}>
-            <div className="story-carousel">
-            {storiesData.filter(s => s.type === "fable").map(story => {
-              return (
-                <div key={story.id} className="story-card">
-                  <div className="story-card-image-wrapper">
-                    <img src={getImageUrl(story.image)} alt={story.title.split("/")[0]} className="story-card-image" />
-                    {readStories.includes(story.id) ? (
-                      <div className="read-badge">✅ 已读</div>
-                    ) : (
-                      <div className="new-badge">🆕</div>
-                    )}
-                  </div>
-                  <div className="story-card-info">
-                    <h3 className="story-card-title">{story.title.split("/")[0]}</h3>
-                    <p className="story-card-description">{story.title.split("/")[1]}</p>
-                    <div className="story-card-footer" style={{ justifyContent: 'flex-end' }}>
-                      <button 
-                        onClick={() => handleStartReading(story.id)} 
-                        className="play-btn bounce-hover"
-                        style={{ backgroundColor: 'var(--color-yellow)', color: 'var(--color-text-dark)' }}
-                      >
-                        📖 开始共读
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-            </div>
-          </div>
+              </div>
+            );
+          })}
 
           {/* Sticker Book / Achievement shelf */}
           <div className="stickers-panel">
@@ -858,7 +838,7 @@ export default function App() {
               </button>
               <button 
                 onClick={() => {
-                  setDirectoryType(currentStory.type === "fable" ? "fable" : "daily");
+                  setDirectoryType(currentStory.type || "daily");
                   setShowDirectoryModal(true);
                 }} 
                 className="catalogue-btn"
@@ -1013,7 +993,7 @@ export default function App() {
           {/* Right Control Panels */}
           <div className="control-panel">
             
-            {currentStory.type === "fable" ? (
+            {(currentStory.type && currentStory.type !== "daily") ? (
               <div className="step-content-card fable-teleprompter" style={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
                 <h3 className="step-heading">📖 故事提词器 (共读模式)</h3>
                 <p className="step-instructions" style={{ marginBottom: '16px' }}>
@@ -1496,9 +1476,9 @@ export default function App() {
             <button className="modal-close" onClick={() => setShowDirectoryModal(false)}>×</button>
             <div style={{ display: 'flex', gap: '10px', marginBottom: '20px' }}>
             </div>
-            <h3>{directoryType === 'daily' ? '日常图画 / Daily Life 目录' : '寓言绘本 / Fables 目录'}</h3>
+            <h3>{(APP_CATEGORIES.find(c => c.id === directoryType)?.title || "目录")}</h3>
             <div className="directory-list">
-              {storiesData.filter(s => directoryType === 'daily' ? s.type !== 'fable' : s.type === 'fable').map((s, idx) => (
+              {storiesData.filter(s => (s.type || "daily") === directoryType).map((s, idx) => (
                 <div 
                   key={s.id} 
                   className={`directory-item ${readStories.includes(s.id) ? 'read' : 'unread'}`}

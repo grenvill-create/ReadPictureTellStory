@@ -2941,5 +2941,165 @@ export const storiesData = [
     ],
     lifeConnection: "吃好吃的东西时，我们拿够自己吃的部分就好了，不能太贪心哦，不然肚子也会不舒服的。",
     retellingPrompt: "假装你是那个小男孩，一边假装用力拔手，一边大声哭着求救！"
+  },
+  {
+    id: "science_dinosaur",
+    type: "science",
+    title: "神秘的恐龙乐园 / The Dinosaur Park",
+    image: "/images/dinosaur_park.jpg",
+    hotspots: [
+      { id: "trex", name: "霸王龙", nameEn: "T-Rex", x: 35, y: 50, radius: 15 },
+      { id: "triceratops", name: "三角龙", nameEn: "Triceratops", x: 75, y: 70, radius: 12 },
+      { id: "volcano", name: "火山", nameEn: "Volcano", x: 50, y: 25, radius: 10 },
+      { id: "fern", name: "蕨类植物", nameEn: "Fern", x: 20, y: 80, radius: 12 }
+    ],
+    words: [
+      { zh: "霸王龙", en: "T-Rex" },
+      { zh: "三角龙", en: "Triceratops" },
+      { zh: "火山", en: "Volcano" },
+      { zh: "蕨类植物", en: "Fern" }
+    ],
+    fableText: [
+      "欢迎来到神秘的恐龙乐园！这里生活着许多远古时期的庞大生物。",
+      "看那只绿色的霸王龙，它正张着大嘴在开心地玩耍呢。",
+      "一只紫色的三角龙正悄悄地躲在高大的蕨类植物后面，似乎在和朋友捉迷藏。",
+      "在远处的背景里，一座高高的火山正在冒着浓烟，随时可能喷发哦！"
+    ],
+    parentGuide: "这里有哪些神奇的恐龙？背景里那座高高的山是什么？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "霸王龙是什么颜色的？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "三角龙为什么要躲在叶子后面？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "如果远处的火山喷发了，恐龙们会往哪里跑？", color: "#fa709a" }
+    ],
+    lifeConnection: "你去过博物馆看恐龙骨架吗？如果恐龙生活在现在，世界会变成什么样？",
+    retellingPrompt: "假装你是一只霸王龙，伸出两只小短手，大声地向大家打招呼吧！"
+  },
+  {
+    id: "habit_dentist",
+    type: "habit",
+    title: "我的牙齿亮晶晶 / Brave at the Dentist",
+    image: "/images/brave_dentist.jpg",
+    hotspots: [
+      { id: "dentist", name: "牙医", nameEn: "Dentist", x: 70, y: 50, radius: 15 },
+      { id: "chair", name: "牙医椅", nameEn: "Dentist Chair", x: 40, y: 60, radius: 20 },
+      { id: "mirror", name: "小镜子", nameEn: "Mouth Mirror", x: 55, y: 45, radius: 8 },
+      { id: "cavity", name: "蛀牙虫", nameEn: "Cavity Bug", x: 80, y: 85, radius: 10 }
+    ],
+    words: [
+      { zh: "牙医", en: "Dentist" },
+      { zh: "牙医椅", en: "Dentist Chair" },
+      { zh: "小镜子", en: "Mouth Mirror" },
+      { zh: "蛀牙虫", en: "Cavity Bug" }
+    ],
+    fableText: [
+      "今天，勇敢的小朋友来到了牙科诊所。这把神奇的牙医椅可以升降哦！",
+      "亲切的牙医叔叔拿着小小的反光镜和明亮的聚光灯，仔细地检查每一颗牙齿。",
+      "看呀！一只小小的、滑稽的蛀牙虫被灯光吓得落荒而逃啦。",
+      "原来只要我们好好刷牙，按时看牙医，就能拥有亮晶晶的健康牙齿！"
+    ],
+    parentGuide: "小朋友坐在哪里？牙医叔叔手里拿着什么工具赶跑了蛀牙虫？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "是谁赶跑了蛀牙虫？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "为什么蛀牙虫看起来很害怕？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "看完牙医回家后，小朋友会更认真地刷牙吗？", color: "#fa709a" }
+    ],
+    lifeConnection: "你每天都有按时刷牙吗？我们一起练习一下正确的刷牙动作吧！",
+    retellingPrompt: "假装你是牙医叔叔，拿起'小镜子'，温柔地告诉小朋友要张大嘴巴！"
+  },
+  {
+    id: "occupation_firestation",
+    type: "occupation",
+    title: "忙碌的消防站 / The Busy Fire Station",
+    image: "/images/fire_station.jpg",
+    hotspots: [
+      { id: "fireengine", name: "消防车", nameEn: "Fire Engine", x: 40, y: 55, radius: 20 },
+      { id: "firefighter", name: "消防员", nameEn: "Firefighter", x: 70, y: 50, radius: 15 },
+      { id: "hose", name: "水管", nameEn: "Hose", x: 60, y: 75, radius: 10 },
+      { id: "dog", name: "斑点狗", nameEn: "Dalmatian", x: 20, y: 80, radius: 12 }
+    ],
+    words: [
+      { zh: "消防车", en: "Fire Engine" },
+      { zh: "消防员", en: "Firefighter" },
+      { zh: "水管", en: "Hose" },
+      { zh: "斑点狗", en: "Dalmatian" }
+    ],
+    fableText: [
+      "警铃响了！这是一个忙碌又快乐的消防站。消防员叔叔迅速准备好出发。",
+      "巨大的红色消防车闪烁着警灯，随时准备去扑灭大火。",
+      "消防员手里拿着长长的水管，可以喷出非常高、非常远的水花。",
+      "连可爱的斑点狗也戴上了消防头盔，汪汪叫着为大家加油打气！"
+    ],
+    parentGuide: "消防站里最引人注目的车是什么？是谁戴着可爱的消防头盔？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "消防车是什么颜色的？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "斑点狗戴着头盔是为了什么？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "警铃响了，消防车接下来要去哪里？", color: "#fa709a" }
+    ],
+    lifeConnection: "如果在家里闻到了烟味或者看到了火灾，我们应该拨打什么号码求救？",
+    retellingPrompt: "假装你是一名勇敢的消防员，大喊着指挥大家拿起水管灭火！"
+  },
+  {
+    id: "magic_school",
+    type: "magic",
+    title: "森林里的魔法学校 / The Magic Forest School",
+    image: "/images/magic_school.jpg",
+    hotspots: [
+      { id: "wizardhat", name: "魔法帽", nameEn: "Wizard Hat", x: 40, y: 60, radius: 12 },
+      { id: "mushroom", name: "发光蘑菇", nameEn: "Glowing Mushroom", x: 80, y: 85, radius: 10 },
+      { id: "spellbook", name: "魔法书", nameEn: "Spellbook", x: 50, y: 30, radius: 12 },
+      { id: "cauldron", name: "魔药锅", nameEn: "Cauldron", x: 50, y: 75, radius: 15 }
+    ],
+    words: [
+      { zh: "魔法帽", en: "Wizard Hat" },
+      { zh: "发光蘑菇", en: "Glowing Mushroom" },
+      { zh: "魔法书", en: "Spellbook" },
+      { zh: "魔药锅", en: "Cauldron" }
+    ],
+    fableText: [
+      "深夜的森林里，有一所神奇的魔法学校。小动物们纷纷赶来上课啦。",
+      "同学们都戴着尖尖的魔法帽，认真地练习新学的咒语。",
+      "半空中漂浮着一本发光的魔法书，草丛里长满了会发光的蘑菇。",
+      "中间的大魔药锅正咕噜咕噜地冒着泡泡，不知道里面正在熬制什么神奇的药水呢！"
+    ],
+    parentGuide: "魔法学校里有什么发光的东西？中间那个咕噜咕噜冒泡的是什么？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "小动物们的头上戴着什么？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "为什么森林里在晚上也这么亮？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "你觉得魔药锅里煮出的药水会有什么神奇的功能？", color: "#fa709a" }
+    ],
+    lifeConnection: "如果你拥有一根魔法棒，你最想变出一个什么好玩的东西？",
+    retellingPrompt: "假装你是一个小巫师，拿着魔法棒，对着魔药锅念出一段有趣的咒语吧！"
+  },
+  {
+    id: "festival_cny",
+    type: "festival",
+    title: "热闹的中国年 / Happy Chinese New Year",
+    image: "/images/chinese_new_year.jpg",
+    hotspots: [
+      { id: "firecracker", name: "鞭炮", nameEn: "Firecrackers", x: 25, y: 70, radius: 12 },
+      { id: "lantern", name: "红灯笼", nameEn: "Red Lantern", x: 20, y: 20, radius: 15 },
+      { id: "dragon", name: "舞龙", nameEn: "Dragon Dance", x: 60, y: 40, radius: 20 },
+      { id: "redenvelope", name: "红包", nameEn: "Red Envelope", x: 80, y: 80, radius: 10 }
+    ],
+    words: [
+      { zh: "鞭炮", en: "Firecrackers" },
+      { zh: "红灯笼", en: "Red Lantern" },
+      { zh: "舞龙", en: "Dragon Dance" },
+      { zh: "红包", en: "Red Envelope" }
+    ],
+    fableText: [
+      "过年啦！街道上到处都是红彤彤的，挂满了漂亮的红灯笼。",
+      "几个小朋友在开心地放着红色的鞭炮，噼里啪啦的声音真热闹。",
+      "远处还有精彩的舞龙表演，五彩斑斓的长龙在空中翻滚起舞。",
+      "哇，地上还有长辈发来的红包！春节真是一年中最快乐的节日呀。"
+    ],
+    parentGuide: "街上挂着什么红彤彤的东西？大家在看什么精彩的表演？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "小朋友们在放什么东西？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "为什么春节的装饰大多都是红色的？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "打开红包后，你猜里面会装些什么？", color: "#fa709a" }
+    ],
+    lifeConnection: "你最喜欢过年时候的哪一个习俗？是吃饺子、拿红包还是看烟花？",
+    retellingPrompt: "假装你正在看舞龙表演，开心地拍着手为大家大声叫好！"
   }
 ];
