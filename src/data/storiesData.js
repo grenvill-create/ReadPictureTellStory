@@ -3242,5 +3242,163 @@ export const storiesData = [
         ]
       }
     ]
+  },
+  {
+    id: "fable_three_monks",
+    type: "fable",
+    title: "三个和尚 / The Three Monks",
+    image: "/images/fable_three_monks.png",
+    hotspots: [
+      { id: "tall_monk", name: "高和尚", nameEn: "Tall Monk", x: 25, y: 48, radius: 12 },
+      { id: "fat_monk", name: "胖和尚", nameEn: "Fat Monk", x: 75, y: 55, radius: 14 },
+      { id: "well", name: "水井", nameEn: "Well", x: 50, y: 70, radius: 15 },
+      { id: "bucket", name: "水桶", nameEn: "Bucket", x: 53, y: 82, radius: 8 }
+    ],
+    words: [
+      { zh: "和尚", en: "Monk" },
+      { zh: "水井", en: "Well" },
+      { zh: "合作", en: "Cooperate" }
+    ],
+    fableText: [
+      "从前，山上有座小庙。一个和尚来到庙里，自己挑水喝，日子过得不错。",
+      "后来，又来了一个和尚。两个人商量着一起去抬水，但都想让对方多出力，水桶总是放在扁担中间，谁都不满意。",
+      "又来了第三个和尚，这下三个人谁都不肯去挑水，都等着别人去。结果，水缸空了，大家都没水喝！",
+      "有一天，一只老鼠把蜡烛咬断引起了火灾。三个和尚这才齐心协力，拼命打水灭火。",
+      "大火扑灭后，三个人终于明白了：只有团结合作，才能把事情做好！"
+    ],
+    parentGuide: "图里有几个和尚？他们在水井旁边做什么？水桶里有水吗？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "三个和尚为什么都不去挑水？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "大火之前他们为什么不合作？大火之后为什么就合作了？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "从那以后，三个和尚会怎么分工挑水？", color: "#fa709a" }
+    ],
+    lifeConnection: "在幼儿园里，小朋友们一起搭积木、做游戏，是不是比一个人做效果更好？这就是团队合作的力量！",
+    retellingPrompt: "假装你是其中一个和尚，你来说说，你们三个人是怎么合作把大火扑灭的？"
+  },
+  {
+    id: "fable_snipe_clam",
+    type: "fable",
+    title: "鹬蚌相争 / The Snipe and the Clam",
+    image: "/images/fable_snipe_clam.png",
+    hotspots: [
+      { id: "snipe", name: "鹬鸟", nameEn: "Snipe", x: 60, y: 45, radius: 15 },
+      { id: "clam", name: "河蚌", nameEn: "Clam", x: 62, y: 58, radius: 10 },
+      { id: "fisherman", name: "渔翁", nameEn: "Fisherman", x: 25, y: 52, radius: 15 }
+    ],
+    words: [
+      { zh: "鹬鸟", en: "Snipe" },
+      { zh: "河蚌", en: "Clam" },
+      { zh: "渔翁", en: "Fisherman" }
+    ],
+    fableText: [
+      "一天，一只河蚌爬到河边的岩石上晒太阳，舒舒服服地张开了壳。",
+      "一只长嘴的鹬鸟飞过来，把嘴伸进蚌壳里去啄肉。河蚌急忙合拢两片壳，把鹬鸟的嘴紧紧夹住了！",
+      "鹬鸟大叫：'你快松开！今天不下雨，明天不下雨，你就会被晒死的！'河蚌也不甘示弱：'你休想！今天不放开你，明天不放开你，你的嘴就会饿死的！'",
+      "就这样，两个都不肯让步，互相对峙着，谁都不肯认输。",
+      "这时候，一个提着网的渔翁走过来，看见它们争斗不休，轻轻松松就把鹬鸟和河蚌一起装进了网里，高高兴兴地回家了。"
+    ],
+    parentGuide: "你看，那只鸟和那个贝壳在做什么？旁边的渔翁叔叔是什么表情？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "鹬鸟和河蚌都不肯让步，结果谁得利了？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "如果鹬鸟和河蚌都松开，各自有什么好处？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "如果你是河蚌，你会怎么做才不会被渔翁抓走？", color: "#fa709a" }
+    ],
+    lifeConnection: "和小朋友闹矛盾的时候，如果两个人都不让步，最后可能两个人都吃亏。学会退一步，大家都能开心！",
+    retellingPrompt: "你来演河蚌，我来演鹬鸟，我们互相说对方的话，看谁坚持得住！"
+  },
+  {
+    id: "fable_foolish_old_man",
+    type: "fable",
+    title: "愚公移山 / The Foolish Old Man Moves Mountains",
+    image: "/images/fable_foolish_old_man.png",
+    hotspots: [
+      { id: "old_man", name: "愚公", nameEn: "Old Man", x: 52, y: 53, radius: 15 },
+      { id: "mountain", name: "大山", nameEn: "Mountain", x: 50, y: 25, radius: 30 },
+      { id: "children", name: "子孙们", nameEn: "Children", x: 28, y: 68, radius: 18 },
+      { id: "shovel", name: "铁铲", nameEn: "Shovel", x: 60, y: 65, radius: 8 }
+    ],
+    words: [
+      { zh: "大山", en: "Mountain" },
+      { zh: "铁铲", en: "Shovel" },
+      { zh: "坚持", en: "Persevere" }
+    ],
+    fableText: [
+      "从前有个老爷爷叫愚公，他家门前有两座大山，挡住了出行的道路，每次出门都要绕很远很远的路。",
+      "愚公决定带领全家人，把这两座大山挖掉！邻居们听了，都觉得他太傻了，说：'你都这么老了，怎么可能挖掉这么大的山？'",
+      "愚公笑着说：'我挖不完，还有我的儿子，儿子挖不完还有孙子，子子孙孙无穷无尽，山却不会增高，总有一天我们能把山挖平！'",
+      "于是，愚公带着全家人每天挖山不止，一筐一筐地把土石运走。他们的精神感动了上天。",
+      "天帝派来两个大力神，把这两座大山背走了。从此，愚公家出行的道路再也没有大山阻挡！"
+    ],
+    parentGuide: "这么大的山，老爷爷和小朋友们要用小小的铲子挖，你觉得他们能挖掉吗？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "愚公为什么要挖山？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "邻居觉得愚公傻，为什么愚公却认为自己一定能成功？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "如果愚公没有坚持，半途而废了，会怎样？", color: "#fa709a" }
+    ],
+    lifeConnection: "学钢琴、练舞蹈，一开始都会觉得难。但只要每天坚持，就像愚公一样，总有一天能成功！",
+    retellingPrompt: "假装你是小愚公，拿起一根棍子当铁铲，努力地挖挖挖！告诉大家你为什么要这么用力！"
+  },
+  {
+    id: "fable_saiweng_horse",
+    type: "fable",
+    title: "塞翁失马 / The Old Farmer's Horse",
+    image: "/images/fable_saiweng_horse.png",
+    hotspots: [
+      { id: "old_man", name: "塞翁", nameEn: "Old Farmer", x: 48, y: 53, radius: 15 },
+      { id: "horse", name: "骏马", nameEn: "Horse", x: 78, y: 52, radius: 15 },
+      { id: "neighbors", name: "邻居", nameEn: "Neighbors", x: 18, y: 50, radius: 18 }
+    ],
+    words: [
+      { zh: "骏马", en: "Horse" },
+      { zh: "老爷爷", en: "Old Man" },
+      { zh: "福气", en: "Blessing" }
+    ],
+    fableText: [
+      "从前，边境有个老爷爷叫塞翁。有一天，他养的一匹马突然跑丢了，跑到了山里。邻居们都来安慰他，但他却平静地说：'这说不定是件好事呢。'",
+      "没过多久，那匹马带回来了一匹漂亮的野马！邻居们都来祝贺，老爷爷却淡淡地说：'这说不定是件坏事呢。'",
+      "老爷爷的儿子很高兴，天天骑那匹野马，结果有一天摔下来摔断了腿。邻居们又来安慰，老爷爷却说：'这说不定又是件好事呢。'",
+      "后来，国家打仗了，年轻人都被征去当兵，许多人在战场上牺牲。老爷爷的儿子因为腿断了，不用去打仗，保住了性命。",
+      "原来，好事和坏事可以互相转变。生活中的事，一时看来是坏事，也许之后会变成好事；现在是好事，说不定以后也会变成坏事。"
+    ],
+    parentGuide: "老爷爷的马跑掉了，他开心还是难过？他说了什么让大家觉得很奇怪的话？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "马跑掉之后，又发生了什么好事？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "为什么老爷爷每次都说'这说不定是好事/坏事'？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "如果你丢了一样心爱的玩具，你会像塞翁一样想一想也许有好的一面吗？", color: "#fa709a" }
+    ],
+    lifeConnection: "有时候摔跤了、考试没考好，看起来是坏事，但也许能让我们学到教训，变得更好。不要太难过，也不要太得意哦！",
+    retellingPrompt: "假装你是塞翁，当邻居问你'马跑了你为什么不难过？'，你会怎么解释给他们听？"
+  },
+  {
+    id: "fable_fox_and_crane",
+    type: "fable",
+    title: "狐狸请仙鹤吃饭 / The Fox and the Crane",
+    image: "/images/fable_fox_crane.png",
+    hotspots: [
+      { id: "fox", name: "狐狸", nameEn: "Fox", x: 22, y: 55, radius: 14 },
+      { id: "crane", name: "仙鹤", nameEn: "Crane", x: 60, y: 42, radius: 14 },
+      { id: "flat_plate", name: "平盘子", nameEn: "Flat Plate", x: 42, y: 70, radius: 12 },
+      { id: "tall_jar", name: "细长罐子", nameEn: "Tall Jar", x: 74, y: 65, radius: 10 }
+    ],
+    words: [
+      { zh: "狐狸", en: "Fox" },
+      { zh: "仙鹤", en: "Crane" },
+      { zh: "盘子", en: "Plate" }
+    ],
+    fableText: [
+      "有一天，狡猾的狐狸邀请仙鹤来家里吃饭。仙鹤高高兴兴地来了。",
+      "可是，狐狸把香喷喷的汤盛在一个浅浅的平盘子里。仙鹤有一张长长的嘴，根本没办法从浅盘子里喝到汤，只能干瞪眼看着。而狐狸却大口大口地舔着盘子里的汤，吃得美滋滋的。",
+      "仙鹤虽然很生气，但它没有发火，只是礼貌地说：'感谢你的招待，下次请你来我家吃饭。'",
+      "第二天，仙鹤把汤盛在一个细长的高罐子里。仙鹤用长嘴轻松地伸进罐子里，喝到了美味的汤。",
+      "而狐狸的嘴太短太宽，根本伸不进细长的罐子里，只能在旁边眼巴巴地看着，什么也吃不到。这下，狡猾的狐狸终于知道了——怎么对待别人，别人就会怎么对待你！"
+    ],
+    parentGuide: "图里的狐狸和仙鹤在吃饭。你看，左边的盘子是什么样的？右边的罐子是什么样的？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "狐狸用什么盘子请仙鹤喝汤？仙鹤能喝到吗？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "仙鹤为什么也用细长的罐子来还请狐狸？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "经过这次教训，狐狸以后还会用同样的方式捉弄别人吗？", color: "#fa709a" }
+    ],
+    lifeConnection: "如果你不分享玩具，其他小朋友也不会愿意把他们的玩具借给你。要像对待自己一样善待别人！",
+    retellingPrompt: "假装你是仙鹤，你能用动作表演一下，狐狸端来了浅盘子，你用长嘴怎么也喝不到汤时的样子吗？"
   }
 ];
