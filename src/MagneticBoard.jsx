@@ -2,6 +2,12 @@ import React, { useState, useRef } from 'react';
 import { saveAudioBlob } from './utils/db';
 import './MagneticBoard.css';
 
+const getImageUrl = (path) => {
+  if (!path) return "";
+  const cleanPath = path.startsWith("/") ? path.substring(1) : path;
+  return import.meta.env.BASE_URL + cleanPath;
+};
+
 const STICKERS_PALETTE = ['🦄', '🐶', '🐱', '🐰', '🦊', '🐻', '🐼', '🐨', '🦁', '🐯', '🐸', '🦆', '🦋', '🐞', '🚗', '🎈', '⭐', '🍎', '🍓', '🥕'];
 
 export default function MagneticBoard({ onBack }) {
@@ -111,7 +117,7 @@ export default function MagneticBoard({ onBack }) {
         onPointerMove={handlePointerMove}
         onPointerUp={handlePointerUp}
       >
-        <img src="/images/storyboard_bg.png" alt="Storyboard Background" className="board-bg" />
+        <img src={getImageUrl("/images/storyboard_bg.png")} alt="Storyboard Background" className="board-bg" />
         {stickers.map(sticker => (
           <div
             key={sticker.id}

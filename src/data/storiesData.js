@@ -3244,161 +3244,153 @@ export const storiesData = [
     ]
   },
   {
-    id: "fable_three_monks",
+    id: "fable_nanyuan_beizhe",
     type: "fable",
-    title: "三个和尚 / The Three Monks",
-    image: "/images/fable_three_monks.png",
+    title: "南辕北辙 / Going the Wrong Way",
+    image: "/images/fable_nanyuan_beizhe.png",
     hotspots: [
-      { id: "tall_monk", name: "高和尚", nameEn: "Tall Monk", x: 25, y: 48, radius: 12 },
-      { id: "fat_monk", name: "胖和尚", nameEn: "Fat Monk", x: 75, y: 55, radius: 14 },
-      { id: "well", name: "水井", nameEn: "Well", x: 50, y: 70, radius: 15 },
-      { id: "bucket", name: "水桶", nameEn: "Bucket", x: 53, y: 82, radius: 8 }
+      { id: "carriage", name: "马车", nameEn: "Carriage", x: 50, y: 55, radius: 15 },
+      { id: "driver", name: "车夫", nameEn: "Driver", x: 35, y: 48, radius: 10 },
+      { id: "traveler", name: "乘客", nameEn: "Passenger", x: 65, y: 50, radius: 10 }
     ],
     words: [
-      { zh: "和尚", en: "Monk" },
-      { zh: "水井", en: "Well" },
-      { zh: "合作", en: "Cooperate" }
+      { zh: "马车", en: "Carriage" },
+      { zh: "方向", en: "Direction" },
+      { zh: "相反", en: "Opposite" }
     ],
     fableText: [
-      "从前，山上有座小庙。一个和尚来到庙里，自己挑水喝，日子过得不错。",
-      "后来，又来了一个和尚。两个人商量着一起去抬水，但都想让对方多出力，水桶总是放在扁担中间，谁都不满意。",
-      "又来了第三个和尚，这下三个人谁都不肯去挑水，都等着别人去。结果，水缸空了，大家都没水喝！",
-      "有一天，一只老鼠把蜡烛咬断引起了火灾。三个和尚这才齐心协力，拼命打水灭火。",
-      "大火扑灭后，三个人终于明白了：只有团结合作，才能把事情做好！"
+      "古时候，有一个人坐着马车要去南方楚国。",
+      "可他的马车却一直朝着北方走。路人提醒他：‘楚国在南方，你走错方向了！’",
+      "他得意地说：‘没关系，我的马跑得飞快，我的车夫技术高超，我的盘缠也非常多！’",
+      "但是他的条件越好，朝着相反的方向走，反而离楚国越来越远了。"
     ],
-    parentGuide: "图里有几个和尚？他们在水井旁边做什么？水桶里有水吗？",
+    parentGuide: "那个人要去南方，但他的车在往哪里走？他的好马能帮到他吗？",
     dialogicQuestions: [
-      { type: "fact", label: "事实", text: "三个和尚为什么都不去挑水？", color: "#4facfe" },
-      { type: "inference", label: "推理", text: "大火之前他们为什么不合作？大火之后为什么就合作了？", color: "#43e97b" },
-      { type: "prediction", label: "预测", text: "从那以后，三个和尚会怎么分工挑水？", color: "#fa709a" }
+      { type: "fact", label: "事实", text: "那个人要去哪个国家？他朝着什么方向走？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "为什么他的马跑得越快，他离目的地反而越远？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "如果他一直不听劝告，最后会怎么样？", color: "#fa709a" }
     ],
-    lifeConnection: "在幼儿园里，小朋友们一起搭积木、做游戏，是不是比一个人做效果更好？这就是团队合作的力量！",
-    retellingPrompt: "假装你是其中一个和尚，你来说说，你们三个人是怎么合作把大火扑灭的？"
+    lifeConnection: "做事情前一定要先确定好正确的目标和方向，如果方向错了，再努力也是白费力气哦！",
+    retellingPrompt: "假装你是那个马车夫，指着北方自信满满地炫耀一下你的快马吧！"
   },
   {
-    id: "fable_snipe_clam",
+    id: "fable_handan_xuebu",
     type: "fable",
-    title: "鹬蚌相争 / The Snipe and the Clam",
-    image: "/images/fable_snipe_clam.png",
+    title: "邯郸学步 / Imitating Handan Step",
+    image: "/images/fable_handan_xuebu.png",
     hotspots: [
-      { id: "snipe", name: "鹬鸟", nameEn: "Snipe", x: 60, y: 45, radius: 15 },
-      { id: "clam", name: "河蚌", nameEn: "Clam", x: 62, y: 58, radius: 10 },
-      { id: "fisherman", name: "渔翁", nameEn: "Fisherman", x: 25, y: 52, radius: 15 }
+      { id: "youth", name: "青年", nameEn: "Youth", x: 50, y: 65, radius: 12 },
+      { id: "city", name: "城市", nameEn: "City", x: 75, y: 35, radius: 20 },
+      { id: "people", name: "路人", nameEn: "People", x: 25, y: 55, radius: 12 }
     ],
     words: [
-      { zh: "鹬鸟", en: "Snipe" },
-      { zh: "河蚌", en: "Clam" },
-      { zh: "渔翁", en: "Fisherman" }
+      { zh: "走路", en: "Walk" },
+      { zh: "模仿", en: "Imitate" },
+      { zh: "忘记", en: "Forget" }
     ],
     fableText: [
-      "一天，一只河蚌爬到河边的岩石上晒太阳，舒舒服服地张开了壳。",
-      "一只长嘴的鹬鸟飞过来，把嘴伸进蚌壳里去啄肉。河蚌急忙合拢两片壳，把鹬鸟的嘴紧紧夹住了！",
-      "鹬鸟大叫：'你快松开！今天不下雨，明天不下雨，你就会被晒死的！'河蚌也不甘示弱：'你休想！今天不放开你，明天不放开你，你的嘴就会饿死的！'",
-      "就这样，两个都不肯让步，互相对峙着，谁都不肯认输。",
-      "这时候，一个提着网的渔翁走过来，看见它们争斗不休，轻轻松松就把鹬鸟和河蚌一起装进了网里，高高兴兴地回家了。"
+      "战国时期，燕国有一个青年，觉得邯郸人走路姿势特别优雅好看。",
+      "于是他大老远跑到邯郸，每天在大街上模仿邯郸人走路。",
+      "他学了很久，不仅没有学会邯郸人走路的姿势，反而把自己原本怎么走路都给彻底忘记了！",
+      "最后，他一双脚不知道该怎么迈步，只好在地上爬着回到了燕国。"
     ],
-    parentGuide: "你看，那只鸟和那个贝壳在做什么？旁边的渔翁叔叔是什么表情？",
+    parentGuide: "这个青年最后是怎么回家的？他为什么忘记怎么走路了？",
     dialogicQuestions: [
-      { type: "fact", label: "事实", text: "鹬鸟和河蚌都不肯让步，结果谁得利了？", color: "#4facfe" },
-      { type: "inference", label: "推理", text: "如果鹬鸟和河蚌都松开，各自有什么好处？", color: "#43e97b" },
-      { type: "prediction", label: "预测", text: "如果你是河蚌，你会怎么做才不会被渔翁抓走？", color: "#fa709a" }
+      { type: "fact", label: "事实", text: "燕国青年去邯郸学什么？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "为什么他最后只能爬着回家？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "如果他没有去邯郸，他还会忘记怎么走路吗？", color: "#fa709a" }
     ],
-    lifeConnection: "和小朋友闹矛盾的时候，如果两个人都不让步，最后可能两个人都吃亏。学会退一步，大家都能开心！",
-    retellingPrompt: "你来演河蚌，我来演鹬鸟，我们互相说对方的话，看谁坚持得住！"
+    lifeConnection: "盲目地去模仿和羡慕别人，可能会丢失了自己原本拥有的好东西。每个人做自己最自信！",
+    retellingPrompt: "你能学学那个青年，假装自己不会走路，滑稽地迈出两步吗？"
   },
   {
-    id: "fable_foolish_old_man",
+    id: "fable_dongshi_xiaopin",
     type: "fable",
-    title: "愚公移山 / The Foolish Old Man Moves Mountains",
-    image: "/images/fable_foolish_old_man.png",
+    title: "东施效颦 / Dong Shi Imitates Xi Shi",
+    image: "/images/fable_dongshi_xiaopin.png",
     hotspots: [
-      { id: "old_man", name: "愚公", nameEn: "Old Man", x: 52, y: 53, radius: 15 },
-      { id: "mountain", name: "大山", nameEn: "Mountain", x: 50, y: 25, radius: 30 },
-      { id: "children", name: "子孙们", nameEn: "Children", x: 28, y: 68, radius: 18 },
-      { id: "shovel", name: "铁铲", nameEn: "Shovel", x: 60, y: 65, radius: 8 }
+      { id: "dongshi", name: "东施", nameEn: "Dong Shi", x: 35, y: 55, radius: 15 },
+      { id: "xishi", name: "西施", nameEn: "Xi Shi", x: 70, y: 45, radius: 12 },
+      { id: "neighbors", name: "邻居", nameEn: "Neighbors", x: 18, y: 65, radius: 10 }
     ],
     words: [
-      { zh: "大山", en: "Mountain" },
-      { zh: "铁铲", en: "Shovel" },
-      { zh: "坚持", en: "Persevere" }
+      { zh: "西施", en: "Xi Shi" },
+      { zh: "模仿", en: "Imitate" },
+      { zh: "好笑", en: "Funny" }
     ],
     fableText: [
-      "从前有个老爷爷叫愚公，他家门前有两座大山，挡住了出行的道路，每次出门都要绕很远很远的路。",
-      "愚公决定带领全家人，把这两座大山挖掉！邻居们听了，都觉得他太傻了，说：'你都这么老了，怎么可能挖掉这么大的山？'",
-      "愚公笑着说：'我挖不完，还有我的儿子，儿子挖不完还有孙子，子子孙孙无穷无尽，山却不会增高，总有一天我们能把山挖平！'",
-      "于是，愚公带着全家人每天挖山不止，一筐一筐地把土石运走。他们的精神感动了上天。",
-      "天帝派来两个大力神，把这两座大山背走了。从此，愚公家出行的道路再也没有大山阻挡！"
+      "古时候有一位大美女叫西施，她因为心口疼，经常皱着眉头捧着心口走路，大家觉得很美。",
+      "同村有一个长得不太好看的女子叫东施，看见了也学西施皱着眉头、捧着心口在村里走。",
+      "可是东施本来就不好看，再故意皱着眉头做出痛苦的样子，反而显得非常滑稽怪异。",
+      "村里的富人见了赶紧关紧大门，穷人见了拉着妻子孩子赶紧躲开，大家都在笑话她。"
     ],
-    parentGuide: "这么大的山，老爷爷和小朋友们要用小小的铲子挖，你觉得他们能挖掉吗？",
+    parentGuide: "东施为什么要学西施皱眉头？大家看到她之后是什么反应？",
     dialogicQuestions: [
-      { type: "fact", label: "事实", text: "愚公为什么要挖山？", color: "#4facfe" },
-      { type: "inference", label: "推理", text: "邻居觉得愚公傻，为什么愚公却认为自己一定能成功？", color: "#43e97b" },
-      { type: "prediction", label: "预测", text: "如果愚公没有坚持，半途而废了，会怎样？", color: "#fa709a" }
+      { type: "fact", label: "事实", text: "西施走路时为什么会皱着眉头捧着心口？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "为什么西施做这个动作好看，而东施模仿了却让大家害怕地躲开？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "如果东施知道大家都在笑话她，她还会继续模仿吗？", color: "#fa709a" }
     ],
-    lifeConnection: "学钢琴、练舞蹈，一开始都会觉得难。但只要每天坚持，就像愚公一样，总有一天能成功！",
-    retellingPrompt: "假装你是小愚公，拿起一根棍子当铁铲，努力地挖挖挖！告诉大家你为什么要这么用力！"
+    lifeConnection: "不要东施效颦去模仿别人的缺点或不适合自己的打扮，自然、真诚的你才是最美丽的！",
+    retellingPrompt: "你能学着东施的样子，捂着胸口、夸张地皱起眉头在屋里走一圈吗？"
   },
   {
-    id: "fable_saiweng_horse",
+    id: "fable_sharpening_axe",
     type: "fable",
-    title: "塞翁失马 / The Old Farmer's Horse",
-    image: "/images/fable_saiweng_horse.png",
+    title: "磨刀不误砍柴工 / Sharpening the Axe",
+    image: "/images/fable_sharpening_axe.png",
     hotspots: [
-      { id: "old_man", name: "塞翁", nameEn: "Old Farmer", x: 48, y: 53, radius: 15 },
-      { id: "horse", name: "骏马", nameEn: "Horse", x: 78, y: 52, radius: 15 },
-      { id: "neighbors", name: "邻居", nameEn: "Neighbors", x: 18, y: 50, radius: 18 }
+      { id: "woodcutter1", name: "砍柴人小明", nameEn: "Woodcutter Ming", x: 30, y: 55, radius: 12 },
+      { id: "woodcutter2", name: "砍柴人小华", nameEn: "Woodcutter Hua", x: 70, y: 50, radius: 12 },
+      { id: "whetstone", name: "磨刀石", nameEn: "Whetstone", x: 65, y: 68, radius: 8 }
     ],
     words: [
-      { zh: "骏马", en: "Horse" },
-      { zh: "老爷爷", en: "Old Man" },
-      { zh: "福气", en: "Blessing" }
+      { zh: "柴刀", en: "Axe" },
+      { zh: "磨刀", en: "Sharpen" },
+      { zh: "效率", en: "Efficiency" }
     ],
     fableText: [
-      "从前，边境有个老爷爷叫塞翁。有一天，他养的一匹马突然跑丢了，跑到了山里。邻居们都来安慰他，但他却平静地说：'这说不定是件好事呢。'",
-      "没过多久，那匹马带回来了一匹漂亮的野马！邻居们都来祝贺，老爷爷却淡淡地说：'这说不定是件坏事呢。'",
-      "老爷爷的儿子很高兴，天天骑那匹野马，结果有一天摔下来摔断了腿。邻居们又来安慰，老爷爷却说：'这说不定又是件好事呢。'",
-      "后来，国家打仗了，年轻人都被征去当兵，许多人在战场上牺牲。老爷爷的儿子因为腿断了，不用去打仗，保住了性命。",
-      "原来，好事和坏事可以互相转变。生活中的事，一时看来是坏事，也许之后会变成好事；现在是好事，说不定以后也会变成坏事。"
+      "有两名木匠去山上砍柴。小明拿到一把钝了的柴刀，急急忙忙就上山砍树去了。",
+      "小华不慌不忙，先坐在磨刀石旁，把自己的柴刀磨得又亮又锋利，然后才上山。",
+      "小明不停地用力砍树，累得满头大汗，但因为刀太钝，只砍下了一点点柴火。",
+      "而小华用锋利的柴刀，轻轻一挥就能砍倒一棵树，很快就装满了一整车柴火。"
     ],
-    parentGuide: "老爷爷的马跑掉了，他开心还是难过？他说了什么让大家觉得很奇怪的话？",
+    parentGuide: "他们两个人的柴刀有什么不同？谁砍的柴更多？",
     dialogicQuestions: [
-      { type: "fact", label: "事实", text: "马跑掉之后，又发生了什么好事？", color: "#4facfe" },
-      { type: "inference", label: "推理", text: "为什么老爷爷每次都说'这说不定是好事/坏事'？", color: "#43e97b" },
-      { type: "prediction", label: "预测", text: "如果你丢了一样心爱的玩具，你会像塞翁一样想一想也许有好的一面吗？", color: "#fa709a" }
+      { type: "fact", label: "事实", text: "小华在砍柴前先做了什么准备？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "为什么小华花时间磨刀，最后反而比小明砍了更多的柴？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "如果小明看见了小华的满车柴火，他第二天会怎么做？", color: "#fa709a" }
     ],
-    lifeConnection: "有时候摔跤了、考试没考好，看起来是坏事，但也许能让我们学到教训，变得更好。不要太难过，也不要太得意哦！",
-    retellingPrompt: "假装你是塞翁，当邻居问你'马跑了你为什么不难过？'，你会怎么解释给他们听？"
+    lifeConnection: "做事情做好充分的准备工作，不仅不会浪费时间，反而能让我们事半功倍！比如先收拾好书桌再写作业。",
+    retellingPrompt: "假装你正在磨刀，嘴里念叨着'霍霍'的磨刀声，并展示一下挥舞锋利柴刀的样子！"
   },
   {
-    id: "fable_fox_and_crane",
+    id: "fable_gold_silver_shield",
     type: "fable",
-    title: "狐狸请仙鹤吃饭 / The Fox and the Crane",
-    image: "/images/fable_fox_crane.png",
+    title: "金银盾牌 / The Gold and Silver Shield",
+    image: "/images/fable_gold_silver_shield.png",
     hotspots: [
-      { id: "fox", name: "狐狸", nameEn: "Fox", x: 22, y: 55, radius: 14 },
-      { id: "crane", name: "仙鹤", nameEn: "Crane", x: 60, y: 42, radius: 14 },
-      { id: "flat_plate", name: "平盘子", nameEn: "Flat Plate", x: 42, y: 70, radius: 12 },
-      { id: "tall_jar", name: "细长罐子", nameEn: "Tall Jar", x: 74, y: 65, radius: 10 }
+      { id: "knight1", name: "金盾骑士", nameEn: "Gold Knight", x: 25, y: 50, radius: 15 },
+      { id: "knight2", name: "银盾骑士", nameEn: "Silver Knight", x: 75, y: 50, radius: 15 },
+      { id: "shield", name: "双面盾牌", nameEn: "Two-sided Shield", x: 50, y: 40, radius: 12 }
     ],
     words: [
-      { zh: "狐狸", en: "Fox" },
-      { zh: "仙鹤", en: "Crane" },
-      { zh: "盘子", en: "Plate" }
+      { zh: "盾牌", en: "Shield" },
+      { zh: "金色", en: "Gold" },
+      { zh: "银色", en: "Silver" }
     ],
     fableText: [
-      "有一天，狡猾的狐狸邀请仙鹤来家里吃饭。仙鹤高高兴兴地来了。",
-      "可是，狐狸把香喷喷的汤盛在一个浅浅的平盘子里。仙鹤有一张长长的嘴，根本没办法从浅盘子里喝到汤，只能干瞪眼看着。而狐狸却大口大口地舔着盘子里的汤，吃得美滋滋的。",
-      "仙鹤虽然很生气，但它没有发火，只是礼貌地说：'感谢你的招待，下次请你来我家吃饭。'",
-      "第二天，仙鹤把汤盛在一个细长的高罐子里。仙鹤用长嘴轻松地伸进罐子里，喝到了美味的汤。",
-      "而狐狸的嘴太短太宽，根本伸不进细长的罐子里，只能在旁边眼巴巴地看着，什么也吃不到。这下，狡猾的狐狸终于知道了——怎么对待别人，别人就会怎么对待你！"
+      "两个勇敢的骑士在森林里看到了一面挂在树上的大盾牌。",
+      "左边的骑士说：‘这是一面闪闪发光的金色盾牌！’右边的骑士反驳：‘不对，这明明是一面银色的盾牌！’",
+      "两个人为了盾牌的颜色争吵不休，甚至拔出了宝剑开始决斗，打得精疲力竭。",
+      "最后，一个路人走过来把盾牌转了一面。原来，这面盾牌的一面是金色的，另一面是银色的。"
     ],
-    parentGuide: "图里的狐狸和仙鹤在吃饭。你看，左边的盘子是什么样的？右边的罐子是什么样的？",
+    parentGuide: "为什么一个骑士说是金色的，另一个说是银色的？盾牌到底是什么颜色的？",
     dialogicQuestions: [
-      { type: "fact", label: "事实", text: "狐狸用什么盘子请仙鹤喝汤？仙鹤能喝到吗？", color: "#4facfe" },
-      { type: "inference", label: "推理", text: "仙鹤为什么也用细长的罐子来还请狐狸？", color: "#43e97b" },
-      { type: "prediction", label: "预测", text: "经过这次教训，狐狸以后还会用同样的方式捉弄别人吗？", color: "#fa709a" }
+      { type: "fact", label: "事实", text: "两个骑士为什么会打起来？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "为什么他们两个人都认为自己是对的，但其实都不全面？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "如果他们在争吵前走到盾牌的另一边看一看，结果会怎样？", color: "#fa709a" }
     ],
-    lifeConnection: "如果你不分享玩具，其他小朋友也不会愿意把他们的玩具借给你。要像对待自己一样善待别人！",
-    retellingPrompt: "假装你是仙鹤，你能用动作表演一下，狐狸端来了浅盘子，你用长嘴怎么也喝不到汤时的样子吗？"
+    lifeConnection: "遇到分歧时，不要急着争吵，试着站在别人的角度或者从不同角度看一看，可能就会发现不一样的真相！",
+    retellingPrompt: "假装你正和别人为一件事争吵，最后明白真相后恍然大悟拍拍脑袋的样子！"
   }
 ];

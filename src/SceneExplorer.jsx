@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 import './SceneExplorer.css';
 
+const getImageUrl = (path) => {
+  if (!path) return "";
+  const cleanPath = path.startsWith("/") ? path.substring(1) : path;
+  return import.meta.env.BASE_URL + cleanPath;
+};
+
 export default function SceneExplorer({ scene, onBack, speakText }) {
   const [activeHotspot, setActiveHotspot] = useState(null);
 
@@ -21,7 +27,7 @@ export default function SceneExplorer({ scene, onBack, speakText }) {
 
       <div className="scene-canvas-wrapper">
         <img 
-          src={scene.image} 
+          src={getImageUrl(scene.image)} 
           alt={scene.title} 
           className="scene-image" 
         />
