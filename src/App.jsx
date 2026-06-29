@@ -9,6 +9,7 @@ import { saveAudioBlob, getAllAudioBlobs } from "./utils/db";
 import AudioLibraryModal from "./AudioLibraryModal";
 import "./App.css";
 import MultiPageBookViewer from "./components/MultiPageBookViewer";
+import PinyinLearning from "./components/PinyinLearning";
 
 // Helper component to render text with pinyin ruby tags
 export const PinyinText = ({ text, showPinyin }) => {
@@ -74,6 +75,7 @@ export default function App() {
   const [currentStoryId, setCurrentStoryId] = useState(null);
   const [currentSceneId, setCurrentSceneId] = useState(null);
   const [showMagneticBoard, setShowMagneticBoard] = useState(false);
+  const [showPinyinLearning, setShowPinyinLearning] = useState(false);
   const [currentStep, setCurrentStep] = useState(1); // 1: Explore, 2: Speak, 3: Assemble, 4: Storybook
   const [activeHotspot, setActiveHotspot] = useState(null);
   const [exploredHotspots, setExploredHotspots] = useState([]);
@@ -677,7 +679,9 @@ export default function App() {
       </div>
 
       {/* Main Content Area */}
-      {showMagneticBoard ? (
+      {showPinyinLearning ? (
+        <PinyinLearning onBack={() => setShowPinyinLearning(false)} />
+      ) : showMagneticBoard ? (
         <MagneticBoard onBack={() => setShowMagneticBoard(false)} />
       ) : currentSceneId !== null ? (
         <SceneExplorer 
@@ -688,6 +692,65 @@ export default function App() {
       ) : currentStoryId === null ? (
         /* Dashboard Scene Selection */
         <div className="dashboard-container">
+          {/* Pinyin Playground Section */}
+          <div className="pinyin-promo-banner bounce-hover" onClick={() => setShowPinyinLearning(true)} style={{
+            background: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+            borderRadius: '24px',
+            padding: '25px 30px',
+            color: '#fff',
+            marginBottom: '35px',
+            cursor: 'pointer',
+            position: 'relative',
+            overflow: 'hidden',
+            boxShadow: '0 10px 25px rgba(79, 172, 254, 0.3)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            border: 'none',
+            outline: 'none'
+          }}>
+            <div style={{ zIndex: 2 }}>
+              <span style={{
+                background: 'rgba(255, 255, 255, 0.2)',
+                padding: '6px 12px',
+                borderRadius: '20px',
+                fontSize: '13px',
+                fontWeight: 'bold',
+                textTransform: 'uppercase',
+                letterSpacing: '1px',
+                display: 'inline-block'
+              }}>🧸 NEW / 全新拼音学习</span>
+              <h2 style={{ fontSize: '26px', fontWeight: '800', margin: '12px 0 6px 0', color: '#fff' }}>🧸 拼音学乐园 / Pinyin Playground</h2>
+              <p style={{ fontSize: '15px', margin: 0, opacity: 0.95 }}>循序渐进掌握声母、韵母与声调，趣味关卡挑战！</p>
+            </div>
+            <div className="pinyin-promo-action" style={{
+              background: '#fff',
+              color: '#4facfe',
+              padding: '12px 24px',
+              borderRadius: '20px',
+              fontWeight: 'bold',
+              fontSize: '16px',
+              boxShadow: '0 4px 10px rgba(0,0,0,0.1)',
+              zIndex: 2,
+              whiteSpace: 'nowrap'
+            }}>
+              进入学习 🚀
+            </div>
+            <div style={{
+              position: 'absolute',
+              right: '-10px',
+              bottom: '-25px',
+              fontSize: '110px',
+              opacity: 0.15,
+              userSelect: 'none',
+              transform: 'rotate(-10deg)',
+              pointerEvents: 'none',
+              fontWeight: '900',
+              fontFamily: 'Outfit, sans-serif'
+            }}>
+              abc
+            </div>
+          </div>
           {/* Scenes Exploration Section */}
           <div className="dashboard-header-row" style={{ marginTop: '0' }}>
             <div>
