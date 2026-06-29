@@ -694,7 +694,7 @@ export default function App() {
         <div className="dashboard-container">
           {/* Pinyin Playground Section */}
           <div className="pinyin-promo-banner bounce-hover" onClick={() => setShowPinyinLearning(true)} style={{
-            background: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+            background: 'linear-gradient(135deg, var(--color-pink) 0%, var(--color-purple) 100%)',
             borderRadius: '24px',
             padding: '25px 30px',
             color: '#fff',
@@ -702,7 +702,7 @@ export default function App() {
             cursor: 'pointer',
             position: 'relative',
             overflow: 'hidden',
-            boxShadow: '0 10px 25px rgba(79, 172, 254, 0.3)',
+            boxShadow: '0 10px 25px rgba(255, 126, 187, 0.3)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
@@ -725,7 +725,7 @@ export default function App() {
             </div>
             <div className="pinyin-promo-action" style={{
               background: '#fff',
-              color: '#4facfe',
+              color: 'var(--color-pink)',
               padding: '12px 24px',
               borderRadius: '20px',
               fontWeight: 'bold',

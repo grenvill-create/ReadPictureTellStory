@@ -1,5 +1,9 @@
 /* Pinyin learning styles */
 .pinyin-container {
+  --color-primary: var(--color-pink, #ff7ebb);
+  --color-primary-light: #fff0f5;
+  --color-yellow: var(--color-yellow, #ffd043);
+  --color-yellow-light: #fffbeb;
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
