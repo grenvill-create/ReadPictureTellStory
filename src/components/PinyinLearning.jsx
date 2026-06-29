@@ -280,6 +280,7 @@ export default function PinyinLearning({ onBack }) {
       {currentMode === 'quiz' && selectedLesson && currentQuestion && (
         <div className="pinyin-quiz">
           <div className="pinyin-header">
+            <button onClick={() => setCurrentMode('study')} className="pinyin-back-btn bounce-hover">⬅ 返回复习</button>
             <h2 className="pinyin-main-title">📝 通关大挑战 - {selectedLesson.title}</h2>
             <span className="quiz-progress">题目: {quizIndex + 1} / {currentQuestions.length}</span>
           </div>
