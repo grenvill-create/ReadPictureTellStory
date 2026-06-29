@@ -38,8 +38,41 @@ export default function PinyinLearning({ onBack }) {
     }
   };
 
-  const speakAudioText = (text) => {
-    speak(text, 0.6);
+  const getWordAudioKey = (word) => {
+    const cleanWord = word.split('(')[0].trim();
+    const map = {
+      "阿姨": "ayi",
+      "喔喔啼": "wowoti",
+      "白鹅": "baie",
+      "衣服": "yifu",
+      "乌龟": "wugui",
+      "小鱼": "xiaoyu",
+      "拔河": "bahe",
+      "打鼓": "dagu",
+      "爸爸": "baba",
+      "皮球": "piqiu",
+      "妈妈": "mama",
+      "风车": "fengche",
+      "兔子": "tuzi",
+      "你好": "nihao",
+      "梅花鹿": "meihualu",
+      "数字八": "shuziba",
+      "打皮球": "dapiqiu"
+    };
+    return map[cleanWord] || "";
+  };
+
+  const playPinyinAudio = (type, key, textFallback) => {
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+    }
+    const cleanKey = key.replace(/\s+/g, '').toLowerCase();
+    const audioPath = getImageUrl(`/audio/${type}_${cleanKey}.mp3`);
+    const audio = new Audio(audioPath);
+    audio.play().catch(err => {
+      console.warn("Local audio play failed, falling back to TTS:", err);
+      speak(textFallback);
+    });
   };
 
   const handleSelectLesson = (lesson) => {
@@ -48,7 +81,7 @@ export default function PinyinLearning({ onBack }) {
     setCurrentMode('study');
     // Speak first letter name automatically
     setTimeout(() => {
-      speak(lesson.items[0].sound, 0.7);
+      playPinyinAudio('letter', lesson.items[0].letter, lesson.items[0].sound);
     }, 300);
   };
 
@@ -57,7 +90,7 @@ export default function PinyinLearning({ onBack }) {
       const nextIndex = studyIndex + 1;
       setStudyIndex(nextIndex);
       // Auto speak next letter
-      speak(selectedLesson.items[nextIndex].sound, 0.7);
+      playPinyinAudio('letter', selectedLesson.items[nextIndex].letter, selectedLesson.items[nextIndex].sound);
     } else {
       // Start quiz
       setQuizIndex(0);
@@ -72,7 +105,7 @@ export default function PinyinLearning({ onBack }) {
     if (studyIndex > 0) {
       const prevIndex = studyIndex - 1;
       setStudyIndex(prevIndex);
-      speak(selectedLesson.items[prevIndex].sound, 0.7);
+      playPinyinAudio('letter', selectedLesson.items[prevIndex].letter, selectedLesson.items[prevIndex].sound);
     }
   };
 
@@ -96,8 +129,7 @@ export default function PinyinLearning({ onBack }) {
   // Play audio sound for audio questions
   useEffect(() => {
     if (currentMode === 'quiz' && currentQuestion && currentQuestion.type === 'choose_sound') {
-      // Speak the sound
-      speak(currentQuestion.audioText, 0.6);
+      playPinyinAudio('letter', currentQuestion.letter, currentQuestion.audioText);
     }
   }, [currentMode, quizIndex]);
 
@@ -229,7 +261,7 @@ export default function PinyinLearning({ onBack }) {
               <div className="study-letter-display">
                 <span className="huge-pinyin">{selectedLesson.items[studyIndex].letter}</span>
                 <button 
-                  onClick={() => speak(selectedLesson.items[studyIndex].sound, 0.7)}
+                  onClick={() => playPinyinAudio('letter', selectedLesson.items[studyIndex].letter, selectedLesson.items[studyIndex].sound)}
                   className="pinyin-speak-btn bounce-hover"
                 >
                   🔊 听发音
@@ -250,7 +282,11 @@ export default function PinyinLearning({ onBack }) {
                 <h4>🍎 词语示范</h4>
                 <div className="example-row">
                   <span className="example-char">{selectedLesson.items[studyIndex].example}</span>
-                  <span className="example-word" onClick={() => speak(selectedLesson.items[studyIndex].exampleWord, 0.8)}>
+                  <span className="example-word" onClick={() => {
+                    const wordKey = getWordAudioKey(selectedLesson.items[studyIndex].exampleWord);
+                    const cleanWord = selectedLesson.items[studyIndex].exampleWord.split('(')[0].trim();
+                    playPinyinAudio('word', wordKey, cleanWord);
+                  }}>
                     {selectedLesson.items[studyIndex].exampleWord} 🔊
                   </span>
                 </div>
@@ -294,7 +330,7 @@ export default function PinyinLearning({ onBack }) {
             {currentQuestion.type === 'choose_sound' && (
               <div className="quiz-audio-trigger">
                 <button 
-                  onClick={() => speak(currentQuestion.audioText, 0.6)}
+                  onClick={() => playPinyinAudio('letter', currentQuestion.letter, currentQuestion.audioText)}
                   className="quiz-sound-btn bounce-hover"
                 >
                   🎵 点击播放声音 🔊
