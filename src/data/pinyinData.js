@@ -205,7 +205,7 @@ export const pinyinLessons = [
         questions: [
           {
             type: "choose_letter",
-            question: "哪个是三声的 'a'？",
+            question: "哪个是三声 of 'a'？",
             options: ["á", "ǎ", "à"],
             answer: "ǎ"
           }
@@ -233,7 +233,7 @@ export const pinyinLessons = [
   {
     id: "lesson_4",
     title: "声母乐园 (一) / Initials Part 1",
-    subtitle: "声母在拼音的前面，我们先认识 b 和 p 吧！",
+    subtitle: "声母在拼音的前面，我们认识 b、p、m、f 吧！",
     items: [
       {
         letter: "b",
@@ -280,6 +280,258 @@ export const pinyinLessons = [
             audioText: "坡",
             options: ["b", "p", "f"],
             answer: "p"
+          }
+        ]
+      },
+      {
+        letter: "m",
+        image: "/images/pinyin_m.png",
+        sound: "摸",
+        description: "两个门洞 mmm。就像捉迷藏时，小朋友蒙上眼睛用双手向前摸索，或者小猫咪在拱形门洞进出！",
+        tips: "双唇闭合，气流从鼻腔出来发音（鼻音）。",
+        example: "mā",
+        exampleWord: "妈妈 (mā ma)",
+        questions: [
+          {
+            type: "choose_letter",
+            question: "哪个字母是两个门洞的 'm'？",
+            options: ["m", "n", "u"],
+            answer: "m"
+          },
+          {
+            type: "choose_sound",
+            question: "玩捉迷藏的'摸'字，发音开头和哪个声母最接近？",
+            audioText: "摸",
+            options: ["n", "m", "f"],
+            answer: "m"
+          }
+        ]
+      },
+      {
+        letter: "f",
+        image: "/images/pinyin_f.png",
+        sound: "佛",
+        description: "小风车 fff。就像在微风中飞速旋转的粉色小风车，发出轻柔的风声！",
+        tips: "上齿轻触下唇，气流从缝隙中挤出摩擦发音。",
+        example: "fēng",
+        exampleWord: "风车 (fēng chē)",
+        questions: [
+          {
+            type: "choose_letter",
+            question: "哪个字母是小风车 'f'？",
+            options: ["t", "f", "l"],
+            answer: "f"
+          },
+          {
+            type: "choose_sound",
+            question: "风扇吹风的'风'，发音和哪个声母开头一样？",
+            audioText: "佛",
+            options: ["h", "f", "p"],
+            answer: "f"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    id: "lesson_5",
+    title: "声母乐园 (二) / Initials Part 2",
+    subtitle: "声母小家族继续壮大，快来认识 d、t、n、l 吧！",
+    items: [
+      {
+        letter: "d",
+        image: "/images/pinyin_d.png",
+        sound: "得",
+        description: "敲起小鼓 ddd。就像用两根小木棒，欢快地在小军鼓上敲出'得得得'的声音！",
+        tips: "舌尖抵住上牙床，憋住气，然后舌尖突然弹开发音，不送气。",
+        example: "dǎ",
+        exampleWord: "打鼓 (dǎ gǔ)",
+        questions: [
+          {
+            type: "choose_letter",
+            question: "哪个字母是声母 'd'？",
+            options: ["b", "d", "q"],
+            answer: "d"
+          },
+          {
+            type: "choose_sound",
+            question: "敲打小军鼓的'打'字，发音和哪个声母开头一样？",
+            audioText: "得",
+            options: ["t", "d", "l"],
+            answer: "d"
+          }
+        ]
+      },
+      {
+        letter: "t",
+        image: "/images/pinyin_t.png",
+        sound: "特",
+        description: "小伞把儿 ttt。就像雨中一把撑开的可爱雨伞，伞把儿弯弯朝上！",
+        tips: "发音部位和 d 相同，但是要用力吐出一口气（送气）。",
+        example: "tù",
+        exampleWord: "兔子 (tù zi)",
+        questions: [
+          {
+            type: "choose_letter",
+            question: "哪个字母是像小伞把的 't'？",
+            options: ["f", "t", "l"],
+            answer: "t"
+          },
+          {
+            type: "choose_sound",
+            question: "小白兔蹦蹦跳，'兔'字发音首字母是？",
+            audioText: "特",
+            options: ["d", "t", "n"],
+            answer: "t"
+          }
+        ]
+      },
+      {
+        letter: "n",
+        image: "/images/pinyin_n.png",
+        sound: "讷",
+        description: "一个门洞 nnn。就像一扇漂亮的拱形小门，或者是树枝上的小鸟窝！",
+        tips: "舌尖顶住上牙床，让气流从鼻腔出来发音（比 m 的门洞少一个）。",
+        example: "nǐ",
+        exampleWord: "你好 (nǐ hǎo)",
+        questions: [
+          {
+            type: "choose_letter",
+            question: "哪个字母是一个门洞的 'n'？",
+            options: ["m", "u", "n"],
+            answer: "n"
+          },
+          {
+            type: "choose_sound",
+            question: "你好的'你'，发音开头和哪个声母最接近？",
+            audioText: "讷",
+            options: ["l", "n", "m"],
+            answer: "n"
+          }
+        ]
+      },
+      {
+        letter: "l",
+        image: "/images/pinyin_l.png",
+        sound: "乐",
+        description: "小喇叭 lll。就像一只五彩的小喇叭，吹出滴滴答答欢快的乐曲！",
+        tips: "舌尖抵住上牙床，气流从舌头两边出来（声音清脆）。",
+        example: "lù",
+        exampleWord: "梅花鹿 (méi huā lù)",
+        questions: [
+          {
+            type: "choose_letter",
+            question: "哪个字母是像小木棒的 'l'？",
+            options: ["i", "l", "t"],
+            answer: "l"
+          },
+          {
+            type: "choose_sound",
+            question: "吹小喇叭的'喇'，发音开头和哪个声母最接近？",
+            audioText: "乐",
+            options: ["n", "l", "r"],
+            answer: "l"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    id: "lesson_6",
+    title: "基础拼读大冒险 / Simple Spelling",
+    subtitle: "把前面的声母和韵母组合起来，就是奇妙的拼读啦！",
+    items: [
+      {
+        letter: "bā",
+        image: "/images/pinyin_ba.png",
+        sound: "八",
+        description: "b - ā -> bā (八)。就像天空中飘着的八个粉色大气球，或者是切开的八瓣橘子！",
+        tips: "把声母 b 的口型快速划向单韵母 ā 的发音，两音相碰，一口气读出：bā！",
+        example: "bā",
+        exampleWord: "数字八 (shù zì bā)",
+        questions: [
+          {
+            type: "choose_letter",
+            question: "哪个是 'b' 和 'ā' 拼出来的 'bā'？",
+            options: ["bā", "pā", "mā"],
+            answer: "bā"
+          },
+          {
+            type: "choose_sound",
+            question: "听声音！这个音拼出来是哪个词？",
+            audioText: "八",
+            options: ["mā", "bā", "dǎ"],
+            answer: "bā"
+          }
+        ]
+      },
+      {
+        letter: "mā",
+        image: "/images/pinyin_ma.png",
+        sound: "妈",
+        description: "m - ā -> mā (妈)。就像每天陪伴着我们、给我们温暖拥抱的亲爱妈妈！",
+        tips: "双唇紧闭发 m，再快速张大嘴巴发 ā，平平拉长读一声：mā！",
+        example: "mā",
+        exampleWord: "妈妈 (mā ma)",
+        questions: [
+          {
+            type: "choose_letter",
+            question: "哪个是 'm' 和 'ā' 拼出来的 'mā'？",
+            options: ["nā", "mā", "bā"],
+            answer: "mā"
+          },
+          {
+            type: "choose_image",
+            question: "世界上最爱我们的人是妈妈，'妈'字的拼音是？",
+            options: ["mā", "wá", "pí"],
+            answer: "mā"
+          }
+        ]
+      },
+      {
+        letter: "dǎ",
+        image: "/images/pinyin_da.png",
+        sound: "打",
+        description: "d - ǎ -> dǎ (打)。就像小朋友快活地敲打着小鼓，或者一下一下拍打着小皮球！",
+        tips: "用 d 起始，迅速连上第三声 ǎ（先下后上），读作：dǎ！",
+        example: "dǎ",
+        exampleWord: "打皮球 (dǎ pí qiú)",
+        questions: [
+          {
+            type: "choose_letter",
+            question: "哪个是 'd' 和 'ǎ' 拼出来的 'dǎ'？",
+            options: ["tǎ", "dá", "dǎ"],
+            answer: "dǎ"
+          },
+          {
+            type: "choose_sound",
+            question: "听声音！拍打皮球的'打'拼音是哪个？",
+            audioText: "打",
+            options: ["dǎ", "tǎ", "lù"],
+            answer: "dǎ"
+          }
+        ]
+      },
+      {
+        letter: "lù",
+        image: "/images/pinyin_lu.png",
+        sound: "路",
+        description: "l - ù -> lù (鹿)。就像在茂密绿色森林里，轻快跳跃奔跑的可爱小梅花鹿！",
+        tips: "舌尖抵住发 l，嘴唇迅速收圆向前突出发四声的 ù，有力降下：lù！",
+        example: "lù",
+        exampleWord: "梅花鹿 (méi huā lù)",
+        questions: [
+          {
+            type: "choose_letter",
+            question: "哪个是 'l' 和 'ù' 拼出来的 'lù'？",
+            options: ["lù", "nù", "lǔ"],
+            answer: "lù"
+          },
+          {
+            type: "choose_image",
+            question: "奔跑的小梅花鹿，'鹿'字的拼音是哪个？",
+            options: ["nù", "lù", "lǜ"],
+            answer: "lù"
           }
         ]
       }
