@@ -48,7 +48,7 @@ export default function PinyinLearning({ onBack }) {
     setCurrentMode('study');
     // Speak first letter name automatically
     setTimeout(() => {
-      speak(lesson.items[0].letter + "，" + lesson.items[0].sound, 0.7);
+      speak(lesson.items[0].sound, 0.7);
     }, 300);
   };
 
@@ -57,7 +57,7 @@ export default function PinyinLearning({ onBack }) {
       const nextIndex = studyIndex + 1;
       setStudyIndex(nextIndex);
       // Auto speak next letter
-      speak(selectedLesson.items[nextIndex].letter + "，" + selectedLesson.items[nextIndex].sound, 0.7);
+      speak(selectedLesson.items[nextIndex].sound, 0.7);
     } else {
       // Start quiz
       setQuizIndex(0);
@@ -72,7 +72,7 @@ export default function PinyinLearning({ onBack }) {
     if (studyIndex > 0) {
       const prevIndex = studyIndex - 1;
       setStudyIndex(prevIndex);
-      speak(selectedLesson.items[prevIndex].letter + "，" + selectedLesson.items[prevIndex].sound, 0.7);
+      speak(selectedLesson.items[prevIndex].sound, 0.7);
     }
   };
 
@@ -229,7 +229,7 @@ export default function PinyinLearning({ onBack }) {
               <div className="study-letter-display">
                 <span className="huge-pinyin">{selectedLesson.items[studyIndex].letter}</span>
                 <button 
-                  onClick={() => speak(selectedLesson.items[studyIndex].letter + "，" + selectedLesson.items[studyIndex].sound, 0.7)}
+                  onClick={() => speak(selectedLesson.items[studyIndex].sound, 0.7)}
                   className="pinyin-speak-btn bounce-hover"
                 >
                   🔊 听发音

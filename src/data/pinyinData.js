@@ -180,7 +180,7 @@ export const pinyinLessons = [
       {
         letter: "á",
         image: "/images/pinyin_a.png",
-        sound: "啊",
+        sound: "啊？",
         description: "二声往上扬 (ˊ)。就像爬上小山坡，声音往上扬：á？(什么？)",
         tips: "二声由中音升到高音，有种疑问的感觉。",
         example: "á",
@@ -214,7 +214,7 @@ export const pinyinLessons = [
       {
         letter: "à",
         image: "/images/pinyin_a.png",
-        sound: "啊",
+        sound: "啊！",
         description: "四声往下降 (ˋ)。就像从高高的滑梯上下滑，重重降下：à！(对啦！)",
         tips: "四声从最高音一路降到最低音，短促有力。",
         example: "à",
