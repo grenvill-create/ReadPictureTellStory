@@ -3392,5 +3392,191 @@ export const storiesData = [
     ],
     lifeConnection: "遇到分歧时，不要急着争吵，试着站在别人的角度或者从不同角度看一看，可能就会发现不一样的真相！",
     retellingPrompt: "假装你正和别人为一件事争吵，最后明白真相后恍然大悟拍拍脑袋的样子！"
+  },
+  {
+    id: "fable_milkmaid_pail",
+    type: "fable",
+    title: "挤牛奶的姑娘 / The Milkmaid and Her Pail",
+    image: "/images/fable_milkmaid_pail.png",
+    hotspots: [
+      { id: "milkmaid", name: "挤奶姑娘", nameEn: "Milkmaid", x: 50, y: 55, radius: 15 },
+      { id: "pail", name: "牛奶桶", nameEn: "Milk Pail", x: 50, y: 22, radius: 10 },
+      { id: "path", name: "乡间小路", nameEn: "Path", x: 50, y: 88, radius: 12 }
+    ],
+    words: [
+      { zh: "姑娘", en: "Milkmaid" },
+      { zh: "奶桶", en: "Milk Pail" },
+      { zh: "小路", en: "Path" }
+    ],
+    fableText: [
+      "挤奶姑娘佩蒂挤了满满一桶牛奶，她把奶桶顶在头上，高高兴兴地去市场。",
+      "走着走着，她开始做起了美梦：“卖了这些牛奶，我可以买很多很多鸡蛋。”",
+      "“鸡蛋会孵出可爱的小鸡。等小鸡长大了，我可以卖掉它们，买一件漂亮的粉色裙子！”",
+      "“在舞会上，所有的男孩都想和我跳舞，但我会骄傲地摇摇头拒绝他们！”",
+      "想到这里，她真的得意地摇了摇头，头上的牛奶桶啪嗒一声摔在地上，牛奶全都洒光了。空想可不能带来财富哦！"
+    ],
+    parentGuide: "你看这幅图里，姑娘头上顶着什么？她在想什么开心的事情呢？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "姑娘头上的牛奶为什么全洒了？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "姑娘为什么要在脑袋里做那些美梦呢？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "牛奶洒了之后，姑娘回到家怎么跟妈妈解释呢？", color: "#fa709a" }
+    ],
+    lifeConnection: "做事情可不能光靠幻想，要脚踏实地一步一步来！比如写作业、学画画，都是要多练习的。",
+    retellingPrompt: "假装你头上顶着一个沉甸甸的奶桶，小心翼翼地晃晃悠悠走两步给爸爸妈妈看！"
+  },
+  {
+    id: "fable_bundle_sticks",
+    type: "fable",
+    title: "折箭（一捆木柴）/ The Bundle of Sticks",
+    image: "/images/fable_bundle_sticks.png",
+    hotspots: [
+      { id: "father", name: "老父亲", nameEn: "Father", x: 25, y: 55, radius: 15 },
+      { id: "sticks", name: "一捆木柴", nameEn: "Bundle of Sticks", x: 50, y: 65, radius: 12 },
+      { id: "sons", name: "儿子们", nameEn: "Sons", x: 75, y: 55, radius: 15 }
+    ],
+    words: [
+      { zh: "父亲", en: "Father" },
+      { zh: "木柴", en: "Sticks" },
+      { zh: "团结", en: "Unity" }
+    ],
+    fableText: [
+      "一位老农夫有几个儿子，但他们经常为了一点小事吵架，这让农夫非常担忧。",
+      "有一天，老农夫把儿子们叫到身边，拿出一捆紧紧绑在一起的木柴对他们说：“谁能把这捆木柴折断？”",
+      "儿子们轮流使出了全身力气，咬着牙去折木柴，但谁也折不断。",
+      "农夫笑了笑，解开绳子，把木柴一根一根分给儿子们：“现在再试试。” 啪的一声，每个人都很轻松地折断了单根木柴。",
+      "农夫语重心长地说：“你们就像这些木柴一样。只要团结一心，就没人能打败你们；但如果互相分裂，就会像单根木柴一样脆弱。”"
+    ],
+    parentGuide: "老农夫为什么要让儿子们折木柴？一捆木柴 and 一根木柴有什么不一样？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "为什么儿子们一开始谁也折不断那一捆木柴？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "农夫解开绳子后，为什么木柴就很容易被折断了？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "听了爸爸的话以后，这几个儿子以后还会为小事吵架吗？", color: "#fa709a" }
+    ],
+    lifeConnection: "团结就是力量！就像在学校里拔河或者做班级游戏，大家一起使劲才能赢！",
+    retellingPrompt: "假装你手里拿着一根木柴，咬紧牙关、使出浑身解数‘啪’的一声折断它的动作！"
+  },
+  {
+    id: "fable_fox_no_tail",
+    type: "fable",
+    title: "没了尾巴的狐狸 / The Fox without a Tail",
+    image: "/images/fable_fox_no_tail.png",
+    hotspots: [
+      { id: "notail_fox", name: "没尾巴的狐狸", nameEn: "Tailless Fox", x: 35, y: 60, radius: 15 },
+      { id: "foxes", name: "狐狸群", nameEn: "Other Foxes", x: 75, y: 60, radius: 16 },
+      { id: "stone", name: "大石头", nameEn: "Stone", x: 35, y: 80, radius: 10 }
+    ],
+    words: [
+      { zh: "狐狸", en: "Fox" },
+      { zh: "尾巴", en: "Tail" },
+      { zh: "石头", en: "Stone" }
+    ],
+    fableText: [
+      "一只倒霉的狐狸不小心落入了猎人的陷阱。它拼命挣扎，虽然逃了出来，却把美丽的尾巴给弄断了。",
+      "没有了尾巴，狐狸觉得走在森林里太丢脸了，甚至想躲起来不让大家看见。",
+      "为了不让别的小动物笑话，它想到了一个主意。它召集了所有的狐狸开会。",
+      "没尾巴的狐狸对大家说：“长尾巴又重又脏，拖在地上真麻烦，不如我们都把尾巴砍掉吧！”",
+      "一只聪明的狐狸笑着说：“老兄，要不是你已经丢了尾巴，你还会劝我们也把尾巴砍掉吗？”狐狸羞得满脸通红，夹着身子跑开了。"
+    ],
+    parentGuide: "你看这只在石头上的狐狸，它和别的狐狸有什么不一样？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "没尾巴的狐狸开会时，劝大家做什么事情？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "为什么聪明的狐狸一眼就看穿了它的谎言？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "如果大家都听了它的话把尾巴剪掉，森林里会变成什么样子？", color: "#fa709a" }
+    ],
+    lifeConnection: "做事情要有自己的分析和判断，不能因为别人有了某种情况，就盲目跟着学哦！",
+    retellingPrompt: "假装你是一只丢了尾巴、很不好意思的狐狸，用两只手捂住小屁股摇摆的样子！"
+  },
+  {
+    id: "fable_miller_son_donkey",
+    type: "fable",
+    title: "父子骑驴 / The Miller, His Son, and Their Donkey",
+    image: "/images/fable_miller_son_donkey.png",
+    hotspots: [
+      { id: "miller", name: "磨坊主爸爸", nameEn: "Father", x: 25, y: 55, radius: 15 },
+      { id: "son", name: "儿子", nameEn: "Son", x: 50, y: 55, radius: 12 },
+      { id: "donkey", name: "小灰驴", nameEn: "Donkey", x: 75, y: 65, radius: 14 }
+    ],
+    words: [
+      { zh: "骑驴", en: "Riding" },
+      { zh: "小驴", en: "Donkey" },
+      { zh: "路人", en: "Passers-by" }
+    ],
+    fableText: [
+      "磨坊主和儿子牵着一头小毛驴去集市。路人看见了笑话他们：“真傻！有驴子居然不骑，光用脚走！”",
+      "于是爸爸赶紧让儿子骑上驴，自己走路。可没走多远，又有人批评儿子：“这孩子真不孝顺，自己骑驴让老父亲走路！”",
+      "儿子听了很羞愧，连忙下来让爸爸骑上去。接着路人又指指点点：“这当爹的真狠心，自己骑着享受，让小孩子在后面走得满头大汗！”",
+      "爸爸一听，索性把儿子拉上来，两个人一起骑在驴背上。这下路人更生气了：“太残酷了！这可怜的驴子骨头都要被压断了！”",
+      "实在没办法，父子俩只好把驴子的脚绑在木棍上，抬着驴走。结果路过小桥时，受惊的驴子挣扎着掉进河里跑掉了。做事如果一味听从别人，最后什么都做不好！"
+    ],
+    parentGuide: "你看这父子俩和小灰驴，一路上遇到了这么多指手画脚的人，你觉得他们该怎么做才对？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "最后父子俩是怎么带着毛驴走的？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "为什么不管父子俩怎么做，都会有人在一旁批评他们呢？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "如果他们一出发就想好自己的骑驴计划，不听路人的话，结果会怎么样？", color: "#fa709a" }
+    ],
+    lifeConnection: "做事情要有自己的主见和标准，不能盲目顺从所有人的意见，否则会像父子俩一样不知所措。",
+    retellingPrompt: "假装你骑在毛驴上，展示一下双手抓着缰绳、摇摇摆摆骑驴的搞笑模样！"
+  },
+  {
+    id: "fable_belly_members",
+    type: "fable",
+    title: "肚子和四肢 / The Belly and the Members",
+    image: "/images/fable_belly_members.png",
+    hotspots: [
+      { id: "belly", name: "胖肚子", nameEn: "Belly", x: 50, y: 50, radius: 18 },
+      { id: "hands", name: "双手", nameEn: "Hands", x: 20, y: 45, radius: 12 },
+      { id: "feet", name: "双脚", nameEn: "Feet", x: 50, y: 85, radius: 12 }
+    ],
+    words: [
+      { zh: "肚子", en: "Belly" },
+      { zh: "双手", en: "Hands" },
+      { zh: "协作", en: "Cooperation" }
+    ],
+    fableText: [
+      "有一天，身体的各个器官开始抱怨肚子：“我们每天辛辛苦苦干活，而肚子却只管坐在中央享受美食！”",
+      "手说：“我不送食物去嘴里了！” 嘴巴说：“我也不嚼任何东西了！” 双脚说：“我不载着肚子去找食物了！”",
+      "于是，大家都罢工了，谁也不给肚子提供营养。它们以为这样能饿死肚子，惩罚它的懒惰。",
+      "可是过了几天，手连抬起来的力气都没了，双脚发软走不动路，整个身体都变得虚弱无比。",
+      "这时大家才明白：原来肚子消化食物，是在把营养源源不断地送给每一个器官。团队中每个人都有自己的岗位，互相帮助才能健康快乐！"
+    ],
+    parentGuide: "手、脚和嘴巴为什么要和肚子闹别扭呢？后来它们怎么和好了？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "手和脚罢工之后，身体发生了什么变化？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "肚子在身体里真正的工作是什么？它真的只是懒洋洋地躺着吗？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "明白了肚子的作用之后，四肢以后还会随便抱怨吗？", color: "#fa709a" }
+    ],
+    lifeConnection: "在一个家庭或团队里，每个人做的事可能不一样，但都非常重要，要懂得感谢和理解别人的付出！",
+    retellingPrompt: "假装你是那个圆滚滚的胖肚子，两只手抱在肚子上‘咕噜咕噜’发出肚子饿了的声音！"
+  },
+  {
+    id: "fable_eagle_jackdaw",
+    type: "fable",
+    title: "鹰和寒鸦 / The Eagle and the Jackdaw",
+    image: "/images/fable_eagle_jackdaw.png",
+    hotspots: [
+      { id: "jackdaw", name: "寒鸦", nameEn: "Jackdaw", x: 45, y: 48, radius: 10 },
+      { id: "sheep", name: "绵羊", nameEn: "Sheep", x: 50, y: 70, radius: 16 },
+      { id: "shepherd", name: "牧羊人", nameEn: "Shepherd", x: 80, y: 55, radius: 14 }
+    ],
+    words: [
+      { zh: "寒鸦", en: "Jackdaw" },
+      { zh: "绵羊", en: "Sheep" },
+      { zh: "模仿", en: "Imitate" }
+    ],
+    fableText: [
+      "一只饥饿的老鹰从高山向下俯冲，用锋利的爪子抓起了一只肥美的小羊，飞回了山顶。",
+      "树上的寒鸦看到了，觉得这帅极了。它心想：“这太容易了，我也能像老鹰一样厉害！”",
+      "寒鸦扑棱着翅膀飞向羊群，瞅准了一只最肥的绵羊，大叫着朝羊背上冲去。",
+      "可它的爪子太小了，根本抓不起绵羊，反而被绵羊背上又长又卷的羊毛死死地缠住了双脚，怎么拍翅膀也飞不起来。",
+      "牧羊人走过来，轻松抓住了它，剪掉了它翅膀上的羽毛带回家给孩子们。孩子们问这是什么鸟，牧羊人笑哈哈地回答：“它自以为是老鹰，其实不过是一只寒鸦。”"
+    ],
+    parentGuide: "寒鸦想模仿老鹰做什么？它为什么会失败呢？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "寒鸦扑向绵羊之后，发生了什么事？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "为什么寒鸦没有办法像老鹰那样抓起羊呢？", color: "#43e97b" },
+      { type: "prediction", label: "预测", text: "如果寒鸦只是去捉小虫子，它能过上开心安稳的日子吗？", color: "#fa709a" }
+    ],
+    lifeConnection: "我们要认清自己的本领和局限，踏踏实实做好适合自己的事情，不能盲目去跟强者攀比模仿哦！",
+    retellingPrompt: "模仿寒鸦被羊毛粘住的尴尬样子——拼命扇动翅膀却一步也动不了的搞笑滑稽样！"
   }
 ];
