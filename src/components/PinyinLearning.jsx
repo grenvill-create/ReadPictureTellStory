@@ -659,18 +659,20 @@ export default function PinyinLearning({ onBack }) {
               <p className="section-instruction">声调就像不同的魔术帽，戴在韵母头上会改变字音的升降：</p>
               <div className="letters-bubble-grid tones">
                 {[
-                  { l: 'ā', s: '啊', desc: '一声高高平又平' },
-                  { l: 'á', s: '啊？', desc: '二声就像往上扬' },
-                  { l: 'ǎ', s: '啊', desc: '三声下坡又上坡' },
-                  { l: 'à', s: '啊！', desc: '四声就像下快活' }
+                  { l: 'ā', char: '妈', pinyin: 'mā', desc: '一声高高平又平', desc2: '———' },
+                  { l: 'á', char: '麻', pinyin: 'má', desc: '二声就像往上扬', desc2: '↗' },
+                  { l: 'ǎ', char: '马', pinyin: 'mǎ', desc: '三声下坡又上坡', desc2: '∨' },
+                  { l: 'à', char: '骂', pinyin: 'mà', desc: '四声就像下快活', desc2: '↘' }
                 ].map(item => (
                   <button 
                     key={item.l}
-                    onClick={() => playLetterAudio(item.l, item.s)}
+                    onClick={() => playLetterAudio(item.l, item.char)}
                     className="letter-bubble-btn tone-btn bounce-hover"
                   >
                     <span className="bubble-letter">{item.l}</span>
+                    <span className="tone-char-label">{item.char} ({item.pinyin})</span>
                     <span className="bubble-desc">{item.desc}</span>
+                    <span className="tone-contour">{item.desc2}</span>
                   </button>
                 ))}
               </div>
