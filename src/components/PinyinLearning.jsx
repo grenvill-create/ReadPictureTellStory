@@ -26,6 +26,14 @@ export default function PinyinLearning({ onBack }) {
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [answerState, setAnswerState] = useState(null); // 'correct', 'wrong', null
   const [showConfetti, setShowConfetti] = useState(false);
+  const [selectedFormulaKey, setSelectedFormulaKey] = useState('ba');
+
+  const formulas = {
+    ba: { initial: 'b', final: 'ā', result: 'bā', initialSound: '播', finalSound: '啊', resultSound: '八', label: 'b + ā = bā (八)' },
+    ma: { initial: 'm', final: 'ā', result: 'mā', initialSound: '摸', finalSound: '啊', resultSound: '妈', label: 'm + ā = mā (妈)' },
+    da: { initial: 'd', final: 'ǎ', result: 'dǎ', initialSound: '得', finalSound: '啊', resultSound: '打', label: 'd + ǎ = dǎ (打)' },
+    lu: { initial: 'l', final: 'ù', result: 'lù', initialSound: '乐', finalSound: '啊！', resultSound: '路', label: 'l + ù = lù (路)' }
+  };
 
   // Audio speech synthesis helper
   const speak = (text, rate = 0.8) => {
@@ -56,6 +64,26 @@ export default function PinyinLearning({ onBack }) {
     "t": "letter_t",
     "n": "letter_n",
     "l": "letter_l",
+    "g": "letter_g",
+    "k": "letter_k",
+    "h": "letter_h",
+    "j": "letter_j",
+    "q": "letter_q",
+    "x": "letter_x",
+    "zh": "letter_zh",
+    "ch": "letter_ch",
+    "sh": "letter_sh",
+    "r": "letter_r",
+    "z": "letter_z",
+    "c": "letter_c",
+    "s": "letter_s",
+    "y": "letter_i", // y shares sound with i ("衣")
+    "w": "letter_u", // w shares sound with u ("乌")
+    // Compound Finals
+    "ai": "letter_ai",
+    "ei": "letter_ei",
+    "ui": "letter_ui",
+    "ao": "letter_ao",
     // Tones (lesson 3 uses ā á ǎ à as letter keys)
     "ā": "tone_1",
     "á": "tone_2",
@@ -256,6 +284,16 @@ export default function PinyinLearning({ onBack }) {
             <button onClick={onBack} className="pinyin-back-btn bounce-hover">⬅ 返回主页</button>
             <h2 className="pinyin-main-title">🧸 拼音学乐园 / Pinyin Playground</h2>
             <p className="pinyin-main-subtitle">循序渐进，轻松搞定拼音基础！</p>
+          </div>
+
+          {/* Beginner Classroom Promo Card */}
+          <div className="beginner-classroom-promo bounce-hover" onClick={() => setCurrentMode('beginner_intro')}>
+            <div className="beginner-promo-badge">🐣 零基础第一课</div>
+            <div className="beginner-promo-content">
+              <h3>拼音声母与韵母启蒙课堂 🚀</h3>
+              <p>什么是声母？什么是韵母？点一点、听一听，轻松揭开拼音发音的秘密！</p>
+            </div>
+            <button className="beginner-promo-btn">开始学习 ➔</button>
           </div>
 
           <div className="pinyin-lessons-grid">
@@ -469,6 +507,173 @@ export default function PinyinLearning({ onBack }) {
               >
                 🏠 返回拼音列表
               </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* 5. BEGINNER INTRO / BASICS CLASSROOM */}
+      {currentMode === 'beginner_intro' && (
+        <div className="pinyin-beginner-intro">
+          <div className="pinyin-header">
+            <button onClick={() => setCurrentMode('lessons')} className="pinyin-back-btn bounce-hover">⬅ 返回列表</button>
+            <h2 className="pinyin-main-title">🐣 拼音新手启蒙课 / Pinyin Basics</h2>
+            <p className="pinyin-main-subtitle">声母、韵母和声调的奇妙世界！点一点听听发音吧！</p>
+          </div>
+
+          <div className="beginner-classroom-body">
+            {/* 1. Magic Spell Formula Card */}
+            <div className="beginner-section-card magic-formula">
+              <div className="section-title-row">
+                <span className="section-icon">🪄</span>
+                <h4>拼音魔法算式 / Syllable Blender</h4>
+              </div>
+              <p className="section-instruction">点击下面的魔法算式，看一看声母和韵母是怎么组合在一起发音的：</p>
+              
+              <div className="formula-selector">
+                {Object.keys(formulas).map(key => (
+                  <button 
+                    key={key} 
+                    className={`formula-select-btn ${selectedFormulaKey === key ? 'active' : ''} bounce-hover`}
+                    onClick={() => {
+                      setSelectedFormulaKey(key);
+                      playLetterAudio(formulas[key].result, formulas[key].resultSound);
+                    }}
+                  >
+                    {formulas[key].label}
+                  </button>
+                ))}
+              </div>
+
+              <div className="magic-formula-display">
+                <div 
+                  className="formula-box initial bounce-hover"
+                  onClick={() => playLetterAudio(formulas[selectedFormulaKey].initial, formulas[selectedFormulaKey].initialSound)}
+                >
+                  <span className="formula-letter">{formulas[selectedFormulaKey].initial}</span>
+                  <span className="formula-label">声母 (Initial)</span>
+                  <span className="formula-sound-hint">🔊 {formulas[selectedFormulaKey].initialSound}</span>
+                </div>
+
+                <div className="formula-operator">＋</div>
+
+                <div 
+                  className="formula-box final bounce-hover"
+                  onClick={() => playLetterAudio(formulas[selectedFormulaKey].final, formulas[selectedFormulaKey].finalSound)}
+                >
+                  <span className="formula-letter">{formulas[selectedFormulaKey].final}</span>
+                  <span className="formula-label">韵母 (Final)</span>
+                  <span className="formula-sound-hint">🔊 {formulas[selectedFormulaKey].finalSound}</span>
+                </div>
+
+                <div className="formula-operator">＝</div>
+
+                <div 
+                  className="formula-box result bounce-hover"
+                  onClick={() => playLetterAudio(formulas[selectedFormulaKey].result, formulas[selectedFormulaKey].resultSound)}
+                >
+                  <span className="formula-letter highlight">{formulas[selectedFormulaKey].result}</span>
+                  <span className="formula-label">拼读结果 (Syllable)</span>
+                  <span className="formula-sound-hint">🔊 {formulas[selectedFormulaKey].resultSound}</span>
+                </div>
+              </div>
+            </div>
+
+            {/* 2. 23 Initials Grid Card */}
+            <div className="beginner-section-card initials-section">
+              <div className="section-title-row">
+                <span className="section-icon">火车</span>
+                <h4>声母小火车 (23个) / 23 Initials</h4>
+              </div>
+              <p className="section-instruction">声母就像是字音的“火车头”，在最前面发音，又轻又短：</p>
+              <div className="letters-bubble-grid">
+                {[
+                  { l: 'b', s: '播' }, { l: 'p', s: '坡' }, { l: 'm', s: '摸' }, { l: 'f', s: '佛' },
+                  { l: 'd', s: '得' }, { l: 't', s: '特' }, { l: 'n', s: '讷' }, { l: 'l', s: '乐' },
+                  { l: 'g', s: '哥' }, { l: 'k', s: '科' }, { l: 'h', s: '喝' },
+                  { l: 'j', s: '鸡' }, { l: 'q', s: '七' }, { l: 'x', s: '西' },
+                  { l: 'zh', s: '知' }, { l: 'ch', s: '吃' }, { l: 'sh', s: '狮' }, { l: 'r', s: '日' },
+                  { l: 'z', s: '滋' }, { l: 'c', s: '疵' }, { l: 's', s: '丝' },
+                  { l: 'y', s: '衣' }, { l: 'w', s: '乌' }
+                ].map(item => (
+                  <button 
+                    key={item.l}
+                    onClick={() => playLetterAudio(item.l, item.s)}
+                    className="letter-bubble-btn initials bounce-hover"
+                  >
+                    <span className="bubble-letter">{item.l}</span>
+                    <span className="bubble-sound">{item.s}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* 3. Finals Grid Card */}
+            <div className="beginner-section-card finals-section">
+              <div className="section-title-row">
+                <span className="section-icon">气球</span>
+                <h4>韵母乐园 / Finals</h4>
+              </div>
+              <p className="section-instruction">韵母是拼音字音的“身体”，在声母后面发音，声音响亮拉长：</p>
+              
+              <h5 className="sub-section-title">🍓 6个单韵母 (Simple Finals):</h5>
+              <div className="letters-bubble-grid single-finals">
+                {[
+                  { l: 'a', s: '啊' }, { l: 'o', s: '喔' }, { l: 'e', s: '鹅' },
+                  { l: 'i', s: '衣' }, { l: 'u', s: '乌' }, { l: 'ü', s: '迂' }
+                ].map(item => (
+                  <button 
+                    key={item.l}
+                    onClick={() => playLetterAudio(item.l, item.s)}
+                    className="letter-bubble-btn finals bounce-hover"
+                  >
+                    <span className="bubble-letter">{item.l}</span>
+                    <span className="bubble-sound">{item.s}</span>
+                  </button>
+                ))}
+              </div>
+
+              <h5 className="sub-section-title">🍒 常用复韵母 (Compound Finals):</h5>
+              <div className="letters-bubble-grid compound-finals">
+                {[
+                  { l: 'ai', s: '挨' }, { l: 'ei', s: '诶' }, { l: 'ui', s: '危' }, { l: 'ao', s: '熬' }
+                ].map(item => (
+                  <button 
+                    key={item.l}
+                    onClick={() => playLetterAudio(item.l, item.s)}
+                    className="letter-bubble-btn compound-btn bounce-hover"
+                  >
+                    <span className="bubble-letter">{item.l}</span>
+                    <span className="bubble-sound">{item.s}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* 4. Tones Card */}
+            <div className="beginner-section-card tones-section">
+              <div className="section-title-row">
+                <span className="section-icon">👑</span>
+                <h4>声调小帽子 (4个) / 4 Tones</h4>
+              </div>
+              <p className="section-instruction">声调就像不同的魔术帽，戴在韵母头上会改变字音的升降：</p>
+              <div className="letters-bubble-grid tones">
+                {[
+                  { l: 'ā', s: '啊', desc: '一声高高平又平' },
+                  { l: 'á', s: '啊？', desc: '二声就像往上扬' },
+                  { l: 'ǎ', s: '啊', desc: '三声下坡又上坡' },
+                  { l: 'à', s: '啊！', desc: '四声就像下快活' }
+                ].map(item => (
+                  <button 
+                    key={item.l}
+                    onClick={() => playLetterAudio(item.l, item.s)}
+                    className="letter-bubble-btn tone-btn bounce-hover"
+                  >
+                    <span className="bubble-letter">{item.l}</span>
+                    <span className="bubble-desc">{item.desc}</span>
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
         </div>
