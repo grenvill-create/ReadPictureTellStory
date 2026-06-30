@@ -38,41 +38,97 @@ export default function PinyinLearning({ onBack }) {
     }
   };
 
-  const getWordAudioKey = (word) => {
-    const cleanWord = word.split('(')[0].trim();
-    const map = {
-      "阿姨": "ayi",
-      "喔喔啼": "wowoti",
-      "白鹅": "baie",
-      "衣服": "yifu",
-      "乌龟": "wugui",
-      "小鱼": "xiaoyu",
-      "拔河": "bahe",
-      "打鼓": "dagu",
-      "爸爸": "baba",
-      "皮球": "piqiu",
-      "妈妈": "mama",
-      "风车": "fengche",
-      "兔子": "tuzi",
-      "你好": "nihao",
-      "梅花鹿": "meihualu",
-      "数字八": "shuziba",
-      "打皮球": "dapiqiu"
-    };
-    return map[cleanWord] || "";
+  // Map every letter/spell key -> safe ASCII audio filename (no tone chars in filename)
+  const LETTER_AUDIO_MAP = {
+    // Vowels
+    "a": "letter_a",
+    "o": "letter_o",
+    "e": "letter_e",
+    "i": "letter_i",
+    "u": "letter_u",
+    "ü": "letter_v",
+    // Consonants
+    "b": "letter_b",
+    "p": "letter_p",
+    "m": "letter_m",
+    "f": "letter_f",
+    "d": "letter_d",
+    "t": "letter_t",
+    "n": "letter_n",
+    "l": "letter_l",
+    // Tones (lesson 3 uses ā á ǎ à as letter keys)
+    "ā": "tone_1",
+    "á": "tone_2",
+    "ǎ": "tone_3",
+    "à": "tone_4",
+    // Spelling syllables (lesson 6)
+    "bā": "spell_ba1",
+    "mā": "spell_ma1",
+    "dǎ": "spell_da3",
+    "lù": "spell_lu4",
   };
 
-  const playPinyinAudio = (type, key, textFallback) => {
-    if ('speechSynthesis' in window) {
-      window.speechSynthesis.cancel();
-    }
-    const cleanKey = key.replace(/\s+/g, '').toLowerCase();
-    const audioPath = getImageUrl(`/audio/${type}_${cleanKey}.mp3`);
+  // Map example word display text -> safe ASCII audio filename
+  const WORD_AUDIO_MAP = {
+    "阿姨":   "word_ayi",
+    "喔喔啼": "word_wowoti",
+    "白鹅":   "word_baie",
+    "衣服":   "word_yifu",
+    "乌龟":   "word_wugui",
+    "小鱼":   "word_xiaoyu",
+    "拔河":   "word_bahe",
+    "打鼓":   "word_dagu",
+    "爸爸":   "word_baba",
+    "皮球":   "word_piqiu",
+    "妈妈":   "word_mama",
+    "风车":   "word_fengche",
+    "兔子":   "word_tuzi",
+    "你好":   "word_nihao",
+    "梅花鹿": "word_meihualu",
+    "数字八": "word_shuziba",
+    "打皮球": "word_dapiqiu",
+  };
+
+  // Play a local MP3 file; fall back to browser TTS on error
+  const playAudioFile = (audioFileName, textFallback) => {
+    if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+    const audioPath = getImageUrl(`/audio/${audioFileName}.mp3`);
     const audio = new Audio(audioPath);
     audio.play().catch(err => {
-      console.warn("Local audio play failed, falling back to TTS:", err);
+      console.warn(`Audio file "${audioFileName}.mp3" not found, TTS fallback:`, err);
       speak(textFallback);
     });
+  };
+
+  const playLetterAudio = (letter, sound) => {
+    const fileName = LETTER_AUDIO_MAP[letter];
+    if (fileName) {
+      playAudioFile(fileName, sound);
+    } else {
+      speak(sound);
+    }
+  };
+
+  const playWordAudio = (exampleWord) => {
+    // Extract the Chinese part before the parentheses e.g. "阿姨 (ā yí)" -> "阿姨"
+    const chineseWord = exampleWord.split('(')[0].trim();
+    const fileName = WORD_AUDIO_MAP[chineseWord];
+    if (fileName) {
+      playAudioFile(fileName, chineseWord);
+    } else {
+      speak(chineseWord);
+    }
+  };
+
+  const playFeedbackAudio = (type) => {
+    // type: 'correct' | 'wrong' | 'pass' | 'tryagain'
+    const texts = {
+      correct:  "答对啦！太棒了！",
+      wrong:    "选错啦，再试一次吧！",
+      pass:     "恭喜你，顺利通关！",
+      tryagain: "差一点点就通关了，再复习一下吧！",
+    };
+    playAudioFile(`feedback_${type}`, texts[type] || "");
   };
 
   const handleSelectLesson = (lesson) => {
@@ -81,7 +137,7 @@ export default function PinyinLearning({ onBack }) {
     setCurrentMode('study');
     // Speak first letter name automatically
     setTimeout(() => {
-      playPinyinAudio('letter', lesson.items[0].letter, lesson.items[0].sound);
+      playLetterAudio(lesson.items[0].letter, lesson.items[0].sound);
     }, 300);
   };
 
@@ -90,7 +146,7 @@ export default function PinyinLearning({ onBack }) {
       const nextIndex = studyIndex + 1;
       setStudyIndex(nextIndex);
       // Auto speak next letter
-      playPinyinAudio('letter', selectedLesson.items[nextIndex].letter, selectedLesson.items[nextIndex].sound);
+      playLetterAudio(selectedLesson.items[nextIndex].letter, selectedLesson.items[nextIndex].sound);
     } else {
       // Start quiz
       setQuizIndex(0);
@@ -105,7 +161,7 @@ export default function PinyinLearning({ onBack }) {
     if (studyIndex > 0) {
       const prevIndex = studyIndex - 1;
       setStudyIndex(prevIndex);
-      playPinyinAudio('letter', selectedLesson.items[prevIndex].letter, selectedLesson.items[prevIndex].sound);
+      playLetterAudio(selectedLesson.items[prevIndex].letter, selectedLesson.items[prevIndex].sound);
     }
   };
 
@@ -129,7 +185,7 @@ export default function PinyinLearning({ onBack }) {
   // Play audio sound for audio questions
   useEffect(() => {
     if (currentMode === 'quiz' && currentQuestion && currentQuestion.type === 'choose_sound') {
-      playPinyinAudio('letter', currentQuestion.letter, currentQuestion.audioText);
+      playLetterAudio(currentQuestion.letter, currentQuestion.audioText);
     }
   }, [currentMode, quizIndex]);
 
@@ -141,13 +197,13 @@ export default function PinyinLearning({ onBack }) {
     if (isCorrect) {
       setAnswerState('correct');
       setQuizScore(prev => prev + 1);
-      speak("答对啦！太棒了！");
+      playFeedbackAudio('correct');
       // Trigger a small burst of confetti
       setShowConfetti(true);
       setTimeout(() => setShowConfetti(false), 2000);
     } else {
       setAnswerState('wrong');
-      speak("选错啦，再试一次吧！");
+      playFeedbackAudio('wrong');
     }
 
     setTimeout(() => {
@@ -168,9 +224,9 @@ export default function PinyinLearning({ onBack }) {
             setCompletedLessons(updated);
             localStorage.setItem('pinyin_completed_lessons', JSON.stringify(updated));
           }
-          speak("恭喜你，顺利通关！");
+          playFeedbackAudio('pass');
         } else {
-          speak("差一点点就通关了，再复习一下吧！");
+          playFeedbackAudio('tryagain');
         }
         setCurrentMode('completed');
       }
@@ -261,7 +317,7 @@ export default function PinyinLearning({ onBack }) {
               <div className="study-letter-display">
                 <span className="huge-pinyin">{selectedLesson.items[studyIndex].letter}</span>
                 <button 
-                  onClick={() => playPinyinAudio('letter', selectedLesson.items[studyIndex].letter, selectedLesson.items[studyIndex].sound)}
+                  onClick={() => playLetterAudio(selectedLesson.items[studyIndex].letter, selectedLesson.items[studyIndex].sound)}
                   className="pinyin-speak-btn bounce-hover"
                 >
                   🔊 听发音
@@ -282,11 +338,7 @@ export default function PinyinLearning({ onBack }) {
                 <h4>🍎 词语示范</h4>
                 <div className="example-row">
                   <span className="example-char">{selectedLesson.items[studyIndex].example}</span>
-                  <span className="example-word" onClick={() => {
-                    const wordKey = getWordAudioKey(selectedLesson.items[studyIndex].exampleWord);
-                    const cleanWord = selectedLesson.items[studyIndex].exampleWord.split('(')[0].trim();
-                    playPinyinAudio('word', wordKey, cleanWord);
-                  }}>
+                  <span className="example-word" onClick={() => playWordAudio(selectedLesson.items[studyIndex].exampleWord)}>
                     {selectedLesson.items[studyIndex].exampleWord} 🔊
                   </span>
                 </div>
@@ -330,7 +382,7 @@ export default function PinyinLearning({ onBack }) {
             {currentQuestion.type === 'choose_sound' && (
               <div className="quiz-audio-trigger">
                 <button 
-                  onClick={() => playPinyinAudio('letter', currentQuestion.letter, currentQuestion.audioText)}
+                  onClick={() => playLetterAudio(currentQuestion.letter, currentQuestion.audioText)}
                   className="quiz-sound-btn bounce-hover"
                 >
                   🎵 点击播放声音 🔊
