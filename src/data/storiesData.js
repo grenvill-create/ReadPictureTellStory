@@ -3578,5 +3578,185 @@ export const storiesData = [
     ],
     lifeConnection: "我们要认清自己的本领和局限，踏踏实实做好适合自己的事情，不能盲目去跟强者攀比模仿哦！",
     retellingPrompt: "模仿寒鸦被羊毛粘住的尴尬样子——拼命扇动翅膀却一步也动不了的搞笑滑稽样！"
+  },
+  {
+    id: "fable_painting_dragon_eyes",
+    type: "fable",
+    title: "画龙点睛 / Bringing the Painted Dragon to Life",
+    image: "/images/fable_painting_dragon_eyes.png",
+    hotspots: [
+      { id: "painter", name: "画家张僧繇", nameEn: "Painter", x: 35, y: 65, radius: 12 },
+      { id: "dragon", name: "画好的龙", nameEn: "Painted Dragon", x: 65, y: 40, radius: 15 },
+      { id: "lightning", name: "闪电", nameEn: "Lightning", x: 50, y: 15, radius: 10 }
+    ],
+    words: [
+      { zh: "画家", en: "Painter" },
+      { zh: "巨龙", en: "Dragon" },
+      { zh: "闪电", en: "Lightning" }
+    ],
+    fableText: [
+      "古时候有一位著名的画家叫张僧繇，他在寺庙的墙壁上画了四条栩栩如生的巨龙。",
+      "奇怪的是，这些巨龙都没有画上眼睛。大家感到很不解，纷纷询问原因。",
+      "画家笑着说：“画上眼睛，龙就会飞走的。”大家都不相信，催促他赶紧点睛。",
+      "画家无奈，提起画笔给其中两条龙点上了眼睛。刹那间雷电交加，两条龙真的飞上天了！"
+    ],
+    parentGuide: "你看墙上的龙为什么飞走了？是谁给它们画上眼睛的？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "画家为什么一开始不给龙画眼睛？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "为什么大家都不相信画家说的话？", color: "#43e97b" },
+      { type: "prediction", text: "如果画家把剩下两条龙的眼睛也画上，会发生什么？", color: "#fa709a" }
+    ],
+    lifeConnection: "做事情在关键地方下足功夫，能让整件事一下子变得生动、精彩起来！",
+    retellingPrompt: "假装你是一位神奇的画家，拿起画笔在空中‘刷刷’点上眼睛，然后张开双臂学恐龙飞舞的样子！"
+  },
+  {
+    id: "fable_jingwei_filling_sea",
+    type: "fable",
+    title: "精卫填海 / Jingwei Filling the Sea",
+    image: "/images/fable_jingwei_filling_sea.png",
+    hotspots: [
+      { id: "jingwei", name: "小鸟精卫", nameEn: "Jingwei Bird", x: 30, y: 40, radius: 12 },
+      { id: "twig_stone", name: "树枝和石子", nameEn: "Twigs and Stones", x: 35, y: 55, radius: 8 },
+      { id: "ocean_waves", name: "大风浪", nameEn: "Ocean Waves", x: 65, y: 75, radius: 18 }
+    ],
+    words: [
+      { zh: "精卫", en: "Jingwei" },
+      { zh: "石子", en: "Pebble" },
+      { zh: "大海", en: "Ocean" }
+    ],
+    fableText: [
+      "传说炎帝的小女儿不幸在海里淹死，她变成了一只名叫精卫的小鸟。",
+      "精卫非常痛恨大海，决心要把大海填平，不让它再夺走别人的生命。",
+      "它每天坚持从西山衔来小树枝和小石子，不停地飞到东海，投进波涛汹涌的浪花里。",
+      "尽管大海嘲笑它白费力气，但精卫永不放弃，日复一日地坚持着，感动了所有人。"
+    ],
+    parentGuide: "小鸟精卫为什么要往大海里丢石子？它是从哪里找来石子的？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "精卫每天用什么东西来填海？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "大海为什么嘲笑精卫？精卫听到后放弃了吗？", color: "#43e97b" },
+      { type: "prediction", text: "如果所有的小鸟都来帮精卫，大海会被填平吗？", color: "#fa709a" }
+    ],
+    lifeConnection: "做事情只要有恒心和毅力，坚持不懈地去努力，就一定能克服看似不可能的困难！",
+    retellingPrompt: "假装你是一只辛勤的小精卫鸟，拍打着翅膀在房间里飞一圈，然后做个‘把石头丢进大海’的动作！"
+  },
+  {
+    id: "fable_horse_and_donkey",
+    type: "fable",
+    title: "马和驴 / The Horse and the Donkey",
+    image: "/images/fable_horse_and_donkey.png",
+    hotspots: [
+      { id: "horse", name: "骏马", nameEn: "Proud Horse", x: 30, y: 50, radius: 15 },
+      { id: "donkey", name: "小累驴", nameEn: "Tired Donkey", x: 70, y: 60, radius: 14 },
+      { id: "luggage", name: "行李箱", nameEn: "Luggage", x: 68, y: 48, radius: 10 }
+    ],
+    words: [
+      { zh: "骏马", en: "Horse" },
+      { zh: "小驴", en: "Donkey" },
+      { zh: "行李", en: "Luggage" }
+    ],
+    fableText: [
+      "一个主人牵着一匹骏马和一只小驴赶路。小驴背着沉重的行李，累得直喘气。",
+      "小驴恳求骏马：“好朋友，帮我分担一点行李吧，不然我快累死了。”",
+      "傲慢的骏马昂着头说：“哼，我可是高贵的骏马，怎么能帮你驮粗活呢！”",
+      "没走多远，小驴累倒在路上死去了。主人无奈，把所有的行李和死去的驴子都放在了马背上。马后悔极了。"
+    ],
+    parentGuide: "你看这匹白马，它为什么不愿意帮小灰驴？最后它的下场是什么？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "小驴一开始向骏马请求了什么帮助？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "为什么骏马最后要驮着所有的行李和死去的驴子？", color: "#43e97b" },
+      { type: "prediction", text: "如果重新来一次，马在路上会答应驴的请求吗？", color: "#fa709a" }
+    ],
+    lifeConnection: "帮助别人其实也是在帮助我们自己。大家互相帮助，才能走得更轻松！",
+    retellingPrompt: "假装你背着特别重的包，像小驴一样累得大口大口喘气，然后摇摇头学马骄傲的样子！"
+  },
+  {
+    id: "fable_hares_and_frogs",
+    type: "fable",
+    title: "野兔和青蛙 / The Hares and the Frogs",
+    image: "/images/fable_hares_and_frogs.png",
+    hotspots: [
+      { id: "hares", name: "胆小野兔", nameEn: "Timid Hares", x: 30, y: 65, radius: 14 },
+      { id: "frogs", name: "跳水青蛙", nameEn: "Jumping Frogs", x: 70, y: 75, radius: 10 },
+      { id: "pond", name: "池塘", nameEn: "Pond", x: 65, y: 80, radius: 16 }
+    ],
+    words: [
+      { zh: "野兔", en: "Hare" },
+      { zh: "青蛙", en: "Frog" },
+      { zh: "池塘", en: "Pond" }
+    ],
+    fableText: [
+      "森林里的野兔们非常胆小，每天都过得提心吊胆，总是害怕被别的动物伤害。",
+      "它们觉得自己是世界上最可怜的动物，生活得太痛苦了，甚至商量一起去池塘跳水。",
+      "当野兔们急匆匆跑向池塘时，岸边的一群青蛙听到声响，吓得扑通扑通纷纷跳进水里。",
+      "野兔们愣住了，其中一只野兔大笑：“原来还有比我们更胆小的人呢！我们应该好好生活。”"
+    ],
+    parentGuide: "野兔们本来想做什么？看到青蛙跳水后，它们改变主意了吗？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "青蛙为什么突然跳进池塘里？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "为什么野兔看到青蛙跳水后，心情变好不难过了？", color: "#43e97b" },
+      { type: "prediction", text: "以后如果有狗或者狐狸跑过来，野兔还会害怕吗？它们会怎么做？", color: "#fa709a" }
+    ],
+    lifeConnection: "每个人都有自己的长处和弱点，不要总是去和别人比胆小，要自信开心地生活！",
+    retellingPrompt: "学学青蛙听到动静后，双手撑地、‘扑通’一声往前学青蛙跳跃一次！"
+  },
+  {
+    id: "fable_pointing_deer_horse",
+    type: "fable",
+    title: "指鹿为马 / Calling a Deer a Horse",
+    image: "/images/fable_pointing_deer_horse.png",
+    hotspots: [
+      { id: "deer", name: "小梅花鹿", nameEn: "Spotted Deer", x: 50, y: 55, radius: 15 },
+      { id: "zhaogao", name: "赵高", nameEn: "Zhao Gao", x: 25, y: 50, radius: 12 },
+      { id: "emperor", name: "秦二世", nameEn: "Young Emperor", x: 75, y: 45, radius: 14 }
+    ],
+    words: [
+      { zh: "鹿", en: "Deer" },
+      { zh: "马", en: "Horse" },
+      { zh: "谎言", en: "Lie" }
+    ],
+    fableText: [
+      "秦朝有个心机深重的大臣叫赵高，他想测试朝廷里哪些官员听他的话。",
+      "有一天，他牵着一只梅花鹿来到大殿上，对小皇帝说：“陛下，我献给您一匹骏马。”",
+      "皇帝笑着摇摇头说：“这明明是一只鹿，你怎么说是马呢？”并询问身边的群臣。",
+      "赵高冷眼看着大家。一些正直的官员说是鹿，而许多害怕赵高权势的官员则低头附和说是马。"
+    ],
+    parentGuide: "赵高指着鹿说是马，小皇帝相信了吗？为什么有些官员也跟着说是马？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "赵高带到大殿上的动物实际上是什么？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "为什么那些大臣明知道是鹿，却要说谎是马呢？", color: "#43e97b" },
+      { type: "prediction", text: "如果小皇帝是一个非常厉害的皇帝，他会怎么惩罚赵高？", color: "#fa709a" }
+    ],
+    lifeConnection: "做人要做诚实正直的人，不能因为害怕别人或者为了讨好别人，就跟着一起说谎话哦！",
+    retellingPrompt: "假装你就是那个指着鹿说谎的赵高，板着脸指着旁边指手画脚大声说‘这就是马！’"
+  },
+  {
+    id: "fable_rising_at_rooster_crow",
+    type: "fable",
+    title: "闻鸡起舞 / Rising at Rooster's Crow to Practice",
+    image: "/images/fable_rising_at_rooster_crow.png",
+    hotspots: [
+      { id: "rooster", name: "报晓公鸡", nameEn: "Rooster", x: 78, y: 28, radius: 10 },
+      { id: "zuti", name: "祖逖", nameEn: "Zu Ti", x: 35, y: 60, radius: 14 },
+      { id: "liukun", name: "刘琨", nameEn: "Liu Kun", x: 55, y: 65, radius: 14 }
+    ],
+    words: [
+      { zh: "公鸡", en: "Rooster" },
+      { zh: "练剑", en: "Swordplay" },
+      { zh: "刻苦", en: "Diligence" }
+    ],
+    fableText: [
+      "晋朝有两个满怀大志的青年叫祖逖 and 刘琨，他们是同住的好朋友。",
+      "为了练好本领、报效国家，他们每天夜里都读书读得很晚，并且刻苦锻炼身体。",
+      "一天半夜，祖逖听到外面传来响亮的鸡鸣声，他推醒刘琨说：“这声音虽然早，但可以催促我们练武。”",
+      "从此，每当夜半鸡叫，他们就披衣起床，在院子里挥舞宝剑练习武艺，风雨无阻。后来他们都成了伟大的将军。"
+    ],
+    parentGuide: "这两个好朋友听到大半夜鸡叫后，起床去干什么了？他们最擅长什么兵器？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "祖逖听到鸡鸣声后，推醒刘琨说了什么？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "为什么他们每天半夜就起来练剑？他们不怕冷不怕累吗？", color: "#43e97b" },
+      { type: "prediction", text: "如果他们天天睡懒觉不练剑，他们后来能成为大将军吗？", color: "#fa709a" }
+    ],
+    lifeConnection: "一分耕耘一分收获。平时只有像他们一样刻苦努力、不怕困难，长大了才能学到真正的本领！",
+    retellingPrompt: "假装自己是一只半夜报晓的公鸡，伸长脖子大声叫‘喔喔喔——’，然后学挥剑练武的帅气样子！"
   }
 ];
