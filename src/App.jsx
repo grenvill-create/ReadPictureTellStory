@@ -1109,17 +1109,17 @@ export default function App() {
                   </div>
                   {(recordings[currentStory.id] || []).length > 0 && (
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginTop: '12px' }}>
-                      {(recordings[currentStory.id] || []).map((url, idx) => (
+                      {(recordings[currentStory.id] || []).map((item, idx) => (
                         <div key={idx} style={{ display: 'flex', gap: '8px' }}>
                           <button 
-                            onClick={() => handleTogglePlay(url)} 
-                            className={`play-recording-btn bounce-hover ${activePlaybackUrl === url && isPlaying ? "playing" : ""}`}
+                            onClick={() => handleTogglePlay(item.url)} 
+                            className={`play-recording-btn bounce-hover ${activePlaybackUrl === item.url && isPlaying ? "playing" : ""}`}
                             style={{ margin: 0, flex: 1, padding: '8px' }}
                           >
-                            {activePlaybackUrl === url && isPlaying ? "⏸️ 停止" : `🔊 听宝宝讲 (录音 ${idx + 1})`}
+                            {activePlaybackUrl === item.url && isPlaying ? "⏸️ 停止" : `🔊 听宝宝讲 (录音 ${idx + 1})`}
                           </button>
                           <button 
-                            onClick={() => downloadAudio(url, currentStory.title.split("/")[0])} 
+                            onClick={() => downloadAudio(item.url, currentStory.title.split("/")[0])} 
                             className="parent-btn bounce-hover"
                             style={{ padding: "8px 12px", borderRadius: "var(--radius-md)" }}
                           >
@@ -1214,17 +1214,17 @@ export default function App() {
 
                   {(recordings[currentStory.id] || []).length > 0 && (
                     <div className="recordings-list" style={{display: 'flex', flexDirection: 'column', gap: '10px', marginTop: '10px', width: '100%'}}>
-                      {(recordings[currentStory.id] || []).map((url, idx) => (
+                      {(recordings[currentStory.id] || []).map((item, idx) => (
                         <div key={idx} className="audio-player-controls" style={{background: 'rgba(255,255,255,0.5)', padding: '10px', borderRadius: '10px', display: 'flex', gap: '10px'}}>
                           <button 
-                            onClick={() => handleTogglePlay(url)} 
-                            className={`play-recording-btn bounce-hover ${activePlaybackUrl === url && isPlaying ? "playing" : ""}`}
+                            onClick={() => handleTogglePlay(item.url)} 
+                            className={`play-recording-btn bounce-hover ${activePlaybackUrl === item.url && isPlaying ? "playing" : ""}`}
                             style={{flex: 1, margin: 0}}
                           >
-                            {activePlaybackUrl === url && isPlaying ? "⏸️ 停止播放" : `🔊 听我的录音 ${idx + 1}`}
+                            {activePlaybackUrl === item.url && isPlaying ? "⏸️ 停止播放" : `🔊 听我的录音 ${idx + 1}`}
                           </button>
                           <button 
-                            onClick={() => downloadAudio(url, currentStory.title.split("/")[0])} 
+                            onClick={() => downloadAudio(item.url, currentStory.title.split("/")[0])} 
                             className="parent-btn bounce-hover"
                             style={{ padding: "10px 15px", borderRadius: "var(--radius-md)", display: "flex", gap: "6px", margin: 0 }}
                             title="下载录音文件"
