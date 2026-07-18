@@ -3765,9 +3765,9 @@ export const storiesData = [
     title: "黔驴技穷 / The Donkey of Qian",
     image: "/images/fable_donkey_qian.png",
     hotspots: [
-      { id: "donkey", name: "驴子", nameEn: "Donkey", x: 35, y: 60, radius: 14 },
-      { id: "tiger", name: "老虎", nameEn: "Tiger", x: 70, y: 65, radius: 15 },
-      { id: "forest", name: "森林", nameEn: "Forest", x: 50, y: 35, radius: 12 }
+      { id: "donkey", name: "驴子", nameEn: "Donkey", x: 62, y: 55, radius: 15 },
+      { id: "tiger", name: "老虎", nameEn: "Tiger", x: 25, y: 65, radius: 12 },
+      { id: "forest", name: "森林", nameEn: "Forest", x: 50, y: 45, radius: 10 }
     ],
     words: [
       { zh: "驴子", en: "Donkey" },
@@ -3796,9 +3796,9 @@ export const storiesData = [
     title: "朝三暮四 / Three in the Morning and Four in the Afternoon",
     image: "/images/fable_three_morning_four_afternoon.png",
     hotspots: [
-      { id: "oldman", name: "老爷爷", nameEn: "Old Man", x: 30, y: 55, radius: 14 },
-      { id: "monkeys", name: "小猴子", nameEn: "Monkey", x: 70, y: 65, radius: 16 },
-      { id: "acorns", name: "橡子", nameEn: "Acorns", x: 50, y: 75, radius: 10 }
+      { id: "oldman", name: "老爷爷", nameEn: "Old Man", x: 52, y: 40, radius: 12 },
+      { id: "monkeys", name: "小猴子", nameEn: "Monkey", x: 25, y: 45, radius: 12 },
+      { id: "acorns", name: "橡子", nameEn: "Acorns", x: 58, y: 62, radius: 8 }
     ],
     words: [
       { zh: "老爷爷", en: "Old Man" },
@@ -3827,9 +3827,9 @@ export const storiesData = [
     title: "两只山羊过桥 / Two Goats Crossing the Bridge",
     image: "/images/fable_two_goats_bridge.png",
     hotspots: [
-      { id: "black_goat", name: "黑山羊", nameEn: "Black Goat", x: 30, y: 60, radius: 12 },
-      { id: "white_goat", name: "白山羊", nameEn: "White Goat", x: 70, y: 60, radius: 12 },
-      { id: "narrow_bridge", name: "独木桥", nameEn: "Narrow Bridge", x: 50, y: 75, radius: 15 }
+      { id: "black_goat", name: "黑山羊", nameEn: "Black Goat", x: 62, y: 52, radius: 12 },
+      { id: "white_goat", name: "白山羊", nameEn: "White Goat", x: 38, y: 52, radius: 12 },
+      { id: "narrow_bridge", name: "独木桥", nameEn: "Narrow Bridge", x: 50, y: 66, radius: 12 }
     ],
     words: [
       { zh: "黑山羊", en: "Black Goat" },
@@ -3858,9 +3858,9 @@ export const storiesData = [
     title: "夜郎自大 / The Arrogance of Ye Lang",
     image: "/images/fable_arrogant_yelang.png",
     hotspots: [
-      { id: "king", name: "国王", nameEn: "King", x: 40, y: 55, radius: 14 },
-      { id: "messenger", name: "使者", nameEn: "Messenger", x: 75, y: 60, radius: 13 },
-      { id: "palace", name: "王宫", nameEn: "Palace", x: 50, y: 35, radius: 16 }
+      { id: "king", name: "国王", nameEn: "King", x: 29, y: 55, radius: 12 },
+      { id: "messenger", name: "使者", nameEn: "Messenger", x: 72, y: 55, radius: 12 },
+      { id: "palace", name: "王宫", nameEn: "Palace", x: 50, y: 35, radius: 15 }
     ],
     words: [
       { zh: "国王", en: "King" },
@@ -3889,9 +3889,9 @@ export const storiesData = [
     title: "凿壁偷光 / Boring a Hole in the Wall to Steal Light",
     image: "/images/fable_boring_wall_light.png",
     hotspots: [
-      { id: "kuangheng", name: "匡衡", nameEn: "Kuang Heng", x: 35, y: 65, radius: 13 },
-      { id: "light_beam", name: "光线", nameEn: "Light Beam", x: 60, y: 45, radius: 10 },
-      { id: "book", name: "书本", nameEn: "Book", x: 40, y: 75, radius: 11 }
+      { id: "kuangheng", name: "匡衡", nameEn: "Kuang Heng", x: 60, y: 55, radius: 12 },
+      { id: "light_beam", name: "光线", nameEn: "Light Beam", x: 35, y: 45, radius: 10 },
+      { id: "book", name: "书本", nameEn: "Book", x: 54, y: 66, radius: 10 }
     ],
     words: [
       { zh: "匡衡", en: "Kuang Heng" },
