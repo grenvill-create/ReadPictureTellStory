@@ -48,7 +48,12 @@ const STICKERS = {
   bunny_birthday: "🍰",
   space_adventure: "🚀",
   building_snowman: "⛄",
-  pond_concert: "🐸"
+  pond_concert: "🐸",
+  fable_donkey_qian: "🫏",
+  fable_three_morning_four_afternoon: "🐒",
+  fable_two_goats_bridge: "🐐",
+  fable_arrogant_yelang: "👑",
+  fable_boring_wall_light: "🕯️"
 };
 
 // DB logic moved to utils/db.js

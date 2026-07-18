@@ -3758,5 +3758,160 @@ export const storiesData = [
     ],
     lifeConnection: "一分耕耘一分收获。平时只有像他们一样刻苦努力、不怕困难，长大了才能学到真正的本领！",
     retellingPrompt: "假装自己是一只半夜报晓的公鸡，伸长脖子大声叫‘喔喔喔——’，然后学挥剑练武的帅气样子！"
+  },
+  {
+    id: "fable_donkey_qian",
+    type: "fable",
+    title: "黔驴技穷 / The Donkey of Qian",
+    image: "/images/fable_donkey_qian.png",
+    hotspots: [
+      { id: "donkey", name: "驴子", nameEn: "Donkey", x: 35, y: 60, radius: 14 },
+      { id: "tiger", name: "老虎", nameEn: "Tiger", x: 70, y: 65, radius: 15 },
+      { id: "forest", name: "森林", nameEn: "Forest", x: 50, y: 35, radius: 12 }
+    ],
+    words: [
+      { zh: "驴子", en: "Donkey" },
+      { zh: "老虎", en: "Tiger" },
+      { zh: "森林", en: "Forest" }
+    ],
+    fableText: [
+      "古时候贵州没有驴子，有个好奇的人运来了一头驴，放在山脚下。",
+      "一只老虎看到这个庞然大物，以为是神明，躲在树林里偷偷观察它。",
+      "有一天驴子突然大叫了一声，吓得老虎以为要吃自己，赶紧跑开，但渐渐地习惯了。",
+      "老虎发现驴子好像没有什么特别的本领，便走近去挑衅它。驴子非常生气，抬起蹄子踢了老虎一脚。",
+      "老虎大喜过望：“原来你就这点本事啊！”说完，它扑上去咬死了驴子。"
+    ],
+    parentGuide: "你看这头巨大的灰驴，它正在抬脚踢谁？老虎害怕了吗？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "老虎一开始为什么不敢靠近驴子？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "为什么老虎最后发现驴子其实没有什么真正的本领？", color: "#43e97b" },
+      { type: "prediction", text: "如果驴子不用蹄子踢，而是继续大声叫，老虎会被吓走吗？", color: "#fa709a" }
+    ],
+    lifeConnection: "我们学本领要学扎实，不能像这头小驴一样，只做表面文章，一遇到真正的困难就没办法了。",
+    retellingPrompt: "假装你是一只正在大叫的小驴子，踢一下后腿，然后像老虎一样‘嗷呜’一声扑过去！"
+  },
+  {
+    id: "fable_three_morning_four_afternoon",
+    type: "fable",
+    title: "朝三暮四 / Three in the Morning and Four in the Afternoon",
+    image: "/images/fable_three_morning_four_afternoon.png",
+    hotspots: [
+      { id: "oldman", name: "老爷爷", nameEn: "Old Man", x: 30, y: 55, radius: 14 },
+      { id: "monkeys", name: "小猴子", nameEn: "Monkey", x: 70, y: 65, radius: 16 },
+      { id: "acorns", name: "橡子", nameEn: "Acorns", x: 50, y: 75, radius: 10 }
+    ],
+    words: [
+      { zh: "老爷爷", en: "Old Man" },
+      { zh: "猴子", en: "Monkey" },
+      { zh: "橡子", en: "Acorns" }
+    ],
+    fableText: [
+      "宋国有一个养猴子的老爷爷，非常喜欢猴子。可是后来家里粮食不够了，必须限制猴子吃橡子的数量。",
+      "老爷爷对猴子说：“以后每天早上吃三颗橡子，晚上吃四颗，好不好？”",
+      "小猴子们听了非常生气，叽叽喳喳地叫个不停，嫌早上吃得太少。",
+      "老爷爷笑了笑，改口说：“那这样吧，早上吃四颗，晚上吃三颗，这总行了吧？”",
+      "猴子们一听早上变成了四颗，以为自己占了便宜，都开心地欢呼起来。其实总数还是七颗。"
+    ],
+    parentGuide: "老爷爷和猴子们在商量什么？为什么猴子们听到早上吃四颗就开心了？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "早上吃三颗晚上吃四颗，和早上吃四颗晚上吃三颗，加起来一共有多少颗？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "为什么老爷爷要用这种方法来哄骗猴子？", color: "#43e97b" },
+      { type: "prediction", text: "如果猴子们学会了做加法，它们还会被老爷爷骗到吗？", color: "#fa709a" }
+    ],
+    lifeConnection: "看事情要看它的本质，不能被表面的说法或小花样所迷惑哦！",
+    retellingPrompt: "假装你是一只生气的小猴子，拍打着双手叽叽喳喳叫，然后听到四颗橡子后高兴得直蹦跳！"
+  },
+  {
+    id: "fable_two_goats_bridge",
+    type: "fable",
+    title: "两只山羊过桥 / Two Goats Crossing the Bridge",
+    image: "/images/fable_two_goats_bridge.png",
+    hotspots: [
+      { id: "black_goat", name: "黑山羊", nameEn: "Black Goat", x: 30, y: 60, radius: 12 },
+      { id: "white_goat", name: "白山羊", nameEn: "White Goat", x: 70, y: 60, radius: 12 },
+      { id: "narrow_bridge", name: "独木桥", nameEn: "Narrow Bridge", x: 50, y: 75, radius: 15 }
+    ],
+    words: [
+      { zh: "黑山羊", en: "Black Goat" },
+      { zh: "白山羊", en: "White Goat" },
+      { zh: "独木桥", en: "Narrow Bridge" }
+    ],
+    fableText: [
+      "在一座小河上，架着一根细细的木头，只能容纳一只小动物通过。",
+      "有一天，一只白山羊从东边走上桥，一只黑山羊从西边走上桥，它们在桥中间相遇了。",
+      "白山羊大喊：“让我先过，你退回去！”黑山羊也叫道：“你才应该退回去，我走得更快！”",
+      "它们谁也不肯让步，在桥中间用角猛烈地对撞起来，结果两只羊都扑通一声掉进了河里。",
+      "如果它们能互相礼让，一只羊先退回去，或者趴下让另一只跨过去，大家就都能安全到家了。"
+    ],
+    parentGuide: "你看这两只山羊，它们为什么在桥中间用角顶撞对方？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "这座独木桥可以同时走两只山羊吗？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "它们为什么都掉进河里了？它们做错了什么？", color: "#43e97b" },
+      { type: "prediction", text: "如果白山羊先退回去让黑山羊过，结局会有什么不同？", color: "#fa709a" }
+    ],
+    lifeConnection: "和小伙伴相处或者玩游戏的时候，大家要学会互相礼让，争抢往往会让大家都玩不好。",
+    retellingPrompt: "学山羊‘咩咩’叫两声，然后把两个食指放在头顶当羊角，做对撞顶角的动作！"
+  },
+  {
+    id: "fable_arrogant_yelang",
+    type: "fable",
+    title: "夜郎自大 / The Arrogance of Ye Lang",
+    image: "/images/fable_arrogant_yelang.png",
+    hotspots: [
+      { id: "king", name: "国王", nameEn: "King", x: 40, y: 55, radius: 14 },
+      { id: "messenger", name: "使者", nameEn: "Messenger", x: 75, y: 60, radius: 13 },
+      { id: "palace", name: "王宫", nameEn: "Palace", x: 50, y: 35, radius: 16 }
+    ],
+    words: [
+      { zh: "国王", en: "King" },
+      { zh: "使者", en: "Messenger" },
+      { zh: "王宫", en: "Palace" }
+    ],
+    fableText: [
+      "古时候，中国南方有一个叫夜郎的小国家。这里山岭环绕，面积其实非常狭小。",
+      "但是夜郎国的国王没有出过国门，以为自己的国家是天底下最大的，每天都很骄傲。",
+      "有一天，汉朝的使者来到了夜郎国。国王得意地带他参观，并且骄傲地问使者。",
+      "“汉朝和我们的国家相比，哪一个国家更大呢？”使者听了，忍不住笑了起来。",
+      "其实汉朝的领土是夜郎国的千百倍。不了解外面的世界、盲目自大，只会让人贻笑大方。"
+    ],
+    parentGuide: "夜郎国的国王在向汉朝使者问什么？汉朝使者为什么笑了？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "夜郎国实际上是一个大国还是一个小国？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "国王为什么会觉得自己的国家是世界上最大的？", color: "#43e97b" },
+      { type: "prediction", text: "如果国王跟着使者去汉朝看一看，他回来后还会这么骄傲吗？", color: "#fa709a" }
+    ],
+    lifeConnection: "我们要多看书、多出去走走，了解更广阔的世界，不能做井底之蛙，也不要盲目自傲。",
+    retellingPrompt: "假装自己是那个骄傲的夜郎国王，双手叉腰，昂着头大声问‘我们国家最大吧？’"
+  },
+  {
+    id: "fable_boring_wall_light",
+    type: "fable",
+    title: "凿壁偷光 / Boring a Hole in the Wall to Steal Light",
+    image: "/images/fable_boring_wall_light.png",
+    hotspots: [
+      { id: "kuangheng", name: "匡衡", nameEn: "Kuang Heng", x: 35, y: 65, radius: 13 },
+      { id: "light_beam", name: "光线", nameEn: "Light Beam", x: 60, y: 45, radius: 10 },
+      { id: "book", name: "书本", nameEn: "Book", x: 40, y: 75, radius: 11 }
+    ],
+    words: [
+      { zh: "匡衡", en: "Kuang Heng" },
+      { zh: "光线", en: "Light Beam" },
+      { zh: "书本", en: "Book" }
+    ],
+    fableText: [
+      "西汉时期，有个叫匡衡的小男孩，非常喜欢读书。但是他家里太穷了，买不起蜡烛。",
+      "每到夜晚，屋里黑漆漆的，匡衡就没办法看书。他心里非常着急，总是想着看书的事。",
+      "有一天，他发现墙壁上有一丝亮光，原来是邻居家点着蜡烛，光线透了过来。",
+      "匡衡灵机一动，用工具悄悄地把墙壁凿开一个小洞。邻居家的烛光便洒在了他的书本上。",
+      "他就这样借着微弱的光线，每天刻苦读书，后来成为了一位大学问家。"
+    ],
+    parentGuide: "匡衡手里拿着什么？他是怎么在没有蜡烛的夜里读书的？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "匡衡为什么买不起蜡烛？他是怎么得到光线的？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "在那么微弱的烛光下看书，舒不舒服？匡衡为什么要坚持？", color: "#43e97b" },
+      { type: "prediction", text: "如果邻居把蜡烛熄灭了，匡衡接下来该怎么办？", color: "#fa709a" }
+    ],
+    lifeConnection: "现在的学习条件非常好，我们要珍惜学习的机会，像匡衡一样不怕困难、刻苦努力。",
+    retellingPrompt: "做个双手捧着书本仔细阅读的动作，然后把手掌并拢，眯起一只眼看一束亮光！"
   }
 ];
