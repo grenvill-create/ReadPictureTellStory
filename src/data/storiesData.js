@@ -3925,12 +3925,13 @@ export const storiesData = [
         image: "/images/fables/tiger_candy_1.png",
         hotspots: [
           { id: "tiger1", name: "老虎", nameEn: "Tiger", x: 40, y: 55, radius: 15 },
+          { id: "fox1", name: "狐狸", nameEn: "Fox", x: 75, y: 55, radius: 12 },
           { id: "candy1", name: "糖果", nameEn: "Candy", x: 65, y: 70, radius: 12 }
         ],
         fableText: [
           "森林里有一只非常凶猛的大老虎，小动物们都很怕他。",
           "但是，这只老虎有一个爱好，那就是非常爱吃糖果。",
-          "有一天，小狐狸送给老虎一大包糖，老虎开心地吃了起来。",
+          "狐狸为了讨好老虎，天天送一大包糖果给老虎吃，老虎开心地吃了起来。",
           "从此每天都要吃好多糖果，连睡觉都不刷牙。"
         ]
       },
@@ -3938,12 +3939,12 @@ export const storiesData = [
         image: "/images/fables/tiger_candy_2.png",
         hotspots: [
           { id: "tiger2", name: "老虎", nameEn: "Tiger", x: 40, y: 50, radius: 12 },
-          { id: "fox", name: "狐狸牙医", nameEn: "Fox Dentist", x: 70, y: 45, radius: 12 }
+          { id: "giraffe", name: "长颈鹿牙医", nameEn: "Giraffe Dentist", x: 70, y: 45, radius: 15 }
         ],
         fableText: [
           "过了几天，老虎觉得牙齿好疼，疼得在地上打滚，哇哇大哭。",
-          "小狐狸扮成牙医来看老虎。老虎张开嘴，小狐狸一看，原来老虎的牙齿全蛀坏了，只好把坏掉的牙齿都拔掉。",
-          "老虎没有了牙齿，再也凶不起来了，小动物们也不怕他了。"
+          "长颈鹿扮成牙医来看老虎。老虎张开嘴，长颈鹿一看，原来老虎的牙齿全蛀坏了，只好把坏掉的牙齿都拔掉。",
+          "老虎没有了牙齿，再也凶不起来了，也吃不了森林里的小动物了，大家再也不怕他了。"
         ]
       }
     ]
