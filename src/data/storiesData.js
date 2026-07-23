@@ -3913,5 +3913,39 @@ export const storiesData = [
     ],
     lifeConnection: "现在的学习条件非常好，我们要珍惜学习的机会，像匡衡一样不怕困难、刻苦努力。",
     retellingPrompt: "做个双手捧着书本仔细阅读的动作，然后把手掌并拢，眯起一只眼看一束亮光！"
+  },
+  {
+    id: "fable_tiger_candy",
+    type: "fable",
+    format: "multipage",
+    title: "爱吃糖的老虎 / Tiger Loves Candy",
+    coverImage: "/images/fables/tiger_candy_1.png",
+    pages: [
+      {
+        image: "/images/fables/tiger_candy_1.png",
+        hotspots: [
+          { id: "tiger1", name: "老虎", nameEn: "Tiger", x: 40, y: 55, radius: 15 },
+          { id: "candy1", name: "糖果", nameEn: "Candy", x: 65, y: 70, radius: 12 }
+        ],
+        fableText: [
+          "森林里有一只非常凶猛的大老虎，小动物们都很怕他。",
+          "但是，这只老虎有一个爱好，那就是非常爱吃糖果。",
+          "有一天，小狐狸送给老虎一大包糖，老虎开心地吃了起来。",
+          "从此每天都要吃好多糖果，连睡觉都不刷牙。"
+        ]
+      },
+      {
+        image: "/images/fables/tiger_candy_2.png",
+        hotspots: [
+          { id: "tiger2", name: "老虎", nameEn: "Tiger", x: 40, y: 50, radius: 12 },
+          { id: "fox", name: "狐狸牙医", nameEn: "Fox Dentist", x: 70, y: 45, radius: 12 }
+        ],
+        fableText: [
+          "过了几天，老虎觉得牙齿好疼，疼得在地上打滚，哇哇大哭。",
+          "小狐狸扮成牙医来看老虎。老虎张开嘴，小狐狸一看，原来老虎的牙齿全蛀坏了，只好把坏掉的牙齿都拔掉。",
+          "老虎没有了牙齿，再也凶不起来了，小动物们也不怕他了。"
+        ]
+      }
+    ]
   }
 ];
