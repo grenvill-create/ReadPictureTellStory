@@ -808,8 +808,17 @@ export default function App() {
           </div>
 
           {APP_CATEGORIES.map((category, catIdx) => {
-            const categoryStories = storiesData.filter(s => (s.type || "daily") === category.id);
+            let categoryStories = storiesData.filter(s => (s.type || "daily") === category.id);
             if (categoryStories.length === 0) return null;
+
+            if (category.badgeType === "read") {
+              categoryStories = [...categoryStories].sort((a, b) => {
+                const aRead = readStories.includes(a.id);
+                const bRead = readStories.includes(b.id);
+                if (aRead === bRead) return 0;
+                return aRead ? 1 : -1;
+              });
+            }
             
             return (
               <div key={category.id}>
@@ -829,14 +838,16 @@ export default function App() {
                     const stars = starsCollected[story.id] || [false, false, false];
                     const score = stars.filter(Boolean).length;
                     return (
-                      <div key={story.id} className="story-card">
+                      <div key={story.id} className={`story-card ${readStories.includes(story.id) && category.badgeType === "read" ? 'story-card--read' : ''}`}>
                         <div className="story-card-image-wrapper">
                           <img src={getImageUrl(story.image || story.coverImage)} alt={story.title.split("/")[0]} className="story-card-image" />
                           {category.badgeType === "score" && score === 3 && <div className="story-card-badge">已通关 🎉</div>}
-                          {readStories.includes(story.id) ? (
-                            <div className="read-badge">✅ 已读</div>
-                          ) : (
-                            <div className="new-badge">🆕</div>
+                          {category.badgeType === "read" && (
+                            readStories.includes(story.id) ? (
+                              <div className="read-badge">✅ 已读</div>
+                            ) : (
+                              <div className="new-badge">🆕</div>
+                            )
                           )}
                         </div>
                         <div className="story-card-info">
@@ -853,9 +864,9 @@ export default function App() {
                             <button 
                               onClick={() => handleStartReading(story.id)} 
                               className="play-btn bounce-hover"
-                              style={category.badgeType === "read" ? { backgroundColor: 'var(--color-yellow)', color: 'var(--color-text-dark)' } : {}}
+                              style={category.badgeType === "read" ? (readStories.includes(story.id) ? { backgroundColor: '#e2e8f0', color: '#64748b' } : { backgroundColor: 'var(--color-yellow)', color: 'var(--color-text-dark)' }) : {}}
                             >
-                              {category.badgeType === "read" ? "📖 开始共读" : "出发 / Start"}
+                              {category.badgeType === "read" ? (readStories.includes(story.id) ? "📖 再次阅读" : "📖 开始共读") : "出发 / Start"}
                             </button>
                           </div>
                         </div>

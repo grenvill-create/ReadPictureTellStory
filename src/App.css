@@ -140,6 +140,18 @@
   background: white;
 }
 
+.story-card--read {
+  opacity: 0.85;
+  background-color: #f8f9fa;
+  border-color: #e2e8f0;
+}
+.story-card--read .story-card-image {
+  filter: grayscale(40%) contrast(0.9);
+}
+.story-card--read .story-card-title {
+  color: #64748b;
+}
+
 .story-card-image-wrapper {
   position: relative;
   width: 100%;
