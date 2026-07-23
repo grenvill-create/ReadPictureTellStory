@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { pinyinLessons } from '../data/pinyinData';
+import { playBaiduAudio, playBaiduAudioSequence, PINYIN_SOUND_MAP } from '../utils/baiduAudio';
 import './PinyinLearning.css';
 
 const getImageUrl = (path) => {
@@ -29,134 +30,41 @@ export default function PinyinLearning({ onBack }) {
   const [selectedFormulaKey, setSelectedFormulaKey] = useState('ba');
 
   const formulas = {
-    ba: { initial: 'b', final: 'ā', result: 'bā', initialSound: '播', finalSound: '啊', resultSound: '八', label: 'b + ā = bā (八)' },
+    ba: { initial: 'b', final: 'ā', result: 'bā', initialSound: '波', finalSound: '啊', resultSound: '八', label: 'b + ā = bā (八)' },
     ma: { initial: 'm', final: 'ā', result: 'mā', initialSound: '摸', finalSound: '啊', resultSound: '妈', label: 'm + ā = mā (妈)' },
     da: { initial: 'd', final: 'ǎ', result: 'dǎ', initialSound: '得', finalSound: '啊', resultSound: '打', label: 'd + ǎ = dǎ (打)' },
-    lu: { initial: 'l', final: 'ù', result: 'lù', initialSound: '乐', finalSound: '啊！', resultSound: '路', label: 'l + ù = lù (路)' }
+    lu: { initial: 'l', final: 'ù', result: 'lù', initialSound: '乐', finalSound: '啊', resultSound: '路', label: 'l + ù = lù (路)' }
   };
 
-  // Audio speech synthesis helper
-  const speak = (text, rate = 0.8) => {
-    if ('speechSynthesis' in window) {
-      window.speechSynthesis.cancel();
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = 'zh-CN';
-      utterance.rate = rate;
-      window.speechSynthesis.speak(utterance);
-    }
-  };
-
-  // Map every letter/spell key -> safe ASCII audio filename (no tone chars in filename)
-  const LETTER_AUDIO_MAP = {
-    // Vowels
-    "a": "letter_a",
-    "o": "letter_o",
-    "e": "letter_e",
-    "i": "letter_i",
-    "u": "letter_u",
-    "ü": "letter_v",
-    // Consonants
-    "b": "letter_b",
-    "p": "letter_p",
-    "m": "letter_m",
-    "f": "letter_f",
-    "d": "letter_d",
-    "t": "letter_t",
-    "n": "letter_n",
-    "l": "letter_l",
-    "g": "letter_g",
-    "k": "letter_k",
-    "h": "letter_h",
-    "j": "letter_j",
-    "q": "letter_q",
-    "x": "letter_x",
-    "zh": "letter_zh",
-    "ch": "letter_ch",
-    "sh": "letter_sh",
-    "r": "letter_r",
-    "z": "letter_z",
-    "c": "letter_c",
-    "s": "letter_s",
-    "y": "letter_i", // y shares sound with i ("衣")
-    "w": "letter_u", // w shares sound with u ("乌")
-    // Compound Finals
-    "ai": "letter_ai",
-    "ei": "letter_ei",
-    "ui": "letter_ui",
-    "ao": "letter_ao",
-    // Tones (lesson 3 uses ā á ǎ à as letter keys)
-    "ā": "tone_1",
-    "á": "tone_2",
-    "ǎ": "tone_3",
-    "à": "tone_4",
-    // Spelling syllables (lesson 6)
-    "bā": "spell_ba1",
-    "mā": "spell_ma1",
-    "dǎ": "spell_da3",
-    "lù": "spell_lu4",
-  };
-
-  // Map example word display text -> safe ASCII audio filename
-  const WORD_AUDIO_MAP = {
-    "阿姨":   "word_ayi",
-    "喔喔啼": "word_wowoti",
-    "白鹅":   "word_baie",
-    "衣服":   "word_yifu",
-    "乌龟":   "word_wugui",
-    "小鱼":   "word_xiaoyu",
-    "拔河":   "word_bahe",
-    "打鼓":   "word_dagu",
-    "爸爸":   "word_baba",
-    "皮球":   "word_piqiu",
-    "妈妈":   "word_mama",
-    "风车":   "word_fengche",
-    "兔子":   "word_tuzi",
-    "你好":   "word_nihao",
-    "梅花鹿": "word_meihualu",
-    "数字八": "word_shuziba",
-    "打皮球": "word_dapiqiu",
-  };
-
-  // Play a local MP3 file; fall back to browser TTS on error
-  const playAudioFile = (audioFileName, textFallback) => {
-    if ('speechSynthesis' in window) window.speechSynthesis.cancel();
-    const audioPath = getImageUrl(`/audio/${audioFileName}.mp3`);
-    const audio = new Audio(audioPath);
-    audio.play().catch(err => {
-      console.warn(`Audio file "${audioFileName}.mp3" not found, TTS fallback:`, err);
-      speak(textFallback);
-    });
-  };
-
+  // Play single pinyin letter / Chinese sound via Baidu Hanyu CDN
   const playLetterAudio = (letter, sound) => {
-    const fileName = LETTER_AUDIO_MAP[letter];
-    if (fileName) {
-      playAudioFile(fileName, sound);
-    } else {
-      speak(sound);
-    }
+    const textToPlay = sound || PINYIN_SOUND_MAP[letter] || letter;
+    playBaiduAudio(textToPlay);
   };
 
+  // Play example word via Baidu Hanyu CDN
   const playWordAudio = (exampleWord) => {
-    // Extract the Chinese part before the parentheses e.g. "阿姨 (ā yí)" -> "阿姨"
     const chineseWord = exampleWord.split('(')[0].trim();
-    const fileName = WORD_AUDIO_MAP[chineseWord];
-    if (fileName) {
-      playAudioFile(fileName, chineseWord);
-    } else {
-      speak(chineseWord);
-    }
+    playBaiduAudio(chineseWord);
   };
 
+  // Play feedback audio via Baidu Hanyu CDN
   const playFeedbackAudio = (type) => {
-    // type: 'correct' | 'wrong' | 'pass' | 'tryagain'
     const texts = {
       correct:  "答对啦！太棒了！",
       wrong:    "选错啦，再试一次吧！",
       pass:     "恭喜你，顺利通关！",
       tryagain: "差一点点就通关了，再复习一下吧！",
     };
-    playAudioFile(`feedback_${type}`, texts[type] || "");
+    playBaiduAudio(texts[type] || "");
+  };
+
+  // Baidu Hanyu CDN Concatenation method for Syllable Magic Formulas (百度汉语词典真人发音 CDN 拼接法)
+  const playFormulaSequence = (formulaKey) => {
+    const f = formulas[formulaKey];
+    if (f) {
+      playBaiduAudioSequence([f.initialSound, f.finalSound, f.resultSound], 350);
+    }
   };
 
   const handleSelectLesson = (lesson) => {
@@ -537,7 +445,7 @@ export default function PinyinLearning({ onBack }) {
                     className={`formula-select-btn ${selectedFormulaKey === key ? 'active' : ''} bounce-hover`}
                     onClick={() => {
                       setSelectedFormulaKey(key);
-                      playLetterAudio(formulas[key].result, formulas[key].resultSound);
+                      playFormulaSequence(key);
                     }}
                   >
                     {formulas[key].label}

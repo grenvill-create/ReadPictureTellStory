@@ -10,6 +10,7 @@ import AudioLibraryModal from "./AudioLibraryModal";
 import "./App.css";
 import MultiPageBookViewer from "./components/MultiPageBookViewer";
 import PinyinLearning from "./components/PinyinLearning";
+import { playBaiduAudio } from "./utils/baiduAudio";
 
 // Helper component to render text with pinyin ruby tags
 export const PinyinText = ({ text, showPinyin }) => {
@@ -286,6 +287,10 @@ export default function App() {
 
   // TTS Reader
   const speakText = (text, lang = "zh-CN") => {
+    if (lang.startsWith("zh")) {
+      playBaiduAudio(text);
+      return;
+    }
     if (typeof window === "undefined" || !window.speechSynthesis || !window.SpeechSynthesisUtterance) {
       console.warn("Speech synthesis not supported in this browser:", text);
       return;
@@ -295,16 +300,12 @@ export default function App() {
       const utterance = new SpeechSynthesisUtterance(text);
       utterance.lang = lang;
       
-      // Choose appropriate voice
+      // Choose appropriate voice for English
       const voices = window.speechSynthesis.getVoices();
-      const matchingVoice = voices.find(v => 
-        lang.startsWith("zh") ? (v.lang.includes("zh") || v.lang.includes("ZH")) 
-                              : (v.lang.includes("en") || v.lang.includes("EN"))
-      );
+      const matchingVoice = voices.find(v => v.lang.includes("en") || v.lang.includes("EN"));
       if (matchingVoice) utterance.voice = matchingVoice;
       
-      // Adjust rate for kids
-      utterance.rate = lang.startsWith("zh") ? 0.85 : 0.75;
+      utterance.rate = 0.75;
       window.speechSynthesis.speak(utterance);
     } catch (e) {
       console.error("Speech synthesis failed:", e);
