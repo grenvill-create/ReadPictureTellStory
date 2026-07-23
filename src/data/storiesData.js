@@ -3924,9 +3924,9 @@ export const storiesData = [
       {
         image: "/images/fables/tiger_candy_1.png",
         hotspots: [
-          { id: "tiger1", name: "老虎", nameEn: "Tiger", x: 40, y: 55, radius: 15 },
-          { id: "fox1", name: "狐狸", nameEn: "Fox", x: 75, y: 55, radius: 12 },
-          { id: "candy1", name: "糖果", nameEn: "Candy", x: 65, y: 70, radius: 12 }
+          { id: "fox1", name: "狐狸", nameEn: "Fox", x: 28, y: 58, radius: 14 },
+          { id: "candy1", name: "糖果", nameEn: "Candy", x: 48, y: 62, radius: 12 },
+          { id: "tiger1", name: "老虎", nameEn: "Tiger", x: 74, y: 52, radius: 16 }
         ],
         fableText: [
           "森林里有一只非常凶猛的大老虎，小动物们都很怕他。",
@@ -3938,8 +3938,9 @@ export const storiesData = [
       {
         image: "/images/fables/tiger_candy_2.png",
         hotspots: [
-          { id: "tiger2", name: "老虎", nameEn: "Tiger", x: 40, y: 50, radius: 12 },
-          { id: "giraffe", name: "长颈鹿牙医", nameEn: "Giraffe Dentist", x: 70, y: 45, radius: 15 }
+          { id: "tiger2", name: "老虎", nameEn: "Tiger", x: 36, y: 58, radius: 16 },
+          { id: "toothache", name: "蛀牙脸颊", nameEn: "Toothache", x: 43, y: 52, radius: 10 },
+          { id: "giraffe", name: "长颈鹿牙医", nameEn: "Giraffe Dentist", x: 65, y: 42, radius: 18 }
         ],
         fableText: [
           "过了几天，老虎觉得牙齿好疼，疼得在地上打滚，哇哇大哭。",

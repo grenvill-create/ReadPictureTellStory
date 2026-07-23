@@ -177,10 +177,8 @@ export default function MultiPageBookViewer({
                 style={{
                   left: `${hotspot.x}%`,
                   top: `${hotspot.y}%`,
-                  width: `${hotspot.radius * 2}px`,
-                  height: `${hotspot.radius * 2}px`,
-                  marginLeft: `-${hotspot.radius}px`,
-                  marginTop: `-${hotspot.radius}px`
+                  width: `${(hotspot.radius || 12) * 2}%`,
+                  paddingTop: `${(hotspot.radius || 12) * 2}%`
                 }}
                 onClick={() => handleHotspotClick(hotspot)}
               >
