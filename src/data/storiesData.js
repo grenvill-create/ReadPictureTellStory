@@ -3949,5 +3949,166 @@ export const storiesData = [
         ]
       }
     ]
+  },
+  {
+    id: "fable_goldilocks",
+    type: "fable",
+    title: "金发姑娘和三只熊 / Goldilocks and the Three Bears",
+    image: "/images/fables/goldilocks.png",
+    hotspots: [
+      { id: "goldilocks", name: "金发姑娘", nameEn: "Goldilocks", x: 62, y: 44, radius: 16 },
+      { id: "big_bowl", name: "大碗燕麦粥", nameEn: "Big Bowl", x: 20, y: 66, radius: 12 },
+      { id: "mid_bowl", name: "中碗燕麦粥", nameEn: "Medium Bowl", x: 40, y: 71, radius: 10 },
+      { id: "small_bowl", name: "小碗燕麦粥", nameEn: "Small Bowl", x: 54, y: 63, radius: 8 },
+      { id: "clock", name: "大座钟", nameEn: "Grandfather Clock", x: 80, y: 30, radius: 10 }
+    ],
+    words: [
+      { zh: "金发姑娘", en: "Goldilocks" },
+      { zh: "燕麦粥", en: "Porridge" },
+      { zh: "座钟", en: "Clock" }
+    ],
+    fableText: [
+      "金发姑娘在森林里迷了路，走进了一座温馨的小木屋。",
+      "桌子上摆着三碗燕麦粥：大碗的太烫，中碗的太冷，只有小碗的温度刚刚好！",
+      "她把小碗里的粥吃得一干二净，然后舒服地在小床上睡着了。",
+      "过了一会儿，三只熊爸爸、熊妈妈和熊宝宝回到了家……"
+    ],
+    parentGuide: "金发姑娘尝了几碗粥？哪一碗最适合她？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "桌上有几碗燕麦粥？金发姑娘吃了哪一碗？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "如果不经过主人允许就进别人的房子，这样做对不对？", color: "#43e97b" },
+      { type: "prediction", text: "当熊宝宝发现自己的粥被吃光了，他会说什么？", color: "#fa709a" }
+    ],
+    lifeConnection: "去别人家做客要讲礼貌，不能未经允许擅自动别人的东西哦！",
+    retellingPrompt: "假装手里拿着小汤匙，做出一口一口尝热粥并说‘嗯，这碗刚刚好！’的可爱表情！"
+  },
+  {
+    id: "fable_pulling_radish",
+    type: "fable",
+    title: "拔萝卜 / Pulling Up the Giant Radish",
+    image: "/images/fables/pulling_radish.png",
+    hotspots: [
+      { id: "radish", name: "大萝卜", nameEn: "Giant Radish", x: 19, y: 74, radius: 16 },
+      { id: "grandpa", name: "老爷爷", nameEn: "Grandpa", x: 20, y: 43, radius: 14 },
+      { id: "grandma", name: "老奶奶", nameEn: "Grandma", x: 39, y: 52, radius: 14 },
+      { id: "girl", name: "小姑娘", nameEn: "Little Girl", x: 60, y: 62, radius: 12 },
+      { id: "dog", name: "小狗", nameEn: "Little Dog", x: 74, y: 72, radius: 10 },
+      { id: "cat", name: "小猫", nameEn: "Little Cat", x: 88, y: 73, radius: 10 }
+    ],
+    words: [
+      { zh: "大萝卜", en: "Giant Radish" },
+      { zh: "老爷爷", en: "Grandpa" },
+      { zh: "小狗", en: "Dog" },
+      { zh: "小猫", en: "Cat" }
+    ],
+    fableText: [
+      "菜园里长出了一颗超级大的大萝卜，老爷爷一个人根本拔不动。",
+      "老爷爷喊来了老奶奶，老奶奶喊来了小姑娘，大家一起用力拉！",
+      "小姑娘又喊来了小狗和小猫，‘嗨哟！嗨哟！’大家排成一排齐心协力。",
+      "只听‘扑通’一声，大萝卜终于被拔出来了！大家高兴地欢呼起来。"
+    ],
+    parentGuide: "谁第一个去拔萝卜的？后来大家是怎么把大萝卜拔出来的？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "拔萝卜的队伍里一共有哪些人和小动物？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "为什么老爷爷一个人拔不动，大家合力就能拔出来？", color: "#43e97b" },
+      { type: "prediction", text: "大萝卜拔出来之后，大家可以用它做什么好吃的？", color: "#fa709a" }
+    ],
+    lifeConnection: "团结力量大！当遇到一个人解决不了的难题时，大家互相帮助就能成功。",
+    retellingPrompt: "伸出双手假装抓紧绳子，一边大声喊‘嗨哟！嗨哟！’一边往后用力拔！"
+  },
+  {
+    id: "fable_wolf_seven_goats",
+    type: "fable",
+    title: "狼和七只小羊 / The Wolf and the Seven Little Goats",
+    image: "/images/fables/wolf_seven_goats.png",
+    hotspots: [
+      { id: "wolf", name: "大灰狼", nameEn: "Big Wolf", x: 57, y: 35, radius: 12 },
+      { id: "goat_couch", name: "小山羊", nameEn: "Little Goat", x: 23, y: 56, radius: 12 },
+      { id: "goats_front", name: "小羊伙伴", nameEn: "Goat Friends", x: 34, y: 76, radius: 14 },
+      { id: "goats_fireplace", name: "小羊双胞胎", nameEn: "Twin Goats", x: 76, y: 63, radius: 12 },
+      { id: "fireplace", name: "壁炉", nameEn: "Fireplace", x: 91, y: 55, radius: 12 }
+    ],
+    words: [
+      { zh: "大灰狼", en: "Wolf" },
+      { zh: "小山羊", en: "Little Goat" },
+      { zh: "壁炉", en: "Fireplace" }
+    ],
+    fableText: [
+      "羊妈妈要出门采蘑菇，嘱咐七只小羊关好门窗，不要给陌生人开门。",
+      "大灰狼来到窗外，伪装成羊妈妈的声音和白脚蹄敲门叫喊。",
+      "聪明的机灵小羊发现了破绽，大家齐心协力把门锁得紧紧的。",
+      "最后羊妈妈平安回家，夸奖七只小羊警惕性高、非常勇敢！"
+    ],
+    parentGuide: "羊妈妈出门前交代了什么？小羊们是怎么发现大灰狼的？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "窗外偷偷看里面的是谁？小羊们开门了吗？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "如果有陌生人敲门，说他是爸爸妈妈的朋友，我们能开门吗？", color: "#43e97b" },
+      { type: "prediction", text: "大灰狼没吃到小羊，接下来会发生什么？", color: "#fa709a" }
+    ],
+    lifeConnection: "独自在家时一定要增强安全意识，绝对不能给陌生人开门！",
+    retellingPrompt: "双手放在耳朵边假装小羊角，然后做个摇摇头的动作说‘不能开，不能开！’"
+  },
+  {
+    id: "fable_red_riding_hood",
+    type: "fable",
+    title: "小红帽 / Little Red Riding Hood",
+    image: "/images/fables/red_riding_hood.png",
+    hotspots: [
+      { id: "red_hood", name: "小红帽", nameEn: "Red Riding Hood", x: 34, y: 58, radius: 16 },
+      { id: "basket", name: "野餐篮", nameEn: "Picnic Basket", x: 30, y: 67, radius: 10 },
+      { id: "flowers", name: "鲜花", nameEn: "Wildflowers", x: 46, y: 56, radius: 8 },
+      { id: "wolf", name: "大灰狼", nameEn: "Big Wolf", x: 70, y: 55, radius: 18 },
+      { id: "squirrel", name: "小松鼠", nameEn: "Squirrel", x: 66, y: 20, radius: 8 }
+    ],
+    words: [
+      { zh: "小红帽", en: "Red Riding Hood" },
+      { zh: "野餐篮", en: "Basket" },
+      { zh: "大灰狼", en: "Wolf" }
+    ],
+    fableText: [
+      "小红帽挎着野餐篮，拎着刚采的鲜花，穿过美丽的大森林去看望外婆。",
+      "森林里的树林深处出现了一只大灰狼，主动和小红帽搭话套近乎。",
+      "小红帽谨记妈妈的叮嘱，没有泄露外婆家的秘密，并快速赶往外婆家。",
+      "在猎人叔叔的帮助下，小红帽和外婆度过了危险，安全地吃到了美味糕点。"
+    ],
+    parentGuide: "小红帽手里拿了什么？她在树林里遇到了谁？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "小红帽要穿过森林去哪里？路上遇到了谁？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "大灰狼语气很友善，但他是不是真正的朋友？", color: "#43e97b" },
+      { type: "prediction", text: "猎人叔叔听到森林里的呼救声后会怎么做？", color: "#fa709a" }
+    ],
+    lifeConnection: "在路上遇到陌生人搭讪要保持距离，不要听信陌生人的甜言蜜语。",
+    retellingPrompt: "把双手提在胸前假装拎着小篮子，轻快地走两步，露出甜甜的笑容！"
+  },
+  {
+    id: "fable_pinocchio",
+    type: "fable",
+    title: "木偶奇遇记（匹诺曹）/ Pinocchio",
+    image: "/images/fables/pinocchio.png",
+    hotspots: [
+      { id: "gepetto", name: "老木匠老皮特", nameEn: "Gepetto", x: 38, y: 45, radius: 18 },
+      { id: "pinocchio", name: "匹诺曹", nameEn: "Pinocchio", x: 72, y: 56, radius: 16 },
+      { id: "long_nose", name: "长鼻子", nameEn: "Long Nose", x: 65, y: 46, radius: 8 },
+      { id: "bird", name: "小蓝鸟", nameEn: "Blue Bird", x: 88, y: 58, radius: 8 }
+    ],
+    words: [
+      { zh: "木匠", en: "Woodcarver" },
+      { zh: "匹诺曹", en: "Pinocchio" },
+      { zh: "长鼻子", en: "Long Nose" }
+    ],
+    fableText: [
+      "老木匠用一块神奇的木头雕刻出了可爱的小木偶匹诺曹。",
+      "蓝仙女赐予匹诺曹生命，并告诉他：‘只有勇敢、诚实、不撒谎，才能变成真正的男孩子。’",
+      "有一次匹诺曹说了谎话，他的木头鼻子竟然‘唰’地一下变长了！",
+      "匹诺曹连忙改正错误，诚实认错，长鼻子又缩回了原样，最后终于成为了一个真正的乖孩子。"
+    ],
+    parentGuide: "匹诺曹撒谎的时候发生了什么神奇的变化？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "老木匠在工坊里做什么？匹诺曹的鼻子为什么变长了？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "为什么做人必须要诚实？撒谎会带来什么后果？", color: "#43e97b" },
+      { type: "prediction", text: "当匹诺曹说真话并改正错误后，仙女姐姐会奖励他什么？", color: "#fa709a" }
+    ],
+    lifeConnection: "做个诚实守信的好孩子，犯了错误要勇敢承认并改正，不能说谎话。",
+    retellingPrompt: "用手指放在鼻尖前慢慢往前伸，模仿鼻子变长的样子，然后做个不好意思摸摸头的动作！"
   }
 ];
