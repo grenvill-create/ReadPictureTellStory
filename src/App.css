@@ -1574,3 +1574,65 @@
   border-top: 2px dashed var(--color-gray);
   margin-top: 10px;
 }
+
+/* MultiPageBookViewer Hotspots */
+.hotspot-circle {
+  position: absolute;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.3);
+  border: 2px dashed rgba(255, 255, 255, 0.8);
+}
+
+.hotspot-circle.pulse {
+  animation: pulse-hotspot 2s infinite;
+}
+
+.hotspot-circle.active {
+  background: rgba(255, 215, 0, 0.5);
+  border: 3px solid white;
+  z-index: 15;
+}
+
+.hotspot-tooltip {
+  position: absolute;
+  top: -70px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  border: 3px solid var(--color-purple);
+  border-radius: 12px;
+  padding: 8px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+  z-index: 20;
+  pointer-events: none;
+  min-width: 80px;
+  animation: pop-up 0.3s ease-out forwards;
+}
+
+.hotspot-tooltip::after {
+  content: '';
+  position: absolute;
+  bottom: -9px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 9px 9px 0;
+  border-style: solid;
+  border-color: var(--color-purple) transparent transparent transparent;
+}
+
+.tooltip-zh {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--color-text-dark);
+}
+
+.tooltip-en {
+  font-size: 14px;
+  color: var(--color-text-light);
+  margin-top: 2px;
+}
