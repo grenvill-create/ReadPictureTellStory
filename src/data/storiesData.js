@@ -3919,7 +3919,7 @@ export const storiesData = [
     type: "fable",
     format: "multipage",
     title: "爱吃糖的老虎 / Tiger Loves Candy",
-    coverImage: "/images/fables/tiger_candy_1.png",
+    image: "/images/fables/tiger_candy_1.png",
     pages: [
       {
         image: "/images/fables/tiger_candy_1.png",
