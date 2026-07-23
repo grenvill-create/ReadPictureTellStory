@@ -33,7 +33,7 @@ export default function PinyinLearning({ onBack }) {
     ba: { initial: 'b', final: 'ā', result: 'bā', initialSound: '波', finalSound: '啊', resultSound: '八', label: 'b + ā = bā (八)' },
     ma: { initial: 'm', final: 'ā', result: 'mā', initialSound: '摸', finalSound: '啊', resultSound: '妈', label: 'm + ā = mā (妈)' },
     da: { initial: 'd', final: 'ǎ', result: 'dǎ', initialSound: '得', finalSound: '啊', resultSound: '打', label: 'd + ǎ = dǎ (打)' },
-    lu: { initial: 'l', final: 'ù', result: 'lù', initialSound: '乐', finalSound: '啊', resultSound: '路', label: 'l + ù = lù (路)' }
+    lu: { initial: 'l', final: 'ù', result: 'lù', initialSound: '勒', finalSound: '乌', resultSound: '路', label: 'l + ù = lù (路)' }
   };
 
   // Play single pinyin letter / Chinese sound via Baidu Hanyu CDN
