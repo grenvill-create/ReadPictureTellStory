@@ -4112,36 +4112,6 @@ export const storiesData = [
     retellingPrompt: "用手指放在鼻尖前慢慢往前伸，模仿鼻子变长的样子，然后做个不好意思摸摸头的动作！"
   },
   {
-    id: "fable_two_goats_bridge",
-    type: "fable",
-    title: "两只山羊过独木桥 / The Two Goats on the Narrow Bridge",
-    image: "/images/fable_two_goats_bridge.svg",
-    hotspots: [
-      { id: "white_goat", name: "小白山羊", nameEn: "White Goat", x: 32, y: 44, radius: 13 },
-      { id: "brown_goat", name: "小棕山羊", nameEn: "Brown Goat", x: 68, y: 44, radius: 13 },
-      { id: "wooden_bridge", name: "独木桥", nameEn: "Wooden Bridge", x: 50, y: 69, radius: 13 }
-    ],
-    words: [
-      { zh: "山羊", en: "Goat" },
-      { zh: "独木桥", en: "Bridge" },
-      { zh: "谦让", en: "Yield" }
-    ],
-    fableText: [
-      "清澈的小河上有一座窄窄的独木桥，一次只能让一只小动物通过。",
-      "一天，小白山羊从桥东头走过来，小棕山羊从桥西头走过去，它们在桥中间相遇了。",
-      "小白山羊扬起头说：“我先上桥的，你快退回去！”小棕山羊也瞪着眼说：“凭什么我退？你才要让我！”",
-      "两只山羊谁也不肯让谁，在桥上顶起牛角来。结果‘扑通’一声，两只山羊一起掉进了凉冰冰的小河里。"
-    ],
-    parentGuide: "独木桥这么窄，两只山羊在桥中间遇到时，如果它们都想先过去会发生什么？",
-    dialogicQuestions: [
-      { type: "fact", label: "事实", text: "两只山羊在独木桥中间相遇后，谁先退让了吗？", color: "#4facfe" },
-      { type: "inference", label: "推理", text: "为什么它们最后会一起掉进小河里呢？", color: "#43e97b" },
-      { type: "prediction", text: "如果它们重新再过一次桥，怎么做才能两个人都平平安安地过去？", color: "#fa709a" }
-    ],
-    lifeConnection: "小朋友之间要学会互相谦让、轮流等待。退一步不仅能避免碰撞，还能让大家都顺利通过哦！",
-    retellingPrompt: "学着小白山羊和小棕山羊叉腰扬起小脑袋说“我不让！”，然后再笑着拍拍手说“你先请，我再过！”"
-  },
-  {
     id: "fable_kitten_fishing",
     type: "fable",
     title: "小猫钓鱼 / The Little Kitten Fishing",

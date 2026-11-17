@@ -1612,7 +1612,7 @@ export default function App() {
         return (
           <div className="modal-overlay" onClick={() => setShowDirectoryModal(false)}>
             <div className="modal-content directory-modal" onClick={e => e.stopPropagation()}>
-              <button className="modal-close" onClick={() => setShowDirectoryModal(false)}>×</button>
+              <button className="modal-close-btn" onClick={() => setShowDirectoryModal(false)}>×</button>
 
               <div className="directory-header-top">
                 <h3 style={{ margin: 0 }}>
