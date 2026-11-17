@@ -841,6 +841,9 @@ export default function App() {
                       <div key={story.id} className={`story-card ${readStories.includes(story.id) && category.badgeType === "read" ? 'story-card--read' : ''}`}>
                         <div className="story-card-image-wrapper">
                           <img src={getImageUrl(story.image || story.coverImage)} alt={story.title.split("/")[0]} className="story-card-image" />
+                          {story.ageGroup === "6+" && (
+                            <div className="age-badge-6plus" title="适合6岁及以上儿童阅读">6+</div>
+                          )}
                           {category.badgeType === "score" && score === 3 && <div className="story-card-badge">已通关 🎉</div>}
                           {category.badgeType === "read" && (
                             readStories.includes(story.id) ? (
@@ -945,7 +948,12 @@ export default function App() {
                 查看目录
               </button>
               
-              <h2 className="canvas-title">{currentStory.title.split("/")[0]}</h2>
+              <h2 className="canvas-title">
+                {currentStory.title.split("/")[0]}
+                {currentStory.ageGroup === "6+" && (
+                  <span className="age-pill-inline" title="适合6岁及以上儿童阅读">6+</span>
+                )}
+              </h2>
               
               <button 
                 onClick={() => handleTogglePlay(audioUrl)} 
@@ -1588,7 +1596,12 @@ export default function App() {
                   <span className="idx">{idx + 1}.</span>
                   <img src={getImageUrl(s.image)} alt="" className="directory-thumbnail" />
                   <div className="directory-item-info">
-                    <span className="title">{s.title.split("/")[0]}</span>
+                    <span className="title">
+                      {s.title.split("/")[0]}
+                      {s.ageGroup === "6+" && (
+                        <span className="age-pill-inline" title="适合6岁及以上儿童阅读">6+</span>
+                      )}
+                    </span>
                     <span className="status">{readStories.includes(s.id) ? '✅ 已读' : '🆕 未读'}</span>
                   </div>
                 </div>
