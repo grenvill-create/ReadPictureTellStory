@@ -158,7 +158,9 @@ export default function App() {
   });
 
   const [showDirectoryModal, setShowDirectoryModal] = useState(false);
-  const [directoryType, setDirectoryType] = useState(""); // "daily" or "fable"
+  const [directoryType, setDirectoryType] = useState(""); // "daily", "fable", or "all"
+  const [directorySearch, setDirectorySearch] = useState("");
+  const [directoryFilter, setDirectoryFilter] = useState("all"); // "all" | "unread" | "read" | "6+"
 
   const handleStartReading = (storyId) => {
     setCurrentStoryId(storyId);
@@ -1579,37 +1581,172 @@ export default function App() {
       />
 
       {/* Directory Modal */}
-      {showDirectoryModal && (
-        <div className="modal-overlay" onClick={() => setShowDirectoryModal(false)}>
-          <div className="modal-content directory-modal" onClick={e => e.stopPropagation()}>
-            <button className="modal-close" onClick={() => setShowDirectoryModal(false)}>×</button>
-            <div style={{ display: 'flex', gap: '10px', marginBottom: '20px' }}>
-            </div>
-            <h3>{(APP_CATEGORIES.find(c => c.id === directoryType)?.title || "目录")}</h3>
-            <div className="directory-list">
-              {storiesData.filter(s => (s.type || "daily") === directoryType).map((s, idx) => (
-                <div 
-                  key={s.id} 
-                  className={`directory-item ${readStories.includes(s.id) ? 'read' : 'unread'}`}
-                  onClick={() => handleStartReading(s.id)}
+      {showDirectoryModal && (() => {
+        const availableCategories = APP_CATEGORIES.filter(cat =>
+          storiesData.some(s => (s.type || "daily") === cat.id)
+        );
+        const categoryPool = directoryType === "all"
+          ? storiesData
+          : storiesData.filter(s => (s.type || "daily") === directoryType);
+
+        const searchLower = directorySearch.trim().toLowerCase();
+        const unreadCount = categoryPool.filter(s => !readStories.includes(s.id)).length;
+        const readCount = categoryPool.filter(s => readStories.includes(s.id)).length;
+        const age6PlusCount = categoryPool.filter(s => s.ageGroup === "6+").length;
+
+        const filteredStories = categoryPool.filter(s => {
+          if (directoryFilter === "unread" && readStories.includes(s.id)) return false;
+          if (directoryFilter === "read" && !readStories.includes(s.id)) return false;
+          if (directoryFilter === "6+" && s.ageGroup !== "6+") return false;
+          if (searchLower && !s.title.toLowerCase().includes(searchLower)) return false;
+          return true;
+        });
+
+        const handlePickRandom = () => {
+          const pool = filteredStories.length > 0 ? filteredStories : categoryPool;
+          if (pool.length === 0) return;
+          const randomStory = pool[Math.floor(Math.random() * pool.length)];
+          handleStartReading(randomStory.id);
+        };
+
+        return (
+          <div className="modal-overlay" onClick={() => setShowDirectoryModal(false)}>
+            <div className="modal-content directory-modal" onClick={e => e.stopPropagation()}>
+              <button className="modal-close" onClick={() => setShowDirectoryModal(false)}>×</button>
+
+              <div className="directory-header-top">
+                <h3 style={{ margin: 0 }}>
+                  📚 {directoryType === "all" ? "全部绘本目录" : (APP_CATEGORIES.find(c => c.id === directoryType)?.title || "目录")}
+                </h3>
+                <button
+                  type="button"
+                  className="directory-random-btn"
+                  onClick={handlePickRandom}
+                  title="从当前列表中随机挑选一本开始阅读"
                 >
-                  <span className="idx">{idx + 1}.</span>
-                  <img src={getImageUrl(s.image)} alt="" className="directory-thumbnail" />
-                  <div className="directory-item-info">
-                    <span className="title">
-                      {s.title.split("/")[0]}
-                      {s.ageGroup === "6+" && (
-                        <span className="age-pill-inline" title="适合6岁及以上儿童阅读">6+</span>
-                      )}
-                    </span>
-                    <span className="status">{readStories.includes(s.id) ? '✅ 已读' : '🆕 未读'}</span>
-                  </div>
+                  🎲 随机挑一本
+                </button>
+              </div>
+
+              {/* Category Tabs */}
+              <div className="directory-tabs">
+                <button
+                  type="button"
+                  className={`directory-tab ${directoryType === "all" ? "active" : ""}`}
+                  onClick={() => setDirectoryType("all")}
+                >
+                  全部 ({storiesData.length})
+                </button>
+                {availableCategories.map(cat => {
+                  const count = storiesData.filter(s => (s.type || "daily") === cat.id).length;
+                  return (
+                    <button
+                      type="button"
+                      key={cat.id}
+                      className={`directory-tab ${directoryType === cat.id ? "active" : ""}`}
+                      onClick={() => setDirectoryType(cat.id)}
+                    >
+                      {cat.title.split("/")[0].trim()} ({count})
+                    </button>
+                  );
+                })}
+              </div>
+
+              {/* Search & Quick Filter Bar */}
+              <div className="directory-controls">
+                <div className="directory-search-wrap">
+                  <span className="directory-search-icon">🔍</span>
+                  <input
+                    type="text"
+                    className="directory-search-input"
+                    placeholder="搜索绘本名称（中文或英文）..."
+                    value={directorySearch}
+                    onChange={e => setDirectorySearch(e.target.value)}
+                  />
+                  {directorySearch && (
+                    <button
+                      type="button"
+                      className="directory-search-clear"
+                      onClick={() => setDirectorySearch("")}
+                      aria-label="清空搜索"
+                    >
+                      ×
+                    </button>
+                  )}
                 </div>
-              ))}
+
+                <div className="directory-filters">
+                  <button
+                    type="button"
+                    className={`directory-filter-pill ${directoryFilter === "all" ? "active" : ""}`}
+                    onClick={() => setDirectoryFilter("all")}
+                  >
+                    全部 ({categoryPool.length})
+                  </button>
+                  <button
+                    type="button"
+                    className={`directory-filter-pill ${directoryFilter === "unread" ? "active" : ""}`}
+                    onClick={() => setDirectoryFilter("unread")}
+                  >
+                    🆕 未读 ({unreadCount})
+                  </button>
+                  <button
+                    type="button"
+                    className={`directory-filter-pill ${directoryFilter === "read" ? "active" : ""}`}
+                    onClick={() => setDirectoryFilter("read")}
+                  >
+                    ✅ 已读 ({readCount})
+                  </button>
+                  {age6PlusCount > 0 && (
+                    <button
+                      type="button"
+                      className={`directory-filter-pill age-6plus ${directoryFilter === "6+" ? "active" : ""}`}
+                      onClick={() => setDirectoryFilter("6+")}
+                    >
+                      6+ 适龄 ({age6PlusCount})
+                    </button>
+                  )}
+                </div>
+              </div>
+
+              <div className="directory-list">
+                {filteredStories.length === 0 ? (
+                  <div className="directory-empty">
+                    <p>没有找到符合条件的绘本哦，试试换个关键词或筛选条件吧！</p>
+                  </div>
+                ) : (
+                  filteredStories.map((s, idx) => {
+                    const isCurrent = currentStoryId === s.id;
+                    const isRead = readStories.includes(s.id);
+                    return (
+                      <div
+                        key={s.id}
+                        className={`directory-item ${isRead ? 'read' : 'unread'} ${isCurrent ? 'current' : ''}`}
+                        onClick={() => handleStartReading(s.id)}
+                      >
+                        <span className="idx">{idx + 1}.</span>
+                        <img src={getImageUrl(s.image)} alt="" className="directory-thumbnail" />
+                        <div className="directory-item-info">
+                          <span className="title">
+                            {s.title.split("/")[0]}
+                            {s.ageGroup === "6+" && (
+                              <span className="age-pill-inline" title="适合6岁及以上儿童阅读">6+</span>
+                            )}
+                          </span>
+                          <span className="subtitle">{s.title.split("/")[1]?.trim()}</span>
+                          <span className="status">
+                            {isCurrent ? '📖 正在阅读' : (isRead ? '✅ 已读' : '🆕 未读')}
+                          </span>
+                        </div>
+                      </div>
+                    );
+                  })
+                )}
+              </div>
             </div>
           </div>
-        </div>
-      )}
+        );
+      })()}
       {showAudioLibrary && (
         <AudioLibraryModal 
           recordings={recordings} 
