@@ -4182,11 +4182,11 @@ export const storiesData = [
     type: "fable",
     ageGroup: "6+",
     title: "老马识途 / The Old Horse Knows the Way",
-    image: "/images/fable_old_horse_way.svg",
+    image: "/images/fable_old_horse_way.jpg",
     hotspots: [
-      { id: "old_horse", name: "聪明的老马", nameEn: "Wise Old Horse", x: 72, y: 60, radius: 14 },
-      { id: "guan_zhong", name: "聪明的管仲", nameEn: "Guan Zhong", x: 44, y: 56, radius: 13 },
-      { id: "snowy_valley", name: "雪山迷谷", nameEn: "Snowy Valley", x: 22, y: 30, radius: 13 }
+      { id: "old_horse", name: "聪明的老马", nameEn: "Wise Old Horse", x: 74, y: 60, radius: 14 },
+      { id: "guan_zhong", name: "聪明的管仲", nameEn: "Guan Zhong", x: 42, y: 58, radius: 13 },
+      { id: "snowy_valley", name: "雪山迷谷", nameEn: "Snowy Valley", x: 20, y: 26, radius: 13 }
     ],
     words: [
       { zh: "老马识途", en: "Experience" },
