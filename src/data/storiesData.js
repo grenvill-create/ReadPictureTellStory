@@ -4110,5 +4110,65 @@ export const storiesData = [
     ],
     lifeConnection: "做个诚实守信的好孩子，犯了错误要勇敢承认并改正，不能说谎话。",
     retellingPrompt: "用手指放在鼻尖前慢慢往前伸，模仿鼻子变长的样子，然后做个不好意思摸摸头的动作！"
+  },
+  {
+    id: "fable_two_goats_bridge",
+    type: "fable",
+    title: "两只山羊过独木桥 / The Two Goats on the Narrow Bridge",
+    image: "/images/fable_two_goats_bridge.svg",
+    hotspots: [
+      { id: "white_goat", name: "小白山羊", nameEn: "White Goat", x: 32, y: 44, radius: 13 },
+      { id: "brown_goat", name: "小棕山羊", nameEn: "Brown Goat", x: 68, y: 44, radius: 13 },
+      { id: "wooden_bridge", name: "独木桥", nameEn: "Wooden Bridge", x: 50, y: 69, radius: 13 }
+    ],
+    words: [
+      { zh: "山羊", en: "Goat" },
+      { zh: "独木桥", en: "Bridge" },
+      { zh: "谦让", en: "Yield" }
+    ],
+    fableText: [
+      "清澈的小河上有一座窄窄的独木桥，一次只能让一只小动物通过。",
+      "一天，小白山羊从桥东头走过来，小棕山羊从桥西头走过去，它们在桥中间相遇了。",
+      "小白山羊扬起头说：“我先上桥的，你快退回去！”小棕山羊也瞪着眼说：“凭什么我退？你才要让我！”",
+      "两只山羊谁也不肯让谁，在桥上顶起牛角来。结果‘扑通’一声，两只山羊一起掉进了凉冰冰的小河里。"
+    ],
+    parentGuide: "独木桥这么窄，两只山羊在桥中间遇到时，如果它们都想先过去会发生什么？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "两只山羊在独木桥中间相遇后，谁先退让了吗？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "为什么它们最后会一起掉进小河里呢？", color: "#43e97b" },
+      { type: "prediction", text: "如果它们重新再过一次桥，怎么做才能两个人都平平安安地过去？", color: "#fa709a" }
+    ],
+    lifeConnection: "小朋友之间要学会互相谦让、轮流等待。退一步不仅能避免碰撞，还能让大家都顺利通过哦！",
+    retellingPrompt: "学着小白山羊和小棕山羊叉腰扬起小脑袋说“我不让！”，然后再笑着拍拍手说“你先请，我再过！”"
+  },
+  {
+    id: "fable_kitten_fishing",
+    type: "fable",
+    title: "小猫钓鱼 / The Little Kitten Fishing",
+    image: "/images/fable_kitten_fishing.svg",
+    hotspots: [
+      { id: "kitten", name: "小花猫", nameEn: "Little Kitten", x: 28, y: 62, radius: 14 },
+      { id: "mother_cat", name: "猫妈妈", nameEn: "Mother Cat", x: 74, y: 58, radius: 14 },
+      { id: "butterfly", name: "花蝴蝶", nameEn: "Butterfly", x: 50, y: 24, radius: 11 }
+    ],
+    words: [
+      { zh: "钓鱼", en: "Fishing" },
+      { zh: "蝴蝶", en: "Butterfly" },
+      { zh: "专心", en: "Focus" }
+    ],
+    fableText: [
+      "晴朗的一天，猫妈妈带着小花猫来到蓝蓝的小河边钓鱼。",
+      "刚坐下没多久，一只漂亮的花蝴蝶飞来了。小花猫放下鱼竿就去追蝴蝶，结果蝴蝶飞走了，鱼也没钓到。",
+      "小花猫垂头丧气地回到河边，看到猫妈妈的木桶里已经装满了亮晶晶的小鱼。",
+      "猫妈妈摸摸它的头说：“钓鱼要专心致志，不能三心二意。”小花猫点点头，静静地盯着水面，果然也钓到了一条大鱼！"
+    ],
+    parentGuide: "为什么猫妈妈钓了满满一桶鱼，而小花猫一开始一条鱼也没有钓到呢？",
+    dialogicQuestions: [
+      { type: "fact", label: "事实", text: "小花猫在河边钓鱼时，被天上的什么小动物吸引走了？", color: "#4facfe" },
+      { type: "inference", label: "推理", text: "为什么后来小花猫静静地坐在河边，就能钓到大鱼了呢？", color: "#43e97b" },
+      { type: "prediction", text: "如果下次小花猫钓鱼时又飞来一只小蜻蜓，它这次会怎么做？", color: "#fa709a" }
+    ],
+    lifeConnection: "无论画画、看书还是听故事，都要像后来的小花猫一样专心致志，这样才能把事情做好！",
+    retellingPrompt: "先学小花猫伸手追蝴蝶左看右看的样子，再双手握紧隐形鱼竿，安安静静屏住呼吸喊一声：“呀，钓到大鱼啦！”"
   }
 ];
