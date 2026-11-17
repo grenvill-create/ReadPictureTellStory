@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="skyOM" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#D4E8FF"/>
+      <stop offset="70%" stop-color="#F5FAFF"/>
+      <stop offset="100%" stop-color="#FFFDFB"/>
+    </linearGradient>
+    <linearGradient id="snowGround" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#DCECF9"/>
+    </linearGradient>
+    <filter id="shadowOM" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#5B6B7A" flood-opacity="0.16"/>
+    </filter>
+  </defs>
+
+  <!-- Winter Sky -->
+  <rect width="1280" height="720" fill="url(#skyOM)"/>
+
+  <!-- Soft Snowflakes -->
+  <g fill="#FFFFFF" opacity="0.9">
+    <circle cx="140" cy="95" r="5"/><circle cx="380" cy="70" r="6"/>
+    <circle cx="540" cy="135" r="4"/><circle cx="780" cy="85" r="5"/>
+    <circle cx="1040" cy="115" r="6"/><circle cx="1180" cy="190" r="4"/>
+    <circle cx="660" cy="210" r="5"/><circle cx="910" cy="175" r="4"/>
+  </g>
+
+  <!-- Hotspot 3: Snowy Mountain Valley (x=22%, y=30% -> 282, 216) -->
+  <g>
+    <!-- Far Mountains -->
+    <polygon points="-40,420 180,130 410,420" fill="#B5D3EC"/>
+    <polygon points="180,130 112,218 160,205 185,230 225,202 248,218" fill="#FFFFFF"/>
+
+    <polygon points="220,430 440,160 680,430" fill="#C4DDF2"/>
+    <polygon points="440,160 375,240 420,228 450,252 485,226 508,242" fill="#FFFFFF"/>
+
+    <polygon points="620,430 920,190 1240,430" fill="#CFE4F5"/>
+    <polygon points="920,190 845,255 895,245 930,268 975,248" fill="#FFFFFF"/>
+
+    <!-- Snow-dusted Pine Trees in Valley -->
+    <g transform="translate(150, 355)">
+      <polygon points="0,-55 -32,10 32,10" fill="#7FB59C"/>
+      <polygon points="0,-55 -16,-22 16,-22" fill="#FFFFFF"/>
+      <polygon points="0,-25 -40,45 40,45" fill="#6AA389"/>
+      <rect x="-7" y="45" width="14" height="20" fill="#8C624A"/>
+    </g>
+    <g transform="translate(275, 370) scale(0.85)">
+      <polygon points="0,-55 -32,10 32,10" fill="#7FB59C"/>
+      <polygon points="0,-55 -16,-22 16,-22" fill="#FFFFFF"/>
+      <polygon points="0,-25 -40,45 40,45" fill="#6AA389"/>
+      <rect x="-7" y="45" width="14" height="20" fill="#8C624A"/>
+    </g>
+  </g>
+
+  <!-- Snowy Ground & Winding Path -->
+  <path d="M0,415 Q400,375 820,410 T1280,395 L1280,720 L0,720 Z" fill="url(#snowGround)"/>
+  <!-- Winding Trail -->
+  <path d="M210,430 Q430,490 610,515 T1140,610 L1280,680 L1280,720 L920,720 Q560,575 390,520 Q230,470 165,430 Z" fill="#E6EEF5"/>
+  <!-- Cute Hoofprints along the trail -->
+  <g fill="#B3C6D9" opacity="0.7">
+    <ellipse cx="750" cy="545" rx="8" ry="4"/>
+    <ellipse cx="810" cy="560" rx="8" ry="4"/>
+    <ellipse cx="870" cy="575" rx="8" ry="4"/>
+    <ellipse cx="1060" cy="610" rx="8" ry="4"/>
+    <ellipse cx="1115" cy="628" rx="8" ry="4"/>
+  </g>
+
+  <!-- Hotspot 2: Guan Zhong (x=44%, y=56% -> 563, 403) -->
+  <g transform="translate(563, 425)" filter="url(#shadowOM)">
+    <!-- Teal Travel Cloak -->
+    <path d="M-46,145 L-28,-5 Q0,-18 28,-5 L46,145 Z" fill="#68B0AB" stroke="#46827D" stroke-width="3"/>
+    <!-- Fur Collar -->
+    <ellipse cx="0" cy="-6" rx="34" ry="12" fill="#FFF8F0" stroke="#D9CFC5" stroke-width="2"/>
+    <!-- Head -->
+    <circle cx="0" cy="-42" r="30" fill="#FFE0C8" stroke="#D9A78C" stroke-width="2.5"/>
+    <!-- Scholar Cap -->
+    <rect x="-20" y="-76" width="40" height="20" rx="6" fill="#4A5568"/>
+    <rect x="-26" y="-62" width="52" height="6" rx="3" fill="#FFD166"/>
+    <!-- Hopeful Eyes & Smile -->
+    <circle cx="-10" cy="-44" r="4" fill="#3D312E"/>
+    <circle cx="10" cy="-44" r="4" fill="#3D312E"/>
+    <path d="M-8,-28 Q0,-21 8,-28" fill="none" stroke="#D97B7B" stroke-width="3" stroke-linecap="round"/>
+    <ellipse cx="-16" cy="-34" rx="5.5" ry="3.5" fill="#FFB3C1" opacity="0.7"/>
+    <ellipse cx="16" cy="-34" rx="5.5" ry="3.5" fill="#FFB3C1" opacity="0.7"/>
+    <!-- Warm Glowing Lantern -->
+    <g transform="translate(46, 30)">
+      <line x1="0" y1="-25" x2="0" y2="-5" stroke="#8C5A3C" stroke-width="4"/>
+      <rect x="-14" y="-5" width="28" height="34" rx="8" fill="#FFE066" stroke="#E09F3E" stroke-width="3"/>
+      <circle cx="0" cy="12" r="7" fill="#FFF9DB"/>
+    </g>
+  </g>
+
+  <!-- Hotspot 1: Wise Old Horse Leading the Way (x=72%, y=60% -> 922, 432) -->
+  <g transform="translate(922, 460)" filter="url(#shadowOM)">
+    <!-- Tail -->
+    <path d="M-82,-12 Q-115,10 -108,45 Q-95,38 -82,12 Z" fill="#9AA5B1"/>
+    <!-- Legs -->
+    <rect x="-62" y="25" width="16" height="72" rx="7" fill="#D9E2EC" stroke="#9AA5B1" stroke-width="2.5"/>
+    <rect x="-32" y="28" width="16" height="72" rx="7" fill="#BCCCDC" stroke="#9AA5B1" stroke-width="2.5"/>
+    <rect x="35" y="28" width="16" height="72" rx="7" fill="#BCCCDC" stroke="#9AA5B1" stroke-width="2.5"/>
+    <rect x="62" y="25" width="16" height="72" rx="7" fill="#D9E2EC" stroke="#9AA5B1" stroke-width="2.5"/>
+    <!-- Body (Warm Dappled Cream-Gray) -->
+    <ellipse cx="0" cy="4" rx="84" ry="44" fill="#F0F4F8" stroke="#9AA5B1" stroke-width="3"/>
+    <!-- Warm Red Saddle Blanket -->
+    <path d="M-34,-38 L30,-38 L38,14 Q0,22 -42,14 Z" fill="#FF8FA3" stroke="#D96B82" stroke-width="3"/>
+    <!-- Neck & Head (leaning forward sniffing the path) -->
+    <path d="M52,-15 L92,-56 L116,-35 L76,14 Z" fill="#F0F4F8" stroke="#9AA5B1" stroke-width="3"/>
+    <!-- Mane -->
+    <path d="M50,-20 Q64,-52 88,-62 L76,-36 Z" fill="#9AA5B1"/>
+    <!-- Head -->
+    <ellipse cx="112" cy="-35" rx="34" ry="20" transform="rotate(30 112 -35)" fill="#F0F4F8" stroke="#9AA5B1" stroke-width="3"/>
+    <polygon points="88,-58 96,-78 104,-54" fill="#F0F4F8" stroke="#9AA5B1" stroke-width="2.5"/>
+    <!-- Gentle Wise Eye & Smile -->
+    <circle cx="110" cy="-40" r="4.5" fill="#3D312E"/>
+    <circle cx="111.5" cy="-41.5" r="1.5" fill="#FFFFFF"/>
+    <circle cx="136" cy="-22" r="4" fill="#FF9EB5"/>
+    <ellipse cx="102" cy="-28" rx="6" ry="3.5" fill="#FFB3C1" opacity="0.65"/>
+  </g>
+</svg>
