@@ -1,0 +1,159 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="skyGrad2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#D9F1FF"/>
+      <stop offset="65%" stop-color="#FFF9EF"/>
+      <stop offset="100%" stop-color="#FFEFE8"/>
+    </linearGradient>
+    <linearGradient id="riverGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#A3DCF9"/>
+      <stop offset="100%" stop-color="#76C2EC"/>
+    </linearGradient>
+    <linearGradient id="bankGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#BEECC9"/>
+      <stop offset="100%" stop-color="#92D6A7"/>
+    </linearGradient>
+    <filter id="shadow2" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#5B4B49" flood-opacity="0.14"/>
+    </filter>
+  </defs>
+
+  <!-- Sky -->
+  <rect width="1280" height="720" fill="url(#skyGrad2)"/>
+
+  <!-- Sun & Clouds -->
+  <circle cx="1120" cy="110" r="54" fill="#FFE699" opacity="0.85"/>
+  <circle cx="1120" cy="110" r="40" fill="#FFD966"/>
+  <g fill="#FFFFFF" opacity="0.9">
+    <ellipse cx="260" cy="115" rx="72" ry="30"/>
+    <ellipse cx="308" cy="103" rx="48" ry="26"/>
+    <ellipse cx="215" cy="122" rx="42" ry="22"/>
+    <ellipse cx="830" cy="95" rx="64" ry="26"/>
+    <ellipse cx="875" cy="86" rx="42" ry="22"/>
+  </g>
+
+  <!-- Distant Hills -->
+  <path d="M0,385 Q320,305 640,375 T1280,350 L1280,720 L0,720 Z" fill="#D1F1DE"/>
+
+  <!-- River -->
+  <rect x="0" y="420" width="1280" height="300" fill="url(#riverGrad)"/>
+  <g stroke="#E6F7FF" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.85">
+    <path d="M490,485 Q540,475 590,485"/>
+    <path d="M560,555 Q620,542 680,555"/>
+    <path d="M460,625 Q520,612 580,625"/>
+    <path d="M680,645 Q740,632 800,645"/>
+  </g>
+
+  <!-- Left Grassy Bank -->
+  <path d="M0,395 Q280,380 460,460 Q480,580 420,720 L0,720 Z" fill="url(#bankGrad)"/>
+  <!-- Right Grassy Bank -->
+  <path d="M1280,395 Q1000,380 810,455 Q795,580 855,720 L1280,720 Z" fill="url(#bankGrad)"/>
+
+  <!-- Flowers -->
+  <g>
+    <circle cx="115" cy="570" r="11" fill="#FFB7C5"/><circle cx="115" cy="570" r="4" fill="#FFE066"/>
+    <circle cx="170" cy="635" r="10" fill="#FFF099"/><circle cx="170" cy="635" r="4" fill="#FFA94D"/>
+    <circle cx="1150" cy="585" r="11" fill="#C9B6FF"/><circle cx="1150" cy="585" r="4" fill="#FFE066"/>
+    <circle cx="1090" cy="645" r="10" fill="#FFB7C5"/><circle cx="1090" cy="645" r="4" fill="#FFE066"/>
+  </g>
+
+  <!-- Hotspot 3: Colorful Butterfly (x=50%, y=24% -> 640, 173) -->
+  <g transform="translate(640, 173)" filter="url(#shadow2)">
+    <!-- Left Wings -->
+    <ellipse cx="-38" cy="-22" rx="44" ry="30" transform="rotate(-22 -38 -22)" fill="#FF9EBB" stroke="#E06C93" stroke-width="3"/>
+    <ellipse cx="-30" cy="24" rx="30" ry="22" transform="rotate(18 -30 24)" fill="#FFD6E4" stroke="#E06C93" stroke-width="3"/>
+    <circle cx="-42" cy="-22" r="12" fill="#FFF3B0"/>
+    <!-- Right Wings -->
+    <ellipse cx="38" cy="-22" rx="44" ry="30" transform="rotate(22 38 -22)" fill="#9CE5FF" stroke="#5CB8E4" stroke-width="3"/>
+    <ellipse cx="30" cy="24" rx="30" ry="22" transform="rotate(-18 30 24)" fill="#D2F2FF" stroke="#5CB8E4" stroke-width="3"/>
+    <circle cx="42" cy="-22" r="12" fill="#FFF3B0"/>
+    <!-- Body & Antennae -->
+    <ellipse cx="0" cy="4" rx="9" ry="32" fill="#6D597A"/>
+    <circle cx="0" cy="-28" r="9" fill="#6D597A"/>
+    <path d="M-4,-35 Q-16,-58 -28,-54" fill="none" stroke="#6D597A" stroke-width="3" stroke-linecap="round"/>
+    <path d="M4,-35 Q16,-58 28,-54" fill="none" stroke="#6D597A" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="-28" cy="-54" r="4" fill="#FFB7C5"/>
+    <circle cx="28" cy="-54" r="4" fill="#9CE5FF"/>
+  </g>
+
+  <!-- Hotspot 1: Little Kitten (x=28%, y=62% -> 358, 446) -->
+  <g transform="translate(340, 465)" filter="url(#shadow2)">
+    <!-- Tail -->
+    <path d="M-55,35 Q-110,10 -95,-30" fill="none" stroke="#FFB36B" stroke-width="18" stroke-linecap="round"/>
+    <!-- Body -->
+    <ellipse cx="0" cy="25" rx="52" ry="58" fill="#FFF8F0" stroke="#E6C3A5" stroke-width="3"/>
+    <!-- Orange patch -->
+    <path d="M-40,0 Q-10,-15 10,15 Q-20,45 -45,25 Z" fill="#FFB36B" opacity="0.85"/>
+    <!-- Paws -->
+    <ellipse cx="-22" cy="76" rx="16" ry="11" fill="#FFF8F0" stroke="#E6C3A5" stroke-width="3"/>
+    <ellipse cx="22" cy="76" rx="16" ry="11" fill="#FFF8F0" stroke="#E6C3A5" stroke-width="3"/>
+    <!-- Head (tilted up looking at butterfly) -->
+    <g transform="translate(8, -48) rotate(-12)">
+      <!-- Ears -->
+      <polygon points="-42,-22 -32,-68 -8,-38" fill="#FFB36B" stroke="#E6C3A5" stroke-width="3"/>
+      <polygon points="42,-22 32,-68 8,-38" fill="#FFF8F0" stroke="#E6C3A5" stroke-width="3"/>
+      <polygon points="-34,-28 -28,-54 -14,-36" fill="#FFB7C5"/>
+      <polygon points="34,-28 28,-54 14,-36" fill="#FFB7C5"/>
+      <!-- Face -->
+      <ellipse cx="0" cy="-6" rx="48" ry="42" fill="#FFF8F0" stroke="#E6C3A5" stroke-width="3"/>
+      <path d="M-44,-14 Q-20,-48 0,-28 Q-12,-4 -44,-14 Z" fill="#FFB36B"/>
+      <!-- Eyes looking up-right -->
+      <circle cx="-15" cy="-10" r="6.5" fill="#3D312E"/>
+      <circle cx="17" cy="-10" r="6.5" fill="#3D312E"/>
+      <circle cx="-13" cy="-12" r="2.2" fill="#FFFFFF"/>
+      <circle cx="19" cy="-12" r="2.2" fill="#FFFFFF"/>
+      <!-- Nose & Smile -->
+      <polygon points="-4,2 4,2 0,7" fill="#FF8FA3"/>
+      <path d="M-8,11 Q0,17 8,11" fill="none" stroke="#5B4B49" stroke-width="2.5" stroke-linecap="round"/>
+      <!-- Cheeks -->
+      <ellipse cx="-26" cy="2" rx="8" ry="4.5" fill="#FFB3C1" opacity="0.7"/>
+      <ellipse cx="26" cy="2" rx="8" ry="4.5" fill="#FFB3C1" opacity="0.7"/>
+    </g>
+    <!-- Fishing Rod -->
+    <line x1="32" y1="22" x2="185" y2="-80" stroke="#C68B59" stroke-width="6" stroke-linecap="round"/>
+    <line x1="185" y1="-80" x2="200" y2="75" stroke="#A0B8C8" stroke-width="2" stroke-dasharray="4,3"/>
+  </g>
+
+  <!-- Hotspot 2: Mother Cat & Bucket (x=74%, y=58% -> 947, 418) -->
+  <g transform="translate(950, 440)" filter="url(#shadow2)">
+    <!-- Wooden Bucket with Fish -->
+    <g transform="translate(105, 58)">
+      <!-- Fish Tails sticking out -->
+      <path d="M-12,-8 L-24,-28 L-6,-22 Z" fill="#A5D8FF" stroke="#5C9CE6" stroke-width="2"/>
+      <path d="M8,-10 L20,-32 L24,-12 Z" fill="#B8E1FF" stroke="#5C9CE6" stroke-width="2"/>
+      <ellipse cx="0" cy="-6" rx="30" ry="12" fill="#8C5A3C"/>
+      <path d="M-32,-6 L-24,42 Q0,52 24,42 L32,-6 Z" fill="#D49B6A" stroke="#8C5A3C" stroke-width="3"/>
+      <path d="M-28,16 Q0,24 28,16" fill="none" stroke="#8C5A3C" stroke-width="4"/>
+    </g>
+    <!-- Tail -->
+    <path d="M62,48 Q112,25 100,-22" fill="none" stroke="#F5D0A9" stroke-width="18" stroke-linecap="round"/>
+    <!-- Body -->
+    <ellipse cx="0" cy="30" rx="58" ry="68" fill="#FFF3E6" stroke="#D9B38C" stroke-width="3"/>
+    <!-- Cute Pink Apron -->
+    <path d="M-40,10 Q0,22 40,10 L46,75 Q0,90 -46,75 Z" fill="#FFC2D1" stroke="#EB8CA5" stroke-width="2.5"/>
+    <circle cx="-18" cy="40" r="5" fill="#FFFFFF" opacity="0.8"/>
+    <circle cx="16" cy="52" r="5" fill="#FFFFFF" opacity="0.8"/>
+    <circle cx="0" cy="28" r="4" fill="#FFFFFF" opacity="0.8"/>
+    <!-- Head -->
+    <g transform="translate(-4, -56)">
+      <polygon points="-44,-20 -36,-72 -10,-40" fill="#F5D0A9" stroke="#D9B38C" stroke-width="3"/>
+      <polygon points="44,-20 36,-72 10,-40" fill="#F5D0A9" stroke="#D9B38C" stroke-width="3"/>
+      <polygon points="-36,-28 -30,-56 -16,-38" fill="#FFB7C5"/>
+      <polygon points="36,-28 30,-56 16,-38" fill="#FFB7C5"/>
+      <ellipse cx="0" cy="-6" rx="52" ry="45" fill="#FFF3E6" stroke="#D9B38C" stroke-width="3"/>
+      <!-- Gentle Smiling Eyes -->
+      <path d="M-24,-10 Q-16,-18 -8,-10" fill="none" stroke="#3D312E" stroke-width="3.5" stroke-linecap="round"/>
+      <path d="M8,-10 Q16,-18 24,-10" fill="none" stroke="#3D312E" stroke-width="3.5" stroke-linecap="round"/>
+      <!-- Nose & Smile -->
+      <polygon points="-5,2 5,2 0,8" fill="#FF8FA3"/>
+      <path d="M-10,12 Q0,19 10,12" fill="none" stroke="#5B4B49" stroke-width="2.5" stroke-linecap="round"/>
+      <ellipse cx="-28" cy="4" rx="9" ry="5" fill="#FFB3C1" opacity="0.65"/>
+      <ellipse cx="28" cy="4" rx="9" ry="5" fill="#FFB3C1" opacity="0.65"/>
+    </g>
+    <!-- Fishing Rod -->
+    <line x1="-38" y1="22" x2="-215" y2="-75" stroke="#B07448" stroke-width="6" stroke-linecap="round"/>
+    <line x1="-215" y1="-75" x2="-215" y2="95" stroke="#A0B8C8" stroke-width="2"/>
+    <!-- Little Fish on Hook -->
+    <ellipse cx="-215" cy="95" rx="14" ry="8" fill="#8CD2FF" stroke="#4D9BE6" stroke-width="2"/>
+  </g>
+</svg>
