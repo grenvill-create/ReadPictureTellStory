@@ -4115,11 +4115,11 @@ export const storiesData = [
     id: "fable_kitten_fishing",
     type: "fable",
     title: "小猫钓鱼 / The Little Kitten Fishing",
-    image: "/images/fable_kitten_fishing.svg",
+    image: "/images/fable_kitten_fishing.jpg",
     hotspots: [
-      { id: "kitten", name: "小花猫", nameEn: "Little Kitten", x: 28, y: 62, radius: 14 },
-      { id: "mother_cat", name: "猫妈妈", nameEn: "Mother Cat", x: 74, y: 58, radius: 14 },
-      { id: "butterfly", name: "花蝴蝶", nameEn: "Butterfly", x: 50, y: 24, radius: 11 }
+      { id: "kitten", name: "小花猫", nameEn: "Little Kitten", x: 22, y: 55, radius: 14 },
+      { id: "mother_cat", name: "猫妈妈", nameEn: "Mother Cat", x: 76, y: 52, radius: 14 },
+      { id: "butterfly", name: "花蝴蝶", nameEn: "Butterfly", x: 48, y: 18, radius: 11 }
     ],
     words: [
       { zh: "钓鱼", en: "Fishing" },
@@ -4146,11 +4146,11 @@ export const storiesData = [
     type: "fable",
     ageGroup: "6+",
     title: "田忌赛马 / Tian Ji's Horse Racing",
-    image: "/images/fable_tianji_horse_racing.svg",
+    image: "/images/fable_tianji_horse_racing.jpg",
     hotspots: [
-      { id: "sunbin", name: "军师孙膑", nameEn: "Strategist Sun Bin", x: 24, y: 55, radius: 13 },
-      { id: "tianji_horse", name: "田忌的骏马", nameEn: "Tian Ji's Horse", x: 56, y: 62, radius: 14 },
-      { id: "king_qi", name: "齐威王", nameEn: "King of Qi", x: 82, y: 42, radius: 13 }
+      { id: "sunbin", name: "军师孙膑", nameEn: "Strategist Sun Bin", x: 18, y: 58, radius: 13 },
+      { id: "tianji_horse", name: "田忌的骏马", nameEn: "Tian Ji's Horse", x: 53, y: 66, radius: 14 },
+      { id: "king_qi", name: "齐威王", nameEn: "King of Qi", x: 82, y: 38, radius: 13 }
     ],
     words: [
       { zh: "赛马", en: "Horse Racing" },
