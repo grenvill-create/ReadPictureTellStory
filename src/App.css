@@ -2019,3 +2019,99 @@
   color: var(--color-text-light);
   margin-top: 2px;
 }
+
+/* Story Read-Aloud Controls */
+.fable-teleprompter-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.fable-readaloud-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.readaloud-speed-group {
+  display: inline-flex;
+  background: #f1f2fa;
+  border-radius: 16px;
+  padding: 3px;
+  gap: 2px;
+}
+
+.readaloud-speed-btn {
+  border: none;
+  background: transparent;
+  padding: 4px 9px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-light);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.readaloud-speed-btn.active {
+  background: #ffffff;
+  color: #7c5dfa;
+  box-shadow: 0 2px 6px rgba(124, 93, 250, 0.2);
+}
+
+.fable-readaloud-btn {
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.fable-readaloud-btn.play {
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+  box-shadow: 0 4px 12px rgba(79, 172, 254, 0.35);
+}
+
+.fable-readaloud-btn.stop {
+  background: linear-gradient(135deg, #ff758c, #ff7eb3);
+  box-shadow: 0 4px 12px rgba(255, 117, 140, 0.35);
+  animation: pulse 1.6s infinite;
+}
+
+.fable-paragraph {
+  font-size: 19px;
+  line-height: 1.75;
+  margin-bottom: 12px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.25s, box-shadow 0.25s, transform 0.2s;
+}
+
+.fable-paragraph:hover {
+  background-color: rgba(79, 172, 254, 0.08);
+}
+
+.fable-paragraph.speaking {
+  background: linear-gradient(135deg, rgba(255, 243, 176, 0.55), rgba(255, 214, 228, 0.45));
+  box-shadow: 0 3px 12px rgba(255, 154, 158, 0.2);
+  color: #222;
+}
+
+.fable-paragraph-speaker {
+  display: inline-block;
+  margin-right: 8px;
+  font-size: 16px;
+  opacity: 0.75;
+}
+
+.fable-paragraph.speaking .fable-paragraph-speaker {
+  opacity: 1;
+}

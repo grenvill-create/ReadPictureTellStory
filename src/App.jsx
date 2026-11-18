@@ -201,6 +201,12 @@ export default function App() {
   const [showConfetti, setShowConfetti] = useState(false);
   const [mascotText, setMascotText] = useState("欢迎来到看图说话乐园！选一幅画我们开始吧！");
 
+  // Story Read-Aloud state & refs
+  const [readingParagraphIdx, setReadingParagraphIdx] = useState(null);
+  const [readAloudRate, setReadAloudRate] = useState(0.85);
+  const storyReadSessionRef = useRef(0);
+  const paragraphRefs = useRef([]);
+
   // Audio refs
   const mediaRecorderRef = useRef(null);
   const audioChunksRef = useRef([]);
@@ -253,13 +259,79 @@ export default function App() {
     }
   }, []);
 
-  // Pause audio playback when changing stories
+  // Pause audio playback & story read-aloud when changing stories
   useEffect(() => {
     if (playbackAudioRef.current) {
       playbackAudioRef.current.pause();
       setIsPlaying(false);
     }
+    stopStoryReadAloud();
   }, [currentStoryId]);
+
+  const stopStoryReadAloud = () => {
+    storyReadSessionRef.current += 1;
+    if (typeof window !== "undefined" && window.speechSynthesis) {
+      window.speechSynthesis.cancel();
+    }
+    setReadingParagraphIdx(null);
+  };
+
+  const startStoryReadAloud = (startIdx = 0, rateOverride = null) => {
+    if (!currentStory?.fableText || currentStory.fableText.length === 0) return;
+    if (typeof window === "undefined" || !window.speechSynthesis || !window.SpeechSynthesisUtterance) {
+      alert("当前浏览器不支持语音朗读功能，请使用 Chrome、Edge 或 Safari 浏览器。");
+      return;
+    }
+
+    // Pause any active recording playback
+    if (playbackAudioRef.current) {
+      playbackAudioRef.current.pause();
+      setIsPlaying(false);
+    }
+
+    const sessionId = ++storyReadSessionRef.current;
+    window.speechSynthesis.cancel();
+
+    const rate = rateOverride ?? readAloudRate;
+    const paragraphs = currentStory.fableText;
+    const voices = window.speechSynthesis.getVoices();
+    const preferredVoice =
+      voices.find(v => (v.lang === "zh-CN" || v.lang === "zh_CN") && /Xiaoxiao|Yunxi|Google|Natural|Microsoft/i.test(v.name)) ||
+      voices.find(v => v.lang === "zh-CN" || v.lang === "zh_CN") ||
+      voices.find(v => v.lang.toLowerCase().startsWith("zh"));
+
+    const speakParagraph = (idx) => {
+      if (storyReadSessionRef.current !== sessionId) return;
+      if (idx >= paragraphs.length) {
+        setReadingParagraphIdx(null);
+        return;
+      }
+
+      setReadingParagraphIdx(idx);
+      const el = paragraphRefs.current[idx];
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
+
+      const utterance = new SpeechSynthesisUtterance(paragraphs[idx]);
+      utterance.lang = "zh-CN";
+      utterance.rate = rate;
+      if (preferredVoice) utterance.voice = preferredVoice;
+
+      utterance.onend = () => {
+        if (storyReadSessionRef.current !== sessionId) return;
+        setTimeout(() => speakParagraph(idx + 1), 350);
+      };
+      utterance.onerror = () => {
+        if (storyReadSessionRef.current !== sessionId) return;
+        setReadingParagraphIdx(null);
+      };
+
+      window.speechSynthesis.speak(utterance);
+    };
+
+    speakParagraph(startIdx);
+  };
 
 
   // Set Mascot text on step change
@@ -1104,17 +1176,69 @@ export default function App() {
             
             {(currentStory.type && currentStory.type !== "daily") ? (
               <div className="step-content-card fable-teleprompter" style={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
-                <h3 className="step-heading">📖 故事提词器 (共读模式)</h3>
-                <p className="step-instructions" style={{ marginBottom: '16px' }}>
-                  请看着下面的文字，给宝贝讲一讲这个故事吧！遇到有趣的动物，还可以让宝贝在左边找一找点读哦。
+                <div className="fable-teleprompter-header">
+                  <h3 className="step-heading" style={{ margin: 0 }}>📖 故事提词器 (共读模式)</h3>
+                  <div className="fable-readaloud-controls">
+                    <div className="readaloud-speed-group" title="调整朗读语速">
+                      {[
+                        { label: "慢", value: 0.75 },
+                        { label: "适中", value: 0.85 },
+                        { label: "快", value: 1.0 }
+                      ].map(opt => (
+                        <button
+                          key={opt.value}
+                          type="button"
+                          className={`readaloud-speed-btn ${readAloudRate === opt.value ? "active" : ""}`}
+                          onClick={() => {
+                            setReadAloudRate(opt.value);
+                            if (readingParagraphIdx !== null) {
+                              startStoryReadAloud(readingParagraphIdx, opt.value);
+                            }
+                          }}
+                        >
+                          {opt.label}
+                        </button>
+                      ))}
+                    </div>
+                    {readingParagraphIdx !== null ? (
+                      <button
+                        type="button"
+                        onClick={stopStoryReadAloud}
+                        className="fable-readaloud-btn stop"
+                      >
+                        ⏹️ 停止朗读
+                      </button>
+                    ) : (
+                      <button
+                        type="button"
+                        onClick={() => startStoryReadAloud(0)}
+                        className="fable-readaloud-btn play bounce-hover"
+                      >
+                        🔊 朗读故事
+                      </button>
+                    )}
+                  </div>
+                </div>
+                <p className="step-instructions" style={{ marginBottom: '12px', marginTop: '8px' }}>
+                  点击上方 <b>“🔊 朗读故事”</b> 可自动朗读并高亮每一段，也可以点击任意段落从那一段开始听哦！
                 </p>
                 
                 <div className="fable-text-container" style={{ flexGrow: 1, overflowY: 'auto', background: 'rgba(255,255,255,0.6)', padding: '16px', borderRadius: '12px', border: '1px solid #eee' }}>
-                  {currentStory.fableText && currentStory.fableText.map((paragraph, idx) => (
-                    <p key={idx} className="fable-paragraph" style={{ fontSize: '20px', lineHeight: '1.6', marginBottom: '16px', color: '#333' }}>
-                      <PinyinText text={paragraph} showPinyin={showPinyin} />
-                    </p>
-                  ))}
+                  {currentStory.fableText && currentStory.fableText.map((paragraph, idx) => {
+                    const isSpeakingThis = readingParagraphIdx === idx;
+                    return (
+                      <p
+                        key={idx}
+                        ref={el => { paragraphRefs.current[idx] = el; }}
+                        onClick={() => startStoryReadAloud(idx)}
+                        className={`fable-paragraph ${isSpeakingThis ? "speaking" : ""}`}
+                        title="点击从这一段开始朗读"
+                      >
+                        <span className="fable-paragraph-speaker">{isSpeakingThis ? "🔊" : "🔈"}</span>
+                        <PinyinText text={paragraph} showPinyin={showPinyin} />
+                      </p>
+                    );
+                  })}
                 </div>
 
                 <div className="fable-interactive-section" style={{ marginTop: '20px', background: 'rgba(154, 125, 250, 0.1)', padding: '16px', borderRadius: '12px' }}>
